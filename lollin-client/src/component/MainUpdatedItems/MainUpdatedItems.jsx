@@ -7,17 +7,22 @@ const MainUpdatedItems = ({ history }) => {
   const [newItemData, setItemData] = useState({
     items: [
       {
-        id: "id",
-        img: [],
-        desc: [],
+        id: null,
+        img: null,
+        desc: null,
       },
     ],
   });
 
   useEffect(() => {
-    axios.get(`${server}/items/updateditems`).then((res) => {
-      setItemData(res);
-    });
+    axios
+      .get(`${server}/items/updateditems`)
+      .then((res) => {
+        setItemData(res);
+      })
+      .catch((err) => {
+        throw err;
+      });
   }, []);
 
   const handleDetailsClick = () => {
@@ -26,23 +31,17 @@ const MainUpdatedItems = ({ history }) => {
 
   return (
     <div className="updatedItems">
-      {/* <div className="updatedItemsTitle">패치 적용된 아이템</div>
-      <div className="itemDescribeSection">
-        <img className="updatedItemsImg" src={newItemData.items.img[0]}></img>
-        <div classNAme="updatedItmesDescription">
-          {newItemData.items.desc[0]}
-        </div>
-
-        <img className="updatedItemsImg" src={newItemData.items.img[1]}></img>
-        <div classNAme="updatedItmesDescription">
-          {newItemData.items.desc[1]}
-        </div>
-
-        <img className="updatedItemsImg" src={newItemData.items.img[2]}></img>
-        <div classNAme="updatedItmesDescription">
-          {newItemData.items.desc[2]}
-        </div>
-      </div> */}
+      <div className="itemsTitle">패치 적용된 아이템</div>
+      <div className="itemsImgArea">
+        {/* {newItemData.map((ele) => (
+          <img className="itemsImg" src={ele.img} alt="no images" />
+        ))} */}
+      </div>
+      <div className="itemsDescArea">
+        {/* {newItemData.map((ele) => (
+          <div className="itmesDesc">{ele.desc}</div>
+        ))} */}
+      </div>
       <button onClick={handleDetailsClick}>Details</button>
     </div>
   );

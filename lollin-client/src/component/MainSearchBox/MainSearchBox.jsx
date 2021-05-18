@@ -1,22 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import MainBgi from "../../Images/MainBgi-Teemo.jpeg";
-import "./MainSearchBox.css";
+import { SearchBtn, SearchBox } from "./MainSearchBoxStyled.jsx";
 
 const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
   return (
-    <div className="searchBox">
+    <SearchBox className="searchBox">
       <div className="searchBoxLogo">logo</div>
       <section className="searchBoxSection">
         <input
           className="serchBoxInputBox"
           onChange={handleSearchChange}
         ></input>
-        <button className="searchBoxSearchBtn" onClick={handleSearchClick}>
+        <SearchBtn className="searchBoxSearchBtn" onClick={handleSearchClick}>
           Search
-        </button>
+        </SearchBtn>
       </section>
-    </div>
+    </SearchBox>
   );
 };
 

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./MainNewChamp.css";
+import { NewChamp, SkillsDesc, SkillsImg } from "./MainNewChampStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainNewChamp = () => {
   const [newChampData, setNewChampData] = useState({
     champion: {
-      id: "id",
-      img: "img",
-      skills: ["skill"],
-      skillsimg: ["passive", "q", "w", "e", "r"],
-      skillwebm: ["webm"],
+      id: null,
+      img: null,
+      skills: [],
+      skillsimg: [],
+      skillwebm: [],
     },
   });
 
@@ -20,21 +20,29 @@ const MainNewChamp = () => {
       setNewChampData(res);
     });
   }, []);
+
   return (
-    <div className="newChamp">
-      new champ area
-      {/* <img className="newChampImg">{newChampData.champion.img}</img>
-      <div className="newChampSkills">
-        {" "}
-        newChampSkills
-        <img className="skillPassive">{newChampData.champion.skillsimg[0]}</img>
-        <img className="skillQ">{newChampData.champion.skillsimg[1]}</img>
-        <img className="skillW">{newChampData.champion.skillsimg[2]}</img>
-        <img className="skillE">{newChampData.champion.skillsimg[3]}</img>
-        <img className="skillR">{newChampData.champion.skillsimg[4]}</img>\
-      </div>
-      <video>{newChampData.champion.skillwebm}</video> */}
-    </div>
+    <NewChamp className="newChamp">
+      <img
+        className="ncImg"
+        width="70%"
+        src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gwen_0.jpg"
+        alt="no images"
+      ></img>
+
+      <SkillsDesc className="ncSkilsDesc">
+        <SkillsImg className="ncSkills">
+          {/* {newChampData.skillsimg.map((ele) => (
+            <img className="ncSkillsImg" src={ele} />
+          ))} */}
+        </SkillsImg>
+
+        <video width="80%" height="80%" muted autoPlay loop>
+          <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0887/ability_0887_Q1.webm"></source>
+          No Source
+        </video>
+      </SkillsDesc>
+    </NewChamp>
   );
 };
 

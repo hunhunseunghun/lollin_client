@@ -8,6 +8,7 @@ import MainChampPre from "../../component/MainChampPre/MainChampPre.jsx";
 import MainNewChamp from "../../component/MainNewChamp/MainNewChamp.jsx";
 import MainUpdatedItems from "../../component/MainUpdatedItems/MainUpdatedItems.jsx";
 
+const server = "https://lollinserver.link/";
 const MainPage = () => {
   const [champName, setChampName] = useState();
   const [champResult, setChampResult] = useState();
@@ -23,10 +24,10 @@ const MainPage = () => {
   };
 
   const handleSearchClick = () => {
-    axios.get(`/search?target=${champName}`).then((res) => {
+    axios.get(`${server}/search?name=${champName}`).then((res) => {
       setChampResult(res.data);
     });
-    history.push("/matchinginfo");
+    // history.push("/matchinginfo");
     // history.push("./matchinginfo")
     //matching info page 로 이동
   };
