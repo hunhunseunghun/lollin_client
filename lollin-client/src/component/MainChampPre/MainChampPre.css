@@ -1,0 +1,15 @@
+.champPre {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: rgba(129, 129, 127, 0.493);
+  height: 25%;
+  place-items: center;
+}
+.champPreLotaImg {
+  width: 80%;
+  height: 80%;
+}
+.champPreLotaImg:hover {
+  background-color: rgba(2, 2, 2, 0.233);
+  cursor: grabbing;
+}
