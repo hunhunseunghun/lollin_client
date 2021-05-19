@@ -8,9 +8,16 @@ const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDB = () => {
   const [apiVer, setApiVer] = useState("");
-  const [itemsData, setItemsData] = useState([
-    [1001, { name: "장화", description: "이동속도", image: "1001.png" }],
-  ]);
+  const [itemsData, setItemsData] = useState([]);
+  const [sortTags, setSortTags] = useState(["set"]);
+
+  const handleSortTags = (checked, tags, id) => {
+    if (checked) {
+      setSortTags([...sortTags, tags]);
+    } else {
+      setSortTags(sortTags.filter((el) => el !== tags));
+    }
+  };
 
   useEffect(() => {
     axios
@@ -25,27 +32,16 @@ const ItemsDB = () => {
         throw err;
       })
       .then((res) => {
-        // setItemsData(Object.values(res.data.data));
         setItemsData(Object.entries(res.data.data));
       });
+    setSortTags("");
   }, []);
   return (
     <Items className="itemsDB">
-      <ItemsDbFilter />
-      <ItemsDbList itemsData={itemsData} apiVer={apiVer} />
+      <ItemsDbFilter itemsData={itemsData} handleSortTags={handleSortTags} />
+      <ItemsDbList itemsData={itemsData} apiVer={apiVer} sortTags={sortTags} />
     </Items>
   );
 };
-
-// useEffect(() => {
-//   axios
-//     .get(`${server}/items/all`)
-//     .then((res) => {
-//       setItemsData(res);
-//     })
-//     .catch((err) => {
-//       throw err;
-//     });
-// });
 
 export default ItemsDB;
