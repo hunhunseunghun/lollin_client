@@ -29,6 +29,7 @@ const MainChampPre = ({ history }) => {
       .get(`${server}/champions/main`)
       .then((res) => {
         setRotaChampId(res);
+        console.log(res.id);
       })
       .catch((err) => {
         throw err;
@@ -42,7 +43,7 @@ const MainChampPre = ({ history }) => {
         onClick={() => {
           history.push("/champions/all");
         }}
-        // src={rotaChampId.chopion.img}
+        // src={rotaChampId.champion.img}
       >
         {" "}
       </ChampPreLotaImg>

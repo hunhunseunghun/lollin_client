@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Main.css";
+import { MainContainer } from "./MainStyled.jsx";
 
 import MainSearchBox from "../../component/MainSearchBox/MainSearchBox.jsx";
 import MainChampPre from "../../component/MainChampPre/MainChampPre.jsx";
@@ -33,7 +34,7 @@ const MainPage = () => {
   };
 
   return (
-    <div className="mainContainer">
+    <MainContainer className="mainContainer">
       <MainSearchBox
         handleSearchChange={handleSearchChange}
         handleSearchClick={handleSearchClick}
@@ -42,7 +43,7 @@ const MainPage = () => {
       <MainChampPre history={history} />
       <MainNewChamp />
       <MainUpdatedItems history={history} />
-    </div>
+    </MainContainer>
   );
 };
 
