@@ -8,6 +8,7 @@ const Navbar = () => {
     return (
         <>
             <Nav>
+            <Bars />
                 <Logo to="/" activeStyle>
                     <h1>Lollin</h1>
                 </Logo>
@@ -25,7 +26,7 @@ const Navbar = () => {
                         Matching Info
                     </NavLink>
                 </NavMenu>
-                <Bars />
+                {/* <Bars /> */}
                 <NavBtn>
                     <NavLoginBtnLink to="/user/login">Login</NavLoginBtnLink>
                     {/* {isLogin ? 'Login' : 'Logout'} */}
