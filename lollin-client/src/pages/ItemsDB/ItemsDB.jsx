@@ -25,7 +25,7 @@ const ItemsDB = () => {
       .then((res) => {
         setApiVer(res.data[0]);
         return axios.get(
-          `http://ddragon.leagueoflegends.com/cdn/${res.data[0]}/data/ko_KR/item.json`
+          `https://ddragon.leagueoflegends.com/cdn/${res.data[0]}/data/ko_KR/item.json`
         );
       })
       .catch((err) => {

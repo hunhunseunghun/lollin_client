@@ -46,7 +46,7 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags }) => {
             <ItemBox className="itemBox">
               <img
                 className="itemImg"
-                src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/item/${ele[0]}.png`}
+                src={`https://ddragon.leagueoflegends.com/cdn/${apiVer}/img/item/${ele[0]}.png`}
                 alt="no images"
               />
               <span className="itemDesc">
