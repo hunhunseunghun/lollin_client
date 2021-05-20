@@ -6,6 +6,8 @@ import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
 import Navbar from "./component/Navbar/NavbarFixed";
 import FooterFixed from "./component/Footer/FooterFixed";
 
+
+
 function App() {
   return (
     <div className="Container">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./Main.css";
 import { MainContainer } from "./MainStyled.jsx";
 
 import MainSearchBox from "../../component/MainSearchBox/MainSearchBox.jsx";
