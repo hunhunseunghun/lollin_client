@@ -59,23 +59,25 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
   };
   handleFinalData();
 
+  console.log(finalData);
   return (
     <ItemsList className="itemsList">
       {Array.isArray(itemsData)
-        ? finalData.map((ele) => (
-            <ItemBox className="itemBox">
+        ? finalData.map((ele, index) => (
+            <ItemBox className="itemBox" key={index}>
               <img
                 className="itemImg"
                 src={`https://ddragon.leagueoflegends.com/cdn/${apiVer}/img/item/${ele[0]}.png`}
                 alt="no images"
+                key={ele[1].image.full}
               />
-              <span className="itemDesc">
+              <span className="itemDesc" key={ele[0]}>
                 {ele[1].description
                   .replace(/(<br>|<br\/>|<br \/>)/g, "\r\n")
                   .split("\r\n")
-                  .map((line) => {
+                  .map((line, inx) => {
                     return (
-                      <span>
+                      <span key={inx}>
                         {line.replace(/[A-za-z]|[<>/]/g, "")}
                         <br />
                       </span>
