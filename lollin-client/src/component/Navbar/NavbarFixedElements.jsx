@@ -91,7 +91,7 @@ export const NavLoginBtnLink = styled(Link)`
     border: none;
     outline: none;
     cursor: pointer;
-    transition all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     text-decoration: none;
 
 
@@ -111,7 +111,7 @@ export const NavSignupBtnLink = styled(Link)`
     border: none;
     outline: none;
     cursor: pointer;
-    transition all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     text-decoration: none;
 
 
