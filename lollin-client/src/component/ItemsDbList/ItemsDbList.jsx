@@ -14,10 +14,11 @@ const fakeData = {
   ],
 };
 
-const ItemsDbList = ({ itemsData, apiVer, sortTags }) => {
+const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
   const copyTags = [...sortTags];
-  const renderData = [];
   const sortData = [];
+  const renderData = [];
+  let finalData = [];
   const resultArr = itemsData.map(
     (ele) =>
       copyTags.map((el) => ele[1].tags.includes(el)).includes(false) === true
@@ -39,10 +40,29 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags }) => {
   };
   handleRenderData();
 
+  const handleFinalData = () => {
+    if (itemName === "") {
+      finalData = [...renderData];
+    } else {
+      for (let i = 0; i < renderData.length; i++) {
+        if (
+          renderData[i][1].description
+            .replace(/[A-za-z]|[<>/]/g, "")
+            .replace(/(\s*)/g, "")
+            .indexOf(itemName) !== -1 ||
+          renderData[i][1].name.replace(/(\s*)/g, "").indexOf(itemName) !== -1
+        ) {
+          finalData.push(renderData[i]);
+        }
+      }
+    }
+  };
+  handleFinalData();
+
   return (
     <ItemsList className="itemsList">
       {Array.isArray(itemsData)
-        ? renderData.map((ele) => (
+        ? finalData.map((ele) => (
             <ItemBox className="itemBox">
               <img
                 className="itemImg"
