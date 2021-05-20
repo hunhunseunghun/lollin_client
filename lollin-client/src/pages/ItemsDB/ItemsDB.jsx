@@ -39,6 +39,7 @@ const ItemsDB = () => {
   return (
     <Items className="itemsDB">
       <ItemsDbFilter itemsData={itemsData} handleSortTags={handleSortTags} />
+      수정버전
       <ItemsDbList itemsData={itemsData} apiVer={apiVer} sortTags={sortTags} />
     </Items>
   );
