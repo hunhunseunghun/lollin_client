@@ -1,0 +1,38 @@
+.champDbListArea {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1440px;
+  min-height: 1200px;
+  background-color: #030303;
+}
+
+.champDbListBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 210px;
+  margin: 10px;
+}
+
+.champDbListBox:hover {
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transition: transform 0.35s;
+  cursor: pointer;
+}
+
+.champImg {
+  min-width: 210px;
+  max-width: 20%;
+}
+
+.champNameTag {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
