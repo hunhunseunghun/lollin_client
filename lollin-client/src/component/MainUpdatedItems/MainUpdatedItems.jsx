@@ -8,8 +8,21 @@ const MainUpdatedItems = ({ history }) => {
     items: [
       {
         id: null,
-        img: null,
-        desc: null,
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
+      },
+      {
+        id: null,
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
+      },
+      {
+        id: null,
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
       },
     ],
   });
@@ -33,14 +46,14 @@ const MainUpdatedItems = ({ history }) => {
     <div className="updatedItems">
       <div className="itemsTitle">패치 적용된 아이템</div>
       <div className="itemsImgArea">
-        {/* {newItemData.map((ele) => (
+        {newItemData.items.map((ele) => (
           <img className="itemsImg" src={ele.img} alt="no images" />
-        ))} */}
+        ))}
       </div>
       <div className="itemsDescArea">
-        {/* {newItemData.map((ele) => (
+        {newItemData.items.map((ele) => (
           <div className="itmesDesc">{ele.desc}</div>
-        ))} */}
+        ))}
       </div>
       <button onClick={handleDetailsClick}>Details</button>
     </div>
