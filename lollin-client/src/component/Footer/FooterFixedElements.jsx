@@ -70,6 +70,7 @@ export const Title = styled.div`
 
 export const Copyright = styled.div`
     text-align: end;
+    font-size: 13px;
 
     @media screen and (max-width: 500px) {
         display: none;
