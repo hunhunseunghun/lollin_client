@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Route } from "react-router-dom";
 import axios from "axios";
 import "./ChampDB.css";
 
@@ -6,7 +7,6 @@ import ChampDbSearch from "../../component/ChampDbSearch/ChampDbSearch.jsx";
 import ChampDbList from "../../component/ChampDbList/ChampDbList.jsx";
 
 const ChampDB = () => {
-  const [apiVer, setApiVer] = useState("");
   const [champData, setChampData] = useState("");
   const [searchText, setSearchText] = useState("");
 
@@ -14,7 +14,6 @@ const ChampDB = () => {
     axios
       .get(`https://ddragon.leagueoflegends.com/api/versions.json`)
       .then((res) => {
-        setApiVer(res.data[0]);
         return axios.get(
           `https://ddragon.leagueoflegends.com/cdn/${res.data[0]}/data/ko_KR/champion.json`
         );
