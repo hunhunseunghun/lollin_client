@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
 import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn, NavLoginBtnLink, NavSignupBtnLink } from './NavbarFixedElements';
+import sidebarMenu from '../Sidebar/SidebarMenu';
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
     // const [isLogin, setLogin] = useState(false)
     // const [isSignup, setSignup] = useState(false)
 
     return (
         <>
             <Nav>
-            <Bars />
+                <Bars onClick={toggle} />
                 <Logo to="/" activeStyle>
                     <h1>Lollin</h1>
                 </Logo>
                 <NavMenu>
-                    <NavLink to="/items">
+                    <NavLink to="/items/all">
                         Item DB
                     </NavLink>
-                    <NavLink to="/champions">
+                    <NavLink to="/champions/all">
                         Champ DB
                     </NavLink>
                     <NavLink to="/champions/detail">
@@ -26,7 +27,6 @@ const Navbar = () => {
                         Matching Info
                     </NavLink>
                 </NavMenu>
-                {/* <Bars /> */}
                 <NavBtn>
                     <NavLoginBtnLink to="/user/login">Login</NavLoginBtnLink>
                     {/* {isLogin ? 'Login' : 'Logout'} */}
@@ -34,6 +34,7 @@ const Navbar = () => {
                     {/* {isSignup ? 'Signup' : 'MyInfo'} */}
                 </NavBtn>
             </Nav>
+            {/* <Sidebar /> */}
         </>
     )
 }
