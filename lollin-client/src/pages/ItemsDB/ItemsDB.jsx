@@ -10,6 +10,7 @@ const ItemsDB = () => {
   const [apiVer, setApiVer] = useState("");
   const [itemsData, setItemsData] = useState([]);
   const [sortTags, setSortTags] = useState(["set"]);
+  const [itemName, setItemName] = useState("");
 
   const handleSortTags = (checked, tags, id) => {
     if (checked) {
@@ -17,6 +18,10 @@ const ItemsDB = () => {
     } else {
       setSortTags(sortTags.filter((el) => el !== tags));
     }
+  };
+
+  const handleItemSearchValue = (value) => {
+    setItemName(value);
   };
 
   useEffect(() => {
@@ -38,8 +43,17 @@ const ItemsDB = () => {
   }, []);
   return (
     <Items className="itemsDB">
-      <ItemsDbFilter itemsData={itemsData} handleSortTags={handleSortTags} />
-      <ItemsDbList itemsData={itemsData} apiVer={apiVer} sortTags={sortTags} />
+      <ItemsDbFilter
+        itemsData={itemsData}
+        handleSortTags={handleSortTags}
+        handleItemSearchValue={handleItemSearchValue}
+      />
+      <ItemsDbList
+        itemsData={itemsData}
+        apiVer={apiVer}
+        sortTags={sortTags}
+        itemName={itemName}
+      />
     </Items>
   );
 };

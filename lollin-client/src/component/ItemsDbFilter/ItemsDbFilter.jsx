@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ItemsSearchBox from "./ItemsSearchBox/ItemsSearchBox.jsx";
 
 import { ItemsFilter, CheckBoxArea } from "./ItemsDbFilterStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
-const ItemsDbFilter = ({ itemsData, handleSortTags }) => {
-  const [checked, setChecked] = useState([]);
-
+const ItemsDbFilter = ({
+  itemsData,
+  handleSortTags,
+  handleItemSearchValue,
+}) => {
   const dummyData = [...itemsData];
   const filterArr = [];
 
@@ -252,6 +255,7 @@ const ItemsDbFilter = ({ itemsData, handleSortTags }) => {
           <label htmlFor="etcItems">장신구</label>
         </div>
       </CheckBoxArea>
+      <ItemsSearchBox handleItemSearchValue={handleItemSearchValue} />
     </ItemsFilter>
   );
 };

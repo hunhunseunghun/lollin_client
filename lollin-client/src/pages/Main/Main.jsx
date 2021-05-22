@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { MainContainer } from "./MainStyled.jsx";
@@ -8,7 +8,7 @@ import MainChampPre from "../../component/MainChampPre/MainChampPre.jsx";
 import MainNewChamp from "../../component/MainNewChamp/MainNewChamp.jsx";
 import MainUpdatedItems from "../../component/MainUpdatedItems/MainUpdatedItems.jsx";
 
-const server = "https://lollinserver.link/";
+const server = process.env.REACT_APP_SERVER_URL;
 const MainPage = () => {
   const [champName, setChampName] = useState();
   const [champResult, setChampResult] = useState();
@@ -31,6 +31,14 @@ const MainPage = () => {
     // history.push("./matchinginfo")
     //matching info page 로 이동
   };
+
+  console.log(server);
+
+  useEffect(() => {
+    axios.get(`${server}/utils/rotation`).then((res) => {
+      console.log(res);
+    });
+  });
 
   return (
     <MainContainer className="mainContainer">
