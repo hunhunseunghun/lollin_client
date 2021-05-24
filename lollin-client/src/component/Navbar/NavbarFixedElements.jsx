@@ -7,7 +7,7 @@ export const Nav = styled.nav`
   height: 80px;
   display: flex;
   justify-content: space-between;
-  z-index: 999;
+  z-index: 3000000;
 `;
 
 export const Logo = styled(Link)`
@@ -26,10 +26,14 @@ export const Logo = styled(Link)`
   &.active {
     color: #bce55c;
   }
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: #ebebeb;
   font-weight: bold;
   font-size: 21px;
   display: flex;
@@ -84,7 +88,7 @@ export const NavBtn = styled.nav`
 
 export const NavLoginBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #5a5aff;
+  background: "#5a5aff";
   margin-left: 10px;
   padding: 10px 22px;
   color: #fff;
@@ -96,7 +100,7 @@ export const NavLoginBtnLink = styled(Link)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #ffb9b9;
+    background: #ff67b9;
     color: #010606;
   }
 `;
@@ -115,7 +119,7 @@ export const NavSignupBtnLink = styled(Link)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #dbffd5;
+    background: #00ff80;
     color: #010606;
   }
 `;

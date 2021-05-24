@@ -9,25 +9,25 @@ import {
   NavLoginBtnLink,
   NavSignupBtnLink,
 } from "./NavbarFixedElements";
+import sidebarMenu from "../Sidebar/SidebarMenu";
 
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   // const [isLogin, setLogin] = useState(false)
   // const [isSignup, setSignup] = useState(false)
 
   return (
     <>
       <Nav>
-        <Bars />
+        <Bars onClick={toggle} />
         <Logo to="/" activeStyle>
           <h1>Lollin</h1>
         </Logo>
         <NavMenu>
-          <NavLink to="/items">Item DB</NavLink>
-          <NavLink to="/champions">Champ DB</NavLink>
+          <NavLink to="/items/all">Item DB</NavLink>
+          <NavLink to="/champions/all">Champ DB</NavLink>
           <NavLink to="/champions/detail">Champ Details</NavLink>
           <NavLink to="/utils/search?name=${name}">Matching Info</NavLink>
         </NavMenu>
-        {/* <Bars /> */}
         <NavBtn>
           <NavLoginBtnLink to="/user/login">Login</NavLoginBtnLink>
           {/* {isLogin ? 'Login' : 'Logout'} */}
@@ -35,6 +35,7 @@ const Navbar = () => {
           {/* {isSignup ? 'Signup' : 'MyInfo'} */}
         </NavBtn>
       </Nav>
+      {/* <Sidebar /> */}
     </>
   );
 };

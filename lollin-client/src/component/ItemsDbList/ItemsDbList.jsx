@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ItemBox, ItemsList } from "./ItemsDbListStyled.jsx";
+import { ItemBox, ItemsList, ItemName } from "./ItemsDbListStyled.jsx";
 import wardImg from "../../Images/ward.png";
 
 const server = process.env.REACT_APP_SERVER_URL;
@@ -71,6 +71,9 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
                 alt="no images"
                 key={ele[1].image.full}
               />
+              <ItemName calssName="itemName">
+                <span>{ele[1].name}</span>
+              </ItemName>
               <span className="itemDesc" key={ele[0]}>
                 {ele[1].description
                   .replace(/(<br>|<br\/>|<br \/>)/g, "\r\n")
@@ -79,7 +82,6 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
                     return (
                       <span key={inx}>
                         {line.replace(/[A-za-z]|[<>/]/g, "")}
-                        <br />
                       </span>
                     );
                   })}

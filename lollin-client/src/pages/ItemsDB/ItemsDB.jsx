@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemsDbList from "../../component/ItemsDbList/ItemsDbList.jsx";
 import ItemsDbFilter from "../../component/ItemsDbFilter/ItemsDbFilter.jsx";
-import { Items, ItemBox, ItemsList } from "./ItemsDbStyled.jsx";
+import ItemsSearchBox from "../../component/ItemsSearchBox/ItemsSearchBox.jsx";
+import ItemsDbBgi from "../../Images/ItemsDbBgi1.jpg";
+
+import { Items, ItemTitle, BackImg, Wrapper } from "./ItemsDbStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -43,17 +46,23 @@ const ItemsDB = () => {
   }, []);
   return (
     <Items className="itemsDB">
-      <ItemsDbFilter
-        itemsData={itemsData}
-        handleSortTags={handleSortTags}
-        handleItemSearchValue={handleItemSearchValue}
-      />
-      <ItemsDbList
-        itemsData={itemsData}
-        apiVer={apiVer}
-        sortTags={sortTags}
-        itemName={itemName}
-      />
+      <BackImg className="backImg" src={`${ItemsDbBgi}`} />
+
+      <Wrapper>
+        <ItemTitle className="itmeTitle">ITEM</ItemTitle>
+        <ItemsDbFilter
+          itemsData={itemsData}
+          handleSortTags={handleSortTags}
+          handleItemSearchValue={handleItemSearchValue}
+        />
+        <ItemsSearchBox handleItemSearchValue={handleItemSearchValue} />
+        <ItemsDbList
+          itemsData={itemsData}
+          apiVer={apiVer}
+          sortTags={sortTags}
+          itemName={itemName}
+        />
+      </Wrapper>
     </Items>
   );
 };

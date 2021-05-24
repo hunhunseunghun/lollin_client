@@ -9,26 +9,23 @@ import ChampDetail from "./pages/ChampDetail/ChampDetail.jsx";
 import Modal from "./component/Modal/Modal.jsx";
 import Navbar from "./component/Navbar/NavbarFixed";
 import FooterFixed from "./component/Footer/FooterFixed";
+import SidebarDropdown from "./component/Sidebar/SidebarDropdown";
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className="Container">
-      <Navbar openModal={openModal} openModal={openModal} />
-      <button onClick={openModal}>모달팝업</button>
-      <Modal open={modalOpen} close={closeModal} header="Modal heading"></Modal>
+      <Navbar toggle={toggle} />
+      <SidebarDropdown isOpen={isOpen} toggle={toggle} />
       <Route exact path="/" component={MainPage} />
-      <Route exact path="/champions" component={ChampDB} />
+      <Route exact path="/champions/all" component={ChampDB} />
       <Route exact path="/champions/detail" component={ChampDetail} />
-      <Route exact path="/items" component={ItemsDB} />
+      <Route exact path="/items/all" component={ItemsDB} />
       <FooterFixed />
     </div>
   );

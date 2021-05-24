@@ -1,15 +1,16 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import { SearchBox, SearchBar } from "./ItemsSearchBoxStyled.jsx";
 
 const ItemsSearchBox = ({ handleItemSearchValue }) => {
   return (
-    <div className="ItemsSearchBox">
-      <label>검색</label>
-      <input
+    <SearchBox className="ItemsSearchBox">
+      <SearchBar
         type="text"
+        placeholder="검색"
         onChange={(e) => handleItemSearchValue(e.target.value)}
-      ></input>
-    </div>
+      ></SearchBar>
+    </SearchBox>
   );
 };
 

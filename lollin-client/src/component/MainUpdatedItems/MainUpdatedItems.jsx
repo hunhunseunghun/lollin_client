@@ -39,7 +39,7 @@ const MainUpdatedItems = ({ history }) => {
   }, []);
 
   const handleDetailsClick = () => {
-    history.push("/items");
+    history.push("/items/all");
   };
 
   return (
