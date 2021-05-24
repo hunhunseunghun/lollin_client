@@ -8,6 +8,10 @@ export const ItemsList = styled.main`
   min-height: 750px;
   max-width: 2500px;
   margin-top: 5%;
+
+  @media screen and (max-width: 768px) {
+    max-width: 370px;
+  }
 `;
 
 export const ItemBox = styled.div`
@@ -28,6 +32,31 @@ export const ItemBox = styled.div`
     place-items: left;
     width: 100%;
   }
+
+  @media screen and (max-width: 768px) {
+    all: unset;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    color: white;
+
+    img {
+      all: unset;
+      margin-right: none;
+      width: 80px;
+    }
+
+    .itemDesc {
+      all: unset;
+      width: 90%;
+      min-height: 50px;
+      text-align: left;
+      border-bottom: 1px solid #ffffff58;
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 10px;
+    }
+  }
 `;
 
 export const ItemName = styled.span`
@@ -39,4 +68,11 @@ export const ItemName = styled.span`
   border-left: 0.1rem dashed rgba(255, 255, 255, 0.233);
   border-right: 0.1rem dashed rgba(255, 255, 255, 0.233);
   margin-right: 20%;
+
+  @media screen and (max-width: 768px) {
+    all: unset;
+    color: #cfa85c;
+    place-items: center;
+    padding: 10px;
+  }
 `;

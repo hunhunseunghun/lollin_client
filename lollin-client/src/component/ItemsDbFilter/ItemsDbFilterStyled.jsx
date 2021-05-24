@@ -14,6 +14,10 @@ export const ItemsFilter = styled.div`
   .lastBox {
     border: none;
   }
+
+  @media screen and (max-width: 768px) {
+    min-width: 375px;
+  }
 `;
 
 export const CheckBoxArea = styled.div`
