@@ -1,5 +1,7 @@
 import "./App.css";
-import React, { useState } from "react";
+
+import React, { useState } from 'react';
+
 import { Route } from "react-router-dom";
 import MainPage from "./pages/Main/Main.jsx";
 import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
@@ -15,8 +17,10 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
+
     setIsOpen(!isOpen);
   };
+
 
   return (
     <div className="Container">

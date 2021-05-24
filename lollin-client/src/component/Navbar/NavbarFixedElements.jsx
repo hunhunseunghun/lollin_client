@@ -88,7 +88,7 @@ export const NavBtn = styled.nav`
 
 export const NavLoginBtnLink = styled(Link)`
   border-radius: 4px;
-  background: "#5a5aff";
+  background: '#5a5aff';
   margin-left: 10px;
   padding: 10px 22px;
   color: #fff;
@@ -116,10 +116,9 @@ export const NavSignupBtnLink = styled(Link)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-
-  &:hover {
-    transition: all 0.2s ease-in-out;
-    background: #00ff80;
-    color: #010606;
-  }
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background: #00ff80;
+        color: #010606;
+    }
 `;
