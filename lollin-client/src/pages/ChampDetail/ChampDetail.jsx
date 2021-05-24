@@ -3,7 +3,7 @@ import axios from "axios";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
-const ChampDetail = () => {
+const ChampDetail = ({ champPriId }) => {
   const imG =
     "http://ddragon.leagueoflegends.com/cdn/11.10.1/img/passive/Anivia_P.png";
 
@@ -19,13 +19,13 @@ const ChampDetail = () => {
     },
   });
 
-  console.log(champData);
+  console.log(champPriId);
 
-  // useEffect(()=>{
-  //   axios.get(`${server}/champions/detail?id=${champQuery}`).then((res)=>{
-  //     setChampData(res)
-  //   })
-  // },[])
+  // useEffect(() => {
+  //   axios.get(`${server}/champions/detail?id=${champPriId}`).then((res) => {
+  //     setChampData(res);
+  //   });
+  // }, []);
 
   return (
     <div className="champDetail">

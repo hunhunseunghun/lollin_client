@@ -6,7 +6,7 @@ import { ChampDBcontainter, ChampDbTiltle } from "./ChampDBStyled.jsx";
 import ChampDbSearch from "../../component/ChampDbSearch/ChampDbSearch.jsx";
 import ChampDbList from "../../component/ChampDbList/ChampDbList.jsx";
 
-const ChampDB = () => {
+const ChampDB = ({ handleChampPriId }) => {
   const [champData, setChampData] = useState("");
   const [searchText, setSearchText] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -31,8 +31,6 @@ const ChampDB = () => {
     setSearchValue(e.target.value);
   };
 
-  console.log(searchValue);
-
   const handleSearchBtn = () => {
     setSearchText(searchValue);
   };
@@ -51,7 +49,11 @@ const ChampDB = () => {
         handleSearchBtn={handleSearchBtn}
         handleSearchValue={handleSearchValue}
       />
-      <ChampDbList champData={champData} searchText={searchText} />
+      <ChampDbList
+        champData={champData}
+        searchText={searchText}
+        handleChampPriId={handleChampPriId}
+      />
     </ChampDBcontainter>
   );
 };

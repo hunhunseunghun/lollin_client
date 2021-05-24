@@ -15,6 +15,6 @@ export const ChampDbTiltle = styled.span`
 
   @media (max-width: 520px) {
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 3rem;
   }
 `;

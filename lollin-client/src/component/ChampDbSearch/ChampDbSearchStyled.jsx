@@ -6,7 +6,6 @@ export const ChampSearchArea = styled.div`
   width: 300px;
   padding: 0.5rem;
   margin-top: 5rem;
-
   border-top: 0.1rem solid gray;
   border-bottom: 0.1rem solid gray;
 
@@ -17,13 +16,20 @@ export const ChampSearchArea = styled.div`
     button {
       border-left: 0.1rem solid #c2902d;
       height: 100%;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: #c2902d;
       font-weight: bold;
       cursor: pointer;
 
       transition: font-size 0.5s;
     }
+  }
+
+  @media (max-width: 520px) {
+    margin-top: 1rem;
+    font-size: 0.6rem;
+    padding: 0.5%;
+    font-size: 0.9rem;
   }
 `;
 
@@ -33,22 +39,13 @@ export const ChampSearchInput = styled.input`
   &:focus::-webkit-input-placeholder {
     color: transparent;
   }
-
-  @media (max-width: 520px) {
-    all: unset;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    padding: 0.5%;
-    font-size: 1rem;
-    border: 0.1rem solid #c2902d;
-  }
 `;
 
 export const ChampSearchBtn = styled.button`
   all: unset;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   justify-content: center;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   border-left: 0.1rem solid gray;
   transition: font-size 0.5s;
 

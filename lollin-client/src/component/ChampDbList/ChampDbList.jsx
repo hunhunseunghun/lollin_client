@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   ChampDbListArea,
   ChampDbListBox,
   ImageContainer,
 } from "./ChampDbListStyled.jsx";
 
-const ChampDbList = ({ champData, searchText }) => {
+const ChampDbList = ({ champData, searchText, handleChampPriId }) => {
   const nameData = [];
   let finalData = [];
 
@@ -36,11 +36,19 @@ const ChampDbList = ({ champData, searchText }) => {
 
   useEffect(() => {}, []);
 
+  console.log(handleChampPriId);
+
   return (
     <ChampDbListArea className="champDbListArea">
       {Array.isArray(champData)
         ? finalData.map((ele, index) => (
-            <ChampDbListBox className="champDbListBox" key={ele[1].id}>
+            <ChampDbListBox
+              className="champDbListBox"
+              key={ele[1].id}
+              onClick={() => {
+                handleChampPriId(ele[1].id);
+              }}
+            >
               <ImageContainer className="imageContainer">
                 <img
                   className="champImg"
