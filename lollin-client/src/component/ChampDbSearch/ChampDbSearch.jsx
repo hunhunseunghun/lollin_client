@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-import "./ChampDbSearch.css";
+import {
+  ChampSearchInput,
+  ChampSearchArea,
+  ChampSearchBtn,
+} from "./ChampDbSearchStyled.jsx";
 
-const ChampDbSearch = ({ hanleSearchText }) => {
+const ChampDbSearch = ({
+  handleSearchValue,
+  handleSearchText,
+  handleSearchBtn,
+}) => {
   return (
-    <div className="champSearchArea">
-      <div className="champSearchBox">
-        champSearchBox
-        <input
-          type="text"
-          className="champSearchInput"
-          onKeyPress={hanleSearchText}
-          placeholder="검색"
-        ></input>
-      </div>
-    </div>
+    <ChampSearchArea className="champSearchArea">
+      <ChampSearchInput
+        type="text"
+        className="champSearchInput"
+        onKeyPress={handleSearchText}
+        onChange={handleSearchValue}
+        placeholder="검색"
+      />
+      <ChampSearchBtn onClick={handleSearchBtn}>
+        <i class="fa fa-search"> 검색</i>
+      </ChampSearchBtn>
+    </ChampSearchArea>
   );
 };
 

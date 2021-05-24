@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./ChampDbList.css";
+import {
+  ChampDbListArea,
+  ChampDbListBox,
+  ImageContainer,
+} from "./ChampDbListStyled.jsx";
 
 const ChampDbList = ({ champData, searchText }) => {
   const nameData = [];
@@ -33,24 +37,25 @@ const ChampDbList = ({ champData, searchText }) => {
   useEffect(() => {}, []);
 
   return (
-    <div className="champDbListArea">
+    <ChampDbListArea className="champDbListArea">
       {Array.isArray(champData)
         ? finalData.map((ele, index) => (
-            <section className="champDbListBox" key={ele[1].id}>
-              <img
-                className="champImg"
-                src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${ele[1].id}_0.jpg`}
-                alt="no images"
-                key={ele[1].image.full}
-              />
-              <div className="champNameTag" key={ele[1].name}>
-                {" "}
-                {ele[1].name}
-              </div>
-            </section>
+            <ChampDbListBox className="champDbListBox" key={ele[1].id}>
+              <ImageContainer className="imageContainer">
+                <img
+                  className="champImg"
+                  src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${ele[1].id}_0.jpg`}
+                  alt="no images"
+                  key={ele[1].image.full}
+                />
+                <span className="champNameTag" key={ele[1].name}>
+                  {ele[1].name}
+                </span>
+              </ImageContainer>
+            </ChampDbListBox>
           ))
         : "no data"}
-    </div>
+    </ChampDbListArea>
   );
 };
 

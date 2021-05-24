@@ -26,7 +26,7 @@ export const CheckBoxArea = styled.div`
   display: grid;
   place-items: center;
   padding: 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-bottom: 0.1rem solid #ffffff37;
 
   section {
@@ -48,7 +48,7 @@ export const CheckBoxArea = styled.div`
   }
 
   .filterText {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
   }
 

@@ -3,14 +3,16 @@ import styled from "styled-components";
 export const ItemsList = styled.main`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 750px;
   max-width: 2500px;
   margin-top: 5%;
 
   @media screen and (max-width: 768px) {
+    justify-content: unset;
     max-width: 370px;
+    min-height: 350px;
   }
 `;
 
@@ -23,7 +25,7 @@ export const ItemBox = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.233);
   padding: 10px;
   img {
-    width: 90px;
+    width: 50px;
     margin-right: 20px;
   }
 

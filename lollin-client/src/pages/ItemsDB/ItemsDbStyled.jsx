@@ -17,8 +17,8 @@ export const Wrapper = styled.section`
 export const BackImg = styled.img`
   position: absolute;
   width: 100%;
-  max-width: 2000px;
-  filter: blur(6px);
+  max-width: 1800px;
+  filter: blur(1.8px);
   z-index: 2;
 `;
 
