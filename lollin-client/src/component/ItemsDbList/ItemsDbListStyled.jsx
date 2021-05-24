@@ -39,22 +39,23 @@ export const ItemBox = styled.div`
     display: grid;
     place-items: center;
     color: white;
+    font-size: 0.5rem;
 
     img {
       all: unset;
+      margin-top: 5px;
       margin-right: none;
-      width: 80px;
+      width: 40px;
     }
 
     .itemDesc {
       all: unset;
       width: 90%;
-      min-height: 50px;
+      min-height: 10px;
       text-align: left;
       border-bottom: 1px solid #ffffff58;
-      margin-bottom: 20px;
       text-align: center;
-      padding: 10px;
+      padding: 5px;
     }
   }
 `;

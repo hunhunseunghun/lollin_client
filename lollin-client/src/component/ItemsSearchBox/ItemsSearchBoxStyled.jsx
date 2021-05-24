@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const SearchBox = styled.div`
   margin-top: 20px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 1px;
+  }
 `;
 
 export const SearchBar = styled.input`
@@ -15,5 +19,11 @@ export const SearchBar = styled.input`
 
   &:focus::-webkit-input-placeholder {
     color: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 200px;
+    padding: 7px;
+    border-radius: 0px;
   }
 `;

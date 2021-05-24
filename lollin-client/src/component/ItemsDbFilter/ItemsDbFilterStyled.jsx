@@ -17,6 +17,7 @@ export const ItemsFilter = styled.div`
 
   @media screen and (max-width: 768px) {
     min-width: 375px;
+    border: none;
   }
 `;
 
@@ -49,5 +50,26 @@ export const CheckBoxArea = styled.div`
   .filterText {
     font-size: 1.4rem;
     text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    all: unset;
+    display: none;
+    justify-content: left;
+    width: 90%;
+    font-size: 0.5rem;
+    padding: 3px;
+
+    .filterText {
+      width: 20%;
+      justify-content: left;
+      font-size: 0.5rem;
+      text-align: center;
+    }
+
+    section div {
+      all: unset;
+      display: flex;
+    }
   }
 `;
