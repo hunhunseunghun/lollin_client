@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
-import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn, NavLoginBtnLink, NavSignupBtnLink } from './NavbarFixedElements';
-import sidebarMenu from '../Sidebar/SidebarMenu';
+import { Nav, Logo, NavLink, Bars, NavMenu, NavBtn, NavLoginBtn, NavSignupBtn } from './NavbarFixedElements';
+import SignupModal from "../../modals/SignupModal";
+import LoginModal from "../../modals/LoginModal";
+
 
 const Navbar = ({ toggle }) => {
     // const [isLogin, setLogin] = useState(false)
     // const [isSignup, setSignup] = useState(false)
+    const [loginModalOn, setLoginModalOn] = useState(false);
+    const [signUpModalOn, setSignUpModalOn] = useState(false);
 
     return (
         <>
+            <LoginModal show={loginModalOn} onHide={() => setLoginModalOn(false)} />
+            <SignupModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} />
             <Nav>
                 <Bars onClick={toggle} />
                 <Logo to="/" activeStyle>
@@ -28,9 +34,13 @@ const Navbar = ({ toggle }) => {
                     </NavLink>
                 </NavMenu>
                 <NavBtn>
-                    <NavLoginBtnLink to="/user/login">Login</NavLoginBtnLink>
+                    <NavLoginBtn onClick={() => setLoginModalOn(true)}>
+                        Login
+                    </NavLoginBtn>
                     {/* {isLogin ? 'Login' : 'Logout'} */}
-                    <NavSignupBtnLink to="/user/signup">Signup</NavSignupBtnLink>
+                    <NavSignupBtn onClick={() => setSignUpModalOn(true)}>
+                        Signup
+                    </NavSignupBtn>
                     {/* {isSignup ? 'Signup' : 'MyInfo'} */}
                 </NavBtn>
             </Nav>

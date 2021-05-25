@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { FaTimes } from 'react-icons/fa';
 import sidebarMenu from '../Sidebar/SidebarMenu';
 import { LoginButton, SignupButton } from './Button';
+import SignupModal from "../../modals/SignupModal";
+import LoginModal from "../../modals/LoginModal";
 
 
 
@@ -12,7 +14,7 @@ const DropdownContainer = styled.div`
     z-index: 999;
     width: 100%;
     height: 100%;
-    background: #292929;
+    background: #000;
     display: grid;
     align-items: center;
     top: 0;
@@ -74,7 +76,13 @@ const BtnWrap = styled.div`
 `;
 
 const SidebarDropdown = ({ isOpen, toggle }) => {
+    const [loginModalOn, setLoginModalOn] = useState(false);
+    const [signUpModalOn, setSignUpModalOn] = useState(false);
+
     return (
+        <>
+        <LoginModal show={loginModalOn} onHide={() => setLoginModalOn(false)} />
+        <SignupModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} />
         <DropdownContainer isOpen={isOpen} onClick={toggle}>
             <Icon onClick={toggle}>
                 <CloseIcon />
@@ -91,12 +99,13 @@ const SidebarDropdown = ({ isOpen, toggle }) => {
                     <LoginButton primary="true" round="true" big="true" to="/user/login">
                         Login
                     </LoginButton>
-                    <SignupButton primary="true" round="true" big="true" to="/user/signup">
+                    <SignupButton primary="true" round="true" big="true" onClick={() => setSignUpModalOn(true)}>
                         Signup
                     </SignupButton>
                 </BtnWrap>
             </DropdownWrapper>
         </DropdownContainer>
+        </>
     )
 }
 
