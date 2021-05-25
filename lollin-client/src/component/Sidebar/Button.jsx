@@ -20,7 +20,7 @@ export const LoginButton = styled(Link)`
     font-size: ${({ big }) => (big ? '20px' : '14px')};
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-5px);
         background: #ff67b9;
         color: #010606;
     };
@@ -46,7 +46,7 @@ export const SignupButton = styled(Link)`
     margin-left: 20px;
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-5px);
         background: #00ff80;
         color: #010606;
     };

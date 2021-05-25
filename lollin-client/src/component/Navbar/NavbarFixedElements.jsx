@@ -86,7 +86,7 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavLoginBtnLink = styled(Link)`
+export const NavLoginBtn = styled.button`
   border-radius: 4px;
   background: '#5a5aff';
   margin-left: 10px;
@@ -105,7 +105,7 @@ export const NavLoginBtnLink = styled(Link)`
   }
 `;
 
-export const NavSignupBtnLink = styled(Link)`
+export const NavSignupBtn = styled.button`
     border-radius: 4px;
     background: #5A5AFF;
     margin-left: 10px;
