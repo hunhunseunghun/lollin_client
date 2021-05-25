@@ -117,7 +117,6 @@ export const NavSignupBtn = styled.button`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
 
-
     &:hover {
         transition: all 0.2s ease-in-out;
         background: #00ff80;

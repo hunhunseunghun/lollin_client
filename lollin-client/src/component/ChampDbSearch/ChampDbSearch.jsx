@@ -10,6 +10,7 @@ const ChampDbSearch = ({ hanleSearchText }) => {
           type="text"
           className="champSearchInput"
           onKeyPress={hanleSearchText}
+          placeholder="검색"
         ></input>
       </div>
     </div>
