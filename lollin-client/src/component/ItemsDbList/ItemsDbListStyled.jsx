@@ -19,11 +19,11 @@ export const ItemsList = styled.main`
 export const ItemBox = styled.div`
   display: grid;
   width: 80%;
-  grid-template-columns: 1fr 1fr 3fr;
+  grid-template-columns: 0.5fr 0.8fr 3fr;
   place-items: center;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.233);
-  padding: 10px;
+  padding: 5px;
   img {
     width: 50px;
     margin-right: 20px;

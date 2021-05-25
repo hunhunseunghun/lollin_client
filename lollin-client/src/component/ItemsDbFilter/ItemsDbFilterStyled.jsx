@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ItemsFilter = styled.div`
   display: grid;
   place-items: center;
-  max-width: 1040px;
+  max-width: 760px;
   min-width: 700px;
   background-color: #0000007d;
   border: 0.1rem solid #ffffff37;
@@ -35,16 +35,18 @@ export const CheckBoxArea = styled.div`
     justify-content: center;
     margin-top: 15px;
   }
-
   input {
+    height: 100%;
+    margin: 0px 0px 0px 0px;
   }
-
   div {
-    width: 6rem;
-  }
+    display: flex;
+    width: 5rem;
+    padding: 1px;
 
-  label {
-    margin-left: 10px;
+    div {
+      margin-left: 5px;
+    }
   }
 
   .filterText {

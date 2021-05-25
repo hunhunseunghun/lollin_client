@@ -8,6 +8,7 @@ export const ChampSearchArea = styled.div`
   margin-top: 5rem;
   border-top: 0.1rem solid gray;
   border-bottom: 0.1rem solid gray;
+  color: #e0d1b2;
 
   &:hover {
     border-top: 0.1rem solid #c2902d;

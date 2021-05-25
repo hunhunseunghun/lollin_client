@@ -21,13 +21,13 @@ export const ChampDbListBox = styled.a`
       transition: transform 0.5s;
     }
     .champNameTag {
-      background-color: #006680;
+      background-color: #003644;
       transition: padding-left 0.5s;
       padding-left: 10%;
     }
   }
 `;
-
+// #c2902d;
 export const ImageContainer = styled.span`
   border-radius: 20px;
   position: relative;
@@ -53,8 +53,8 @@ export const ImageContainer = styled.span`
 
     bottom: 0;
     display: block;
-    background-color: #051c24;
-    font-size: 1.6rem;
+    background-color: #006680;
+    font-size: 1.4rem;
     font-weight: bold;
     color: white;
     width: 170px;
