@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ItemsFilter = styled.div`
   display: grid;
   place-items: center;
-  max-width: 1440px;
+  max-width: 1040px;
   min-width: 700px;
   background-color: #0000007d;
   border: 0.1rem solid #ffffff37;
@@ -25,8 +25,8 @@ export const CheckBoxArea = styled.div`
   width: 80%;
   display: grid;
   place-items: center;
-  padding: 20px;
-  font-size: 1rem;
+  padding: 5px;
+  font-size: 0.6rem;
   border-bottom: 0.1rem solid #ffffff37;
 
   section {
@@ -40,7 +40,7 @@ export const CheckBoxArea = styled.div`
   }
 
   div {
-    width: 9rem;
+    width: 6rem;
   }
 
   label {
@@ -48,7 +48,7 @@ export const CheckBoxArea = styled.div`
   }
 
   .filterText {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     text-align: center;
   }
 

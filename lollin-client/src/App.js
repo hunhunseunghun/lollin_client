@@ -2,7 +2,7 @@ import "./App.css";
 
 import React, { useState } from "react";
 
-import { Route } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 import MainPage from "./pages/Main/Main.jsx";
 import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
 import ChampDB from "./pages/ChampDB/ChampDB.jsx";
@@ -16,6 +16,7 @@ import SidebarDropdown from "./component/Sidebar/SidebarDropdown";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [champPriId, setChampPriId] = useState(0);
+  const history = useHistory();
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -23,6 +24,7 @@ function App() {
 
   const handleChampPriId = (id) => {
     setChampPriId(id);
+    history.push("/champions/detail");
   };
 
   console.log(champPriId);

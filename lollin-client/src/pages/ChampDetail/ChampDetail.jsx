@@ -29,6 +29,7 @@ const ChampDetail = ({ champPriId }) => {
 
   return (
     <div className="champDetail">
+      {champPriId}
       <div className="champDetailNameArea">
         <span className="champDetailName">{champData.champion.id}</span>
       </div>

@@ -6,9 +6,9 @@ export const ItemsList = styled.main`
   align-items: center;
   width: 100%;
   min-height: 750px;
-  max-width: 2500px;
+  max-width: 1440px;
   margin-top: 5%;
-
+  font-size: 0.8rem;
   @media screen and (max-width: 768px) {
     justify-content: unset;
     max-width: 370px;
