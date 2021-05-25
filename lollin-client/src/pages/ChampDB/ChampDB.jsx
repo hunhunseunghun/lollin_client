@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
-import "./ChampDB.css";
+import { ChampDBcontainter, ChampDbTiltle } from "./ChampDBStyled.jsx";
 
 import ChampDbSearch from "../../component/ChampDbSearch/ChampDbSearch.jsx";
 import ChampDbList from "../../component/ChampDbList/ChampDbList.jsx";
 
-const ChampDB = () => {
+const ChampDB = ({ handleChampPriId }) => {
   const [champData, setChampData] = useState("");
   const [searchText, setSearchText] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     axios
@@ -26,18 +27,34 @@ const ChampDB = () => {
       });
   }, []);
 
-  const hanleSearchText = (e) => {
-    console.log(e.target.value);
+  const handleSearchValue = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  const handleSearchBtn = () => {
+    setSearchText(searchValue);
+  };
+
+  const handleSearchText = (e) => {
     if (e.key === "Enter") {
-      setSearchText(e.target.value);
+      handleSearchBtn();
     }
   };
 
   return (
-    <div className="champDB">
-      <ChampDbSearch hanleSearchText={hanleSearchText} />
-      <ChampDbList champData={champData} searchText={searchText} />
-    </div>
+    <ChampDBcontainter className="champDBcontainter">
+      <ChampDbTiltle className="champDbTitle">Champions</ChampDbTiltle>
+      <ChampDbSearch
+        handleSearchText={handleSearchText}
+        handleSearchBtn={handleSearchBtn}
+        handleSearchValue={handleSearchValue}
+      />
+      <ChampDbList
+        champData={champData}
+        searchText={searchText}
+        handleChampPriId={handleChampPriId}
+      />
+    </ChampDBcontainter>
   );
 };
 

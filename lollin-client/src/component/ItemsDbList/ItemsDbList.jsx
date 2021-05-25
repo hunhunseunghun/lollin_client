@@ -71,7 +71,7 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
                 alt="no images"
                 key={ele[1].image.full}
               />
-              <ItemName calssName="itemName">
+              <ItemName className="itemName">
                 <span>{ele[1].name}</span>
               </ItemName>
               <span className="itemDesc" key={ele[0]}>
