@@ -8,7 +8,7 @@ export const Wrap = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  min-height: 1100px;
+  min-height: 960px;
 `;
 
 export const RenderArea = styled.div`
@@ -74,7 +74,7 @@ export const SkillsArea = styled.section`
 
   section {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 3fr;
     place-items: center;
 
     width: 360px;
@@ -109,10 +109,11 @@ export const ChampSkillWeb = styled.video`
   border-radius: 60px;
 `;
 
-export const ChampDescQWER = styled.div`
-  color: #b88700;
-  font-size: 1.1rem;
+export const ChampDescName = styled.div`
+  color: #daa000;
+  font-size: 1rem;
 `;
+
 export const ChampDescText = styled.div`
   color: white;
   font-size: 0.9rem;

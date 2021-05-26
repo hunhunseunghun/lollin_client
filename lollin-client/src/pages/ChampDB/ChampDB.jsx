@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import axios from "axios";
-import { ChampDBcontainter, ChampDbTiltle } from "./ChampDBStyled.jsx";
-
+import {
+  ChampDBcontainter,
+  ChampDbTiltle,
+  BackImg,
+  Wrapper,
+} from "./ChampDBStyled.jsx";
 import ChampDbSearch from "../../component/ChampDbSearch/ChampDbSearch.jsx";
 import ChampDbList from "../../component/ChampDbList/ChampDbList.jsx";
+import ChampDbBgi from "../../Images/ChampDbBgi.jpg";
 
 const ChampDB = ({ handleChampPriId }) => {
   const [champData, setChampData] = useState("");
@@ -43,17 +48,21 @@ const ChampDB = ({ handleChampPriId }) => {
 
   return (
     <ChampDBcontainter className="champDBcontainter">
-      <ChampDbTiltle className="champDbTitle">Champions</ChampDbTiltle>
-      <ChampDbSearch
-        handleSearchText={handleSearchText}
-        handleSearchBtn={handleSearchBtn}
-        handleSearchValue={handleSearchValue}
-      />
-      <ChampDbList
-        champData={champData}
-        searchText={searchText}
-        handleChampPriId={handleChampPriId}
-      />
+      <BackImg className="champDBbackImg" src={`${ChampDbBgi}`} />
+
+      <Wrapper>
+        <ChampDbTiltle className="champDBtitle">Champions</ChampDbTiltle>
+        <ChampDbSearch
+          handleSearchText={handleSearchText}
+          handleSearchBtn={handleSearchBtn}
+          handleSearchValue={handleSearchValue}
+        />
+        <ChampDbList
+          champData={champData}
+          searchText={searchText}
+          handleChampPriId={handleChampPriId}
+        />
+      </Wrapper>
     </ChampDBcontainter>
   );
 };

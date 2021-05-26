@@ -23,7 +23,7 @@ export const ChampDbListBox = styled.a`
     .champNameTag {
       background-color: #003644;
       transition: padding-left 0.5s;
-      padding-left: 10%;
+      padding-left: 15%;
     }
   }
 `;
@@ -54,14 +54,15 @@ export const ImageContainer = styled.span`
     bottom: 0;
     display: block;
     background-color: #006680;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: white;
     width: 170px;
     padding: 10px 0px;
-    padding-left: 5%;
+    padding-left: 12%;
     transition-property: background-color, padding-left;
     transition: all 1s;
+
     z-index: 2;
 
     @media (max-width: 520px) {

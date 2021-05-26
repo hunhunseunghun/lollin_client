@@ -11,13 +11,14 @@ export const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   place-items: center;
+  background-color: #0000005e;
   z-index: 3;
 `;
 
 export const BackImg = styled.img`
   position: absolute;
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   filter: blur(1.8px);
   z-index: 2;
 `;
