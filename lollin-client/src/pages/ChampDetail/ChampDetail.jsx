@@ -33,6 +33,7 @@ const ChampDetail = ({ champPriId }) => {
       .get(`${server}/champions/detail?id=${encodeURI(champPriId)}`)
       .then((res) => {
         setChampData(res.data.data);
+        console.log(res);
       });
   }, []);
 
