@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {
+  ChampDetailArea,
+  BackImg,
+  RenderArea,
+  Wrap,
+  SkillsArea,
+  ChampDetailImg,
+  ChampSkillWeb,
+  ChampName,
+  CahmpDetailName,
+  ChampDescText,
+  ChampDescQWER,
+} from "./ChampDetailStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -22,40 +35,66 @@ const ChampDetail = ({ champPriId }) => {
   console.log(champPriId);
 
   // useEffect(() => {
-  //   axios.get(`${server}/champions/detail?id=${champPriId}`).then((res) => {
+  //   axios.get(`${server}/champions/all/detail?id=${champPriId}`).then((res) => {
   //     setChampData(res);
+  //     console.log(res);
   //   });
   // }, []);
 
   return (
-    <div className="champDetail">
-      {champPriId}
-      <div className="champDetailNameArea">
-        <span className="champDetailName">{champData.champion.id}</span>
-      </div>
-      <img className="champDetailImg" src={champData.champion.img}></img>
-      <section className="champDetailSkills">
-        {champData.champion.skillsimg.map((ele, index) => (
-          <div className="skillsBox" key={index}>
-            <img
-              className="champDetailSkills"
-              src={ele}
-              alt={champData.champion.skills[index]}
-              key={champData.champion.skills[index]}
-            ></img>
-            <label>{champData.champion.skills[index]}</label>
-          </div>
-        ))}
-      </section>
-      <video
-        className="champDetailWebm"
-        src={champData.champion.skillwebm}
-        width="500px"
-        muted
-        autoPlay
-        loop
-      ></video>
-    </div>
+    <ChampDetailArea className="champDetail">
+      <Wrap>
+        <BackImg
+          className="champDbBackImg"
+          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
+        />
+
+        <RenderArea className="renderWrapper">
+          <ChampName className="champDetailNameArea">
+            <ChampDetailImg
+              className="champDetailImg"
+              src={champData.champion.img}
+            />
+            <CahmpDetailName className="cahmpDetailName">
+              {champPriId}
+            </CahmpDetailName>
+          </ChampName>
+
+          <SkillsArea className="champDetailSkills">
+            <section>
+              <div className="detailSkill">
+                {champData.champion.skillsimg.map((ele, index) => (
+                  <div className="detailSkills" key={index}>
+                    <img
+                      className="detailSkillsImg"
+                      src={ele}
+                      alt={champData.champion.skills[index]}
+                      key={champData.champion.skills[index]}
+                    ></img>
+                  </div>
+                ))}
+              </div>
+              <div calssName="detailDesc">
+                <ChampDescQWER calssName="detailDescQWER">
+                  {champData.champion.skills[0]} 스킬단축키
+                </ChampDescQWER>
+                <ChampDescText calssName="detailDescEffect">
+                  {champData.champion.skills[0]} 설명
+                </ChampDescText>
+              </div>
+            </section>
+
+            <ChampSkillWeb
+              className="champDetailWebm"
+              src={champData.champion.skillwebm}
+              muted
+              autoPlay
+              loop
+            ></ChampSkillWeb>
+          </SkillsArea>
+        </RenderArea>
+      </Wrap>
+    </ChampDetailArea>
   );
 };
 
