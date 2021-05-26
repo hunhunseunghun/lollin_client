@@ -133,6 +133,7 @@ export const ChampTipsArea = styled.div`
   border: 0.1rem dashed #f8b60052;
   font-size: 0.9rem;
   color: #f8b600;
+  margin-left: 2%;
 `;
 export const ChampAllytips = styled.div`
   font-size: 0.7rem;
