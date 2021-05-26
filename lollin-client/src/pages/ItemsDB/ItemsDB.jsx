@@ -45,11 +45,11 @@ const ItemsDB = () => {
     setSortTags("");
   }, []);
   return (
-    <Items className="itemsDB">
-      <BackImg className="backImg" src={`${ItemsDbBgi}`} />
+    <Items className="itemDB">
+      <BackImg className="itemDBbackImg" src={`${ItemsDbBgi}`} />
 
       <Wrapper>
-        <ItemTitle className="itmeTitle">ITEM</ItemTitle>
+        <ItemTitle className="itemTitle">ITEM</ItemTitle>
         <ItemsDbFilter
           itemsData={itemsData}
           handleSortTags={handleSortTags}

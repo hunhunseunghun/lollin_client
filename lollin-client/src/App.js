@@ -15,7 +15,7 @@ import SidebarDropdown from "./component/Sidebar/SidebarDropdown";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [champPriId, setChampPriId] = useState("Aatorx");
+  const [champPriId, setChampPriId] = useState("Aatrox");
   const history = useHistory();
 
   const toggle = () => {

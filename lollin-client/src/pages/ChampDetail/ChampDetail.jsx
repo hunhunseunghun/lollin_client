@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { initData } from "./ChampInitData.jsx";
 import {
   ChampDetailArea,
   BackImg,
@@ -11,35 +12,42 @@ import {
   ChampName,
   CahmpDetailName,
   ChampDescText,
-  ChampDescQWER,
+  ChampDescName,
+  ChampAllytips,
+  ChampEnemytips,
+  ChampTipsArea,
 } from "./ChampDetailStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
-  const imG =
-    "http://ddragon.leagueoflegends.com/cdn/11.10.1/img/passive/Anivia_P.png";
+  const [champData, setChampData] = useState(initData);
+  const [skillIndex, setSkillIndex] = useState(0);
+  const [qwerpDesc, setQwerDesc] = useState("Q");
+  const handleSkillIndex = (index) => {
+    setSkillIndex(index);
+  };
 
-  const [champData, setChampData] = useState({
-    champion: {
-      id: "Aatrox",
-      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg",
-      skills: ["알", "에그", "부활", "죽은줄알았지", "까꿍"],
-      skillsimg: [imG, imG, imG, imG, imG],
-      skillwebm: [
-        "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_P1.webm",
-      ],
-    },
-  });
+  useEffect(() => {
+    axios
+      .get(`${server}/champions/detail?id=${encodeURI(champPriId)}`)
+      .then((res) => {
+        setChampData(res.data.data);
+        console.log(res);
+      });
+  }, []);
 
-  console.log(champPriId);
+  const handleSkillsDescription = () => {
+    return (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: champData.skills[skillIndex].description,
+        }}
+      ></div>
+    );
+  };
 
-  // useEffect(() => {
-  //   axios.get(`${server}/champions/all/detail?id=${champPriId}`).then((res) => {
-  //     setChampData(res);
-  //     console.log(res);
-  //   });
-  // }, []);
+  console.log(champData.skills);
 
   return (
     <ChampDetailArea className="champDetail">
@@ -51,10 +59,7 @@ const ChampDetail = ({ champPriId }) => {
 
         <RenderArea className="renderWrapper">
           <ChampName className="champDetailNameArea">
-            <ChampDetailImg
-              className="champDetailImg"
-              src={champData.champion.img}
-            />
+            <ChampDetailImg className="champDetailImg" src={champData.img} />
             <CahmpDetailName className="cahmpDetailName">
               {champPriId}
             </CahmpDetailName>
@@ -63,35 +68,61 @@ const ChampDetail = ({ champPriId }) => {
           <SkillsArea className="champDetailSkills">
             <section>
               <div className="detailSkill">
-                {champData.champion.skillsimg.map((ele, index) => (
+                {champData.skillsimg.map((ele, index) => (
                   <div className="detailSkills" key={index}>
                     <img
                       className="detailSkillsImg"
                       src={ele}
-                      alt={champData.champion.skills[index]}
-                      key={champData.champion.skills[index]}
+                      alt={champData.skills[index]}
+                      key={champData.skills[index]}
+                      onClick={() => {
+                        handleSkillIndex(index);
+                      }}
                     ></img>
                   </div>
                 ))}
               </div>
-              <div calssName="detailDesc">
-                <ChampDescQWER calssName="detailDescQWER">
-                  {champData.champion.skills[0]} 스킬단축키
-                </ChampDescQWER>
-                <ChampDescText calssName="detailDescEffect">
-                  {champData.champion.skills[0]} 설명
+              <div className="detailDesc">
+                <ChampDescName>
+                  {champData.skills[skillIndex].name}
+                </ChampDescName>
+                <br></br>
+                <ChampDescText className="detailDescEffect">
+                  {handleSkillsDescription()}
                 </ChampDescText>
               </div>
             </section>
-
-            <ChampSkillWeb
-              className="champDetailWebm"
-              src={champData.champion.skillwebm}
-              muted
-              autoPlay
-              loop
-            ></ChampSkillWeb>
+            <ChampTipsArea>
+              챔피언 플레이 팁!
+              <ChampAllytips>
+                <br></br>
+                {champData.allytips.map((ele, index) => (
+                  <div>
+                    {" "}
+                    tip{index + 1} : {ele}{" "}
+                  </div>
+                ))}
+              </ChampAllytips>
+              <br></br>
+              챔피언 상대 팁!
+              <ChampEnemytips>
+                <br></br>
+                {champData.enemytips.map((ele, index) => (
+                  <div>
+                    tip{index + 1} : {ele}
+                  </div>
+                ))}
+              </ChampEnemytips>
+            </ChampTipsArea>
           </SkillsArea>
+          <ChampSkillWeb
+            className="champDetailWebm"
+            src={champData.skillwebm[skillIndex]}
+            width="480px"
+            muted
+            autoPlay
+            loop
+          ></ChampSkillWeb>
         </RenderArea>
       </Wrap>
     </ChampDetailArea>

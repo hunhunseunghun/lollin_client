@@ -1,13 +1,27 @@
 import styled from "styled-components";
 
 export const ChampDBcontainter = styled.div`
+  background-color: black;
   display: flex;
-  background-color: #020020;
+  justify-content: center;
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #000000ce;
+  z-index: 3;
 `;
-
+export const BackImg = styled.img`
+  position: absolute;
+  width: 100%;
+  filter: blur(1.8px);
+  max-width: 1440px;
+  z-index: 2;
+`;
 export const ChampDbTiltle = styled.span`
   margin-top: 3rem;
   font-size: 5rem;
