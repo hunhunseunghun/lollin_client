@@ -13,6 +13,9 @@ import {
   CahmpDetailName,
   ChampDescText,
   ChampDescName,
+  ChampAllytips,
+  ChampEnemytips,
+  ChampTipsArea,
 } from "./ChampDetailStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
@@ -32,6 +35,18 @@ const ChampDetail = ({ champPriId }) => {
         setChampData(res.data.data);
       });
   }, []);
+
+  const handleSkillsDescription = () => {
+    return (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: champData.skills[skillIndex].description,
+        }}
+      ></div>
+    );
+  };
+
+  console.log(champData.skills);
 
   return (
     <ChampDetailArea className="champDetail">
@@ -70,21 +85,43 @@ const ChampDetail = ({ champPriId }) => {
                 <ChampDescName>
                   {champData.skills[skillIndex].name}
                 </ChampDescName>
-
+                <br></br>
                 <ChampDescText className="detailDescEffect">
-                  {champData.skills[skillIndex].description}
+                  {handleSkillsDescription()}
                 </ChampDescText>
               </div>
             </section>
-            <ChampSkillWeb
-              className="champDetailWebm"
-              src={champData.skillwebm[skillIndex]}
-              width="370px"
-              muted
-              autoPlay
-              loop
-            ></ChampSkillWeb>
+            <ChampTipsArea>
+              챔피언 플레이 팁!
+              <ChampAllytips>
+                <br></br>
+                {champData.allytips.map((ele, index) => (
+                  <div>
+                    {" "}
+                    tip{index + 1} : {ele}{" "}
+                  </div>
+                ))}
+              </ChampAllytips>
+              <br></br>
+              챔피언 상대 팁!
+              <ChampEnemytips>
+                <br></br>
+                {champData.enemytips.map((ele, index) => (
+                  <div>
+                    tip{index + 1} : {ele}
+                  </div>
+                ))}
+              </ChampEnemytips>
+            </ChampTipsArea>
           </SkillsArea>
+          <ChampSkillWeb
+            className="champDetailWebm"
+            src={champData.skillwebm[skillIndex]}
+            width="480px"
+            muted
+            autoPlay
+            loop
+          ></ChampSkillWeb>
         </RenderArea>
       </Wrap>
     </ChampDetailArea>

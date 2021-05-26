@@ -8,7 +8,7 @@ export const Wrap = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  min-height: 960px;
+  min-height: 1350px;
 `;
 
 export const RenderArea = styled.div`
@@ -76,10 +76,13 @@ export const SkillsArea = styled.section`
     display: grid;
     grid-template-rows: 1fr 3fr;
     place-items: center;
-
+    border-left: 0.1rem solid #ffffff47;
+    border-radius: 45px;
     width: 360px;
-    padding: 2%;
+    padding: 3%;
+
     padding-right: 15%;
+    margin-bottom: 3%;
     .detailSkill {
       display: flex;
     }
@@ -110,11 +113,33 @@ export const ChampSkillWeb = styled.video`
 `;
 
 export const ChampDescName = styled.div`
-  color: #daa000;
+  padding-left: 3%;
+  color: #f8b600;
   font-size: 1rem;
 `;
 
 export const ChampDescText = styled.div`
+  padding-left: 3%;
   color: white;
   font-size: 0.9rem;
+`;
+
+export const ChampTipsArea = styled.div`
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  margin-bottom: 5%;
+  width: 500px;
+  border: 0.1rem dashed #f8b60052;
+  font-size: 0.9rem;
+  color: #f8b600;
+`;
+export const ChampAllytips = styled.div`
+  font-size: 0.7rem;
+  color: white;
+`;
+
+export const ChampEnemytips = styled.div`
+  font-size: 0.7rem;
+  color: white;
 `;
