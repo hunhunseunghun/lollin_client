@@ -1,53 +1,110 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ChampPre, ChampPreLotaImg } from "./MainChampPreStyled.jsx";
-
-// const lotaChampURL =
-//   "https://kr.api.riotgames.com/lol/platform/v3/champion-rotations";
-// const api_Key = "RGAPI-7021385d-1138-44d1-83e6-ab24a6e54e5b";
-// const requestHeader = {
-//   "User-Agent":
-//     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36",
-//   "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-//   "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-//   Origin: "https://developer.riotgames.com",
-//   "X-Riot-Token": api_Key,
-// };
+import Slider from "react-slick";
+import "./MainChampPre.css";
+import { ChampPre } from "./MainChampPreStyled.jsx";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainChampPre = ({ history }) => {
-  const [rotaChampId, setRotaChampId] = useState({
+  const [rotaChamp, setRotaChamp] = useState({
     champion: {
-      id: null,
-      img: null,
+      id: [1, 2, 3, 4, 5],
+      img: [
+        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rell_0.jpg",
+        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg",
+        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
+        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yuumi_0.jpg",
+        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kaisa_0.jpg",
+      ],
     },
   });
+  const [imageIndex, setImageIndex] = useState(0);
 
-  useEffect(() => {
-    axios
-      .get(`${server}/champions/main`)
-      .then((res) => {
-        setRotaChampId(res);
-        console.log(res.id);
-      })
-      .catch((err) => {
-        throw err;
-      });
-  }, []);
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div className="arrow next" onClick={onClick}>
+        <IoIosArrowForward />
+      </div>
+    );
+  };
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div className="arrow prev" onClick={onClick}>
+        <IoIosArrowBack />
+      </div>
+    );
+  };
+
+  const settings = {
+    infinite: true,
+    lazyload: true,
+    speed: 800,
+    slidesToShow: 3,
+    centerMode: true,
+    centerPadding: 0,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    pauseOnHover: false,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
+    responsive: [
+      {
+        breakpoint: 1220,
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 960,
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 480,
+        settings: { autoplay: false, slidesToShow: 1 },
+      },
+    ],
+  };
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${server}/champions/rotation`)
+  //     .then((res) => {
+  //       setRotaChamp(res);
+  //     })
+  //     .catch((err) => {
+  //       throw err;
+  //     });
+  // }, []);
 
   return (
     <ChampPre className="champPre">
-      <ChampPreLotaImg
-        className="champPreLotaImg"
-        onClick={() => {
-          history.push("/champions/all");
-        }}
-        // src={rotaChampId.champion.img}
-      >
-        {" "}
-      </ChampPreLotaImg>
-      <div className="champPreText">메뉴 유도 문구</div>
+      <section className="champPreDesc">
+        <div className="champPreDesc-title">로테이션 챔피언</div>
+        <div className="champPreDesc-text">
+          플레이어 여러분의 게임에 대한 이해와 숙련도 향상을 돕기 위해 특정
+          챔피언들이 무료로 제공됩니다.{" "}
+        </div>
+        <div className="champPreDesc-details">
+          챔피언 정보를 더 알아보려면 이미지를 클릭하세요
+        </div>
+      </section>
+
+      <div className="slideWrapper">
+        <Slider {...settings}>
+          {rotaChamp.champion.img.map((ele, idx) => (
+            <div
+              className={idx === imageIndex ? "slide activeSlide" : "slide"}
+              onClick={() => {
+                history.push("/champions/all");
+              }}
+            >
+              <img src={ele} alt={idx} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </ChampPre>
   );
 };

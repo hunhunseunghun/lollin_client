@@ -20,8 +20,8 @@ export const SearchBox = styled.div`
     -webkit-box-pack: center;
     justify-content: center;
     max-width: 95rem;
-    height: 26vh;
-    min-height: 0rem;
+    height: 24vh;
+    min-height: 300px;
     /* 31.25rem; */
     margin: 0px auto;
   }
@@ -60,6 +60,7 @@ export const SearchBox = styled.div`
     border: 1px solid #ffffff71;
     border-top-right-radius: 70px;
     height: 26vh;
+    min-height: 300px;
     left: 8px;
     top: -12px;
     width: 100.5%;
@@ -109,6 +110,20 @@ export const SearchBox = styled.div`
     font-weight: bold;
     background-color: white;
     border: 0px;
+  }
+  @media (min-width: 320px) and (max-width: 479px) {
+    .foreGroundCanvas {
+      position: absolute;
+      display: block;
+      border: 1px solid #ffffff71;
+      border-top-right-radius: 70px;
+      height: 26vh;
+      min-height: 300px;
+      left: 8px;
+      top: -12px;
+      width: 80%;
+      aspect-ratio: auto 764 / 688;
+    }
   }
 `;
 

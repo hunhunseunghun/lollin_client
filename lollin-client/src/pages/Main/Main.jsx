@@ -11,7 +11,7 @@ import MainSearch from "../../component/MainSearch/MainSearch.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 const MainPage = () => {
-  const [champName, setChampName] = useState();
+  const [champName, setChampName] = useState("");
   const [champResult, setChampResult] = useState();
   const history = useHistory();
 
@@ -21,25 +21,25 @@ const MainPage = () => {
 
   const handleSearchChange = (event) => {
     setChampName(event.target.value);
-    console.log(event.target.value);
   };
+
+  console.log(champName);
 
   const handleSearchClick = () => {
     axios.get(`${server}/search?name=${champName}`).then((res) => {
       setChampResult(res.data);
+      console.log(res);
     });
     // history.push("/matchinginfo");
     // history.push("./matchinginfo")
     //matching info page 로 이동
   };
 
-  console.log(server);
-
-  useEffect(() => {
-    axios.get(`${server}/utils/rotation`).then((res) => {
-      console.log(res);
-    });
-  });
+  // useEffect(() => {
+  //   axios.get(`${server}/utils/rotation`).then((res) => {
+  //     console.log(res);
+  //   });
+  // });
 
   return (
     <MainContainer className="mainContainer">
