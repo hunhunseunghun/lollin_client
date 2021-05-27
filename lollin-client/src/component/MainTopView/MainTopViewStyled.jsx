@@ -4,10 +4,11 @@ export const SearchBox = styled.div`
   position: relative;
   display: block;
   box-sizing: border-box;
-  min-height: 31.25rem;
+  min-height: 20.5rem;
+  /* 31.25rem; */
   padding: 3.75rem;
   background-color: black;
-  height: 666px;
+  height: 300px;
   z-index: 1;
 
   .foreGoundWrapper {
@@ -18,9 +19,10 @@ export const SearchBox = styled.div`
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    max-width: 105rem;
-    height: 55vh;
-    min-height: 31.25rem;
+    max-width: 95rem;
+    height: 26vh;
+    min-height: 0rem;
+    /* 31.25rem; */
     margin: 0px auto;
   }
   .foreGroundVideoWrapper {
@@ -55,16 +57,18 @@ export const SearchBox = styled.div`
   .foreGroundCanvas {
     position: absolute;
     display: block;
-    height: 688.594px;
+    border: 1px solid #ffffff71;
+    border-top-right-radius: 70px;
+    height: 26vh;
     left: 8px;
     top: -12px;
-    width: 764px;
+    width: 100.5%;
     aspect-ratio: auto 764 / 688;
   }
   .foreGroundInner {
     width: 100%;
   }
-  .foreGroundRow-top {
+  .foreGroundRow-Top {
     width: 100%;
     margin-top: 0.625rem;
     text-align: center;
@@ -72,24 +76,42 @@ export const SearchBox = styled.div`
   .foreGroundLogo {
     display: inline-block;
     position: relative;
-    width: 40vw;
+    width: 20vw;
     height: calc(17.6333vw);
-    max-width: 37.5rem;
-    max-height: 16.5312rem;
+    max-width: 215px;
+    max-height: 215px;
   }
   .foreLogoImg {
     position: absolute;
     left: 0px;
     top: 0px;
-    display: block;
     width: 100%;
-
     height: 100%;
+    display: block;
     margin: 0px;
     border-style: none;
-    z-index: 10;
+  }
+  .foreGroundRow-bottom {
+    width: 100%;
+    margin-top: 0.625rem;
+    text-align: center;
+  }
+  .serchBoxInputBox {
+    all: unset;
+    position: relative;
+    display: inline-block;
+    min-width: 195px;
+    height: 30px;
+    padding: 0px;
+    color: rgb(1, 1, 1);
+    font-size: 0.8125rem;
+    letter-spacing: 0.15em;
+    font-weight: bold;
+    background-color: white;
+    border: 0px;
   }
 `;
+
 export const MainVideo = styled.video`
   position: relative;
   z-index: 0;
@@ -127,14 +149,6 @@ export const BackWrapper = styled.section`
     animation: 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0s 1 normal forwards
       running bTKSmk;
   }
-  .searchBoxBgi {
-    position: relative;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
 `;
 
 export const MainBackVideo = styled.video`
@@ -144,12 +158,5 @@ export const MainBackVideo = styled.video`
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: blur(15px);
-`;
-
-export const SearchBtn = styled.button`
-  all: unset;
-
-  border: 1px solid black;
-  z-index: 3;
+  filter: blur(20px);
 `;
