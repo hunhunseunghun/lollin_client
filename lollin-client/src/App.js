@@ -47,7 +47,8 @@ function App() {
         render={() => <ChampDetail champPriId={champPriId} />}
       />
       <Route exact path="/items/all" component={ItemsDB} />
-      <FooterFixed />
+
+      {/* <FooterFixed /> */}
     </div>
   );
 }

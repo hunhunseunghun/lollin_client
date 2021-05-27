@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
   background-color: #000000ce;
   z-index: 3;
 `;
