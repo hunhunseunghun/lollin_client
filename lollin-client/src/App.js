@@ -17,8 +17,8 @@ function App() {
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [champPriId, setChampPriId] = useState("Aatrox");
-  const [champName, setChampName] = useState("");
-  const [champResult, setChampResult] = useState();
+  const [nickName, setNickName] = useState("");
+  const [nickNameResult, setNickNameResult] = useState();
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -30,19 +30,20 @@ function App() {
   };
 
   const handleSearchChange = (event) => {
-    setChampName(event.target.value);
+    setNickName(event.target.value);
   };
 
-  console.log(champName);
+  console.log(nickName);
+  console.log(nickNameResult);
 
   const handleSearchClick = () => {
-    axios.get(`${server}/search?name=${champName}`).then((res) => {
-      setChampResult(res.data);
-      console.log(res);
-    });
-    // history.push("/matchinginfo");
-    // history.push("./matchinginfo")
-    //matching info page 로 이동
+    axios
+      .get(`${server}/utils/search?name=${decodeURI(nickName)}`)
+      .then((res) => {
+        setNickNameResult(res.data);
+        console.log(res);
+      });
+    history.push("/matchinginfo");
   };
 
   return (
