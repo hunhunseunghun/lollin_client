@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-  display: block;
-  height: 100vh;
+	display: block;
+	height: 100vh;
 `;
