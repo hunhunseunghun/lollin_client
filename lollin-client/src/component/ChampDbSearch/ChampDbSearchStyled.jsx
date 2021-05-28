@@ -1,56 +1,54 @@
 import styled from "styled-components";
 
 export const ChampSearchArea = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 300px;
-  padding: 0.5rem;
-  margin-top: 5rem;
-  border-top: 0.1rem solid #ffffffb3;
-  border-bottom: 0.1rem solid #ffffffb3;
-  color: #e0d1b2;
+  display: flex;
+  background-color: white;
+  margin-top: 25px;
 
-  &:hover {
-    border-top: 0.1rem solid #c2902d;
-    border-bottom: 0.1rem solid #c2902d;
+  .champSearchForm {
+    position: relative;
+    width: 280px;
+    max-width: 250px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .champSearchInput {
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    background: none;
+    border: none;
+    line-height: 17px;
+    font-size: 0.5rem;
+    color: #575757;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 1.5px 2.5px 0.9px 1px #ffc4006e;
 
-    button {
-      border-left: 0.1rem solid #c2902d;
-      height: 100%;
-      font-size: 0.8rem;
-      color: #c2902d;
-      font-weight: bold;
-      cursor: pointer;
-
-      transition: font-size 0.5s;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0.5rem;
+      color: white;
     }
   }
 
-  @media (max-width: 520px) {
-    margin-top: 1rem;
-    font-size: 0.6rem;
-    padding: 0.5%;
-    font-size: 0.9rem;
-  }
-`;
+  .champSearchBtn {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 4px;
+    padding: 5px 3px;
+    border: none;
+    background-color: #ffbb00;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.4s;
 
-export const ChampSearchInput = styled.input`
-  all: unset;
-
-  &:focus::-webkit-input-placeholder {
-    color: transparent;
-  }
-`;
-
-export const ChampSearchBtn = styled.button`
-  all: unset;
-  font-size: 0.7rem;
-  justify-content: center;
-  padding-left: 0.5rem;
-  border-left: 0.1rem solid gray;
-  transition: font-size 0.5s;
-
-  &:focus::-webkit-input-placeholder {
-    color: transparent;
+    &:hover {
+      background-color: #c99300;
+      transition: background-color 0.4s;
+    }
   }
 `;

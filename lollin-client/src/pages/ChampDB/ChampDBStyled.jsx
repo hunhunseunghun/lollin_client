@@ -28,9 +28,10 @@ export const ChampDbTiltle = styled.span`
   font-size: 5rem;
   font-weight: bold;
   color: white;
+  transition: font-size 0.5s;
 
-  @media (max-width: 520px) {
-    margin-top: 1rem;
+  @media (min-width: 320px) and (max-width: 530px) {
     font-size: 3rem;
+    transition: font-size 0.5s;
   }
 `;
