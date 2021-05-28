@@ -8,7 +8,7 @@ import {
   BackWrapper,
 } from "./MainTopViewStyled.jsx";
 import mainVideo from "../../Images/mainbackvideo.webm";
-import mainTopLogo from "../../Images/testlogo.png";
+import mainTopLogo from "../../Images/logo.png";
 // import mainBgi from "../../Images/MainBgi.jpg";
 
 const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {

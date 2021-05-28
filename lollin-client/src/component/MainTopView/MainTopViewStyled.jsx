@@ -59,7 +59,7 @@ export const SearchBox = styled.div`
     display: block;
     border: 1px solid #ffffff71;
     border-top-right-radius: 70px;
-    height: 26vh;
+    height: 24vh;
     min-height: 300px;
     left: 8px;
     top: -12px;
@@ -77,10 +77,10 @@ export const SearchBox = styled.div`
   .foreGroundLogo {
     display: inline-block;
     position: relative;
-    width: 20vw;
+    width: 15vw;
     height: calc(17.6333vw);
-    max-width: 215px;
-    max-height: 215px;
+    max-width: 100px;
+    max-height: 120px;
   }
   .foreLogoImg {
     position: absolute;
@@ -113,16 +113,7 @@ export const SearchBox = styled.div`
   }
   @media (min-width: 320px) and (max-width: 479px) {
     .foreGroundCanvas {
-      position: absolute;
-      display: block;
-      border: 1px solid #ffffff71;
-      border-top-right-radius: 70px;
-      height: 26vh;
-      min-height: 300px;
-      left: 8px;
-      top: -12px;
-      width: 80%;
-      aspect-ratio: auto 764 / 688;
+      display: none;
     }
   }
 `;

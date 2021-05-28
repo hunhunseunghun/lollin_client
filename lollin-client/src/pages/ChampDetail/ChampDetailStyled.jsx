@@ -76,7 +76,6 @@ export const SkillsArea = styled.section`
     display: grid;
     grid-template-rows: 1fr 3fr;
     place-items: center;
-    border-left: 0.1rem solid #ffffff47;
     border-radius: 45px;
     width: 360px;
     padding: 3%;
@@ -103,13 +102,27 @@ export const SkillsArea = styled.section`
       }
     }
   }
+
+  @media (min-width: 320px) and (max-width: 479px) {
+    margin-top: 1rem;
+    font-size: 0.6rem;
+    section {
+      display: block;
+      .detailDesc {
+        margin-top: 3%;
+      }
+    }
+  }
 `;
 
 export const ChampSkillWeb = styled.video`
-  padding: 3%;
+  padding: 12px;
   min-width: 350px;
-  max-width: 700px;
-  border-radius: 60px;
+  max-width: 430px;
+  @media (min-width: 320px) and (max-width: 479px) {
+    padding: 0;
+    width: 200px;
+  }
 `;
 
 export const ChampDescName = styled.div`
@@ -122,6 +135,10 @@ export const ChampDescText = styled.div`
   padding-left: 3%;
   color: white;
   font-size: 0.9rem;
+
+  @media (min-width: 320px) and (max-width: 479px) {
+    font-size: 0.6rem;
+  }
 `;
 
 export const ChampTipsArea = styled.div`
@@ -129,11 +146,20 @@ export const ChampTipsArea = styled.div`
   align-items: center;
   padding: 3%;
   margin-bottom: 5%;
-  width: 500px;
+  width: 850px;
   border: 0.1rem dashed #f8b60052;
   font-size: 0.9rem;
   color: #f8b600;
-  margin-left: 2%;
+
+  @media (min-width: 480px) and (max-width: 960px) {
+    width: 450px;
+    margin-top: 3rem;
+  }
+  @media (min-width: 320px) and (max-width: 479px) {
+    width: 300px;
+    margin-top: 1rem;
+    font-size: 0.5rem;
+  }
 `;
 export const ChampAllytips = styled.div`
   font-size: 0.7rem;
