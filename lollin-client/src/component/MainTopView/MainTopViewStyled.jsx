@@ -113,16 +113,7 @@ export const SearchBox = styled.div`
   }
   @media (min-width: 320px) and (max-width: 479px) {
     .foreGroundCanvas {
-      position: absolute;
-      display: block;
-      border: 1px solid #ffffff71;
-      border-top-right-radius: 70px;
-      height: 26vh;
-      min-height: 300px;
-      left: 8px;
-      top: -12px;
-      width: 80%;
-      aspect-ratio: auto 764 / 688;
+      display: none;
     }
   }
 `;

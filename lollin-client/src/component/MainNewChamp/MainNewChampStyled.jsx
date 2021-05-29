@@ -29,7 +29,6 @@ export const NewChamp = styled.div`
   .newChampImgWrap {
     width: 100%;
     max-width: 1220px;
-    margin-bottom: 1rem;
   }
 
   .newChamImg {
@@ -250,5 +249,36 @@ export const NewChamp = styled.div`
     .titleWrap {
       display: none;
     }
+  }
+
+  .skillWrap {
+    width: 250px;
+    display: flex;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skillList {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .skillIconWrap {
+    width: 30px;
+    height: 30px;
+    border: 0.1rem solid rgba(255, 196, 0, 0.486);
+    transition: border 0.5s;
+  }
+
+  .skillIconWrap:hover {
+    border: 0.1rem solid rgb(255, 196, 0);
+    transition: border 0.5s;
+    cursor: pointer;
+  }
+
+  .skillIcon {
+    width: 30px;
+    height: 30px;
+    border-style: none;
   }
 `;
