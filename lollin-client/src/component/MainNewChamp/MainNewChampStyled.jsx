@@ -1,76 +1,57 @@
 import styled from "styled-components";
 
 export const NewChamp = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   background-color: black;
+  padding-top: 4rem;
 
-  .searchBoxContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap-reverse;
-    width: 90%;
-    max-width: 1100px;
-  }
-  // section left
-  .newChampWrapLeft {
+  .newChampContainer {
     display: grid;
-    width: 49%;
-    max-width: 550px;
-    min-width: 400px;
+    grid-template-rows: 1fr 1fr;
     place-items: center;
-  }
-  .videoWrapper {
-    width: 95%;
-  }
-  video {
+    flex-wrap: wrap-reverse;
+    padding: 0 1rem;
+    padding-left: 2rem;
     width: 100%;
-    max-width: 530px;
-    border-radius: 20px;
-  }
-
-  .optionList {
-    position: relative;
-    width: 350px;
-    display: inline-flex;
-  }
-
-  .optionIcon {
-    position: relative;
-    display: flex;
-    flex: 1 1;
-    width: 60px;
-    height: 60px;
-  }
-
-  .optionIconBorder {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    transform: translate(10px, 10px) scale(1);
-    transition: transform 1s;
-  }
-  .optionIconBorder :hover {
-    position: absolute;
-    transform: translate(0px, -10px) scale(1);
-    transition: all 1000ms cubic-bezier(0.57, -1, 0.725, -1);
-    cursor: pointer;
-  }
-  .optionButtonImg {
-    width: 100%;
-    height: 100%;
-    border-style: none;
+    max-width: 1100px;
   }
   // section right
   .newChampWrapRight {
-    display: grid;
-    width: 49%;
-    max-width: 550px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    width: 100%;
     min-width: 400px;
-    place-items: center;
   }
 
+  .newChampImgWrap {
+    width: 100%;
+    max-width: 1220px;
+    margin-bottom: 1rem;
+  }
+
+  .newChamImg {
+    width: 98%;
+    max-width: 530px;
+    margin-top: 1rem;
+    border-radius: 20px;
+  }
+  .newChamName {
+    position: relative;
+    bottom: 4rem;
+    left: 1rem;
+    z-index: 10000;
+    font-size: 2rem;
+    color: #ffffff;
+  }
+  .textContainer {
+    display: flex;
+    width: 100%;
+  }
   .desc {
+    align-items: center;
     width: 90%;
   }
   .descTitle {
@@ -85,40 +66,87 @@ export const NewChamp = styled.div`
     font-size: 0.7rem;
     color: white;
   }
-
-  .newChampImgWrap {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-
-  .newChamImg {
-    width: 98%;
-    max-width: 530px;
-    margin-top: 1rem;
-
-    border-radius: 20px;
-  }
-  .newChamName {
-    position: absolute;
-    right: 10%;
-    bottom: 0;
-    z-index: 10000;
-    font-size: 2rem;
-    color: #ffffff;
-  }
-
-  // section style
   .titleWrap {
-    width: 1px;
-    background-color: #d69d00cb;
-    margin-left: 3rem;
-  }
-  .title {
     writing-mode: vertical-lr;
     font-size: 3px;
     font-weight: bold;
     color: #d69d00cb;
+    padding-left: 1rem;
   }
+  .title {
+    position: relative;
+    height: 90px;
+    width: 1px;
+    background-color: #d69d00cb;
+  }
+  // section left
+  .newChampWrapLeft {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    min-width: 400px;
+  }
+  .videoWrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 1rem;
+  }
+  video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+  }
+
+  .skillWrap {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skillList {
+    width: 400px;
+    display: flex;
+    justify-content: space-around;
+  }
+  .skillIconWrap {
+    width: 67px;
+    height: 67px;
+    border: 0.1rem solid rgba(255, 196, 0, 0.486);
+    transition: border 0.5s;
+  }
+
+  .skillIconWrap:hover {
+    border: 0.1rem solid rgb(255, 196, 0);
+    transition: border 0.5s;
+    cursor: pointer;
+  }
+
+  .skillIcon {
+    border-style: none;
+  }
+
+  @media (min-width: 1000px) {
+    .textContainer {
+      position: relative;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      transform: translateY(10rem);
+      transition: transform 0.5s;
+    }
+    .skillWrap {
+      position: relative;
+      transform: translateY(-15rem);
+      transition: transform 0.5s;
+    }
+    .skillList {
+      width: 420px;
+    }
+  }
+  // section style
+
   @media (min-width: 320px) and (max-width: 479px) {
     .searchBoxContainer {
       display: flex;
@@ -174,7 +202,7 @@ export const NewChamp = styled.div`
     }
     // section right
     .newChampWrapRight {
-      display: grid;
+      display: flex;
       width: 50%;
       max-width: 550px;
       min-width: 300px;

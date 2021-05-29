@@ -51,7 +51,7 @@ const MainPage = () => {
 
       <MainChampPre history={history} />
       <MainNewChamp />
-      <MainUpdatedItems history={history} />
+      {/* <MainUpdatedItems history={history} /> */}
     </MainContainer>
   );
 };
