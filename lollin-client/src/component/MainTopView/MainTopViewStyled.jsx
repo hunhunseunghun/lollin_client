@@ -59,7 +59,7 @@ export const SearchBox = styled.div`
     display: block;
     border: 1px solid #ffffff71;
     border-top-right-radius: 70px;
-    height: 26vh;
+    height: 24vh;
     min-height: 300px;
     left: 8px;
     top: -12px;

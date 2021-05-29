@@ -8,18 +8,21 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainChampPre = ({ history }) => {
-  const [rotaChamp, setRotaChamp] = useState({
-    champion: {
-      id: [1, 2, 3, 4, 5],
-      img: [
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rell_0.jpg",
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg",
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yuumi_0.jpg",
-        "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Kaisa_0.jpg",
-      ],
+  const [rotaChamp, setRotaChamp] = useState([
+    {
+      id: "Rell",
+      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rell_0.jpg",
     },
-  });
+    {
+      id: "Viego",
+      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg",
+    },
+    {
+      id: "Sylas",
+      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
+    },
+  ]);
+
   const [imageIndex, setImageIndex] = useState(0);
 
   const NextArrow = ({ onClick }) => {
@@ -46,7 +49,7 @@ const MainChampPre = ({ history }) => {
     centerMode: true,
     centerPadding: 0,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 4000,
     pauseOnHover: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -67,16 +70,16 @@ const MainChampPre = ({ history }) => {
     ],
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${server}/champions/rotation`)
-  //     .then((res) => {
-  //       setRotaChamp(res);
-  //     })
-  //     .catch((err) => {
-  //       throw err;
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`${server}/champions/rotation`)
+      .then((res) => {
+        setRotaChamp(res.data);
+      })
+      .catch((err) => {
+        throw err;
+      });
+  }, []);
 
   return (
     <ChampPre className="champPre">
@@ -98,14 +101,15 @@ const MainChampPre = ({ history }) => {
 
       <div className="slideWrapper">
         <Slider {...settings}>
-          {rotaChamp.champion.img.map((ele, idx) => (
+          {rotaChamp.map((ele, idx) => (
             <div
               className={idx === imageIndex ? "slide activeSlide" : "slide"}
               onClick={() => {
                 history.push("/champions/all");
               }}
+              key={idx}
             >
-              <img src={ele} alt={idx} />
+              <img src={ele.img} alt={ele.img} key={ele.id} />
             </div>
           ))}
         </Slider>

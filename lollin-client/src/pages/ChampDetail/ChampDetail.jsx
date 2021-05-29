@@ -92,37 +92,37 @@ const ChampDetail = ({ champPriId }) => {
                 </ChampDescText>
               </div>
             </section>
-            <ChampTipsArea>
-              챔피언 플레이 팁!
-              <ChampAllytips>
-                <br></br>
-                {champData.allytips.map((ele, index) => (
-                  <div>
-                    {" "}
-                    tip{index + 1} : {ele}{" "}
-                  </div>
-                ))}
-              </ChampAllytips>
-              <br></br>
-              챔피언 상대 팁!
-              <ChampEnemytips>
-                <br></br>
-                {champData.enemytips.map((ele, index) => (
-                  <div>
-                    tip{index + 1} : {ele}
-                  </div>
-                ))}
-              </ChampEnemytips>
-            </ChampTipsArea>
+            <ChampSkillWeb
+              className="champDetailWebm"
+              src={champData.skillwebm[skillIndex]}
+              width="480px"
+              muted
+              autoPlay
+              loop
+            ></ChampSkillWeb>
           </SkillsArea>
-          <ChampSkillWeb
-            className="champDetailWebm"
-            src={champData.skillwebm[skillIndex]}
-            width="480px"
-            muted
-            autoPlay
-            loop
-          ></ChampSkillWeb>
+          <ChampTipsArea>
+            챔피언 플레이 팁!
+            <ChampAllytips>
+              <br></br>
+              {champData.allytips.map((ele, index) => (
+                <div>
+                  {" "}
+                  tip{index + 1} : {ele}{" "}
+                </div>
+              ))}
+            </ChampAllytips>
+            <br></br>
+            챔피언 상대 팁!
+            <ChampEnemytips>
+              <br></br>
+              {champData.enemytips.map((ele, index) => (
+                <div>
+                  tip{index + 1} : {ele}
+                </div>
+              ))}
+            </ChampEnemytips>
+          </ChampTipsArea>
         </RenderArea>
       </Wrap>
     </ChampDetailArea>

@@ -5,7 +5,7 @@ export const SearchBox = styled.section`
   height: 120px;
 
   .searchSectionTop {
-    height: 40%;
+    height: 50%;
   }
   .searchSectionBottom {
     width: 100%;
@@ -36,7 +36,7 @@ export const SearchBox = styled.section`
     box-shadow: 1.5px 2.5px 0.9px 1px #ffffff3e;
 
     &:focus::-webkit-input-placeholder {
-      color: none;
+      color: white;
     }
   }
   /* rgb(0 0 0/ 90%) */
