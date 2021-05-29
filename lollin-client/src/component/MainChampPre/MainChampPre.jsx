@@ -84,13 +84,18 @@ const MainChampPre = ({ history }) => {
   return (
     <ChampPre className="champPre">
       <section className="champPreDesc">
-        <div className="champPreDesc-title">로테이션 챔피언</div>
-        <div className="champPreDesc-text">
-          플레이어 여러분의 게임에 대한 이해와 숙련도 향상을 돕기 위해 특정
-          챔피언들이 무료로 제공됩니다.{" "}
+        <div className="champPre-title-wrapper">
+          <div className="champPre-title">- Rotation champion</div>
         </div>
-        <div className="champPreDesc-details">
-          챔피언 정보를 더 알아보려면 이미지를 클릭하세요
+        <div>
+          <div className="champPreDesc-title">로테이션 챔피언</div>
+          <div className="champPreDesc-text">
+            플레이어 여러분의 게임에 대한 이해와 숙련도 향상을 돕기 위해 특정
+            챔피언들이 무료로 제공됩니다.{" "}
+          </div>
+          <div className="champPreDesc-details">
+            챔피언 정보를 더 알아보려면 이미지를 클릭하세요
+          </div>
         </div>
       </section>
 

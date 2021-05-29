@@ -23,7 +23,7 @@ const MainPage = ({ handleSearchChange, handleSearchClick }) => {
 
       <MainChampPre history={history} />
       <MainNewChamp />
-      <MainUpdatedItems history={history} />
+      {/* <MainUpdatedItems history={history} /> */}
     </MainContainer>
   );
 };
