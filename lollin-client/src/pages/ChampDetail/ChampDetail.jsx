@@ -47,8 +47,6 @@ const ChampDetail = ({ champPriId }) => {
     );
   };
 
-  console.log(champData.skills);
-
   return (
     <ChampDetailArea className="champDetail">
       <Wrap>
