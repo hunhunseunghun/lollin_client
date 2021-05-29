@@ -101,7 +101,7 @@ function App() {
       <Route exact path="/user/login" component={Login} />
       <Route exact path="/user/signup" component={Signup} />
       <Route exact path="/user/update" component={Myinfo} />
-      {/* <FooterFixed /> */}
+      <FooterFixed />
     </div>
   );
 }
