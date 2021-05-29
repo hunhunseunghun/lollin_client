@@ -90,14 +90,25 @@ const ChampDetail = ({ champPriId }) => {
                 </ChampDescText>
               </div>
             </section>
-            <ChampSkillWeb
+
+            {champData.skillwebm.map((ele, idx) => (
+              <ChampSkillWeb
+                className={idx === skillIndex ? "isDisplay" : "noDisplay"}
+                src={ele}
+                width="480px"
+                muted
+                autoPlay
+                loop
+              ></ChampSkillWeb>
+            ))}
+            {/* <ChampSkillWeb
               className="champDetailWebm"
               src={champData.skillwebm[skillIndex]}
               width="480px"
               muted
               autoPlay
               loop
-            ></ChampSkillWeb>
+            ></ChampSkillWeb> */}
           </SkillsArea>
           <ChampTipsArea>
             챔피언 플레이 팁!

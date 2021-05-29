@@ -7,6 +7,10 @@ export const NewChamp = styled.div`
   background-color: black;
   padding-top: 4rem;
 
+  .noDisplay {
+    display: none;
+  }
+
   .newChampContainer {
     display: grid;
     grid-template-rows: 1fr 1fr;
