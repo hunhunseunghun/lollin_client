@@ -77,10 +77,10 @@ export const SearchBox = styled.div`
   .foreGroundLogo {
     display: inline-block;
     position: relative;
-    width: 20vw;
+    width: 15vw;
     height: calc(17.6333vw);
-    max-width: 215px;
-    max-height: 215px;
+    max-width: 100px;
+    max-height: 120px;
   }
   .foreLogoImg {
     position: absolute;

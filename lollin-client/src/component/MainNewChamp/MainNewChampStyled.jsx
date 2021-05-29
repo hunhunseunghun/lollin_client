@@ -4,13 +4,12 @@ export const NewChamp = styled.div`
   display: flex;
   justify-content: center;
   background-color: black;
-  margin-top: 5rem;
 
   .searchBoxContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap-reverse;
-    width: 70%;
+    width: 90%;
     max-width: 1100px;
   }
   // section left
