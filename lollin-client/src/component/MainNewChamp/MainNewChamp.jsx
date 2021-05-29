@@ -5,6 +5,7 @@ import { NewChamp, SkillsDesc, SkillsImg } from "./MainNewChampStyled.jsx";
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainNewChamp = () => {
+  const [skillIndex, setSkillIndex] = useState(0);
   const [newChampData, setNewChampData] = useState({
     id: "Aatrox",
     img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg",
@@ -24,11 +25,27 @@ const MainNewChamp = () => {
     ],
   });
 
-  // useEffect(() => {
-  //   axios.get(`${server}/champions/updatedchampion`).then((res) => {
-  //     setNewChampData(res);
-  //   });
-  // }, []);
+  // const handleSkillIndex () => {
+  //   set
+  // }
+
+  useEffect(() => {
+    axios
+      .get(`${server}/champions/recent`)
+      .then((res) => {
+        let responseKey = Object.keys(res.data);
+        return axios.get(
+          `${server}/champions/detail?id=${encodeURI(responseKey)}`
+        );
+      })
+      .then((res) => {
+        setNewChampData(res.data.data);
+        console.log(res.data.data);
+      });
+  }, []);
+
+  console.log(skillIndex);
+  console.log(newChampData.skillwebm[skillIndex]);
 
   return (
     <NewChamp className="newChamp">
@@ -58,16 +75,26 @@ const MainNewChamp = () => {
             <div className="skillList">
               {newChampData.skillsimg.map((ele, idx) => (
                 <div className="skillIconWrap" key={idx + "skillIcon"}>
-                  <img className="skillIcon" src={ele} alt={ele} />
+                  <img
+                    className="skillIcon"
+                    src={ele}
+                    alt={ele}
+                    onClick={() => {
+                      setSkillIndex(idx);
+                    }}
+                  />
                 </div>
               ))}
             </div>
           </div>
 
           <div className="videoWrapper">
-            <video muted autoPlay loop>
-              <source src="https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0887/ability_0887_Q1.webm"></source>
-            </video>
+            <video
+              src={newChampData.skillwebm[skillIndex]}
+              muted
+              autoPlay
+              loop
+            ></video>
           </div>
         </section>
       </section>

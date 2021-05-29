@@ -62,7 +62,7 @@ export const NewChamp = styled.div`
   .descMain {
     width: 100%;
     text-align: right;
-    font-size: 0.7rem;
+    font-size: 12px;
     color: white;
   }
   .titleWrap {
@@ -106,7 +106,7 @@ export const NewChamp = styled.div`
   }
 
   .skillList {
-    width: 450px;
+    width: 410px;
     display: flex;
     justify-content: space-around;
   }
