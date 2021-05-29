@@ -93,7 +93,7 @@ export const NavBtn = styled.nav`
 
 export const NavLoginBtn = styled(Link)`
   border-radius: 4px;
-  background: '#000000';
+  background: #000000;
   margin-left: 10px;
   padding: 10px 22px;
   color: #fff;
