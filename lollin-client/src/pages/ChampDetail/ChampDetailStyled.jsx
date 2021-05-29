@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const ChampDetailArea = styled.div`
   background-color: #001429;
+
+  .noDisplay {
+    display: none;
+  }
 `;
 
 export const Wrap = styled.section`

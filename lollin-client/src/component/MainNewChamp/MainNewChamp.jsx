@@ -5,7 +5,7 @@ import { NewChamp, SkillsDesc, SkillsImg } from "./MainNewChampStyled.jsx";
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainNewChamp = () => {
-  const [skillIndex, setSkillIndex] = useState(0);
+  const [webmIndex, setWebmIndex] = useState(0);
   const [newChampData, setNewChampData] = useState({
     id: "Aatrox",
     img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg",
@@ -44,9 +44,6 @@ const MainNewChamp = () => {
       });
   }, []);
 
-  console.log(skillIndex);
-  console.log(newChampData.skillwebm[skillIndex]);
-
   return (
     <NewChamp className="newChamp">
       <section className="newChampContainer">
@@ -80,7 +77,7 @@ const MainNewChamp = () => {
                     src={ele}
                     alt={ele}
                     onClick={() => {
-                      setSkillIndex(idx);
+                      setWebmIndex(idx);
                     }}
                   />
                 </div>
@@ -89,12 +86,15 @@ const MainNewChamp = () => {
           </div>
 
           <div className="videoWrapper">
-            <video
-              src={newChampData.skillwebm[skillIndex]}
-              muted
-              autoPlay
-              loop
-            ></video>
+            {newChampData.skillwebm.map((ele, idx) => (
+              <video
+                className={idx === webmIndex ? "isDisplay" : "noDisplay"}
+                src={ele}
+                muted
+                autoPlay
+                loop
+              ></video>
+            ))}
           </div>
         </section>
       </section>
