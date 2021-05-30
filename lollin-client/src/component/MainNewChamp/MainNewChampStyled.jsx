@@ -4,7 +4,6 @@ export const NewChamp = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: black;
   padding-top: 4rem;
 
   .noDisplay {
@@ -19,7 +18,7 @@ export const NewChamp = styled.div`
     padding: 0 1rem;
     padding-left: 2rem;
     width: 100%;
-    max-width: 1100px;
+    max-width: 930px;
   }
   // section right
   .newChampWrapRight {
@@ -31,19 +30,31 @@ export const NewChamp = styled.div`
   }
 
   .newChampImgWrap {
+    position: relative;
     width: 100%;
     max-width: 1220px;
+    padding-left: 1rem;
+  }
+
+  .newChampImgStyle {
+    position: absolute;
+    width: 397px;
+    height: 236px;
+    border: 0.1rem solid #ffffff71;
+
+    top: 0.5rem;
+    left: 1.4rem;
+    z-index: 20;
   }
 
   .newChamImg {
     width: 98%;
-    max-width: 530px;
+    max-width: 398px;
     margin-top: 1rem;
-    border-radius: 20px;
   }
   .newChamName {
     position: relative;
-    bottom: 4rem;
+    bottom: 3.2rem;
     left: 1rem;
     z-index: 10000;
     font-size: 2rem;
@@ -90,33 +101,46 @@ export const NewChamp = styled.div`
     min-width: 400px;
   }
   .videoWrapper {
+    position: relative;
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin-right: 1rem;
+    padding-right: 2.3rem;
+  }
+  .videoStyle {
+    position: absolute;
+    width: 397px;
+    height: 271px;
+    border: 0.1rem solid #ffffff71;
+    top: -0.5rem;
+    right: 1.8rem;
+    z-index: 20;
   }
   video {
     width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
+    max-width: 400px;
   }
 
   .skillWrap {
     width: 100%;
-    width: 430px;
+    width: 360px;
     display: flex;
     padding: 1rem;
+    padding-left: 2rem;
     margin-top: 1rem;
   }
 
   .skillList {
-    width: 410px;
+    width: 100%;
     display: flex;
     justify-content: space-around;
   }
   .skillIconWrap {
-    width: 67px;
-    height: 67px;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 60px;
+    height: 60px;
     border: 0.1rem solid rgba(255, 196, 0, 0.486);
     transition: border 0.5s;
   }
@@ -128,10 +152,15 @@ export const NewChamp = styled.div`
   }
 
   .skillIcon {
+    width: 50px;
+    height: 50px;
     border-style: none;
   }
 
   @media (min-width: 1000px) {
+    .newChampContainer {
+      padding-top: 2rem;
+    }
     .textContainer {
       position: relative;
       display: flex;
@@ -141,7 +170,7 @@ export const NewChamp = styled.div`
       transition: transform 0.5s;
     }
     .skillWrap {
-      width: 465px;
+      width: 380px;
       position: relative;
       transform: translateY(-15rem);
       transition: transform 0.5s;

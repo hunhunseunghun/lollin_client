@@ -32,20 +32,20 @@ export const ImageContainer = styled.span`
   border-radius: 20px;
   position: relative;
   display: grid;
-  width: 170px;
+  width: 120px;
   overflow: hidden;
   margin: 10px;
   img {
     width: 100%;
     height: 100%;
-    transform: scale(1.1);
+    transform: scale(1.06);
     transition: transform 0.5s;
     object-fit: cover;
     z-index: 1;
   }
 
   @media (max-width: 520px) {
-    width: 140px;
+    width: 80px;
   }
 
   .champNameTag {
@@ -54,7 +54,7 @@ export const ImageContainer = styled.span`
     bottom: 0;
     display: block;
     background-color: #006680;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: white;
     width: 170px;
