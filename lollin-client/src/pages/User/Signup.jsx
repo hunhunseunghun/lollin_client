@@ -113,7 +113,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
             {errors.email && <Errors>{errors.email}</Errors>}
           </InputArea>
           <SignupBtn type="submit" onClick={handleSignup}>
-            {!isSubmitted ? 'Submit' : 'Nice to meet U :)'}
+            {!isSubmitted ? 'Submit' : 'Nice to meet U!'}
           </SignupBtn>
         </Form>
       </Container>

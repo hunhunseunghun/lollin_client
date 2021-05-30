@@ -86,7 +86,7 @@ const MyInfo = (nickname, newpassword) => {
           <br />
           <HorizonLine />
           <LeaveBtn type="submit" onClick={handleLeave}>
-            {!isLeaved? 'Leave' : 'Good-Bye :('}
+            {!isLeaved? 'Leave' : 'Good-Bye!'}
           </LeaveBtn>
         </Form>
       </Container>
