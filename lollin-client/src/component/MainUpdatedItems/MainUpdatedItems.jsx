@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { UpdatedItems } from "./MainUpdatedItemsStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -7,19 +8,19 @@ const MainUpdatedItems = ({ history }) => {
   const [newItemData, setItemData] = useState({
     items: [
       {
-        id: null,
+        id: "장화",
         img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
 
         desc: "이동 속도가 약간 증가합니다.",
       },
       {
-        id: null,
+        id: "장화",
         img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
 
         desc: "이동 속도가 약간 증가합니다.",
       },
       {
-        id: null,
+        id: "장화",
         img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
 
         desc: "이동 속도가 약간 증가합니다.",
@@ -43,7 +44,7 @@ const MainUpdatedItems = ({ history }) => {
   };
 
   return (
-    <div className="updatedItems">
+    <UpdatedItems className="updatedItems">
       <div className="itemsTitle">패치 적용된 아이템</div>
       <div className="itemsImgArea">
         {newItemData.items.map((ele) => (
@@ -56,7 +57,7 @@ const MainUpdatedItems = ({ history }) => {
         ))}
       </div>
       <button onClick={handleDetailsClick}>Details</button>
-    </div>
+    </UpdatedItems>
   );
 };
 

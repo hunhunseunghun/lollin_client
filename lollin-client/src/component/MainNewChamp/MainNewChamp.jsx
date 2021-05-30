@@ -49,6 +49,7 @@ const MainNewChamp = () => {
       <section className="newChampContainer">
         <section className="newChampWrapRight">
           <div className="newChampImgWrap">
+            <div className="newChampImgStyle"></div>
             <img className="newChamImg" src={newChampData.img} />
             <div className="newChamName">{newChampData.id}</div>
           </div>
@@ -86,6 +87,7 @@ const MainNewChamp = () => {
           </div>
 
           <div className="videoWrapper">
+            <div className="videoStyle"></div>
             {newChampData.skillwebm.map((ele, idx) => (
               <video
                 className={idx === webmIndex ? "isDisplay" : "noDisplay"}

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
 export const UpdatedItems = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
 `;
