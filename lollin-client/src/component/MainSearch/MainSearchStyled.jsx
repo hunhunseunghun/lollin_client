@@ -59,6 +59,7 @@ export const SearchBox = styled.section`
     &:hover {
       background-color: #c99300;
       transition: background-color 0.4s;
+      cursor: pointer;
     }
   }
 `;

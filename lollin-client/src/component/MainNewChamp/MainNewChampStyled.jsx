@@ -63,6 +63,7 @@ export const NewChamp = styled.div`
   .textContainer {
     display: flex;
     width: 100%;
+    transition: transform 0.3s;
   }
   .desc {
     align-items: center;
@@ -96,6 +97,7 @@ export const NewChamp = styled.div`
   // section left
   .newChampWrapLeft {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap-reverse;
     width: 100%;
     min-width: 400px;
@@ -104,7 +106,8 @@ export const NewChamp = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    width: 452px;
+    height: 271px;
     padding-right: 2.3rem;
   }
   .videoStyle {
@@ -126,7 +129,7 @@ export const NewChamp = styled.div`
     width: 360px;
     display: flex;
     padding: 1rem;
-    padding-left: 2rem;
+    padding-left: 0.8rem;
     margin-top: 1rem;
   }
 
@@ -157,7 +160,7 @@ export const NewChamp = styled.div`
     border-style: none;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 924px) {
     .newChampContainer {
       padding-top: 2rem;
     }
@@ -167,14 +170,14 @@ export const NewChamp = styled.div`
       justify-content: end;
       width: 100%;
       transform: translateY(10rem);
-      transition: transform 0.5s;
+      transition: transform 0.3s;
     }
-    .skillWrap {
+    /* .skillWrap {
       width: 380px;
       position: relative;
       transform: translateY(-15rem);
       transition: transform 0.5s;
-    }
+    } */
   }
   // section style
 
