@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   width: 100%;
   background-color: #000000ce;
   z-index: 3;
+
+  @media (min-width: 320px) and (max-width: 530px) {
+    margin-right: 15px;
+  }
 `;
 export const BackImg = styled.img`
   position: absolute;
@@ -24,7 +28,7 @@ export const BackImg = styled.img`
   z-index: 2;
 `;
 export const ChampDbTiltle = styled.span`
-  margin-top: 3rem;
+  margin-top: 5rem;
   font-size: 5rem;
   font-weight: bold;
   color: white;

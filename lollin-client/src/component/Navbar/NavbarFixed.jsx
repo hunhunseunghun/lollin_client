@@ -26,9 +26,7 @@ const Navbar = ({
     <>
       <Nav>
         <Bars onClick={toggle} />
-        <Logo to="/" activeStyle>
-          <h1>Lollin</h1>
-        </Logo>
+        <Logo to="/" />
         <NavMenu>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>

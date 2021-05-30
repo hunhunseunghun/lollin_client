@@ -11,8 +11,11 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #121212;
+  
   @media (max-width: 500px) {
-    grid-template-columns: 1fr 1fr;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 448px;
   }
 `;
 
@@ -55,14 +58,20 @@ export const LabelName = styled.label`
   color: #fff;
   font-size: 22px;
 `;
+
 export const InputBox = styled.input`
   display: block;
   padding-left: 10px;
-  outline: none;
+  outline: 0;
+  border-width: 0 0 2px;
   border-radius: 2px;
   height: 40px;
   width: 99.2%;
-  border: none;
+  font-size: 19px;
+  border-bottom-color: #fff!important;
+  background-color: #121212;
+  color: #fff;
+  
   ::placeholder {
     color: #595959;
     font-size: 17px;
@@ -83,16 +92,18 @@ export const LoginBtn = styled.button`
   background: #0080ff;
   outline: none;
   border: none;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
+  
   &:hover {
     cursor: pointer;
     background-color: #00ffff;
+    color: #000;
   }
 `;
 
 export const KakaoBtn = styled.button`
-  width:81.3%;
+  width: 81.3%;
   height: 50px;
   margin-top: 10px;
   border-radius: 2px;
@@ -101,6 +112,7 @@ export const KakaoBtn = styled.button`
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  
   &:hover {
     cursor: pointer;
     background-color: #ffff00;
@@ -134,11 +146,12 @@ export const SignupBtn = styled.button`
   background: #0080ff;
   outline: none;
   border: none;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
   &:hover {
     cursor: pointer;
     background-color: #00ffff;
+    color: #000;
   }
 `;
 
@@ -147,14 +160,16 @@ export const UpdateBtn = styled.button`
   height: 50px;
   margin-top: 15px;
   border-radius: 2px;
-  background: #0080ff;
+  background: #22E522;
   outline: none;
   border: none;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
+  
   &:hover {
     cursor: pointer;
-    background-color: #00ffff;
+    background-color: #99ffcc;
+    color: #000;
   }
 `;
 
@@ -168,6 +183,7 @@ export const LeaveBtn = styled.button`
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  
   &:hover {
     cursor: pointer;
     background-color: #e0e0e0;

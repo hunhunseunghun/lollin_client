@@ -67,7 +67,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
               id="username"
               type="text"
               name="username"
-              placeholder="Enter your Id"
+              placeholder="Enter your ID"
               value={values.username}
               onChange={handleChange}
             />
@@ -113,7 +113,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
             {errors.email && <Errors>{errors.email}</Errors>}
           </InputArea>
           <SignupBtn type="submit" onClick={handleSignup}>
-            {!isSubmitted ? 'Sign up' : 'Succeed!'}
+            {!isSubmitted ? 'Submit' : 'Nice to meet U :)'}
           </SignupBtn>
         </Form>
       </Container>

@@ -32,11 +32,8 @@ const Icon = styled.div`
   outline: none;
 `;
 
-const CloseIcon = styled(FaTimes)`
-  color: #fff;
+const DropdownWrapper = styled.div`
 `;
-
-const DropdownWrapper = styled.div``;
 
 const DropdownMenu = styled.div`
   display: grid;
@@ -93,9 +90,7 @@ const SidebarDropdown = ({
         : ""}
         {signUpModalOn ? (<SignupModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} />) : ""} */}
       <DropdownContainer isOpen={isOpen} onClick={toggle}>
-        <Icon onClick={toggle}>
-          <CloseIcon />
-        </Icon>
+        <Icon onClick={toggle} />
         <DropdownWrapper>
           <DropdownMenu>
             {sidebarMenu.map((item, index) => (

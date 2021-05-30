@@ -107,7 +107,7 @@ const Login = ({ submitForm, username, password }) => {
               id="username"
               type="text"
               name="username"
-              placeholder="Enter your Id"
+              placeholder="Enter your ID"
               value={values.username}
               onChange={handleChange}
             />
@@ -131,8 +131,8 @@ const Login = ({ submitForm, username, password }) => {
           </LoginBtn>
           <br />
           <HorizonLine />
-          <KakaoBtn onClick={handleKakao}>카카오 로그인</KakaoBtn>
-          <NaverBtn onClick={handleNaver}>네이버 로그인</NaverBtn>
+          <KakaoBtn onClick={handleKakao}>Kakao Login</KakaoBtn>
+          <NaverBtn onClick={handleNaver}>Naver Login</NaverBtn>
         </Form>
       </Container>
     </>

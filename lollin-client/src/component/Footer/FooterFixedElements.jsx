@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 // import { FooterLink as Link } from "react-router-dom";
+import FooterLogo from "../../Images/logo3.png";
+import FooterLogo2 from "../../Images/logo4.png";
 
 export const Container = styled.div`
   padding: 20px 10px;
@@ -19,9 +21,23 @@ export const Logo = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-left: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
   padding: 0;
-  height: 50px;
+  height: 100px;
+  background-image: url(${FooterLogo});
+  background-size: 250px;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: 500px) {
+    background-image: url(${FooterLogo2});
+    height: 150px;
+    margin-top: 10px;
+    background-size: 100px;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -38,6 +54,10 @@ export const Column = styled.div`
   text-align: left;
   margin-left: 40px;
   color: #fff;
+
+  @media screen and (max-width: 500px) {
+    margin-left: 10px;
+  }
 `;
 
 export const Row = styled.div`
@@ -47,10 +67,11 @@ export const Row = styled.div`
 
   @media (max-width: 500px) {
     grid-template-columns: 1fr 1fr 1fr;
+    margin-right: 20px;
   }
 `;
 
-export const FooterLink = styled.div`
+export const FooterLink = styled.a`
   color: #fff;
   margin-bottom: 14px;
   font-size: 15.5px;
@@ -75,8 +96,11 @@ export const Title = styled.div`
 export const Copyright = styled.div`
   text-align: end;
   font-size: 13px;
+  margin-top: 20px;
+  margin-right: 20px;
 
   @media screen and (max-width: 500px) {
-    display: none;
+    font-size: 11px;
+    justify-content: center;
   }
 `;

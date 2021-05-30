@@ -19,7 +19,7 @@ export const ChampSearchArea = styled.div`
     background: none;
     border: none;
     line-height: 17px;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     color: #575757;
     box-sizing: border-box;
     outline: none;
@@ -38,7 +38,7 @@ export const ChampSearchArea = styled.div`
     right: 0;
     margin-right: 5px;
     margin-top: 4px;
-    padding: 5px 3px;
+    padding: 5px 7.5px;
     border: none;
     background-color: #ffbb00;
     border-radius: 2px;

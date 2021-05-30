@@ -16,14 +16,9 @@ const FooterFixed = () => {
       <Container>
         <Wrapper>
           <Row>
-            <Column>
-              <Logo>
-                <h1>Lollin</h1>
-              </Logo>
-            </Column>
+              <Logo />
             <Column>
               <Title>About Us</Title>
-              <FooterLink href="#">Wiki</FooterLink>
               <FooterLink
                 href="https://github.com/codestates/Lollin-client"
                 target="_blank"
