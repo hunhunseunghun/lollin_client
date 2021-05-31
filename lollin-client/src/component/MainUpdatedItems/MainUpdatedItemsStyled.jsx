@@ -34,10 +34,11 @@ export const UpdatedItems = styled.div`
     position: relative;
     display: flex;
     width: 50%;
-    max-width: 700px;
+    max-width: 850px;
+    min-width: 270px;
     border: 1px solid rgb(36, 44, 54);
-    margin: 3.57143%;
-    padding: 3.57143%;
+    margin: 1.57143%;
+    padding: 1.57143%;
   }
 
   .patch-change-block {

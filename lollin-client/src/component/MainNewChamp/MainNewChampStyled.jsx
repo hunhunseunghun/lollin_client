@@ -187,7 +187,7 @@ export const NewChamp = styled.div`
       display: flex;
       justify-content: center;
       flex-wrap: wrap-reverse;
-      width: 300px;
+      width: 250px;
     }
     // section left
     .newChampWrapLeft {

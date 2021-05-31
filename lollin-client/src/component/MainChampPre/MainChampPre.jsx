@@ -49,7 +49,7 @@ const MainChampPre = ({ history }) => {
     centerMode: true,
     centerPadding: 0,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     pauseOnHover: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
