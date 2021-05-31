@@ -28,7 +28,7 @@ export const BackImg = styled.img`
   z-index: 2;
 `;
 export const ChampDbTiltle = styled.span`
-  margin-top: 5rem;
+  margin-top: 2rem;
   font-size: 5rem;
   font-weight: bold;
   color: white;
