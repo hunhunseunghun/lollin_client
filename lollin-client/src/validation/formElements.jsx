@@ -148,6 +148,7 @@ export const SignupBtn = styled.button`
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  
   &:hover {
     cursor: pointer;
     background-color: #00ffff;
@@ -160,7 +161,7 @@ export const UpdateBtn = styled.button`
   height: 50px;
   margin-top: 15px;
   border-radius: 2px;
-  background: #22E522;
+  background: #0080ff;
   outline: none;
   border: none;
   color: #fff;
@@ -168,7 +169,7 @@ export const UpdateBtn = styled.button`
   
   &:hover {
     cursor: pointer;
-    background-color: #99ffcc;
+    background-color: #00ffff;
     color: #000;
   }
 `;

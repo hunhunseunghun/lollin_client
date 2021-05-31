@@ -13,7 +13,7 @@ import {
   Title,
 } from '../../validation/formElements';
 
-const Signup = ({ submitForm, username, password, nickname, email }) => {
+const Signup = (history, { submitForm, username, password, nickname, email }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
     submitForm,
     validate
@@ -25,15 +25,15 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
   }
 
   const handleSignup = async () => {
-    console.log('회원가입 접속', username, password, nickname, email);
+    console.log('회원가입 접속', values.username, values.password, values.nickname, values.email);
     await axios
       .post(
-        '/user/signup',
+        'https://lollinserver.link/user/signup',
         {
-          username,
-          password,
-          nickname,
-          email,
+          username: values.username,
+          password: values.password,
+          nickname: values.nickname,
+          email: values.email,
         },
         {
           'Content-Type': 'application/json',
@@ -41,13 +41,11 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
         }
       )
       .then((res) => {
-        console.log(res);
-        if (res.data.message === 'successfully sign up') {
-          console.log('회원가입 성공');
-        } else if (res.data.message === 'duplicated nickname') {
+        if(res.status === 200) {
+          submitForm();
+          setTimeout(() => history.history.push("/"), 1000)
+        } else if (res.status === 409 || res.status === 400) {
           console.log('중복됨');
-        } else if (res.data.message === 'insufficient datas') {
-          console.log('불충분한 데이터');
         }
       })
       .catch((err) => {
@@ -68,6 +66,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
               type="text"
               name="username"
               placeholder="Enter your ID"
+              autoComplete="off"
               value={values.username}
               onChange={handleChange}
             />
@@ -81,6 +80,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
               type="password"
               name="password"
               placeholder="8 characters or more Password"
+              autoComplete="off"
               value={values.password}
               onChange={handleChange}
             />
@@ -94,6 +94,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
               type="text"
               name="nickname"
               placeholder="Enter your LoL-Nickname"
+              autoComplete="off"
               value={values.nickname}
               onChange={handleChange}
             />
@@ -107,6 +108,7 @@ const Signup = ({ submitForm, username, password, nickname, email }) => {
               type="email"
               name="email"
               placeholder="Enter your E-mail"
+              autoComplete="off"
               value={values.email}
               onChange={handleChange}
             />

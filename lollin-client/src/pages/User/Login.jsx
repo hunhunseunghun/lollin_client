@@ -16,7 +16,7 @@ import {
   InputBox,
 } from '../../validation/formElements';
 
-const Login = ({ submitForm, username, password }) => {
+const Login = (history, { submitForm, username, password }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
     submitForm,
     validate
@@ -24,13 +24,13 @@ const Login = ({ submitForm, username, password }) => {
   const [isLogin, setIsLogin] = useState(false);
 
   const handleLogin = async () => {
-    console.log('로그인 성공!', username, password);
+    console.log('로그인 성공!', values.username, values.password);
     await axios
       .post(
-        '/user/login',
+        'https://lollinserver.link/user/login',
         {
-          username,
-          password,
+          username: values.username,
+          password: values.password,
         },
         {
           headers: {
@@ -40,10 +40,12 @@ const Login = ({ submitForm, username, password }) => {
         }
       )
       .then((res) => {
-        console.log(res);
-        if (res.data.message === 'successfully logined!!') {
-          console.log('로그인 성공');
-        } else if (res.data.message === 'user not found or wrong password')
+        if (res.status === 200) {
+          history.history.handleJwt(res.data.jwt);
+          history.history.handleLogin(true)
+          setIsLogin(true)
+          setTimeout(() => history.history.push("/"), 1000)
+        } else if (res.status === 'user not found or wrong password')
           console.log('로그인 실패');
       })
       .catch((err) => {
@@ -76,16 +78,8 @@ const Login = ({ submitForm, username, password }) => {
   const handleNaver = async () => {
     console.log('로그인 성공!');
     await axios
-      .post(
-        '/auth/naver',
-        {
-          username,
-          password,
-        },
-        {
-          'Content-Type': 'application/json',
-          withCredentials: true,
-        }
+      .get(
+        'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=8lA0wX_a_7Ol1i2LsNH7&redirect_uri=https://lollinserver.link/auth/naver&state=authentication_code',
       )
       .then((res) => {
         console.log(res);
@@ -108,6 +102,7 @@ const Login = ({ submitForm, username, password }) => {
               type="text"
               name="username"
               placeholder="Enter your ID"
+              autoComplete="off"
               value={values.username}
               onChange={handleChange}
             />
@@ -121,6 +116,7 @@ const Login = ({ submitForm, username, password }) => {
               type="password"
               name="password"
               placeholder="Enter your Password"
+              autoComplete="off"
               value={values.password}
               onChange={handleChange}
             />
