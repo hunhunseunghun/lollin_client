@@ -8,7 +8,7 @@ export const SearchBox = styled.div`
   /* 31.25rem; */
   padding: 3.75rem;
   background-color: black;
-  height: 400px;
+  height: 430px;
   z-index: 1;
 
   .foreGoundWrapper {
@@ -19,11 +19,12 @@ export const SearchBox = styled.div`
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    max-width: 95rem;
-    height: 30vh;
+    max-width: 105rem;
+    height: 45vh;
     min-height: 300px;
     /* 31.25rem; */
     margin: 0px auto;
+    top: -2rem;
   }
   .foreGroundVideoWrapper {
     position: absolute;
@@ -58,7 +59,7 @@ export const SearchBox = styled.div`
     position: absolute;
     display: block;
     border: 0.1rem solid #ffffff71;
-    height: 30vh;
+    height: 45vh;
     min-height: 300px;
     left: 0.6rem;
     top: -12px;
