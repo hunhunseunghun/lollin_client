@@ -8,7 +8,7 @@ export const SearchBox = styled.div`
   /* 31.25rem; */
   padding: 3.75rem;
   background-color: black;
-  height: 430px;
+  height: 30rem;
   z-index: 1;
 
   .foreGoundWrapper {
@@ -20,7 +20,7 @@ export const SearchBox = styled.div`
     -webkit-box-pack: center;
     justify-content: center;
     max-width: 105rem;
-    height: 45vh;
+    height: 30rem;
     min-height: 300px;
     /* 31.25rem; */
     margin: 0px auto;
@@ -59,7 +59,7 @@ export const SearchBox = styled.div`
     position: absolute;
     display: block;
     border: 0.1rem solid #ffffff71;
-    height: 45vh;
+    height: 30rem;
     min-height: 300px;
     left: 0.6rem;
     top: -12px;
