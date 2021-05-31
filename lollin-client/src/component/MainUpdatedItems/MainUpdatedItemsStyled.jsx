@@ -7,7 +7,7 @@ export const UpdatedItems = styled.div`
   width: 100%;
   font-size: 0.5rem;
   color: white;
-  margin-top: 5rem;
+  padding-top: 7rem;
 
   .textContainer {
     max-width: 400px;
