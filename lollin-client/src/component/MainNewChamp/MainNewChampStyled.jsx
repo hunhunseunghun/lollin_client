@@ -75,13 +75,13 @@ export const NewChamp = styled.div`
   .descTitle {
     width: 100%;
     text-align: right;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     color: rgb(255, 196, 0);
   }
   .descMain {
     width: 100%;
     text-align: right;
-    font-size: 0.7rem;
+    font-size: 0.76rem;
     color: white;
   }
 

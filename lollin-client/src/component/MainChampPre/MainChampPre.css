@@ -38,15 +38,21 @@
   color: #d69d00cb;
 }
 
-.champPreDesc-title {
-  color: rgb(255, 196, 0);
-  font-size: 1.5rem;
-}
-.champPreDesc-text {
+.tip {
+  color: #d69d00;
   font-size: 0.7rem;
 }
+
+.champPreDesc-title {
+  color: rgb(255, 196, 0);
+  font-size: 2.2rem;
+}
+.champPreDesc-text {
+  font-size: 0.9rem;
+}
 .champPreDesc-details {
-  font-size: 0.5rem;
+  display: flex;
+  font-size: 0.7rem;
 }
 .slideWrapper {
   position: relative;
