@@ -9,44 +9,43 @@ import {
   NavLoginBtn,
   NavSignupBtn,
 } from './NavbarFixedElements';
-import SignupModal from '../../modals/SignupModal';
 import Login from '../../pages/User/Login';
 
 const Navbar = ({
   toggle,
-  loginModalOn,
-  setLoginModalOn,
-  signUpModalOn,
-  setSignUpModalOn,
+  loginOn,
+  setLoginOn,
+  signUpOn,
+  setSignupOn,
+  jwt,
+  isLogin,
+  setisLogin,
+  setJwt
 }) => {
-  const [isLogin, setLogin] = useState(false);
-  const [isSignup, setSignup] = useState(false);
-
   return (
     <>
       <Nav>
         <Bars onClick={toggle} />
-        <Logo to="/" activeStyle>
-          <h1>Lollin</h1>
-        </Logo>
+        <Logo to="/" />
         <NavMenu>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>
           <NavLink to="/utils/search?name=${name}">Matching Info</NavLink>
         </NavMenu>
         <NavBtn>
-          <NavLoginBtn to="/user/login" onClick={() => setLoginModalOn(true)}>
-            {setLogin ? 'Login' : 'Logout'}
-          </NavLoginBtn>
-          <NavSignupBtn
-            to="/user/signup"
-            onClick={() => setSignUpModalOn(true)}
-          >
-            {setSignup ? 'Signup' : 'MyInfo'}
-          </NavSignupBtn>
+          {isLogin? <NavLoginBtn to="/" onClick={()=>{
+            setisLogin(false)
+            setJwt('')
+          }}>Logout</NavLoginBtn> : <NavLoginBtn to="/user/login">Login</NavLoginBtn>}
+          {/* <NavLoginBtn to="/user/login">
+            {loginOn ? 'Logout' : 'Login'}
+          </NavLoginBtn> */}
+          {isLogin? <NavSignupBtn to="/user/update">MyInfo</NavSignupBtn>:<NavSignupBtn to="/user/signup">Signup</NavSignupBtn>}
+          {/* <NavSignupBtn to="/user/signup">
+            {signUpOn ? 'MyInfo' : 'Signup'}
+          </NavSignupBtn> */}
         </NavBtn>
       </Nav>
-      {/* <Sidebar /> */}
     </>
   );
 };

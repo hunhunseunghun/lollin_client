@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useForm from '../../validation/useForm';
 import validate from '../../validation/validate';
 import axios from 'axios';
@@ -14,21 +14,40 @@ import {
   InputArea,
 } from '../../validation/formElements';
 import HorizonLine from '../../modals/HorizonLine';
+const jwt = require('jsonwebtoken')
+require('dotenv').config();
 
-const MyInfo = (nickname, newpassword) => {
+const MyInfo = (history, {nickname, newpassword}) => {
   const { handleChange, values, handleSubmit, errors } = useForm(validate);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [isLeaved, setIsLeaved] = useState(false);
+  const [isAuth, setisAuth]= useState(true)
+
+  useEffect(() => {
+    let decode 
+    try{
+      decode = jwt.verify(history.history.jwt, process.env.REACT_APP_SECRET_KEY);
+      if(decode.type === 'none'){
+        setisAuth(false)
+      }
+    }catch(err){
+      console.log(err)
+    }
+  },[])
+
+
 
   const handleUpdate = async () => {
-    console.log('정보변경 접속', nickname, newpassword);
+    console.log('정보변경 접속', values.nickname, values.newpassword);
+
     await axios
       .post(
-        '/user/update',
+        'https://lollinserver.link/user/update',
         {
-          nickname,
-          newpassword,
+          jwt :history.history.jwt,
+          nickname: values.nickname,
+          newpassword: values.newpassword,
         },
         {
           'Content-Type': 'application/json',
@@ -37,8 +56,10 @@ const MyInfo = (nickname, newpassword) => {
       )
       .then((res) => {
         console.log(res);
-        if (res.data.message === 'successfully updated') {
+        if(res.status === 200) {
           console.log('정보변경 성공');
+
+          setTimeout(() => history.push("/"), 1000)
         } else if (res.data.message === 'insufficient datas') {
           console.log('불충분한 데이터');
         }
@@ -63,30 +84,33 @@ const MyInfo = (nickname, newpassword) => {
               type="text"
               name="nickname"
               placeholder="Enter your LoL-Nickname"
+              autoComplete="off"
               value={values.nickname}
               onChange={handleChange}
             />
             {errors.nickname && <Errors>{errors.nickname}</Errors>}
           </InputArea>
-          <InputArea>
+          {isAuth? '':<InputArea>
             <LabelName htmlFor="password">Password</LabelName>
             <InputBox
               id="password"
               type="password"
               name="password"
               placeholder="8 characters or more Password"
+              autoComplete="off"
               value={values.password}
               onChange={handleChange}
             />
             {errors.password && <Errors>{errors.password}</Errors>}
-          </InputArea>
+          </InputArea>}
+          
           <UpdateBtn type="submit" onClick={handleUpdate}>
             {!isSubmitted ? 'Update' : 'Succeed!'}
           </UpdateBtn>
           <br />
           <HorizonLine />
           <LeaveBtn type="submit" onClick={handleLeave}>
-            Leave
+            {!isLeaved? 'Leave' : 'Good-Bye!'}
           </LeaveBtn>
         </Form>
       </Container>

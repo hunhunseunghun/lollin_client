@@ -24,7 +24,7 @@ export const BackImg = styled.img`
 `;
 
 export const ItemTitle = styled.span`
-  margin-top: 10px;
+  margin-top: 75px;
   color: #cfa85c;
   font-size: 2rem;
   font-weight: bold;

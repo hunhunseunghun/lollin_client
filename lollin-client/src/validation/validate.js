@@ -1,8 +1,16 @@
 export default function validate(values) {
   let errors = {};
 
-  if (!values.userId.trim()) {
-    errors.userId = 'ID required';
+  if (!values.username.trim()) {
+    errors.username = 'ID required';
+  }
+
+  if (values === 200) {
+    errors.username = 'ID is available';
+  }
+  
+  if (values === 409) {
+    errors.username = 'ID is duplicated';
   }
 
   if (!values.password) {

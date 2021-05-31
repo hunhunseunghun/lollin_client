@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaTimes } from 'react-icons/fa';
 import sidebarMenu from '../Sidebar/SidebarMenu';
 import { LoginButton, SignupButton } from './Button';
-import SignupModal from '../../modals/SignupModal';
-import LoginModal from '../../modals/LoginModal';
 
 const DropdownContainer = styled.div`
   position: fixed;
@@ -32,11 +29,8 @@ const Icon = styled.div`
   outline: none;
 `;
 
-const CloseIcon = styled(FaTimes)`
-  color: #fff;
+const DropdownWrapper = styled.div`
 `;
-
-const DropdownWrapper = styled.div``;
 
 const DropdownMenu = styled.div`
   display: grid;
@@ -76,26 +70,21 @@ const BtnWrap = styled.div`
 const SidebarDropdown = ({
   isOpen,
   toggle,
-  loginModalOn,
-  setLoginModalOn,
-  signUpModalOn,
-  setSignUpModalOn,
+  loginOn,
+  setLoginOn,
+  signUpOn,
+  setSignupOn,
+  jwt,
+  isLogin,
+  setJwt,
+  setisLogin
 }) => {
-  // const [loginModalOn, setLoginModalOn] = useState(false);
-  // const [signUpModalOn, setSignUpModalOn] = useState(false);
-  // console.log(loginModalOn);
-  const [isLogin, setLogin] = useState(false);
-  const [isSignup, setSignup] = useState(false);
+  
 
   return (
     <>
-      {/* {loginModalOn ? (<LoginModal show={loginModalOn} onHide={() => setLoginModalOn(false)} />)
-        : ""}
-        {signUpModalOn ? (<SignupModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} />) : ""} */}
       <DropdownContainer isOpen={isOpen} onClick={toggle}>
-        <Icon onClick={toggle}>
-          <CloseIcon />
-        </Icon>
+        <Icon onClick={toggle} />
         <DropdownWrapper>
           <DropdownMenu>
             {sidebarMenu.map((item, index) => (
@@ -105,17 +94,24 @@ const SidebarDropdown = ({
             ))}
           </DropdownMenu>
           <BtnWrap>
-            <LoginButton onClick={() => setLoginModalOn(true)}>
-              {setLogin ? 'Login' : 'Logout'}
-            </LoginButton>
-            <SignupButton onClick={() => setSignUpModalOn(true)}>
-              {setSignup ? 'Signup' : 'MyInfo'}
-            </SignupButton>
+            {isLogin? <LoginButton to="/" onClick={() => {
+            setisLogin(false)
+            setJwt('')
+          }}>Logout</LoginButton>
+            : <LoginButton to="/user/login">Login</LoginButton>}
+            {/* <LoginButton> 
+              {loginOn ? 'Login' : 'Logout'}
+            </LoginButton> */}
+            {isLogin? <SignupButton to="/user/update">MyInfo</SignupButton>
+            : <SignupButton to="/user/signup">Signup</SignupButton>}
+            {/* <SignupButton>
+              {signUpOn ? 'Signup' : 'MyInfo'}
+            </SignupButton> */}
           </BtnWrap>
         </DropdownWrapper>
       </DropdownContainer>
     </>
   );
-};
+}
 
 export default SidebarDropdown;

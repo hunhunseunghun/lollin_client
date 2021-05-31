@@ -1,11 +1,12 @@
-import styled from "styled-components";
-import { NavLink as Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import styled from 'styled-components';
+import { NavLink as Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
+import NavLogo from "../../Images/logo2.png";
 
 export const Nav = styled.nav`
   background: #000;
   opacity: 0.865;
-  height: 80px;
+  height: 62px;
   display: flex;
   justify-content: space-between;
   z-index: 3000000;
@@ -16,23 +17,22 @@ export const Nav = styled.nav`
 `;
 
 export const Logo = styled(Link)`
-  color: #fff;
-  font-weight: bold;
-  font-size: 21px;
   display: flex;
   align-items: center;
   justify-self: start;
   text-decoration: none;
   margin-left: 30px;
+  margin-top: 10px;
   padding: 0 1rem;
   height: 100%;
+  width: 100px;
   cursor: pointer;
-
-  &.active {
-    color: #bce55c;
-  }
+  background-image: url(${NavLogo});
+  background-size: 128px;
+  background-repeat: no-repeat;
 
   @media screen and (max-width: 768px) {
+    height: 50px;
     justify-content: center;
   }
 `;
@@ -40,7 +40,7 @@ export const Logo = styled(Link)`
 export const NavLink = styled(Link)`
   color: #ebebeb;
   font-weight: bold;
-  font-size: 21px;
+  font-size: 19.5px;
   display: flex;
   align-items: center;
   justify-self: start;
@@ -93,7 +93,7 @@ export const NavBtn = styled.nav`
 
 export const NavLoginBtn = styled(Link)`
   border-radius: 4px;
-  background: #000000;
+  /* background: #000000; */
   margin-left: 10px;
   padding: 10px 22px;
   color: #fff;
