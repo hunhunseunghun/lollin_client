@@ -8,7 +8,7 @@ export const SearchBox = styled.div`
   /* 31.25rem; */
   padding: 3.75rem;
   background-color: black;
-  height: 300px;
+  height: 430px;
   z-index: 1;
 
   .foreGoundWrapper {
@@ -19,11 +19,12 @@ export const SearchBox = styled.div`
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    max-width: 95rem;
-    height: 24vh;
+    max-width: 105rem;
+    height: 45vh;
     min-height: 300px;
     /* 31.25rem; */
     margin: 0px auto;
+    top: -2rem;
   }
   .foreGroundVideoWrapper {
     position: absolute;
@@ -57,13 +58,12 @@ export const SearchBox = styled.div`
   .foreGroundCanvas {
     position: absolute;
     display: block;
-    border: 1px solid #ffffff71;
-    border-top-right-radius: 70px;
-    height: 24vh;
+    border: 0.1rem solid #ffffff71;
+    height: 45vh;
     min-height: 300px;
-    left: 8px;
+    left: 0.6rem;
     top: -12px;
-    width: 100.5%;
+    width: 100%;
     aspect-ratio: auto 764 / 688;
   }
   .foreGroundInner {
@@ -77,10 +77,8 @@ export const SearchBox = styled.div`
   .foreGroundLogo {
     display: inline-block;
     position: relative;
-    width: 15vw;
-    height: calc(17.6333vw);
-    max-width: 100px;
-    max-height: 120px;
+    width: 60px;
+    height: 75px;
   }
   .foreLogoImg {
     position: absolute;

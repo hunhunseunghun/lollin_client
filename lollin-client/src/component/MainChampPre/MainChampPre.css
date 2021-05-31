@@ -2,35 +2,62 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .champPre {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 800px;
+  height: 650px;
   background-color: rgb(0, 0, 0);
-}
-
-.champPreDesc {
-  width: 960px;
-  color: white;
-  padding-top: 5%;
-  padding-left: 10%;
+  padding-top: 4rem;
   transition: height 1s;
 }
+
+.container {
+  width: 80%;
+  max-width: 1320px;
+}
+.champPreDesc {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  color: white;
+  padding-top: 5%;
+  transition: height 1s;
+}
+.champPre-title-wrapper {
+  width: 1px;
+  height: 110px;
+  margin-top: 1rem;
+  margin-right: 2rem;
+
+  background-color: #d69d00cb;
+}
+
+.champPre-title {
+  writing-mode: vertical-lr;
+  font-size: 3px;
+  font-weight: bold;
+  color: #d69d00cb;
+}
+
 .champPreDesc-title {
   color: rgb(255, 196, 0);
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .champPreDesc-text {
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 .champPreDesc-details {
   font-size: 0.5rem;
 }
 .slideWrapper {
+  position: relative;
+  top: -5rem;
   width: 100%;
 }
 
 .slide img {
   width: 20rem;
-  margin: 15rem auto;
+  margin: 10rem auto;
   border-radius: 10px;
 }
 
@@ -53,11 +80,11 @@
 .arrow {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 400000000;
 }
 
 .arrow svg {
-  transition: color 0.5;
+  transition: color 0.5s;
 }
 
 .arrow svg:hover {
@@ -78,7 +105,7 @@
   top: 38%;
 }
 
-@media (min-width: 480px) and (max-width: 960px) {
+@media (min-width: 500px) and (max-width: 960px) {
   .champPre {
     width: 100%;
     height: 475px;
@@ -92,7 +119,7 @@
     width: 750px;
     color: white;
     padding-top: 5%;
-    padding-left: 10%;
+
     transition: height 1s;
   }
   .champPreDesc-title {
@@ -101,7 +128,7 @@
   }
   .champPreDesc-text {
     width: 360px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   .champPreDesc-details {
     font-size: 0.4rem;
@@ -117,7 +144,7 @@
   }
 
   .activeSlide {
-    transform: scale(1.3);
+    transform: scale(1);
     transition: transform 0.2s;
   }
   .next {
@@ -134,13 +161,13 @@
     top: 38%;
   }
 }
-@media (min-width: 320px) and (max-width: 479px) {
+@media (min-width: 320px) and (max-width: 499px) {
   .champPre {
     width: 100%;
     height: 400px;
   }
   .champPreDesc {
-    width: 90%;
+    width: 250px;
     color: white;
     padding-top: 3%;
     padding-left: 5%;
@@ -148,18 +175,22 @@
   }
   .champPreDesc-title {
     color: rgb(255, 196, 0);
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .champPreDesc-text {
-    width: 320px;
+    width: 250px;
     font-size: 0.8rem;
   }
   .champPreDesc-details {
     font-size: 0.4rem;
   }
+
+  .slideWrapper {
+    position: relative;
+    bottom: 3rem;
+  }
   .slide img {
-    width: 20rem;
-    margin: 5rem auto;
+    width: 250px;
     border-radius: 10px;
   }
   .slide {
@@ -168,7 +199,7 @@
   }
 
   .activeSlide {
-    transform: scale(0.99);
+    transform: translateY(-4rem) scale(1.1);
     transition: transform 0.2s;
   }
   .next {

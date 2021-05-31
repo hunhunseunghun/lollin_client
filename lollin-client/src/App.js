@@ -1,26 +1,26 @@
-import './App.css';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Route, useHistory } from 'react-router-dom';
-import MainPage from './pages/Main/Main.jsx';
-import ItemsDB from './pages/ItemsDB/ItemsDB.jsx';
-import ChampDB from './pages/ChampDB/ChampDB.jsx';
-import ChampDetail from './pages/ChampDetail/ChampDetail.jsx';
+import "./App.css";
+import React, { useState } from "react";
+import axios from "axios";
+import { Route, useHistory } from "react-router-dom";
+import MainPage from "./pages/Main/Main.jsx";
+import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
+import ChampDB from "./pages/ChampDB/ChampDB.jsx";
+import ChampDetail from "./pages/ChampDetail/ChampDetail.jsx";
 
 import Navbar from './component/Navbar/NavbarFixed';
 import FooterFixed from './component/Footer/FooterFixed';
 import SidebarDropdown from './component/Sidebar/SidebarDropdown';
 
-import Login from './pages/User/Login';
-import Signup from './pages/User/Signup';
-import Myinfo from './pages/User/MyInfo';
+import Login from "./pages/User/Login";
+import Signup from "./pages/User/Signup";
+import Myinfo from "./pages/User/MyInfo";
 
 const server = process.env.REACT_APP_SERVER_URL;
 function App() {
   let history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
-  const [champPriId, setChampPriId] = useState('Aatrox');
-  const [nickName, setNickName] = useState('');
+  const [champPriId, setChampPriId] = useState("Aatrox");
+  const [nickName, setNickName] = useState("");
   const [nickNameResult, setNickNameResult] = useState();
   const [jwt, setJwt] = useState('');
   const [isLogin, setisLogin] = useState(false)
@@ -40,7 +40,7 @@ function App() {
 
   const handleChampPriId = (id) => {
     setChampPriId(id);
-    history.push('/champions/detail');
+    history.push("/champions/detail");
   };
 
   const handleSearchChange = (event) => {
@@ -54,7 +54,7 @@ function App() {
         setNickNameResult(res.data);
         console.log(res);
       });
-    history.push('/matchinginfo');
+    history.push("/matchinginfo");
   };
 
   return (
