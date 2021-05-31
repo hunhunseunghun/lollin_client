@@ -46,16 +46,26 @@ const MainUpdatedItems = ({ history }) => {
 
   const handleItemHtml = () => {
     return (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: newItemData,
-        }}
-      ></div>
+      <div className="wrapper">
+        {" "}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: newItemData,
+          }}
+        ></div>
+      </div>
     );
   };
 
   return (
     <UpdatedItems className="updatedItems">
+      <div className="textContainer">
+        <div className="desc">
+          <div className="descTitle">업데이트 아이템</div>
+        </div>
+        <div className="titleWrap">- Updated items</div>
+      </div>
+
       {handleItemHtml()}
       {/* <div className="itemsTitle">패치 적용된 아이템</div>
       <div className="itemsImgArea">

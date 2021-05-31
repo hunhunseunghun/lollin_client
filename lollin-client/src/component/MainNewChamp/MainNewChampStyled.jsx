@@ -4,7 +4,7 @@ export const NewChamp = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
+  padding-top: 3rem;
 
   .noDisplay {
     display: none;
@@ -65,22 +65,6 @@ export const NewChamp = styled.div`
     width: 100%;
     transition: transform 0.3s;
   }
-  .desc {
-    align-items: center;
-    width: 90%;
-  }
-  .descTitle {
-    width: 100%;
-    text-align: right;
-    font-size: 2em;
-    color: rgb(255, 196, 0);
-  }
-  .descMain {
-    width: 100%;
-    text-align: right;
-    font-size: 12px;
-    color: white;
-  }
   .titleWrap {
     writing-mode: vertical-lr;
     font-size: 3px;
@@ -88,6 +72,23 @@ export const NewChamp = styled.div`
     color: #d69d00cb;
     padding-left: 1rem;
   }
+  .desc {
+    align-items: center;
+    width: 90%;
+  }
+  .descTitle {
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+    color: rgb(255, 196, 0);
+  }
+  .descMain {
+    width: 100%;
+    text-align: right;
+    font-size: 0.7rem;
+    color: white;
+  }
+
   .title {
     position: relative;
     height: 90px;
@@ -202,38 +203,6 @@ export const NewChamp = styled.div`
       border-radius: 20px;
     }
 
-    .optionList {
-      position: relative;
-      width: 230px;
-      display: inline-flex;
-    }
-
-    .optionIcon {
-      position: relative;
-      display: flex;
-      flex: 1 1;
-      width: 30px;
-      height: 30px;
-    }
-
-    .optionIconBorder {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      transform: translate(10px, 10px) scale(1);
-      transition: transform 1s;
-    }
-    .optionIconBorder :hover {
-      position: absolute;
-      transform: scale(0.8);
-      transition: all 1000ms;
-      cursor: pointer;
-    }
-    .optionButtonImg {
-      width: 100%;
-      height: 100%;
-      border-style: none;
-    }
     // section right
     .newChampWrapRight {
       display: flex;
@@ -279,6 +248,9 @@ export const NewChamp = styled.div`
       font-size: 0.8rem;
       color: #ffffff;
     }
+    .newChampImgStyle {
+      display: none;
+    }
 
     // section style
     .titleWrap {
@@ -313,6 +285,9 @@ export const NewChamp = styled.div`
       width: 30px;
       height: 30px;
       border-style: none;
+    }
+    .videoStyle {
+      display: none;
     }
   }
 `;

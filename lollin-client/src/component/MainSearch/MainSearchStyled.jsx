@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SearchBox = styled.section`
   background-color: #000000;
-  height: 200px;
+  height: 100px;
 
   .searchSectionTop {
     height: 50%;
