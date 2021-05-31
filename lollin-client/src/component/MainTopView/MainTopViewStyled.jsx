@@ -8,7 +8,7 @@ export const TopView = styled.div`
   /* 31.25rem; */
   padding: 3.75rem;
 
-  height: 30rem;
+  height: 31rem;
   z-index: 1;
 
   .foreGoundWrapper {
@@ -21,7 +21,7 @@ export const TopView = styled.div`
     justify-content: center;
     width: 90%;
     max-width: 95rem;
-    height: 28rem;
+    height: 30rem;
     min-height: 300px;
     /* 31.25rem; */
     margin: 0px auto;
@@ -60,7 +60,7 @@ export const TopView = styled.div`
     position: absolute;
     display: block;
     border: 0.1rem solid #ffffff71;
-    height: 28rem;
+    height: 30rem;
     min-height: 300px;
     left: 0.6rem;
     top: -12px;

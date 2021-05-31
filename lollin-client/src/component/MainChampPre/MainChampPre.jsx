@@ -99,7 +99,8 @@ const MainChampPre = ({ history }) => {
               챔피언들이 무료로 제공됩니다.{" "}
             </div>
             <div className="champPreDesc-details">
-              챔피언 정보를 더 알아보려면 이미지를 클릭하세요
+              <div className="tip">Tip!</div> 챔피언 정보를 더 알아보려면
+              이미지를 클릭하세요!
             </div>
           </div>
         </section>
