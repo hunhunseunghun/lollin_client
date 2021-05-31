@@ -49,7 +49,7 @@ const ItemsDB = () => {
       <BackImg className="itemDBbackImg" src={`${ItemsDbBgi}`} />
 
       <Wrapper>
-        <ItemTitle className="itemTitle">아이템</ItemTitle>
+        <ItemTitle className="itemTitle">Item</ItemTitle>
         <ItemsDbFilter
           itemsData={itemsData}
           handleSortTags={handleSortTags}

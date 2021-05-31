@@ -17,7 +17,7 @@ const ChampDbSearch = ({
           placeholder="챔피언 이름을 입력하세요"
         />
         <button className="champSearchBtn" onClick={handleSearchBtn}>
-          <i class="fa fa-search">검색</i>
+        검색
         </button>
       </div>
     </ChampSearchArea>

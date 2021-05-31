@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SearchBox = styled.div`
   display: flex;
-  background-color: white;
+  background-color: transparent;
   margin-top: 25px;
 
   .champSearchForm {
@@ -10,7 +10,7 @@ export const SearchBox = styled.div`
     width: 280px;
     max-width: 250px;
     border-radius: 2px;
-    background-color: #fff;
+    background-color: transparent;
   }
 
   .champSearchInput {
@@ -20,14 +20,15 @@ export const SearchBox = styled.div`
     background: none;
     border: none;
     line-height: 17px;
-    font-size: 0.5rem;
-    color: #575757;
+    font-size: 0.86rem;
+    color: white;
     box-sizing: border-box;
-    outline: none;
-    box-shadow: 1.5px 2.5px 0.9px 1px #ffc400a6;
+    outline: 0;
+    /* box-shadow: 1.5px 2.5px 0.9px 1px #ffc400a6; */
+    border-bottom: 1px solid #FFC400;
 
     &:focus::-webkit-input-placeholder {
-      font-size: 0.5rem;
+      font-size: 0.78rem;
       color: white;
     }
   }

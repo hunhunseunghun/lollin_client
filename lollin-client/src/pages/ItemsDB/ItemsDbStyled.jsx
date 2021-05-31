@@ -13,7 +13,7 @@ export const Wrapper = styled.section`
   place-items: center;
   background-color: #0000005e;
   z-index: 3;
-  padding-top: 7rem;
+  padding-top: 2rem;
 `;
 
 export const BackImg = styled.img`
@@ -25,8 +25,8 @@ export const BackImg = styled.img`
 `;
 
 export const ItemTitle = styled.span`
-  margin-top: 75px;
-  color: #cfa85c;
-  font-size: 2rem;
+  margin-top: 25px;
+  color: white;
+  font-size: 5rem;
   font-weight: bold;
 `;
