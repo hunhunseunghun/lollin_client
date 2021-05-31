@@ -2,7 +2,7 @@ export default function validate(values) {
   let errors = {};
 
   if (!values.username.trim()) {
-    errors.username = 'ID required';
+    errors.username = 'ID is required';
   }
 
   if (values === 200) {

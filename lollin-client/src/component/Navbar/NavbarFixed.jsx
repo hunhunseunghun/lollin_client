@@ -37,13 +37,7 @@ const Navbar = ({
             setisLogin(false)
             setJwt('')
           }}>Logout</NavLoginBtn> : <NavLoginBtn to="/user/login">Login</NavLoginBtn>}
-          {/* <NavLoginBtn to="/user/login">
-            {loginOn ? 'Logout' : 'Login'}
-          </NavLoginBtn> */}
           {isLogin? <NavSignupBtn to="/user/update">MyInfo</NavSignupBtn>:<NavSignupBtn to="/user/signup">Signup</NavSignupBtn>}
-          {/* <NavSignupBtn to="/user/signup">
-            {signUpOn ? 'MyInfo' : 'Signup'}
-          </NavSignupBtn> */}
         </NavBtn>
       </Nav>
     </>

@@ -122,6 +122,7 @@ const Login = (history, { submitForm, username, password }) => {
             />
             {errors.password && <Errors>{errors.password}</Errors>}
           </InputArea>
+          <br />
           <LoginBtn onClick={handleLogin}>
             {!isLogin ? 'Login' : 'Succeed!'}
           </LoginBtn>

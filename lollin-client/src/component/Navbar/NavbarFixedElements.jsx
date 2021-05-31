@@ -32,6 +32,7 @@ export const Logo = styled(Link)`
   background-repeat: no-repeat;
 
   @media screen and (max-width: 768px) {
+    margin-top: 10px;
     height: 50px;
     justify-content: center;
   }
@@ -45,6 +46,7 @@ export const NavLink = styled(Link)`
   align-items: center;
   justify-self: start;
   text-decoration: none;
+  margin-top: 2px;
   margin-left: 30px;
   padding: 0 1rem;
   height: 100%;

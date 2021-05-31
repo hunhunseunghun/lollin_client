@@ -60,7 +60,6 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
           <Title>Sign Up</Title>
           <InputArea>
             <LabelName htmlFor="username">ID</LabelName>
-            <br />
             <InputBox
               id="username"
               type="text"
@@ -74,7 +73,6 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
           </InputArea>
           <InputArea>
             <LabelName htmlFor="password">Password</LabelName>
-            <br />
             <InputBox
               id="password"
               type="password"
@@ -88,7 +86,6 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
           </InputArea>
           <InputArea>
             <LabelName htmlFor="nickname">LoL-Nickname</LabelName>
-            <br />
             <InputBox
               id="nickname"
               type="text"
@@ -102,7 +99,6 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
           </InputArea>
           <InputArea>
             <LabelName htmlFor="email">E-mail</LabelName>
-            <br />
             <InputBox
               id="email"
               type="email"
