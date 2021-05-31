@@ -1,18 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { ItemBox, ItemsList, ItemName } from "./ItemsDbListStyled.jsx";
-import wardImg from "../../Images/ward.png";
 
-const server = process.env.REACT_APP_SERVER_URL;
-const fakeData = {
-  items: [
-    {
-      id: 1,
-      img: wardImg,
-      desc: "사용 시 - 장신구: 아군 모두에게 90~120초 동안 주변 지역을 밝혀 주는 투명 와드 하나를 지면에 설치합니다. 투명 와드는 최대 2개까지 보유할 수 있으며 240~120초마다 하나씩 생성됩니다.",
-    },
-  ],
-};
+// const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
   const copyTags = [...sortTags];
@@ -59,7 +48,6 @@ const ItemsDbList = ({ itemsData, apiVer, sortTags, itemName }) => {
   };
   handleFinalData();
 
-  console.log(finalData);
   return (
     <ItemsList className="itemsList">
       {Array.isArray(itemsData)

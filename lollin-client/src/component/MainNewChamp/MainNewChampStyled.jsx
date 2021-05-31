@@ -4,21 +4,16 @@ export const NewChamp = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 3rem;
 
   .noDisplay {
     display: none;
   }
 
   .newChampContainer {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    place-items: center;
-    flex-wrap: wrap-reverse;
     padding: 0 1rem;
-    padding-left: 2rem;
     width: 100%;
-    max-width: 930px;
+    max-width: 880px;
+    height: 650px;
   }
   // section right
   .newChampWrapRight {
@@ -71,6 +66,7 @@ export const NewChamp = styled.div`
     font-weight: bold;
     color: #d69d00cb;
     padding-left: 1rem;
+    padding-top: 1rem;
   }
   .desc {
     align-items: center;

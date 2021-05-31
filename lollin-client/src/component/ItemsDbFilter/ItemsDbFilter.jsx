@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { ItemsFilter, CheckBoxArea } from "./ItemsDbFilterStyled.jsx";
 
-const server = process.env.REACT_APP_SERVER_URL;
+// const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDbFilter = ({
   itemsData,

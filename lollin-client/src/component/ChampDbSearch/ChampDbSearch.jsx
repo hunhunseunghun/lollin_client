@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChampSearchArea } from "./ChampDbSearchStyled.jsx";
 
 const ChampDbSearch = ({

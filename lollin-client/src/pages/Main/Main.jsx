@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import { MainContainer } from "./MainStyled.jsx";
 
 import MainTopView from "../../component/MainTopView/MainTopView.jsx";
@@ -9,7 +8,7 @@ import MainNewChamp from "../../component/MainNewChamp/MainNewChamp.jsx";
 import MainUpdatedItems from "../../component/MainUpdatedItems/MainUpdatedItems.jsx";
 import MainSearch from "../../component/MainSearch/MainSearch.jsx";
 
-const server = process.env.REACT_APP_SERVER_URL;
+// const server = process.env.REACT_APP_SERVER_URL;
 const MainPage = ({ handleSearchChange, handleSearchClick }) => {
   const history = useHistory();
 

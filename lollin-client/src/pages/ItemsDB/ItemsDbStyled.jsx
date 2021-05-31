@@ -13,6 +13,7 @@ export const Wrapper = styled.section`
   place-items: center;
   background-color: #0000005e;
   z-index: 3;
+  padding-top: 7rem;
 `;
 
 export const BackImg = styled.img`

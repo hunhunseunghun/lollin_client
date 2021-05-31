@@ -1,19 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 import {
-  SearchBtn,
   SearchBox,
   MainVideo,
   MainBackVideo,
   BackWrapper,
+  TopView,
 } from "./MainTopViewStyled.jsx";
 import mainVideo from "../../Images/mainbackvideo.webm";
 import mainTopLogo from "../../Images/logo.png";
 // import mainBgi from "../../Images/MainBgi.jpg";
 
-const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
+const MainSearchBox = () => {
   return (
-    <SearchBox className="searchBox">
+    <TopView className="TopView">
       <BackWrapper className="searchBoxWrap">
         <div className="searchBoxBackVideo">
           <div className="searchBoxStylePoster"></div>
@@ -36,6 +35,7 @@ const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
               <img
                 className="foreLogoImg"
                 src={mainTopLogo}
+                alt={mainTopLogo}
                 sizes="(max-width:599px) 80vw,40vw"
               ></img>
             </div>
@@ -43,7 +43,7 @@ const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
           <div className="foreGroundRow-bottom"></div>
         </div>
       </div>
-    </SearchBox>
+    </TopView>
   );
 };
 

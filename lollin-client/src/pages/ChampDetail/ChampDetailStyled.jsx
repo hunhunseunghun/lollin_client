@@ -12,7 +12,6 @@ export const Wrap = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  min-height: 1350px;
 `;
 
 export const RenderArea = styled.div`
@@ -79,15 +78,15 @@ export const SkillsArea = styled.section`
   section {
     display: grid;
     grid-template-rows: 1fr 3fr;
-    place-items: center;
+    justify-content: space-evenly;
+    padding-top: 1rem;
     border-radius: 45px;
-    width: 360px;
-    padding: 3%;
+    width: 370px;
 
-    padding-right: 15%;
-    margin-bottom: 3%;
+    font-size: 0.8rem;
     .detailSkill {
       display: flex;
+      justify-content: space-evenly;
     }
     .detailSkills {
       padding: 2%;
@@ -95,13 +94,17 @@ export const SkillsArea = styled.section`
       &:hover {
       }
     }
+
+    .detailDesc {
+      padding: 20px;
+    }
     .detailSkillsImg {
       width: 52px;
       transform: scale(1);
       transition: transform 0.5s;
       &:hover {
         transition: transform 0.5s;
-        transform: scale(0.9);
+        transform: scale(1.1);
         cursor: pointer;
       }
     }
@@ -120,9 +123,10 @@ export const SkillsArea = styled.section`
 `;
 
 export const ChampSkillWeb = styled.video`
-  padding: 12px;
+  padding: 10px;
   min-width: 350px;
-  max-width: 430px;
+  max-width: 400px;
+
   @media (min-width: 320px) and (max-width: 479px) {
     padding: 0;
     width: 200px;
@@ -149,16 +153,13 @@ export const ChampTipsArea = styled.div`
   justify-content: center;
   align-items: center;
   padding: 3%;
-  margin-bottom: 5%;
-  width: 850px;
+  margin-top: 1rem;
+  width: 60%;
+  max-width: 710px;
   border: 0.1rem dashed #f8b60052;
   font-size: 0.9rem;
   color: #f8b600;
 
-  @media (min-width: 480px) and (max-width: 960px) {
-    width: 450px;
-    margin-top: 3rem;
-  }
   @media (min-width: 320px) and (max-width: 479px) {
     width: 300px;
     margin-top: 1rem;

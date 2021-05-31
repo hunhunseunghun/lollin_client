@@ -21,6 +21,10 @@ const MainChampPre = ({ history }) => {
       id: "Sylas",
       img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
     },
+    {
+      id: "Sylas",
+      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
+    },
   ]);
 
   const [imageIndex, setImageIndex] = useState(0);
