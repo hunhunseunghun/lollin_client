@@ -4,7 +4,7 @@ export const NewChamp = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
+  padding-top: 3rem;
 
   .noDisplay {
     display: none;
@@ -63,22 +63,7 @@ export const NewChamp = styled.div`
   .textContainer {
     display: flex;
     width: 100%;
-  }
-  .desc {
-    align-items: center;
-    width: 90%;
-  }
-  .descTitle {
-    width: 100%;
-    text-align: right;
-    font-size: 2em;
-    color: rgb(255, 196, 0);
-  }
-  .descMain {
-    width: 100%;
-    text-align: right;
-    font-size: 12px;
-    color: white;
+    transition: transform 0.3s;
   }
   .titleWrap {
     writing-mode: vertical-lr;
@@ -87,6 +72,23 @@ export const NewChamp = styled.div`
     color: #d69d00cb;
     padding-left: 1rem;
   }
+  .desc {
+    align-items: center;
+    width: 90%;
+  }
+  .descTitle {
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+    color: rgb(255, 196, 0);
+  }
+  .descMain {
+    width: 100%;
+    text-align: right;
+    font-size: 0.7rem;
+    color: white;
+  }
+
   .title {
     position: relative;
     height: 90px;
@@ -96,6 +98,7 @@ export const NewChamp = styled.div`
   // section left
   .newChampWrapLeft {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap-reverse;
     width: 100%;
     min-width: 400px;
@@ -104,7 +107,8 @@ export const NewChamp = styled.div`
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
+    width: 452px;
+    height: 271px;
     padding-right: 2.3rem;
   }
   .videoStyle {
@@ -126,7 +130,7 @@ export const NewChamp = styled.div`
     width: 360px;
     display: flex;
     padding: 1rem;
-    padding-left: 2rem;
+    padding-left: 0.8rem;
     margin-top: 1rem;
   }
 
@@ -157,7 +161,7 @@ export const NewChamp = styled.div`
     border-style: none;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 924px) {
     .newChampContainer {
       padding-top: 2rem;
     }
@@ -167,14 +171,14 @@ export const NewChamp = styled.div`
       justify-content: end;
       width: 100%;
       transform: translateY(10rem);
-      transition: transform 0.5s;
+      transition: transform 0.3s;
     }
-    .skillWrap {
+    /* .skillWrap {
       width: 380px;
       position: relative;
       transform: translateY(-15rem);
       transition: transform 0.5s;
-    }
+    } */
   }
   // section style
 
@@ -199,38 +203,6 @@ export const NewChamp = styled.div`
       border-radius: 20px;
     }
 
-    .optionList {
-      position: relative;
-      width: 230px;
-      display: inline-flex;
-    }
-
-    .optionIcon {
-      position: relative;
-      display: flex;
-      flex: 1 1;
-      width: 30px;
-      height: 30px;
-    }
-
-    .optionIconBorder {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      transform: translate(10px, 10px) scale(1);
-      transition: transform 1s;
-    }
-    .optionIconBorder :hover {
-      position: absolute;
-      transform: scale(0.8);
-      transition: all 1000ms;
-      cursor: pointer;
-    }
-    .optionButtonImg {
-      width: 100%;
-      height: 100%;
-      border-style: none;
-    }
     // section right
     .newChampWrapRight {
       display: flex;
@@ -276,6 +248,9 @@ export const NewChamp = styled.div`
       font-size: 0.8rem;
       color: #ffffff;
     }
+    .newChampImgStyle {
+      display: none;
+    }
 
     // section style
     .titleWrap {
@@ -310,6 +285,9 @@ export const NewChamp = styled.div`
       width: 30px;
       height: 30px;
       border-style: none;
+    }
+    .videoStyle {
+      display: none;
     }
   }
 `;

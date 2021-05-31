@@ -5,7 +5,7 @@ import { UpdatedItems } from "./MainUpdatedItemsStyled.jsx";
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainUpdatedItems = ({ history }) => {
-  const [newItemData, setItemData] = useState({
+  const [newItemData, setNewItemData] = useState({
     items: [
       {
         id: "장화",
@@ -30,9 +30,10 @@ const MainUpdatedItems = ({ history }) => {
 
   useEffect(() => {
     axios
-      .get(`${server}/items/updateditems`)
+      .get(`${server}/items/patched2`)
       .then((res) => {
-        setItemData(res);
+        setNewItemData(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         throw err;
@@ -43,9 +44,30 @@ const MainUpdatedItems = ({ history }) => {
     history.push("/items/all");
   };
 
+  const handleItemHtml = () => {
+    return (
+      <div className="wrapper">
+        {" "}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: newItemData,
+          }}
+        ></div>
+      </div>
+    );
+  };
+
   return (
     <UpdatedItems className="updatedItems">
-      <div className="itemsTitle">패치 적용된 아이템</div>
+      <div className="textContainer">
+        <div className="desc">
+          <div className="descTitle">업데이트 아이템</div>
+        </div>
+        <div className="titleWrap">- Updated items</div>
+      </div>
+
+      {handleItemHtml()}
+      {/* <div className="itemsTitle">패치 적용된 아이템</div>
       <div className="itemsImgArea">
         {newItemData.items.map((ele) => (
           <img className="itemsImg" src={ele.img} alt="no images" />
@@ -56,7 +78,7 @@ const MainUpdatedItems = ({ history }) => {
           <div className="itmesDesc">{ele.desc}</div>
         ))}
       </div>
-      <button onClick={handleDetailsClick}>Details</button>
+      <button onClick={handleDetailsClick}>Details</button> */}
     </UpdatedItems>
   );
 };
