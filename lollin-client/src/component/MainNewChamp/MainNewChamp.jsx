@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NewChamp, SkillsDesc, SkillsImg } from "./MainNewChampStyled.jsx";
+import { NewChamp } from "./MainNewChampStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -25,10 +25,6 @@ const MainNewChamp = () => {
     ],
   });
 
-  // const handleSkillIndex () => {
-  //   set
-  // }
-
   useEffect(() => {
     axios
       .get(`${server}/champions/recent`)
@@ -40,7 +36,6 @@ const MainNewChamp = () => {
       })
       .then((res) => {
         setNewChampData(res.data.data);
-        console.log(res.data.data);
       });
   }, []);
 
@@ -50,7 +45,11 @@ const MainNewChamp = () => {
         <section className="newChampWrapRight">
           <div className="newChampImgWrap">
             <div className="newChampImgStyle"></div>
-            <img className="newChamImg" src={newChampData.img} />
+            <img
+              className="newChamImg"
+              src={newChampData.img}
+              alt={newChampData.img}
+            />
             <div className="newChamName">{newChampData.id}</div>
           </div>
           <div className="textContainer">

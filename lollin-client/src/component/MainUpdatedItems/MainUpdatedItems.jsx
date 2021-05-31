@@ -33,16 +33,15 @@ const MainUpdatedItems = ({ history }) => {
       .get(`${server}/items/patched2`)
       .then((res) => {
         setNewItemData(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         throw err;
       });
   }, []);
 
-  const handleDetailsClick = () => {
-    history.push("/items/all");
-  };
+  // const handleDetailsClick = () => {
+  //   history.push("/items/all");
+  // };
 
   const handleItemHtml = () => {
     return (

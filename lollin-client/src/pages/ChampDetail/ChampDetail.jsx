@@ -23,7 +23,6 @@ const server = process.env.REACT_APP_SERVER_URL;
 const ChampDetail = ({ champPriId }) => {
   const [champData, setChampData] = useState(initData);
   const [skillIndex, setSkillIndex] = useState(0);
-  const [qwerpDesc, setQwerDesc] = useState("Q");
   const handleSkillIndex = (index) => {
     setSkillIndex(index);
   };
@@ -33,9 +32,8 @@ const ChampDetail = ({ champPriId }) => {
       .get(`${server}/champions/detail?id=${encodeURI(champPriId)}`)
       .then((res) => {
         setChampData(res.data.data);
-        console.log(res);
       });
-  }, []);
+  }, [champPriId]);
 
   const handleSkillsDescription = () => {
     return (

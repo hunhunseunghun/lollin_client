@@ -18,7 +18,7 @@ export const ItemsList = styled.main`
 
 export const ItemBox = styled.div`
   display: grid;
-  width: 80%;
+  width: 60%;
   grid-template-columns: 0.5fr 0.8fr 3fr;
   place-items: center;
   color: white;

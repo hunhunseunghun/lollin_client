@@ -7,7 +7,7 @@ import ItemsDbBgi from "../../Images/ItemsDbBgi1.jpg";
 
 import { Items, ItemTitle, BackImg, Wrapper } from "./ItemsDbStyled.jsx";
 
-const server = process.env.REACT_APP_SERVER_URL;
+// const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDB = () => {
   const [apiVer, setApiVer] = useState("");
@@ -49,12 +49,13 @@ const ItemsDB = () => {
       <BackImg className="itemDBbackImg" src={`${ItemsDbBgi}`} />
 
       <Wrapper>
-        <ItemTitle className="itemTitle">ITEM</ItemTitle>
+        <ItemTitle className="itemTitle">아이템</ItemTitle>
         <ItemsDbFilter
           itemsData={itemsData}
           handleSortTags={handleSortTags}
           handleItemSearchValue={handleItemSearchValue}
         />
+
         <ItemsSearchBox handleItemSearchValue={handleItemSearchValue} />
         <ItemsDbList
           itemsData={itemsData}

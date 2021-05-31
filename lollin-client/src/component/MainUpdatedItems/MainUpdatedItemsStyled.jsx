@@ -33,7 +33,7 @@ export const UpdatedItems = styled.div`
   .wrapper {
     position: relative;
     display: flex;
-    width: 50%;
+    width: 80%;
     max-width: 850px;
     min-width: 270px;
     border: 1px solid rgb(36, 44, 54);
@@ -147,5 +147,9 @@ export const UpdatedItems = styled.div`
 
   .aceent-before > div {
     width: 80%;
+  }
+
+  @media (min-width: 480px) and (max-width: 909px) {
+    padding-top: 15rem;
   }
 `;
