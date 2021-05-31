@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 
 export const Container = styled.div`
-  margin: 100px auto;
+  margin: 40px auto;
   width: 800px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
   position: relative;
   border-radius: 10px;
-  height: 600px;
+  height: 700px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: #121212;
@@ -27,7 +26,7 @@ export const Form = styled.form`
   right: 50%;
   transform: translate(-50%, -50%);
   width: 97%;
-  height: 97%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +39,7 @@ export const Title = styled.h1`
   text-align: start;
   width: 80%;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: #fff;
 `;
 
@@ -79,7 +78,7 @@ export const InputBox = styled.input`
 `;
 
 export const Errors = styled.p`
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   margin-top: 0.5rem;
   color: #f00e0e;
 `;

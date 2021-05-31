@@ -58,7 +58,7 @@ const MyInfo = (history, {nickname, newpassword}) => {
         console.log(res);
         if(res.status === 200) {
           console.log('정보변경 성공');
-
+          // setIsUpdated(true)
           setTimeout(() => history.push("/"), 1000)
         } else if (res.data.message === 'insufficient datas') {
           console.log('불충분한 데이터');
@@ -103,7 +103,7 @@ const MyInfo = (history, {nickname, newpassword}) => {
             />
             {errors.password && <Errors>{errors.password}</Errors>}
           </InputArea>}
-          
+          <br />
           <UpdateBtn type="submit" onClick={handleUpdate}>
             {!isSubmitted ? 'Update' : 'Succeed!'}
           </UpdateBtn>
