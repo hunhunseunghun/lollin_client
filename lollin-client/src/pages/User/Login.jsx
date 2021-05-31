@@ -57,7 +57,7 @@ const Login = (history, { submitForm, username, password }) => {
     console.log('로그인 접속성공!');
     await axios
       .post(
-        '/auth/kakao',
+        'https://kauth.kakao.com/oauth/authorize?client_id=f74b9c0261d2189c9830e2f15ee63423&redirect_uri=https://lollinserver.link/auth/kakao&response_type=code',
         {
           username,
           password,
