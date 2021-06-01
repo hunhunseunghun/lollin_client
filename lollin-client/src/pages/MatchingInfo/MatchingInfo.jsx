@@ -9,6 +9,7 @@ function MatchingInfo() {
   let [isSearched, setIsSearched] = useState(false);
   let blueTeam = [];
   let redTeam = [];
+
   let setDatas = (matchData) => {
     blueTeam = [];
     redTeam = [];
@@ -23,6 +24,7 @@ function MatchingInfo() {
     console.log("redTeam: ", redTeam);
     console.log("blueTeam: ", blueTeam);
   };
+
   let handleSearch = () => {
     axios
       .get(`${process.env.REACT_APP_SERVER_URL}/utils/search?name=${inputName}`)
@@ -43,6 +45,7 @@ function MatchingInfo() {
           });
       });
   };
+
   useEffect(() => {
     handleSearch();
   }, []);

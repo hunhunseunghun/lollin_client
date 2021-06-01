@@ -6,7 +6,7 @@ import MainPage from "./pages/Main/Main.jsx";
 import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
 import ChampDB from "./pages/ChampDB/ChampDB.jsx";
 import ChampDetail from "./pages/ChampDetail/ChampDetail.jsx";
-import MatchingInfo from "./pages/MatchingInfo/MatchingInfo.jsx";
+import UserInfo from "./pages/UserInfo/UserInfo.jsx";
 
 import Navbar from "./component/Navbar/NavbarFixed";
 import FooterFixed from "./component/Footer/FooterFixed";
@@ -55,7 +55,7 @@ function App() {
         setNickNameResult(res.data);
         console.log(res);
       });
-    history.push("/matchinginfo");
+    history.push("/userinfo");
   };
 
   return (
@@ -121,7 +121,7 @@ function App() {
         path="/user/update"
         render={() => <Myinfo history={history} />}
       />
-      <Route exact path="/matchingInfo" component={MatchingInfo}></Route>
+      <Route exact path="/userinfo" component={UserInfo}></Route>
       <FooterFixed />
     </div>
   );

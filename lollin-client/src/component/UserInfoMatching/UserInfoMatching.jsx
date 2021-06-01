@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Matching } from "./UserInfoMatchingStyled";
+import { Container } from "./UserInfoMatchingStyled";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -10,6 +10,7 @@ function UserInfoMatching() {
   let [isSearched, setIsSearched] = useState(false);
   let blueTeam = [];
   let redTeam = [];
+
   let setDatas = (matchData) => {
     blueTeam = [];
     redTeam = [];
@@ -24,6 +25,7 @@ function UserInfoMatching() {
     console.log("redTeam: ", redTeam);
     console.log("blueTeam: ", blueTeam);
   };
+
   let handleSearch = () => {
     axios
       .get(`${process.env.REACT_APP_SERVER_URL}/utils/search?name=${inputName}`)
@@ -47,8 +49,9 @@ function UserInfoMatching() {
   useEffect(() => {
     handleSearch();
   }, []);
+
   return (
-    <Matching>
+    <Container>
       <input
         type="text"
         value={inputName}
@@ -61,7 +64,7 @@ function UserInfoMatching() {
         ? matchData.participants.map((el) => {
             return (
               <img
-                src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
+                src={`http://ddragon.leagueoflegends.com/cdn/img/champion/${el.championName}.png`}
                 width={120}
                 height={250}
               ></img>
@@ -73,7 +76,7 @@ function UserInfoMatching() {
       ) : (
         <div>Showing featured game</div>
       )}
-    </Matching>
+    </Container>
   );
 }
 //http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg

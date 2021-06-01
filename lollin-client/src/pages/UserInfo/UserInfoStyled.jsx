@@ -1,6 +1,3 @@
 import styled from "styled-components";
 
-export const UserInfo = UserInfo.div`
-
-
-`;
+export const Container = styled.div``;

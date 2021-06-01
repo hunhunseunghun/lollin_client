@@ -1,12 +1,12 @@
 import React from "react";
-import { UserInfoMatching } from "../../component/UserInfoMatching/UserInfoMatching.jsx";
-import { UserInfo } from "./UserInfoStyled.jsx";
+import UserInfoMatching from "../../component/UserInfoMatching/UserInfoMatching.jsx";
+import { Container } from "./UserInfoStyled.jsx";
 
 const UserInfo = ({}) => {
   return (
-    <UserInfo>
+    <Container>
       <UserInfoMatching />
-    </UserInfo>
+    </Container>
   );
 };
 
