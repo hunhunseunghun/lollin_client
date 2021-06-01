@@ -25,7 +25,7 @@ function MatchingInfo() {
 	};
 	let handleSearch = () => {
 		axios
-			.get(`${process.env.REACT_APP_SERVER_URL}utils/search?name=${inputName}`)
+			.get(`${process.env.REACT_APP_SERVER_URL}/utils/search?name=${inputName}`)
 			.then((response) => {
 				console.log(response.data);
 				console.log(response.status);
@@ -35,7 +35,7 @@ function MatchingInfo() {
 			.catch((err) => {
 				console.log('this is catch');
 				axios
-					.get(`${process.env.REACT_APP_SERVER_URL}utils/featured`)
+					.get(`${process.env.REACT_APP_SERVER_URL}/utils/featured`)
 					.then((response) => {
 						console.log(response.data);
 						setIsSearched(false);
