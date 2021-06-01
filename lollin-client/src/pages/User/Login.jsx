@@ -56,19 +56,16 @@ const Login = (history, { submitForm, username, password }) => {
   const handleKakao = async () => {
     console.log('로그인 접속성공!');
     await axios
-      .post(
+      .get(
         'https://kauth.kakao.com/oauth/authorize?client_id=f74b9c0261d2189c9830e2f15ee63423&redirect_uri=https://lollinserver.link/auth/kakao&response_type=code',
-        {
-          username,
-          password,
-        },
-        {
-          'Content-Type': 'application/json',
-          withCredentials: true,
-        }
       )
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          history.history.handleJwt(res.data.jwt);
+          history.history.handleLogin(true)
+          history.history.push("/")
+        } else if (res.status === 'user not found or wrong password')
+          console.log('로그인 실패');
       })
       .catch((err) => {
         console.error(err);
@@ -82,7 +79,12 @@ const Login = (history, { submitForm, username, password }) => {
         'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=8lA0wX_a_7Ol1i2LsNH7&redirect_uri=https://lollinserver.link/auth/naver&state=authentication_code',
       )
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          history.history.handleJwt(res.data.jwt);
+          history.history.handleLogin(true)
+          history.history.push("/")
+        } else if (res.status === 'user not found or wrong password')
+          console.log('로그인 실패');
       })
       .catch((err) => {
         console.error(err);
