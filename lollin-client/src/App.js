@@ -6,10 +6,11 @@ import MainPage from "./pages/Main/Main.jsx";
 import ItemsDB from "./pages/ItemsDB/ItemsDB.jsx";
 import ChampDB from "./pages/ChampDB/ChampDB.jsx";
 import ChampDetail from "./pages/ChampDetail/ChampDetail.jsx";
+import UserInfo from "./pages/UserInfo/UserInfo.jsx";
 
-import Navbar from './component/Navbar/NavbarFixed';
-import FooterFixed from './component/Footer/FooterFixed';
-import SidebarDropdown from './component/Sidebar/SidebarDropdown';
+import Navbar from "./component/Navbar/NavbarFixed";
+import FooterFixed from "./component/Footer/FooterFixed";
+import SidebarDropdown from "./component/Sidebar/SidebarDropdown";
 
 import Login from "./pages/User/Login";
 import Signup from "./pages/User/Signup";
@@ -22,17 +23,17 @@ function App() {
   const [champPriId, setChampPriId] = useState("Aatrox");
   const [nickName, setNickName] = useState("");
   const [nickNameResult, setNickNameResult] = useState();
-  const [jwt, setJwt] = useState('');
-  const [isLogin, setisLogin] = useState(false)
+  const [jwt, setJwt] = useState("");
+  const [isLogin, setisLogin] = useState(false);
 
   const [loginOn, setLoginOn] = useState(false);
   const [signupOn, setSignupOn] = useState(false);
 
   const handleJwt = (jwt) => {
     setJwt(jwt);
-  }
+  };
   history.handleJwt = handleJwt;
-  history.handleLogin= setisLogin;
+  history.handleLogin = setisLogin;
   history.jwt = jwt;
   history.setJwt = setJwt;
   const toggle = () => {
@@ -55,7 +56,7 @@ function App() {
         setNickNameResult(res.data);
         console.log(res);
       });
-    history.push("/matchinginfo");
+    history.push("/userinfo");
   };
 
   return (
@@ -69,7 +70,7 @@ function App() {
         isLogin={isLogin}
         setisLogin={setisLogin}
         setJwt={setJwt}
-        jwt={jwt} 
+        jwt={jwt}
       />
       <SidebarDropdown
         isOpen={isOpen}
@@ -81,7 +82,7 @@ function App() {
         isLogin={isLogin}
         setisLogin={setisLogin}
         setJwt={setJwt}
-        jwt={jwt} 
+        jwt={jwt}
       />
       <Route
         exact
@@ -106,9 +107,22 @@ function App() {
         render={() => <ChampDetail champPriId={champPriId} />}
       />
       <Route exact path="/items/all" component={ItemsDB} />
-      <Route exact path="/user/login" render={() => <Login history={history} />} />
-      <Route exact path="/user/signup" render={() => <Signup history={history} />} />
-      <Route exact path="/user/update" render={() => <Myinfo history={history} />} />
+      <Route
+        exact
+        path="/user/login"
+        render={() => <Login history={history} />}
+      />
+      <Route
+        exact
+        path="/user/signup"
+        render={() => <Signup history={history} />}
+      />
+      <Route
+        exact
+        path="/user/update"
+        render={() => <Myinfo history={history} />}
+      />
+      <Route exact path="/userinfo" component={UserInfo}></Route>
       <FooterFixed />
     </div>
   );

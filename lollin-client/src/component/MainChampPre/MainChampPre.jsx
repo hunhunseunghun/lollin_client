@@ -111,7 +111,10 @@ const MainChampPre = ({ history }) => {
               <div
                 className={idx === imageIndex ? "slide activeSlide" : "slide"}
                 onClick={() => {
-                  history.push("/champions/all");
+                  history.push({
+                    pathname: "/champions/detail",
+                    state: { id: ele.id },
+                  });
                 }}
                 key={idx}
               >

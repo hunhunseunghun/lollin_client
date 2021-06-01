@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Items = styled.div`
-  background-color: black;
   display: flex;
   justify-content: center;
 `;
@@ -20,8 +19,14 @@ export const BackImg = styled.img`
   position: absolute;
   width: 100%;
   max-width: 1440px;
+  min-height: 50rem;
   filter: blur(1.8px);
+  top: 2rem;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    min-height: 30rem;
+  }
 `;
 
 export const ItemTitle = styled.span`

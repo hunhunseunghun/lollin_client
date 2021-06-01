@@ -23,10 +23,10 @@ export const ChampSearchArea = styled.div`
     color: white;
     box-sizing: border-box;
     outline: 0;
-    border-bottom: 1px solid #FFC400;
+    border-bottom: 1px solid #ffc400;
 
     &:focus::-webkit-input-placeholder {
-      font-size: 0.7rem;
+      font-size: 0rem;
       color: white;
     }
   }
@@ -47,7 +47,7 @@ export const ChampSearchArea = styled.div`
     transition: background-color 0.4s;
 
     &:hover {
-      background-color: #E4E400;
+      background-color: #e4e400;
       transition: background-color 0.4s;
       cursor: pointer;
     }

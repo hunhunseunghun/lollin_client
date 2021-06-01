@@ -25,10 +25,10 @@ export const SearchBox = styled.div`
     box-sizing: border-box;
     outline: 0;
     /* box-shadow: 1.5px 2.5px 0.9px 1px #ffc400a6; */
-    border-bottom: 1px solid #FFC400;
+    border-bottom: 1px solid #ffc400;
 
     &:focus::-webkit-input-placeholder {
-      font-size: 0.78rem;
+      font-size: 0rem;
       color: white;
     }
   }
