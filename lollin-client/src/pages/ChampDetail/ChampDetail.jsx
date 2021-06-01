@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router";
 import { initData } from "./ChampInitData.jsx";
 import {
   ChampDetailArea,
@@ -21,19 +22,33 @@ import {
 const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
+  const location = useLocation();
   const [champData, setChampData] = useState(initData);
   const [skillIndex, setSkillIndex] = useState(0);
+  const [resultId, setResultId] = useState("Aatorx");
+
+  console.log(resultId);
+
   const handleSkillIndex = (index) => {
     setSkillIndex(index);
   };
 
   useEffect(() => {
+    const handleResultId = () => {
+      if (location.state !== undefined) {
+        return setResultId(location.state.id);
+      } else {
+        return setResultId(champPriId);
+      }
+    };
+    handleResultId();
+
     axios
-      .get(`${server}/champions/detail?id=${encodeURI(champPriId)}`)
+      .get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
       .then((res) => {
         setChampData(res.data.data);
       });
-  }, [champPriId]);
+  }, [resultId]);
 
   const handleSkillsDescription = () => {
     return (
@@ -57,7 +72,7 @@ const ChampDetail = ({ champPriId }) => {
           <ChampName className="champDetailNameArea">
             <ChampDetailImg className="champDetailImg" src={champData.img} />
             <CahmpDetailName className="cahmpDetailName">
-              {champPriId}
+              {resultId}
             </CahmpDetailName>
           </ChampName>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Nav,
   Logo,
@@ -8,8 +8,8 @@ import {
   NavBtn,
   NavLoginBtn,
   NavSignupBtn,
-} from './NavbarFixedElements';
-import Login from '../../pages/User/Login';
+} from "./NavbarFixedElements";
+import Login from "../../pages/User/Login";
 
 const Navbar = ({
   toggle,
@@ -20,7 +20,7 @@ const Navbar = ({
   jwt,
   isLogin,
   setisLogin,
-  setJwt
+  setJwt,
 }) => {
   return (
     <>
@@ -30,14 +30,27 @@ const Navbar = ({
         <NavMenu>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>
-          <NavLink to="/utils/search?name=${name}">Matching Info</NavLink>
+          <NavLink to="/matchingInfo">Matching Info</NavLink>
         </NavMenu>
         <NavBtn>
-          {isLogin? <NavLoginBtn to="/" onClick={()=>{
-            setisLogin(false)
-            setJwt('')
-          }}>Logout</NavLoginBtn> : <NavLoginBtn to="/user/login">Login</NavLoginBtn>}
-          {isLogin? <NavSignupBtn to="/user/update">MyInfo</NavSignupBtn>:<NavSignupBtn to="/user/signup">Signup</NavSignupBtn>}
+          {isLogin ? (
+            <NavLoginBtn
+              to="/"
+              onClick={() => {
+                setisLogin(false);
+                setJwt("");
+              }}
+            >
+              Logout
+            </NavLoginBtn>
+          ) : (
+            <NavLoginBtn to="/user/login">Login</NavLoginBtn>
+          )}
+          {isLogin ? (
+            <NavSignupBtn to="/user/update">MyInfo</NavSignupBtn>
+          ) : (
+            <NavSignupBtn to="/user/signup">Signup</NavSignupBtn>
+          )}
         </NavBtn>
       </Nav>
     </>
