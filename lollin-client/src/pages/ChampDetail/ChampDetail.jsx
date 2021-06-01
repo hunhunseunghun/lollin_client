@@ -62,12 +62,11 @@ const ChampDetail = ({ champPriId }) => {
 
   return (
     <ChampDetailArea className="champDetail">
+      <BackImg
+        className="champDbBackImg"
+        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
+      />
       <Wrap>
-        <BackImg
-          className="champDbBackImg"
-          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
-        />
-
         <RenderArea className="renderWrapper">
           <ChampName className="champDetailNameArea">
             <ChampDetailImg className="champDetailImg" src={champData.img} />

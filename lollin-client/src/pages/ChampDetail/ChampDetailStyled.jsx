@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const ChampDetailArea = styled.div`
-  background-color: #001429;
+  height: 70rem;
+  padding-bottom: 5rem;
 
   .noDisplay {
     display: none;
@@ -16,7 +17,6 @@ export const Wrap = styled.section`
 
 export const RenderArea = styled.div`
   position: absolute;
-  background-color: #000000a6;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -29,11 +29,12 @@ export const RenderArea = styled.div`
 export const BackImg = styled.img`
   position: absolute;
   width: 100%;
-  max-height: 450px;
+  top: 1rem;
+  max-height: 380px;
   margin-top: 20px;
-  filter: blur(8px);
-  border-bottom-right-radius: 300px;
-  border-bottom-left-radius: 300px;
+  filter: blur(9px);
+  opacity: 0.5;
+
   z-index: 2;
 `;
 export const ChampName = styled.div`
