@@ -16,6 +16,9 @@ import {
   InputBox,
 } from '../../validation/formElements';
 
+const { Kakao } = window;
+
+
 const Login = (history, { submitForm, username, password }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
     submitForm,
@@ -25,6 +28,7 @@ const Login = (history, { submitForm, username, password }) => {
 
   const handleLogin = async () => {
     console.log('로그인 성공!', values.username, values.password);
+    console.log(Kakao);
     await axios
       .post(
         'https://lollinserver.link/user/login',
@@ -53,12 +57,12 @@ const Login = (history, { submitForm, username, password }) => {
       });
   };
 
-  const handleKakao = async () => {
+  const handleKakao = () => {
     console.log('로그인 접속성공!');
-    await axios
-      .get(
-        'https://kauth.kakao.com/oauth/authorize?client_id=f74b9c0261d2189c9830e2f15ee63423&redirect_uri=https://lollinserver.link/auth/kakao&response_type=code',
-      )
+      // .get(
+      //   'https://kauth.kakao.com/oauth/authorize?client_id=f74b9c0261d2189c9830e2f15ee63423&redirect_uri=https://lollinserver.link/auth/kakao&response_type=code',
+      // )
+      Kakao.Auth.login
       .then((res) => {
         if (res.status === 200) {
           history.history.handleJwt(res.data.jwt);
@@ -72,9 +76,9 @@ const Login = (history, { submitForm, username, password }) => {
       });
   };
 
-  const handleNaver = async () => {
+  const handleNaver = () => {
     console.log('로그인 성공!');
-    await axios
+    axios
       .get(
         'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=8lA0wX_a_7Ol1i2LsNH7&redirect_uri=https://lollinserver.link/auth/naver&state=authentication_code',
       )
@@ -91,6 +95,9 @@ const Login = (history, { submitForm, username, password }) => {
       });
   };
 
+  const handleTest = () => {
+    Kakao.Auth.login();
+  }
   return (
     <>
       <Container>
@@ -132,6 +139,7 @@ const Login = (history, { submitForm, username, password }) => {
           <HorizonLine />
           <KakaoBtn onClick={handleKakao}>Kakao Login</KakaoBtn>
           <NaverBtn onClick={handleNaver}>Naver Login</NaverBtn>
+          <button onClick={handleTest}>test</button>
         </Form>
       </Container>
     </>
