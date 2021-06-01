@@ -6,7 +6,6 @@ import {
   Container,
   Form,
   Title,
-  Errors,
   LabelName,
   UpdateBtn,
   InputBox,
@@ -17,12 +16,16 @@ import HorizonLine from '../../modals/HorizonLine';
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
 
-const MyInfo = (history, {nickname, newpassword}) => {
-  const { handleChange, values, handleSubmit, errors } = useForm(validate);
+const MyInfo = (history, {nickname, password}) => {
+  const { handleChange, values, handleNew } = useForm(validate, submitForm);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [isLeaved, setIsLeaved] = useState(false);
   const [isAuth, setisAuth]= useState(true)
+
+  function submitForm() {
+    setIsSubmitted(true);
+  }
 
   useEffect(() => {
     let decode 
@@ -39,15 +42,17 @@ const MyInfo = (history, {nickname, newpassword}) => {
 
 
   const handleUpdate = async () => {
-    console.log('정보변경 접속', values.nickname, values.newpassword);
-
+    console.log('정보변경 접속', values.nickname, values.password);
+    if(!values.nickname && !values.password){
+      alert('하나라도 입력해주세요!')
+    } else {
     await axios
       .post(
         'https://lollinserver.link/user/update',
         {
           jwt :history.history.jwt,
           nickname: values.nickname,
-          newpassword: values.newpassword,
+          password: values.password,
         },
         {
           'Content-Type': 'application/json',
@@ -55,11 +60,10 @@ const MyInfo = (history, {nickname, newpassword}) => {
         }
       )
       .then((res) => {
-        console.log(res);
         if(res.status === 200) {
-          console.log('정보변경 성공');
-          // setIsUpdated(true)
-          setTimeout(() => history.push("/"), 1000)
+          setIsUpdated(true)
+          setIsSubmitted(true)
+          setTimeout(() => history.history.push("/"), 1000)
         } else if (res.data.message === 'insufficient datas') {
           console.log('불충분한 데이터');
         }
@@ -67,15 +71,36 @@ const MyInfo = (history, {nickname, newpassword}) => {
       .catch((err) => {
         console.error(err);
       });
+    }
   };
 
-  const handleLeave = () => {
-    setIsLeaved(true);
+  const handleLeave =  async () => {
+    console.log('asd')
+    await axios
+    .post('https://lollinserver.link/user/delete', 
+    {
+      jwt :history.history.jwt,
+    }
+    )
+    .then((res) => {
+      if (res.status === 200) {
+        console.log('회원탈퇴 성공')
+        setIsLeaved(true);
+        history.history.setJwt("")
+        history.history.replace("/")
+      } else if (res.status === 400) {
+        console.log('에러')
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   };
+
   return (
     <>
       <Container>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleNew}>
           <Title>My Info</Title>
           <InputArea>
             <LabelName htmlFor="nickname">LoL-Nickname</LabelName>
@@ -88,7 +113,6 @@ const MyInfo = (history, {nickname, newpassword}) => {
               value={values.nickname}
               onChange={handleChange}
             />
-            {errors.nickname && <Errors>{errors.nickname}</Errors>}
           </InputArea>
           {isAuth? '':<InputArea>
             <LabelName htmlFor="password">Password</LabelName>
@@ -96,12 +120,11 @@ const MyInfo = (history, {nickname, newpassword}) => {
               id="password"
               type="password"
               name="password"
-              placeholder="8 characters or more Password"
+              placeholder="Enter your new Password"
               autoComplete="off"
               value={values.password}
               onChange={handleChange}
             />
-            {errors.password && <Errors>{errors.password}</Errors>}
           </InputArea>}
           <br />
           <UpdateBtn type="submit" onClick={handleUpdate}>

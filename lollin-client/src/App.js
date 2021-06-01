@@ -35,6 +35,7 @@ function App() {
   history.handleJwt = handleJwt;
   history.handleLogin = setisLogin;
   history.jwt = jwt;
+  history.setJwt = setJwt;
   const toggle = () => {
     setIsOpen(!isOpen);
   };

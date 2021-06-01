@@ -132,7 +132,7 @@ export const NaverBtn = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #00ff00;
+    background-color: #03c75a;
     color: #000;
   }
 `;
