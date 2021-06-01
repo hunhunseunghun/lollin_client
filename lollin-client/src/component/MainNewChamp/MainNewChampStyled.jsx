@@ -75,13 +75,13 @@ export const NewChamp = styled.div`
   .descTitle {
     width: 100%;
     text-align: right;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: rgb(255, 196, 0);
   }
   .descMain {
     width: 100%;
     text-align: right;
-    font-size: 0.76rem;
+    font-size: 0.7rem;
     color: white;
   }
 
@@ -169,6 +169,19 @@ export const NewChamp = styled.div`
       transform: translateY(10rem);
       transition: transform 0.3s;
     }
+    .descTitle {
+      width: 100%;
+      text-align: right;
+      font-size: 2.2rem;
+      color: rgb(255, 196, 0);
+    }
+    .descMain {
+      width: 100%;
+      text-align: right;
+      font-size: 0.77rem;
+      color: white;
+    }
+
     /* .skillWrap {
       width: 380px;
       position: relative;
