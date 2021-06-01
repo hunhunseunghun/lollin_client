@@ -58,7 +58,7 @@ const MyInfo = (history, {nickname, newpassword}) => {
         console.log(res);
         if(res.status === 200) {
           console.log('정보변경 성공');
-          // setIsUpdated(true)
+          setIsUpdated(true)
           setTimeout(() => history.push("/"), 1000)
         } else if (res.data.message === 'insufficient datas') {
           console.log('불충분한 데이터');
@@ -69,9 +69,28 @@ const MyInfo = (history, {nickname, newpassword}) => {
       });
   };
 
-  const handleLeave = () => {
-    setIsLeaved(true);
+  const handleLeave = async () => {
+    await axios
+    .post('https://lollinserver.link/user/delete', 
+    {
+      jwt :history.history.jwt,
+    }
+    )
+    .then((res) => {
+      if (res.status === 200) {
+        console.log('회원탈퇴 성공')
+        setIsLeaved(true);
+        history.history.setJwt("")
+        history.history.replace("/")
+      } else if (res.status === 400) {
+        console.log('에러')
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   };
+
   return (
     <>
       <Container>
