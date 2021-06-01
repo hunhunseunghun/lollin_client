@@ -122,7 +122,7 @@ function App() {
         path="/user/update"
         render={() => <Myinfo history={history} />}
       />
-      <Route exact path="/userinfo" component={UserInfo}></Route>
+      <Route exact path="/userinfo" render={() => <UserInfo />} />
       <FooterFixed />
     </div>
   );
