@@ -77,11 +77,25 @@ export const TopView = styled.div`
   }
   .foreGroundLogo {
     display: inline-block;
+    justify-content: center;
     position: relative;
-    width: 60px;
-    height: 75px;
+    width: 800px;
+    height: 380px;
   }
-  .foreLogoImg {
+  .Intro {
+    display: inline-block;
+    margin-top: 40px;
+    color: #cccc00;
+    font-size: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 30px;
+    }
+  }
+  /* .foreLogoImg {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -90,7 +104,7 @@ export const TopView = styled.div`
     display: block;
     margin: 0px;
     border-style: none;
-  }
+  } */
   .foreGroundRow-bottom {
     width: 100%;
     margin-top: 0.625rem;
@@ -165,3 +179,34 @@ export const MainBackVideo = styled.video`
   object-position: center top;
   filter: blur(20px);
 `;
+
+export const Intro = styled.h1`
+  display: flex;
+  margin-top: 40px;
+  color: #cccc00;
+  font-size: 60px;
+
+  @media (max-width: 500px) {
+    margin-left: 40px;
+    font-size: 20px;
+  }
+`;
+
+export const ClickBtn = styled.button`
+  height: 50px;
+  width: 140px;
+  border: none;
+  font-size: 18px;
+  border-radius: 13px;
+  background-color: #13ca91;
+  color: #000;
+  font-weight: bold;
+  margin-top: 50px;
+  cursor: pointer;
+  
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+

@@ -86,7 +86,7 @@ const MainChampPre = ({ history }) => {
   }, []);
 
   return (
-    <ChampPre className="champPre">
+    <ChampPre id="champPre">
       <div className="container">
         <section className="champPreDesc">
           <div className="champPre-title-wrapper">

@@ -16,6 +16,8 @@ import Login from "./pages/User/Login";
 import Signup from "./pages/User/Signup";
 import Myinfo from "./pages/User/MyInfo";
 
+import ScrollToTop from "./Scroll/ScrollToTop";
+
 const server = process.env.REACT_APP_SERVER_URL;
 function App() {
   let history = useHistory();
@@ -61,6 +63,7 @@ function App() {
 
   return (
     <div className="Container">
+      <ScrollToTop />
       <Navbar
         toggle={toggle}
         loginOn={loginOn}
