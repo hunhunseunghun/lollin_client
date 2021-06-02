@@ -5,7 +5,7 @@ import UserInfoMatchingDetail from '../../component/UserInfoMatchingDetail/UserI
 import { Container } from './UserInfoStyled.jsx';
 
 const UserInfo = ({ summonerName }) => {
-	let [participant, setParticipant] = useState({});
+	let [participant, setParticipant] = useState(null);
 	const handleUserClick = (participant) => {
 		setParticipant(participant);
 	};
