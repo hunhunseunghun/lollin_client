@@ -13,7 +13,7 @@ const MainPage = ({ handleSearchChange, handleSearchClick }) => {
   const history = useHistory();
 
   return (
-    <MainContainer className="mainContainer">
+    <MainContainer id="mainContainer">
       <MainTopView />
       <MainSearch
         handleSearchChange={handleSearchChange}

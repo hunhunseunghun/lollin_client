@@ -10,6 +10,7 @@ import {
   NavSignupBtn,
 } from "./NavbarFixedElements";
 import Login from "../../pages/User/Login";
+import ScrollToTop from "../../Scroll/ScrollToTop";
 
 const Navbar = ({
   toggle,
