@@ -38,6 +38,8 @@ function App() {
   history.handleLogin = setisLogin;
   history.jwt = jwt;
   history.setJwt = setJwt;
+  history.setisLogin = setisLogin;
+  
   const toggle = () => {
     setIsOpen(!isOpen);
   };

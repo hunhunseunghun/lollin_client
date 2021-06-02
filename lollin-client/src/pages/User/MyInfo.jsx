@@ -31,6 +31,7 @@ const MyInfo = (history, {nickname, password}) => {
     let decode 
     try{
       decode = jwt.verify(history.history.jwt, process.env.REACT_APP_SECRET_KEY);
+      console.log(decode.type)
       if(decode.type === 'none'){
         setisAuth(false)
       }
@@ -75,7 +76,6 @@ const MyInfo = (history, {nickname, password}) => {
   };
 
   const handleLeave =  async () => {
-    console.log('asd')
     await axios
     .post('https://lollinserver.link/user/delete', 
     {
@@ -86,8 +86,9 @@ const MyInfo = (history, {nickname, password}) => {
       if (res.status === 200) {
         console.log('회원탈퇴 성공')
         setIsLeaved(true);
-        history.history.setJwt("")
-        history.history.replace("/")
+        history.history.setJwt("");
+        history.history.setisLogin(false);
+        setTimeout(() => history.history.replace("/"), 1000)
       } else if (res.status === 400) {
         console.log('에러')
       }
