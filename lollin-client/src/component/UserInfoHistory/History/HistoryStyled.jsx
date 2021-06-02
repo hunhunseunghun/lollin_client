@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: white;
-  color: #555;
+  color: #575757;
 
   .historyWrapper {
-    display: flex;
-    width: 250px;
-    height: 96px;
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr 2fr;
+    width: 230px;
+    height: 80px;
     margin: 10px 0;
     background-color: pink;
   }
@@ -31,14 +32,14 @@ export const Container = styled.div`
     border-radius: 250px;
   }
   .matinData {
-    vertical-align: middle;
     height: 96px;
   }
   .match {
+    position: relative;
+    top: 1rem;
     text-align: center;
-
+    height: 50%;
     font-size: 8px;
-    padding: 6px 0 4px 0;
   }
   .result {
     width: 50px;
@@ -46,9 +47,19 @@ export const Container = styled.div`
     font-size: 11px;
     font-weight: bold;
     text-align: center;
-    padding: 3px 0;
   }
   .loseResult {
     color: #b6594f;
+  }
+  .subData {
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 11px;
+  }
+  .kda {
+    font-size: 10px;
+    font-weight: bold;
   }
 `;
