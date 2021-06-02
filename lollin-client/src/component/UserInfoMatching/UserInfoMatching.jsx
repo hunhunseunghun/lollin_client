@@ -85,7 +85,12 @@ const UserInfoMatching = ({ summonerName }) => {
           <div className="teamWrapper allyWrapper">
             {blueTeam
               ? blueTeam.map((el) => (
-                  <section className="player allyHover">
+                  <section
+                    className="player allyHover"
+                    onClick={() => {
+                      console.log("clicked");
+                    }}
+                  >
                     <div className="stylePlayer allyPlayer">
                       <img
                         className="playerImg"
@@ -106,7 +111,12 @@ const UserInfoMatching = ({ summonerName }) => {
           <div className="teamWrapper oppWrapper">
             {redTeam
               ? redTeam.map((el) => (
-                  <section className="player oppHover">
+                  <section
+                    className="player oppHover"
+                    onClick={() => {
+                      console.log("clicked");
+                    }}
+                  >
                     <div className="stylePlayer oppPlayer">
                       <img
                         className="playerImg"
