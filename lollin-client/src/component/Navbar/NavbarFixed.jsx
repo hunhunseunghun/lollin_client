@@ -31,7 +31,7 @@ const Navbar = ({
         <NavMenu>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>
-          <NavLink to="/matchingInfo">Matching Info</NavLink>
+          <NavLink to="/userinfo">Matching Info</NavLink>
         </NavMenu>
         <NavBtn>
           {isLogin ? (

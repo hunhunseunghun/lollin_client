@@ -2,7 +2,7 @@ import React from "react";
 import UserInfoMatching from "../../component/UserInfoMatching/UserInfoMatching.jsx";
 import { Container } from "./UserInfoStyled.jsx";
 
-const UserInfo = ({}) => {
+const UserInfo = () => {
   return (
     <Container>
       <UserInfoMatching />
