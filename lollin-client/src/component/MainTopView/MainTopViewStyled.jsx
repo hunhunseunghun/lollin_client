@@ -183,12 +183,14 @@ export const MainBackVideo = styled.video`
 export const Intro = styled.h1`
   display: flex;
   margin-top: 40px;
-  color: #cccc00;
+  color: #C6C62B;
+  opacity: 0.7;
   font-size: 60px;
+  text-shadow: 7px 7px 13px #000;
 
   @media (max-width: 500px) {
-    margin-left: 40px;
-    font-size: 20px;
+    margin-left: 30px;
+    font-size: 22px;
   }
 `;
 
@@ -198,15 +200,29 @@ export const ClickBtn = styled.button`
   border: none;
   font-size: 18px;
   border-radius: 13px;
-  background-color: #13ca91;
-  color: #000;
+  background-color: #ff6666;
+  color: #404040;
   font-weight: bold;
   margin-top: 50px;
   cursor: pointer;
+  box-shadow: 5px 5px 10px 5px #121212;
   
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    /* background: #ffcccc; */
+    color: #D1D1D1;
+  }
+
+  &:active {
+    transform: translateY(8px);
+  }
 
   @media (max-width: 500px) {
-    font-size: 20px;
+    display: flex;
+    margin-left: 103px;
+    margin-top: 110px;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
