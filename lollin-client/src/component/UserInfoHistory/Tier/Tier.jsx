@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Container } from "./TierStyled.jsx";
-import challangerIcon from "../../../Images/tierIcons/challangerIcon.png";
+import React, { useState, useEffect } from 'react';
+import { Container } from './TierStyled.jsx';
 
 const Tier = ({ historyData }) => {
-  //   const [soloData, setSoloData] = useState(historyData.league_solo);
-  //   const [flexData, setFlexData] = useState(historyData.league_flex);
-  //   console.log(historyData);
-  //   console.log(soloData);
+	//   const [soloData, setSoloData] = useState(historyData.league_solo);
+	//   const [flexData, setFlexData] = useState(historyData.league_flex);
+	//   console.log(historyData);
+	//   console.log(soloData);
 
-  const handleTierIcon = () => {};
-  useEffect(() => {
-    // setSoloData(historyData.league_solo);
-    // setFlexData(historyData.league_flex);
-  });
-  return (
-    <Container className="tierContainer">
-      {/* <section className="soloWrapper">
+	const handleTierIcon = () => {};
+	useEffect(() => {
+		// setSoloData(historyData.league_solo);
+		// setFlexData(historyData.league_flex);
+	});
+	return (
+		<Container className="tierContainer">
+			{/* <section className="soloWrapper">
         <div className="iconWrap">
           <img
             src={challangerIcon}
@@ -57,8 +56,8 @@ const Tier = ({ historyData }) => {
           </div>
         </div>
       </section> */}
-    </Container>
-  );
+		</Container>
+	);
 };
 
 export default Tier;
