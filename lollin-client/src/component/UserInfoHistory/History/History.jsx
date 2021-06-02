@@ -14,13 +14,33 @@ const History = ({ historyData }) => {
     }
   };
 
-  let handleApiVer = () => {
+  const handleApiVer = () => {
     axios
       .get(`https://ddragon.leagueoflegends.com/api/versions.json`)
       .then((res) => {
         setApiVer(res.data[0]);
         // console.log(apiVer);
       });
+  };
+  const handlePastTime = (creationTime) => {
+    let finished = new Date(creationTime);
+    let now = new Date();
+    let pastTime = now - finished;
+    console.log(pastTime);
+    // 86400000;
+    if (pastTime >= 86400000) {
+      return `${Math.floor(pastTime / 86400000)}일전`;
+    } else if (pastTime >= 60000) {
+      return `${Math.floor(pastTime / 60000)}분전`;
+    } else {
+      return `${((pastTime % 60000) / 1000).toFixed(0)}초전`;
+    }
+  };
+  const handlePlayTime = (durationTime) => {
+    let date = new Date(durationTime);
+
+    console.log(date);
+    return `${date.getMinutes()}분${date.getSeconds()}초`;
   };
 
   useEffect(() => {
@@ -39,40 +59,62 @@ const History = ({ historyData }) => {
                   : "isWin historyWrapper"
               }
             >
-              <div className="mainData">
-                <div className="match"> {ele.gameMode}</div>
-                <div
-                  className={ele.win === false ? "loseResult result" : "result"}
-                >
-                  {ele.win === false ? "패배" : "승리"}
-                </div>
-              </div>
               <div className="imgWrapper">
                 <img
                   src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${ele.championName}.png`}
                   alt="no img"
                   className="img"
                 />
-
+                <div className="champName">{ele.championName}</div>
                 {/* <img src="" alt="" className="spell1" />
                 <img src="" alt="" className="spell2" />
                 <img src="" alt="" className="rune1" />
                 <img src="" alt="" className="rune2" /> */}
               </div>
-
+              <div className="mainData">
+                <div className="pastTime">
+                  {handlePastTime(ele.creationTime)}
+                </div>
+                <div
+                  className={ele.win === false ? "loseResult result" : "result"}
+                >
+                  {ele.win === false ? "패배" : "승리"}
+                </div>
+                <div className="playTime">
+                  {handlePlayTime(ele.durationTime)}
+                </div>
+              </div>
               <div className="subData">
                 <div className="lane">{ele.lane}</div>
-                <div className="champName">{ele.championName}</div>
+
                 <div className="kda">
                   {ele.kda === null ? "KDA Perfect" : "KDA " + ele.kda}
                 </div>
-                <div className="badge"></div>
+
+                <div className="match"> {ele.gameMode}</div>
+              </div>
+              <div className="badgeWrap">
+                {ele.tripleKills !== 0 ? (
+                  <div className="tripleKills badge">트리플킬</div>
+                ) : (
+                  <div></div>
+                )}
+                {ele.quadraKills !== 0 ? (
+                  <div className="quadraKills badge">쿼드라킬</div>
+                ) : (
+                  <div></div>
+                )}
+                {ele.pentaKills !== 0 ? (
+                  <div className="pentaKills badge">펜타킬</div>
+                ) : (
+                  <div></div>
+                )}
               </div>
             </section>
           );
         })
       ) : (
-        <div>"no match data"</div>
+        <div className="noResult">검색한 소환사의 기록이 없습니다</div>
       )}
     </Container>
   );

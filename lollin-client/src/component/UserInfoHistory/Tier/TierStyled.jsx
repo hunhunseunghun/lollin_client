@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  width: 80%;
-  height: 150px;
+
+  background-color: #d6d3d3;
 
   .soloWrapper {
     display: flex;
     justify-content: center;
     place-items: center;
-    width: 298px;
+    width: 299.5px;
     height: 120px;
-    padding: 8px 0;
-    border: 1px solid gray;
+    padding: 9px 0;
+    border: 1px solid #808080b0;
+    border-bottom: none;
   }
 
   .soloContent {
@@ -31,7 +32,7 @@ export const Container = styled.div`
   }
   .rankTag {
     font-size: 11px;
-    color: #879292;
+    color: #6e7777;
   }
   .tierTag {
     font-size: 15px;
@@ -44,19 +45,23 @@ export const Container = styled.div`
     font-weight: bold;
   }
   .winloseTag {
+    color: #555e5e;
     font-size: 12px;
   }
   .winningRate {
+    color: #555e5e;
     font-size: 12px;
   }
   .flexWrapper {
     display: flex;
     justify-content: center;
     place-items: center;
-    width: 298px;
+    width: 299.5px;
     height: 120px;
-    padding: 8px 0;
+    padding: 9px 0;
     border: 1px solid gray;
+    border-bottom: none;
+    border-left: none;
   }
   .flexContent {
     display: flex;

@@ -89,7 +89,7 @@ const Tier = ({ historyData }) => {
                 {soloData.wins}승 / {soloData.losses}패
               </div>
               <div className="winningRate">
-                {"최근 20게임 승률 : " +
+                {" " +
                   Math.trunc(
                     (soloData.wins / (soloData.wins + soloData.losses)) * 100
                   ) +
@@ -134,11 +134,9 @@ const Tier = ({ historyData }) => {
                 {soloData.wins}/{flexData.losses}
               </div>
               <div className="winningRate">
-                {"최근 20게임 승률 : " +
-                  Math.trunc(
-                    (flexData.wins / (flexData.wins + flexData.losses)) * 100
-                  ) +
-                  "%"}
+                {Math.trunc(
+                  (flexData.wins / (flexData.wins + flexData.losses)) * 100
+                ) + "%"}
               </div>
             </div>
           </div>
