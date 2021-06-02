@@ -69,6 +69,15 @@ const UserInfoMatching = () => {
 
   return (
     <Container className="matchingInfo-container">
+      {isSearched ? (
+        <div className="currGameText">
+          <div>The result of {inputName}</div>
+        </div>
+      ) : (
+        <div className="currGameText">
+          <div>Showing featured game</div>
+        </div>
+      )}
       <div className="currMatching">
         <section className="allyTeam">
           <div className="allyNameTag">BLUE TEAM</div>
@@ -80,6 +89,7 @@ const UserInfoMatching = () => {
                       <img
                         className="playerImg"
                         src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${el.championName}.png`}
+                        alt="no data"
                       />
                     </div>
                     <div className="playerNameTag">
@@ -100,6 +110,7 @@ const UserInfoMatching = () => {
                       <img
                         className="playerImg"
                         src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${el.championName}.png`}
+                        alt="no data"
                       />
                     </div>
                     <div className="playerNameTag">
@@ -111,8 +122,24 @@ const UserInfoMatching = () => {
           </div>
         </section>
       </div>
+      <div className="searchArea">
+        <input
+          type="text"
+          value={inputName}
+          onChange={(e) => {
+            setInputName(e.target.value);
+          }}
+        ></input>
+        <button onClick={handleSearch}>search</button>
+      </div>
+    </Container>
+  );
+};
+//http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg
+export default UserInfoMatching;
 
-      {/* Matching
+{
+  /* Matching
       {matchData.participants
         ? matchData.participants.map((el) => {
             return (
@@ -122,22 +149,5 @@ const UserInfoMatching = () => {
               ></img>
             );
           })
-        : ""} */}
-      {isSearched ? (
-        <div>The result of {inputName}</div>
-      ) : (
-        <div>Showing featured game</div>
-      )}
-      <input
-        type="text"
-        value={inputName}
-        onChange={(e) => {
-          setInputName(e.target.value);
-        }}
-      ></input>
-      <button onClick={handleSearch}>search</button>
-    </Container>
-  );
-};
-//http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg
-export default UserInfoMatching;
+        : ""} */
+}

@@ -9,6 +9,16 @@ export const Container = styled.div`
   padding: 1rem 0;
   background-color: white;
   color: white;
+
+  .currGameText {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    padding: 2rem 0;
+  }
   .currMatching {
     display: flex;
     flex-wrap: wrap;
@@ -93,7 +103,7 @@ export const Container = styled.div`
     z-index: 3;
   }
 
-  .oppTeam {
-    display: flex;
+  .searchArea {
+    padding: 10px;
   }
 `;
