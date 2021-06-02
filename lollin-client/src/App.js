@@ -126,6 +126,7 @@ function App() {
           <UserInfo history={history} summonerName={summonerName} />
         )}
       />
+
       <FooterFixed />
     </div>
   );

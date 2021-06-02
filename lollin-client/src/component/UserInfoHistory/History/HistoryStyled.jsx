@@ -1,16 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 600px;
+  background-color: #dadada;
   color: #575757;
+  border: 1px solid #808080b0;
 
   .historyWrapper {
     display: grid;
-    grid-template-columns: 0.7fr 1.3fr 2fr;
-    width: 230px;
-    height: 80px;
+    grid-template-columns: 1fr 1fr 1.4fr 1.1fr;
+    width: 270px;
+    height: 90px;
     margin: 10px 0;
     background-color: pink;
+    padding: 2px 4px;
   }
   .isWin {
     background-color: #a3cfec;
@@ -23,6 +29,7 @@ export const Container = styled.div`
   }
   .imgWrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -31,35 +38,84 @@ export const Container = styled.div`
     height: 50px;
     border-radius: 250px;
   }
-  .matinData {
-    height: 96px;
+  .champName {
+    padding: 2px;
+    font-size: 12px;
   }
+  .mainData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 85px;
+  }
+
   .match {
-    position: relative;
-    top: 1rem;
     text-align: center;
-    height: 50%;
+
     font-size: 8px;
   }
-  .result {
-    width: 50px;
-    color: #1f8ecd;
+  .pastTime {
+    text-align: center;
     font-size: 11px;
+  }
+  .result {
+    color: #1f8ecd;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
+    padding: 3px 0;
   }
+  .playTime {
+    text-align: center;
+    font-size: 11px;
+  }
+
   .loseResult {
     color: #b6594f;
   }
   .subData {
     display: grid;
     place-items: center;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 11px;
+    padding: 10px 0;
+
+    font-size: 12px;
+  }
+  .lane {
+    font-size: 10px;
   }
   .kda {
     font-size: 10px;
     font-weight: bold;
+  }
+  .badgeWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    font-size: 5px;
+    padding-right: 5px;
+  }
+  .badge {
+    width: 80%;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+    border: 1px solid #80808023;
+    font-size: 9px;
+    margin: 3px 0;
+  }
+  .tripleKills {
+    background-color: #008f7c;
+  }
+  .quadraKills {
+    background-color: #000ed8;
+  }
+  .pentaKills {
+    background-color: #d80053;
+  }
+  .noResult {
+    font-size: 2rem;
+    text-align: center;
+    min-height: 300px;
   }
 `;
