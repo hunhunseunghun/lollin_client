@@ -14,7 +14,7 @@ const SidebarMenu = [
 
   {
     title: 'Matching Info',
-    link: '/utils/search?name=${name}',
+    link: '/userinfo',
   },
 ];
 export default SidebarMenu;
