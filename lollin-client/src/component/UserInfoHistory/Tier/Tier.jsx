@@ -76,12 +76,7 @@ const Tier = ({ historyData }) => {
         {soloData ? (
           <div className="soloContent">
             <div className="iconWrap">
-              <img
-                src={soloTierIcon}
-                alt={soloTierIcon}
-                className="tierIcon"
-                width="120px"
-              />{" "}
+              <img src={soloTierIcon} alt={soloTierIcon} className="tierIcon" />{" "}
             </div>
             <div className="dataWrap">
               <div className="rankTag">솔로랭크</div>
@@ -91,24 +86,26 @@ const Tier = ({ historyData }) => {
               </div>
               <div className="lpTag ">{soloData.leaguePoints}LP</div>
               <div className="winloseTag">
-                {soloData.wins}승/{soloData.losses}패
+                {soloData.wins}승 / {soloData.losses}패
+              </div>
+              <div className="winningRate">
+                {"최근 20게임 승률 : " +
+                  Math.trunc(
+                    (soloData.wins / (soloData.wins + soloData.losses)) * 100
+                  ) +
+                  "%"}
               </div>
             </div>
           </div>
         ) : (
           <div>
             {" "}
-            <div className="flexContent">
+            <div className="soloContent">
               <div className="iconWrap">
-                <img
-                  src={UNRANKED}
-                  alt={UNRANKED}
-                  className="tierIcon"
-                  width="120px"
-                />{" "}
+                <img src={UNRANKED} alt={UNRANKED} className="tierIcon" />{" "}
               </div>
               <div className="dataWrap">
-                <div className="rankTag">자유 5:5 랭크</div>
+                <div className="rankTag">솔로랭크</div>
                 <div className="unrankedTag">Unranked</div>
               </div>
             </div>
@@ -138,7 +135,10 @@ const Tier = ({ historyData }) => {
               </div>
               <div className="winningRate">
                 {"최근 20게임 승률 : " +
-                  flexData.win / (flexData.win + flexData.losses)}
+                  Math.trunc(
+                    (flexData.wins / (flexData.wins + flexData.losses)) * 100
+                  ) +
+                  "%"}
               </div>
             </div>
           </div>

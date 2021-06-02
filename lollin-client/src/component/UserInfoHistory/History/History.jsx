@@ -32,7 +32,21 @@ const History = ({ historyData }) => {
       {matches.length !== 0 ? (
         matches.map((ele) => {
           return (
-            <section className="historyWrapper">
+            <section
+              className={
+                ele.win === false
+                  ? "isLose historyWrapper"
+                  : "isWin historyWrapper"
+              }
+            >
+              <div className="mainData">
+                <div className="match"> {ele.gameMode}</div>
+                <div
+                  className={ele.win === false ? "loseResult result" : "result"}
+                >
+                  {ele.win === false ? "패배" : "승리"}
+                </div>
+              </div>
               <div className="imgWrapper">
                 <img
                   src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${ele.championName}.png`}
@@ -45,18 +59,11 @@ const History = ({ historyData }) => {
                 <img src="" alt="" className="rune1" />
                 <img src="" alt="" className="rune2" /> */}
               </div>
-              <div className="history">
-                <div className="mainData">
-                  <div className="match">{ele.gameMode}</div>
-                  <div className="result">
-                    {ele.win === false ? "패배" : "승리"}
-                  </div>
-                </div>
-              </div>
+
               <div className="subData">
                 <div className="champName">{ele.championName}</div>
-                <div className="lane">{ele.lane}</div>
-                <div className="kda">{ele.kda}</div>
+                <div className="lane">{"라인: " + ele.lane}</div>
+                <div className="kda">{"KDA " + ele.kda}</div>
               </div>
             </section>
           );
