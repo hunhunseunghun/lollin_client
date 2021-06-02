@@ -61,9 +61,12 @@ const History = ({ historyData }) => {
               </div>
 
               <div className="subData">
+                <div className="lane">{ele.lane}</div>
                 <div className="champName">{ele.championName}</div>
-                <div className="lane">{"라인: " + ele.lane}</div>
-                <div className="kda">{"KDA " + ele.kda}</div>
+                <div className="kda">
+                  {ele.kda === null ? "KDA Perfect" : "KDA " + ele.kda}
+                </div>
+                <div className="badge"></div>
               </div>
             </section>
           );

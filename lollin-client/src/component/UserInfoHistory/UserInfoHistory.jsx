@@ -10,6 +10,7 @@ const UserInfoHistory = ({ summonerName }) => {
 
   useEffect(() => {
     axios.get(`${server}/utils/history?name=${summonerName}`).then((res) => {
+      // setTimeout(setHistoryData(res.data), 300);
       setHistoryData(res.data);
     });
   }, []);
