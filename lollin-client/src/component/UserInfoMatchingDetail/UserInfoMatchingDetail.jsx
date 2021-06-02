@@ -8,25 +8,16 @@ const MatchingDetail = ({ participant }) => {
 	let [kda, setKda] = useState(0);
 	let [rank, setRank] = useState('');
 	let [isLoading, setIsLoading] = useState(null);
-	console.log('participant before useEffect: ', participant);
 	useEffect(() => {
-		console.log('participant: ');
-		console.log(participant);
 		if (participant) {
 			setIsLoading(true);
-			console.log('participant name: ');
-			console.log(participant.summonerName);
 			axios
 				.get(
-					`${
-						process.env.REACT_APP_SERVER_URL
-					}/utils/history?name=${'미키주일'}`,
+					`${process.env.REACT_APP_SERVER_URL}/utils/history?name=${participant.summonerName}`,
 				)
 				.then((response) => {
 					let data = response.data;
 					let tempKda = 0;
-					console.log('data: ');
-					console.log(data);
 					setTier(
 						data.league_solo === undefined ? 'UNRANKED' : data.league_solo.tier,
 					);
@@ -36,10 +27,7 @@ const MatchingDetail = ({ participant }) => {
 							tempKda += match.kda;
 						});
 						tempKda = tempKda / data.matches.length;
-						console.log('tempKda before Math.floor: ');
-						console.log(tempKda);
 						tempKda = Math.floor(tempKda * 100) / 100;
-						console.log('tempKda after Math.floor: ', tempKda);
 						setKda(tempKda);
 					}
 					setIsLoading(false);
@@ -51,12 +39,7 @@ const MatchingDetail = ({ participant }) => {
 				});
 		}
 	}, [participant]);
-	// useEffect(() => {
-	// 	if (userData.league_solo) {
-	// 		console.log(userData);
-	// 		setTier(userData.league_solo.tier);
-	// 	}
-	// }, [userData]);
+
 	switch (isLoading) {
 		case null: {
 			return '';
