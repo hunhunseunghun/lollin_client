@@ -4,7 +4,7 @@ import { Container } from "./UserInfoMatchingStyled.jsx";
 import dotenv from "dotenv";
 
 dotenv.config();
-const UserInfoMatching = ({ summonerName }) => {
+const UserInfoMatching = ({ summonerName, handleUserClick }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
   let [isSearched, setIsSearched] = useState(false);
@@ -63,6 +63,7 @@ const UserInfoMatching = ({ summonerName }) => {
         // console.log(apiVer);
       });
   };
+
   useEffect(() => {
     handleSearch();
     handleApiVer();
@@ -88,7 +89,7 @@ const UserInfoMatching = ({ summonerName }) => {
                   <section
                     className="player allyHover"
                     onClick={() => {
-                      console.log("clicked");
+                      handleUserClick(el);
                     }}
                   >
                     <div className="stylePlayer allyPlayer">
@@ -114,7 +115,7 @@ const UserInfoMatching = ({ summonerName }) => {
                   <section
                     className="player oppHover"
                     onClick={() => {
-                      console.log("clicked");
+                      handleUserClick(el);
                     }}
                   >
                     <div className="stylePlayer oppPlayer">
