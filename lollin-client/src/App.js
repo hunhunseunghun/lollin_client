@@ -23,8 +23,7 @@ function App() {
   let history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [champPriId, setChampPriId] = useState("Aatrox");
-  const [nickName, setNickName] = useState("");
-  const [nickNameResult, setNickNameResult] = useState();
+  const [summonerName, setSummornerName] = useState("");
   const [jwt, setJwt] = useState("");
   const [isLogin, setisLogin] = useState(false);
 
@@ -48,18 +47,13 @@ function App() {
   };
 
   const handleSearchChange = (event) => {
-    setNickName(event.target.value);
+    setSummornerName(event.target.value);
   };
-
   const handleSearchClick = () => {
-    axios
-      .get(`${server}/utils/search?name=${decodeURI(nickName)}`)
-      .then((res) => {
-        setNickNameResult(res.data);
-        console.log(res);
-      });
     history.push("/userinfo");
   };
+
+  console.log(summonerName);
 
   return (
     <div className="Container">
@@ -125,7 +119,13 @@ function App() {
         path="/user/update"
         render={() => <Myinfo history={history} />}
       />
-      <Route exact path="/userinfo" render={() => <UserInfo />} />
+      <Route
+        exact
+        path="/userinfo"
+        render={() => (
+          <UserInfo history={history} summonerName={summonerName} />
+        )}
+      />
       <FooterFixed />
     </div>
   );
