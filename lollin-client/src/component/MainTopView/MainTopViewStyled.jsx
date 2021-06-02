@@ -77,11 +77,25 @@ export const TopView = styled.div`
   }
   .foreGroundLogo {
     display: inline-block;
+    justify-content: center;
     position: relative;
-    width: 60px;
-    height: 75px;
+    width: 800px;
+    height: 380px;
   }
-  .foreLogoImg {
+  .Intro {
+    display: inline-block;
+    margin-top: 40px;
+    color: #cccc00;
+    font-size: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 30px;
+    }
+  }
+  /* .foreLogoImg {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -90,7 +104,7 @@ export const TopView = styled.div`
     display: block;
     margin: 0px;
     border-style: none;
-  }
+  } */
   .foreGroundRow-bottom {
     width: 100%;
     margin-top: 0.625rem;
@@ -165,3 +179,50 @@ export const MainBackVideo = styled.video`
   object-position: center top;
   filter: blur(20px);
 `;
+
+export const Intro = styled.h1`
+  display: flex;
+  margin-top: 40px;
+  color: #C6C62B;
+  opacity: 0.7;
+  font-size: 60px;
+  text-shadow: 7px 7px 13px #000;
+
+  @media (max-width: 500px) {
+    margin-left: 30px;
+    font-size: 22px;
+  }
+`;
+
+export const ClickBtn = styled.button`
+  height: 50px;
+  width: 140px;
+  border: none;
+  font-size: 18px;
+  border-radius: 13px;
+  background-color: #ff6666;
+  color: #404040;
+  font-weight: bold;
+  margin-top: 50px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px 5px #121212;
+  
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    /* background: #ffcccc; */
+    color: #D1D1D1;
+  }
+
+  &:active {
+    transform: translateY(8px);
+  }
+
+  @media (max-width: 500px) {
+    display: flex;
+    margin-left: 103px;
+    margin-top: 110px;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
