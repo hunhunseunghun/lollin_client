@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import sadBee from "../../../Images/sadBee.png";
 import { Container } from "./HistoryStyled.jsx";
 
 const History = ({ historyData }) => {
-  console.log(historyData);
   const [apiVer, setApiVer] = useState("");
   const [matches, setMatches] = useState([]);
 
   const handleData = () => {
     if (historyData && historyData.matches) {
       setMatches(historyData.matches);
-      console.log(historyData.matches);
     }
   };
 
@@ -19,15 +18,13 @@ const History = ({ historyData }) => {
       .get(`https://ddragon.leagueoflegends.com/api/versions.json`)
       .then((res) => {
         setApiVer(res.data[0]);
-        // console.log(apiVer);
       });
   };
   const handlePastTime = (creationTime) => {
     let finished = new Date(creationTime);
     let now = new Date();
     let pastTime = now - finished;
-    console.log(pastTime);
-    // 86400000;
+
     if (pastTime >= 86400000) {
       return `${Math.floor(pastTime / 86400000)}일전`;
     } else if (pastTime >= 60000) {
@@ -38,8 +35,6 @@ const History = ({ historyData }) => {
   };
   const handlePlayTime = (durationTime) => {
     let date = new Date(durationTime);
-
-    console.log(date);
     return `${date.getMinutes()}분${date.getSeconds()}초`;
   };
 
@@ -114,7 +109,10 @@ const History = ({ historyData }) => {
           );
         })
       ) : (
-        <div className="noResult">검색한 소환사의 기록이 없습니다</div>
+        <div className="noResult">
+          <img src={sadBee} alt="no Img" className="noResultImg" />
+          <div>검색한 소환사의 기록이 없습니다</div>
+        </div>
       )}
     </Container>
   );

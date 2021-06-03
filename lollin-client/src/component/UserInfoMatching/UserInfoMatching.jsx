@@ -12,7 +12,6 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
 
-  console.log(inputName);
   let setDatas = (matchData) => {
     let blueTeam = [];
     let redTeam = [];
@@ -38,13 +37,13 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
         `${process.env.REACT_APP_SERVER_URL}/utils/activeGame?name=${inputName}`
       )
       .then((response) => {
-        console.log(response.data);
-        console.log(response.status);
+        // console.log(response.data);
+        // console.log(response.status);
         setIsSearched(true);
         setDatas(response.data);
       })
       .catch((err) => {
-        console.log("atcive Game err catch : doesn't exit ");
+        // console.log("atcive Game err catch : doesn't exit ");
         axios
           .get(`${process.env.REACT_APP_SERVER_URL}/utils/featured`)
           .then((response) => {

@@ -14,13 +14,12 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr 1.4fr 1.1fr;
     width: 270px;
     height: 90px;
-    margin: 10px 0;
+    margin: 5px 0 2px 0;
     background-color: pink;
     padding: 2px 4px;
   }
   .isWin {
     background-color: #a3cfec;
-
     border: 1px solid #99b9cf;
   }
   .isLose {
@@ -114,8 +113,13 @@ export const Container = styled.div`
     background-color: #d80053;
   }
   .noResult {
-    font-size: 2rem;
+    align-items: center;
+    font-size: 1.5rem;
     text-align: center;
-    min-height: 300px;
+    min-height: 250px;
+  }
+  .noResultImg {
+    width: 100px;
+    margin-top: 40px;
   }
 `;
