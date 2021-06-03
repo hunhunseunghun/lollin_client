@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "./UserInfoMatchingStyled.jsx";
+import UserInfoMatchingDetail from "../UserInfoMatchingDetail/UserInfoMatchingDetail.jsx";
 import dotenv from "dotenv";
 
 dotenv.config();
-const UserInfoMatching = ({ summonerName, handleUserClick }) => {
+// , handleUserClick
+const UserInfoMatching = ({ summonerName }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
   let [isSearched, setIsSearched] = useState(false);
-
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
+  let [participant, setParticipant] = useState(null);
+
+  const handleUserClick = (participant) => {
+    setParticipant(participant);
+  };
 
   let setDatas = (matchData) => {
     let blueTeam = [];
@@ -52,15 +58,6 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
 
   return (
     <Container className="matchingInfo-container">
-      {isSearched ? (
-        <div className="currGameText">
-          <div>The result of {inputName}</div>
-        </div>
-      ) : (
-        <div className="currGameText">
-          <div>Showing featured game</div>
-        </div>
-      )}
       <div className="currMatching">
         <section className="allyTeam">
           <div className="allyNameTag">BLUE TEAM</div>
@@ -115,15 +112,36 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
           </div>
         </section>
       </div>
-      <div className="searchArea">
-        <input
-          type="text"
-          value={inputName}
-          onChange={(e) => {
-            setInputName(e.target.value);
-          }}
-        ></input>
-        <button onClick={handleSearch}>search</button>
+      <div className="infoArea">
+        <div className="infoArea-left">
+          <section className="currGame">
+            {isSearched ? (
+              <div className="currGameText">
+                <div>{inputName}님의 매치</div>
+              </div>
+            ) : (
+              <div className="currGameText">
+                <div>랜덤 매치</div>
+              </div>
+            )}
+          </section>
+          <section className="searchArea">
+            <input
+              type="text"
+              value={inputName}
+              onChange={(e) => {
+                setInputName(e.target.value);
+              }}
+            ></input>
+            <button onClick={handleSearch}>search</button>
+          </section>
+        </div>
+        <div className="infoArea-right">
+          <UserInfoMatchingDetail
+            summonerName={summonerName}
+            participant={participant}
+          />
+        </div>
       </div>
     </Container>
   );

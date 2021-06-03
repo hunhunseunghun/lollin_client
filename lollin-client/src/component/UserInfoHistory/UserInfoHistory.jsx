@@ -21,9 +21,15 @@ const UserInfoHistory = ({ summonerName }) => {
 
   const handleSearchName = () => {
     setSummonerResult(searchVal);
-    axios.get(`${server}/utils/history?name=${searchVal}`).then((res) => {
-      setHistoryData(res.data);
-    });
+    // .replace(/ /g, "")
+    axios
+      .get(`${server}/utils/history?name=${searchVal}`)
+      .then((res) => {
+        setHistoryData(res.data);
+      })
+      .catch((err) => {
+        setHistoryData(undefined);
+      });
   };
 
   useEffect(() => {

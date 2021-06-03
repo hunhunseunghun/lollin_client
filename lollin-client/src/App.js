@@ -47,15 +47,17 @@ function App() {
   };
 
   const handleSearchChange = (event) => {
-    setSummornerName(event.target.value);
+    setSummornerName(event.target.value.replace(/ /g, ""));
   };
 
   const handleSearchClick = () => {
     history.push("/userinfo");
   };
 
-  const handleOnKeyPress = () => {
-    handleSearchClick();
+  const handleOnKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearchClick();
+    }
   };
 
   return (

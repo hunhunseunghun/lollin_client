@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 400px;
   padding: 1rem 0;
   background-color: white;
   color: white;
@@ -122,7 +121,10 @@ export const Container = styled.div`
     z-index: 3;
   }
 
-  .searchArea {
+  .infoArea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 619px;
     padding: 10px;
   }
 `;

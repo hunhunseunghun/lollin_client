@@ -63,7 +63,7 @@ const Tier = ({ historyData }) => {
       }
     }
   };
-  console.log("solodata !!! " + JSON.stringify(soloData));
+  // console.log("solodata !!! " + JSON.stringify(soloData));
 
   useEffect(() => {
     handleData();
