@@ -117,24 +117,20 @@ export const Container = styled.div`
   .infoArea {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 598px;
-    height: 200px;
+    width: 626px;
+    height: 180px;
     padding: 10px;
   }
   .infoArea-left {
     display: grid;
-    grid-template-rows: 1fr 1fr;
     place-items: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
   }
 
   .currGameText {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 243px;
     height: 60px;
     font-size: 1rem;
     font-weight: bold;
@@ -199,5 +195,12 @@ export const Container = styled.div`
   }
 
   .infoArea-right {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    place-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1px;
   }
 `;

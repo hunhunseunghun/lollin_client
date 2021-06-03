@@ -114,6 +114,9 @@ const UserInfoMatching = ({ summonerName }) => {
       </div>
       <div className="infoArea">
         <div className="infoArea-left">
+          <UserInfoMatchingDetail participant={participant} />
+        </div>
+        <div className="infoArea-right">
           <section className="searchArea">
             <input
               type="text"
@@ -141,9 +144,6 @@ const UserInfoMatching = ({ summonerName }) => {
               </div>
             )}
           </section>
-        </div>
-        <div className="infoArea-right">
-          <UserInfoMatchingDetail participant={participant} />
         </div>
       </div>
     </Container>
