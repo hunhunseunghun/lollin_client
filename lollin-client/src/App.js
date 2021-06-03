@@ -47,13 +47,18 @@ function App() {
   };
 
   const handleSearchChange = (event) => {
-    setSummornerName(event.target.value);
+    setSummornerName(event.target.value.replace(/ /g, ""));
   };
+
   const handleSearchClick = () => {
     history.push("/userinfo");
   };
 
-  console.log(summonerName);
+  const handleOnKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearchClick();
+    }
+  };
 
   return (
     <div className="Container">
@@ -88,6 +93,7 @@ function App() {
           <MainPage
             handleSearchChange={handleSearchChange}
             handleSearchClick={handleSearchClick}
+            handleOnKeyPress={handleOnKeyPress}
           />
         )}
       />
