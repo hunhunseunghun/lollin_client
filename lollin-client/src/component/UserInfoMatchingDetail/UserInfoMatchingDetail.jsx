@@ -51,15 +51,22 @@ const MatchingDetail = ({ participant }) => {
       return (
         <Container>
           <fieldset>
-            {participant !== null ? <div>{participant.summonerName}</div> : ""}
-            {"Loading..."}
-            <button
+            <div className="wrap">
+              {participant !== null ? (
+                <div>{participant.summonerName}</div>
+              ) : (
+                "     "
+              )}
+              {"Loading..."}
+            </div>
+
+            {/* <button
               onClick={() => {
                 setIsLoading(null);
               }}
             >
               close
-            </button>
+            </button> */}
           </fieldset>
         </Container>
       );
@@ -68,25 +75,42 @@ const MatchingDetail = ({ participant }) => {
       return (
         <Container>
           <fieldset>
-            {participant !== null ? <div>{participant.summonerName}</div> : ""}
-            <div>
-              <img
-                src={require(`../../Images/tierIcons/${tier}.png`).default}
-                width={"100"}
-                height={"100"}
-              />
-              {tier}
-              {"   "}
-              {rank}
-              <div>{winRate !== 0 ? winRate + "%" : ""}</div>
+            <div className="wrap">
+              <section className="content">
+                <section className="imgWarp">
+                  <img
+                    src={require(`../../Images/tierIcons/${tier}.png`).default}
+                    width={"100"}
+                    height={"100"}
+                  />
+                </section>
+
+                <section className="info">
+                  <div className="tier">
+                    {tier}
+                    {"   "}
+                    {rank}
+                  </div>
+
+                  {participant !== null ? (
+                    <div className="name">{participant.summonerName}</div>
+                  ) : (
+                    ""
+                  )}
+                  <div className="rate">
+                    {winRate !== 0 ? winRate + "%" : ""}
+                  </div>
+                </section>
+              </section>
             </div>
-            <button
+
+            {/* <button
               onClick={() => {
                 setIsLoading(null);
               }}
             >
               close
-            </button>
+            </button> */}
           </fieldset>
         </Container>
       );
