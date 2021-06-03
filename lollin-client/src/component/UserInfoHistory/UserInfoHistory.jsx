@@ -6,9 +6,9 @@ import History from "./History/History.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 const UserInfoHistory = ({ summonerName }) => {
-  const [historyData, setHistoryData] = useState();
+  const [historyData, setHistoryData] = useState(null);
   const [summonerResult, setSummonerResult] = useState(summonerName);
-  let searchVal = undefined;
+  let searchVal = null;
   // let isInitialMount = useRef(true);
 
   const handleInputVal = (e) => {
@@ -26,9 +26,10 @@ const UserInfoHistory = ({ summonerName }) => {
       .get(`${server}/utils/history?name=${searchVal}`)
       .then((res) => {
         setHistoryData(res.data);
+        console.log(historyData);
       })
       .catch((err) => {
-        setHistoryData(undefined);
+        setHistoryData(null);
       });
   };
 
@@ -56,7 +57,7 @@ const UserInfoHistory = ({ summonerName }) => {
       <div className="topWrap">
         <div className="name">{summonerResult}</div>
 
-        <secion className="searchArea">
+        <section className="searchArea">
           <input
             type="text"
             className="searchInput"
@@ -67,15 +68,15 @@ const UserInfoHistory = ({ summonerName }) => {
           <button className="searchBtn" onClick={handleSearchName}>
             Lollin{" "}
           </button>
-        </secion>
+        </section>
       </div>
 
       <section className="tierWrapper">
         <Tier historyData={historyData}></Tier>
       </section>
-      <scetion>
+      <section>
         <History historyData={historyData}></History>
-      </scetion>
+      </section>
     </Container>
   );
 };

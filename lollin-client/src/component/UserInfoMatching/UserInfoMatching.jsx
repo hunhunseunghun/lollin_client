@@ -114,33 +114,36 @@ const UserInfoMatching = ({ summonerName }) => {
       </div>
       <div className="infoArea">
         <div className="infoArea-left">
-          <section className="currGame">
-            {isSearched ? (
-              <div className="currGameText">
-                <div>{inputName}님의 매치</div>
-              </div>
-            ) : (
-              <div className="currGameText">
-                <div>랜덤 매치</div>
-              </div>
-            )}
-          </section>
           <section className="searchArea">
             <input
               type="text"
+              className="searchInput"
+              placeholder="소환사 검색.."
               value={inputName}
               onChange={(e) => {
                 setInputName(e.target.value);
               }}
             ></input>
-            <button onClick={handleSearch}>search</button>
+            <button className="searchBtn" onClick={handleSearch}>
+              Lollin
+            </button>
+          </section>
+          <section className="currGame">
+            {isSearched ? (
+              <div className="currGameText Exsit">
+                <div>
+                  <div className="currId">{inputName}</div>님의 매치중인 게임
+                </div>
+              </div>
+            ) : (
+              <div className="currGameText noExsit">
+                <div>랜덤 매치중인 게임</div>
+              </div>
+            )}
           </section>
         </div>
         <div className="infoArea-right">
-          <UserInfoMatchingDetail
-            summonerName={summonerName}
-            participant={participant}
-          />
+          <UserInfoMatchingDetail participant={participant} />
         </div>
       </div>
     </Container>

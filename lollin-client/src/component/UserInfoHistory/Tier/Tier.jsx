@@ -1,70 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./TierStyled.jsx";
-import CHALLENGER from "../../../Images/tierIcons/CHALLENGER.png";
-import GRANDMASTER from "../../../Images/tierIcons/GRANDMASTER.png";
-import MASTER from "../../../Images/tierIcons/MASTER.png";
-import DIAMOND from "../../../Images/tierIcons/DIAMOND.png";
-import PLATINUM from "../../../Images/tierIcons/PLATINUM.png";
-import GOLD from "../../../Images/tierIcons/GOLD.png";
-import SILVER from "../../../Images/tierIcons/SILVER.png";
-import BRONZE from "../../../Images/tierIcons/BRONZE.png";
-import IRON from "../../../Images/tierIcons/IRON.png";
 import UNRANKED from "../../../Images/tierIcons/UNRANKED.png";
 
 const Tier = ({ historyData }) => {
-  const [soloData, setSoloData] = useState();
-  const [flexData, setFlexData] = useState();
-  const [soloTierIcon, setSoloTierIcon] = useState(UNRANKED);
-  const [flexTierIcon, setFlexTierIcon] = useState(UNRANKED);
+  const [soloData, setSoloData] = useState(null);
+  const [flexData, setFlexData] = useState(null);
 
   const handleData = () => {
     if (historyData && historyData.league_solo) {
       setSoloData(historyData.league_solo);
-      if (historyData.league_solo.tier === "CHALLANGER") {
-        setSoloTierIcon(CHALLENGER);
-      } else if (historyData.league_solo.tier === "GRANDMASTER") {
-        setSoloTierIcon(GRANDMASTER);
-      } else if (historyData.league_solo.tier === "MASTER") {
-        setSoloTierIcon(MASTER);
-      } else if (historyData.league_solo.tier === "DIAMOND") {
-        setSoloTierIcon(DIAMOND);
-      } else if (historyData.league_solo.tier === "PLATINUM") {
-        setSoloTierIcon(PLATINUM);
-      } else if (historyData.league_solo.tier === "GOLD") {
-        setSoloTierIcon(GOLD);
-      } else if (historyData.league_solo.tier === "SILVER") {
-        setSoloTierIcon(SILVER);
-      } else if (historyData.league_solo.tier === "BRONZE") {
-        setSoloTierIcon(BRONZE);
-      } else if (historyData.league_solo.tier === "IRON") {
-        setSoloTierIcon(IRON);
-      }
     }
     if (historyData && historyData.league_flex) {
       setFlexData(historyData.league_flex);
-      if (historyData.league_flex.tier === "CHALLANGER") {
-        setFlexTierIcon(CHALLENGER);
-      } else if (historyData.league_flex.tier === "GRANDMASTER") {
-        setFlexTierIcon(GRANDMASTER);
-      } else if (historyData.league_flex.tier === "MASTER") {
-        setFlexTierIcon(MASTER);
-      } else if (historyData.league_flex.tier === "DIAMOND") {
-        setFlexTierIcon(DIAMOND);
-      } else if (historyData.league_flex.tier === "PLATINUM") {
-        setFlexTierIcon(PLATINUM);
-      } else if (historyData.league_flex.tier === "GOLD") {
-        setFlexTierIcon(GOLD);
-      } else if (historyData.league_flex.tier === "SILVER") {
-        setFlexTierIcon(SILVER);
-      } else if (historyData.league_flex.tier === "BRONZE") {
-        setFlexTierIcon(BRONZE);
-      } else if (historyData.league_flex.tier === "IRON") {
-        setFlexTierIcon(IRON);
-      }
+    }
+    if (historyData && !historyData.league_solo) {
+      setSoloData(null);
+    }
+    if (historyData && !historyData.league_flex) {
+      setFlexData(null);
+    }
+    if (!historyData) {
+      setFlexData(null);
     }
   };
   // console.log("solodata !!! " + JSON.stringify(soloData));
-
+  // console.log("historyodata !!! " + JSON.stringify(historyData));
   useEffect(() => {
     handleData();
   }, [historyData]);
@@ -72,10 +32,17 @@ const Tier = ({ historyData }) => {
   return (
     <Container className="tierContainer">
       <section className="soloWrapper">
-        {soloData ? (
+        {historyData && soloData ? (
           <div className="soloContent">
             <div className="iconWrap">
-              <img src={soloTierIcon} alt={soloTierIcon} className="tierIcon" />{" "}
+              <img
+                src={
+                  require(`../../../Images/tierIcons/${soloData.tier}.png`)
+                    .default
+                }
+                alt=""
+                className="tierIcon"
+              />{" "}
             </div>
             <div className="dataWrap">
               <div className="rankTag">솔로랭크</div>
@@ -116,8 +83,11 @@ const Tier = ({ historyData }) => {
           <div className="flexContent">
             <div className="iconWrap">
               <img
-                src={flexTierIcon}
-                alt={flexTierIcon}
+                src={
+                  require(`../../../Images/tierIcons/${flexData.tier}.png`)
+                    .default
+                }
+                alt=""
                 className="tierIcon"
                 width="120px"
               />{" "}

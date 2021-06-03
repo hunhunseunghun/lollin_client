@@ -6,23 +6,16 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
-  background-color: white;
+  background-color: #dadada;
   color: white;
+  padding-bottom: 10rem;
 
-  .currGameText {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
-    padding: 2rem 0;
-  }
   .currMatching {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
+    max-width: 1327px;
   }
 
   .allyTeam {
@@ -62,6 +55,29 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 4fr 0.8fr;
   }
+
+  .playerImg {
+    position: absolute;
+    width: 105%;
+    right: -5px;
+    z-index: 1;
+    transform: scale(1.05);
+    transition: transform 0.5s;
+  }
+
+  .playerNameTag {
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.5rem;
+    font-weight: bold;
+    width: 100%;
+    background-color: #dadada;
+    /* background-color: #a3cfec; */
+    color: #484848;
+    z-index: 3;
+  }
   .allyHover:hover {
     background-color: #3d95e5;
     cursor: pointer;
@@ -98,33 +114,90 @@ export const Container = styled.div`
     overflow: hidden;
   }
 
-  .playerImg {
-    position: absolute;
-    width: 105%;
-    right: -5px;
-    z-index: 1;
-    transform: scale(1.05);
-    transition: transform 0.5s;
-  }
-
-  .playerNameTag {
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.5rem;
-    font-weight: bold;
-    width: 100%;
-    background-color: #dadada;
-    /* background-color: #a3cfec; */
-    color: black;
-    z-index: 3;
-  }
-
   .infoArea {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 619px;
+    width: 598px;
+    height: 200px;
     padding: 10px;
+  }
+  .infoArea-left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .currGameText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 60px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #646464;
+    padding: 4px;
+  }
+  .currId {
+    font-size: 1.4rem;
+    color: #414141;
+  }
+  .Exsit {
+    background-color: #cef0d2;
+    border-radius: 3px;
+  }
+  .noExsit {
+    background-color: #b1b1b1;
+    border-radius: 3px;
+  }
+  .searchArea {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 30px;
+    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
+    border-top: 1px solid #dfab00;
+    border-left: 1px solid #dfab00;
+    border-radius: 5px;
+  }
+  .searchInput {
+    all: unset;
+    width: 60%;
+    font-size: 0.5rem;
+    margin-left: 5px;
+    color: #949494;
+  }
+  .searchInput:focus {
+    all: unset;
+    width: 60%;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: #4f4f4f;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
+    }
+  }
+  .searchBtn {
+    all: unset;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    background-color: #f7bd00;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .searchBtn:hover {
+    cursor: pointer;
+  }
+
+  .infoArea-right {
   }
 `;

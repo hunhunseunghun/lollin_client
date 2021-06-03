@@ -6,16 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #dadada;
 
   .topWrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     place-items: center;
-
     background-color: #dadada;
-    width: 601.9px;
+    width: 600px;
     height: 5rem;
+    border-top: 1px solid #808080b0;
+    border-left: 1px solid #808080b0;
+    border-right: 1px solid #808080b0;
   }
   .name {
     height: 2rem;

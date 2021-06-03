@@ -6,10 +6,17 @@ import { Container } from "./HistoryStyled.jsx";
 const History = ({ historyData }) => {
   const [apiVer, setApiVer] = useState("");
   const [matches, setMatches] = useState([]);
+  console.log("여긴 히스토리" + JSON.stringify(historyData));
 
   const handleData = () => {
     if (historyData && historyData.matches) {
       setMatches(historyData.matches);
+      if (historyData.matches.length === 0) {
+        setMatches([]);
+      }
+      console.log(matches);
+    } else if (!historyData) {
+      setMatches([]);
     }
   };
 
@@ -43,7 +50,7 @@ const History = ({ historyData }) => {
   useEffect(() => {
     handleApiVer();
     handleData();
-  });
+  }, [historyData]);
   return (
     <Container>
       {matches.length !== 0 ? (
