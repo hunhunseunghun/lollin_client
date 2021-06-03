@@ -91,7 +91,7 @@ export const TopView = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 500px) {
       font-size: 30px;
     }
   }

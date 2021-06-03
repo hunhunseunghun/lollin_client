@@ -13,7 +13,7 @@ const SidebarMenu = [
   },
 
   {
-    title: 'Matching Info',
+    title: 'User Info',
     link: '/userinfo',
   },
 ];
