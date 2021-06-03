@@ -8,7 +8,7 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
   let [isSearched, setIsSearched] = useState(false);
-  const [apiVer, setApiVer] = useState("");
+
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
 
@@ -19,16 +19,12 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
     matchData.participants.forEach((participant) => {
       if (participant.teamId === 100) {
         blueTeam.push(participant);
-        // console.log(participant);
       } else {
         redTeam.push(participant);
       }
     });
     setBlueTeam(blueTeam);
     setRedTeam(redTeam);
-
-    // console.log("blueTeam : " + blueTeam);
-    // console.log("redTeam : " + redTeam);
   };
 
   let handleSearch = () => {
@@ -37,35 +33,21 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
         `${process.env.REACT_APP_SERVER_URL}/utils/activeGame?name=${inputName}`
       )
       .then((response) => {
-        // console.log(response.data);
-        // console.log(response.status);
         setIsSearched(true);
         setDatas(response.data);
       })
       .catch((err) => {
-        // console.log("atcive Game err catch : doesn't exit ");
         axios
           .get(`${process.env.REACT_APP_SERVER_URL}/utils/featured`)
           .then((response) => {
-            // console.log(response.data);
             setIsSearched(false);
             setDatas(response.data);
           });
       });
   };
 
-  let handleApiVer = () => {
-    axios
-      .get(`https://ddragon.leagueoflegends.com/api/versions.json`)
-      .then((res) => {
-        setApiVer(res.data[0]);
-        // console.log(apiVer);
-      });
-  };
-
   useEffect(() => {
     handleSearch();
-    handleApiVer();
   }, []);
 
   return (
@@ -94,7 +76,7 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
                     <div className="stylePlayer allyPlayer">
                       <img
                         className="playerImg"
-                        src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${el.championName}.png`}
+                        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
                         alt="no data"
                       />
                     </div>
@@ -120,7 +102,7 @@ const UserInfoMatching = ({ summonerName, handleUserClick }) => {
                     <div className="stylePlayer oppPlayer">
                       <img
                         className="playerImg"
-                        src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${el.championName}.png`}
+                        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
                         alt="no data"
                       />
                     </div>

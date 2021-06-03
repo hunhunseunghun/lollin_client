@@ -13,7 +13,7 @@ export const Container = styled.div`
   .currGameText {
     display: flex;
     justify-content: center;
-    width: 600px;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     color: black;
@@ -23,17 +23,17 @@ export const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 600px;
+    width: 95%;
   }
 
   .allyTeam {
     display: flex;
-    height: 260px;
+    height: 200px;
     border: 1px solid #3d95e5;
   }
   .oppTeam {
     display: flex;
-    height: 260px;
+    height: 200px;
     border: 1px solid #ee5952;
   }
 
@@ -51,8 +51,8 @@ export const Container = styled.div`
   }
   .teamWrapper {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    width: 230px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 600px;
   }
   .allyWrapper {
   }
@@ -61,32 +61,51 @@ export const Container = styled.div`
 
   .player {
     display: grid;
-    grid-template-columns: 1fr 3.3fr;
+    grid-template-rows: 4fr 0.8fr;
   }
   .allyHover:hover {
     background-color: #3d95e5;
     cursor: pointer;
+
+    .playerNameTag {
+      background-color: #3d95e5;
+      border: 1px solid #3d95e5;
+      /* background-color: #a3cfec; */
+    }
+    .playerImg {
+      transform: scale(1.1);
+      transition: transform 0.5s;
+    }
   }
   .oppHover:hover {
     background-color: #ee5952;
     cursor: pointer;
+
+    .playerNameTag {
+      background-color: #ee5952;
+      border: 1px solid #ee5952;
+      /* background-color: #a3cfec; */
+    }
+    .playerImg {
+      transform: scale(1.15);
+      transition: transform 0.5s;
+    }
   }
 
   .stylePlayer {
     position: relative;
-    border-radius: 9px;
-    width: 50px;
-    height: 50px;
-    border-radius: 150px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    margin: 1px;
   }
 
   .playerImg {
     position: absolute;
-    width: 50px;
-    right: 0.5px;
+    width: 105%;
+    right: -5px;
     z-index: 1;
+    transform: scale(1.05);
+    transition: transform 0.5s;
   }
 
   .playerNameTag {
@@ -94,10 +113,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     font-weight: bold;
     width: 100%;
-    border-left: 1px solid #969696;
+    background-color: #dadada;
     /* background-color: #a3cfec; */
     color: black;
     z-index: 3;

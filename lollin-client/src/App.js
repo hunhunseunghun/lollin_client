@@ -49,11 +49,14 @@ function App() {
   const handleSearchChange = (event) => {
     setSummornerName(event.target.value);
   };
+
   const handleSearchClick = () => {
     history.push("/userinfo");
   };
 
-  console.log(summonerName);
+  const handleOnKeyPress = () => {
+    handleSearchClick();
+  };
 
   return (
     <div className="Container">
@@ -88,6 +91,7 @@ function App() {
           <MainPage
             handleSearchChange={handleSearchChange}
             handleSearchClick={handleSearchClick}
+            handleOnKeyPress={handleOnKeyPress}
           />
         )}
       />
