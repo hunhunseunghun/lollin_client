@@ -14,13 +14,12 @@ import UNRANKED from "../../../Images/tierIcons/UNRANKED.png";
 const Tier = ({ historyData }) => {
   const [soloData, setSoloData] = useState();
   const [flexData, setFlexData] = useState();
-  const [soloTierIcon, setSoloTierIcon] = useState();
-  const [flexTierIcon, setFlexTierIcon] = useState();
+  const [soloTierIcon, setSoloTierIcon] = useState(UNRANKED);
+  const [flexTierIcon, setFlexTierIcon] = useState(UNRANKED);
 
   const handleData = () => {
     if (historyData && historyData.league_solo) {
       setSoloData(historyData.league_solo);
-
       if (historyData.league_solo.tier === "CHALLANGER") {
         setSoloTierIcon(CHALLENGER);
       } else if (historyData.league_solo.tier === "GRANDMASTER") {
@@ -43,7 +42,6 @@ const Tier = ({ historyData }) => {
     }
     if (historyData && historyData.league_flex) {
       setFlexData(historyData.league_flex);
-
       if (historyData.league_flex.tier === "CHALLANGER") {
         setFlexTierIcon(CHALLENGER);
       } else if (historyData.league_flex.tier === "GRANDMASTER") {
@@ -65,10 +63,11 @@ const Tier = ({ historyData }) => {
       }
     }
   };
+  console.log("solodata !!! " + JSON.stringify(soloData));
 
   useEffect(() => {
     handleData();
-  }, []);
+  }, [historyData]);
 
   return (
     <Container className="tierContainer">

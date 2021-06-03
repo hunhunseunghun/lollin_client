@@ -27,6 +27,8 @@ const History = ({ historyData }) => {
 
     if (pastTime >= 86400000) {
       return `${Math.floor(pastTime / 86400000)}일전`;
+    } else if (pastTime >= 3600000) {
+      return `${Math.floor(pastTime / 3600000)}시간전`;
     } else if (pastTime >= 60000) {
       return `${Math.floor(pastTime / 60000)}분전`;
     } else {
