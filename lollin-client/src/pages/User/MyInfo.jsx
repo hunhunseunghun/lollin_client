@@ -86,6 +86,7 @@ const MyInfo = (history, {nickname, password}) => {
       if (res.status === 200) {
         console.log('회원탈퇴 성공')
         setIsLeaved(true);
+        history.history.handleLogin(false)
         history.history.setJwt("")
         history.history.replace("/")
       } else if (res.status === 400) {
