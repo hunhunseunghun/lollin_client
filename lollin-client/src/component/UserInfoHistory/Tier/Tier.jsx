@@ -12,12 +12,10 @@ import IRON from "../../../Images/tierIcons/IRON.png";
 import UNRANKED from "../../../Images/tierIcons/UNRANKED.png";
 
 const Tier = ({ historyData }) => {
-  const [soloData, setSoloData] = useState(undefined);
-  const [flexData, setFlexData] = useState(undefined);
+  const [soloData, setSoloData] = useState();
+  const [flexData, setFlexData] = useState();
   const [soloTierIcon, setSoloTierIcon] = useState();
   const [flexTierIcon, setFlexTierIcon] = useState();
-  console.log(historyData);
-  //   console.log(soloData);
 
   const handleData = () => {
     if (historyData && historyData.league_solo) {
@@ -45,13 +43,14 @@ const Tier = ({ historyData }) => {
     }
     if (historyData && historyData.league_flex) {
       setFlexData(historyData.league_flex);
+
       if (historyData.league_flex.tier === "CHALLANGER") {
         setFlexTierIcon(CHALLENGER);
-      } else if (historyData.league_solo.tier === "GRANDMASTER") {
+      } else if (historyData.league_flex.tier === "GRANDMASTER") {
         setFlexTierIcon(GRANDMASTER);
-      } else if (historyData.league_solo.tier === "MASTER") {
+      } else if (historyData.league_flex.tier === "MASTER") {
         setFlexTierIcon(MASTER);
-      } else if (historyData.league_solo.tier === "DIAMOND") {
+      } else if (historyData.league_flex.tier === "DIAMOND") {
         setFlexTierIcon(DIAMOND);
       } else if (historyData.league_flex.tier === "PLATINUM") {
         setFlexTierIcon(PLATINUM);
@@ -66,10 +65,11 @@ const Tier = ({ historyData }) => {
       }
     }
   };
+
   useEffect(() => {
     handleData();
-    // handleData();
-  });
+  }, []);
+
   return (
     <Container className="tierContainer">
       <section className="soloWrapper">
