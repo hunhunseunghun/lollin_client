@@ -117,8 +117,8 @@ export const Container = styled.div`
   .infoArea {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 626px;
-    height: 180px;
+    width: 622px;
+    height: 170px;
     padding: 10px;
   }
   .infoArea-left {
@@ -200,7 +200,7 @@ export const Container = styled.div`
     place-items: center;
     align-items: center;
     width: 100%;
-    height: 100%;
-    padding: 1px;
+    height: 98.5%;
+    border: 1px solid gray;
   }
 `;

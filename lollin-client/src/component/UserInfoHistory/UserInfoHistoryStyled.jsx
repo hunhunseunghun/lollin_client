@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #dadada;
+  padding-bottom: 10rem;
 
   .topWrap {
     display: grid;
