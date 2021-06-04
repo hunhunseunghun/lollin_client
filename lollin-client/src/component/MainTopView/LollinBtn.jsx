@@ -1,6 +1,6 @@
 import React from "react";
 
-class FancyButton extends React.Component {
+class LollinBtn extends React.Component {
   render() {
     const maskId = "mask_1";
     const maskStyle =
@@ -101,15 +101,15 @@ class FancyButton extends React.Component {
   }
 }
 
-FancyButton.defaultProps = {
+LollinBtn.defaultProps = {
   color: "#ffffff",
   width: 321,
   height: 80,
   fontSize: 25,
-  borderWidth: 2,
+  borderWidth: 0.5,
   buttonText: "사랑받는 롤린이의 교과서, Lollin!",
 };
 
 // "#e0ad0b",
 
-export default FancyButton;
+export default LollinBtn;

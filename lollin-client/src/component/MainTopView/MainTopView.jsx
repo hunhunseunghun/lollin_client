@@ -5,7 +5,7 @@ import {
   BackWrapper,
   TopView,
 } from "./MainTopViewStyled.jsx";
-import FancyButton from "./FancyButton.jsx";
+import LollinBtn from "./LollinBtn.jsx";
 import mainVideo from "../../Images/mainbackvideo.webm";
 
 const MainSearchBox = () => {
@@ -43,7 +43,7 @@ const MainSearchBox = () => {
                 Click me!
               </button> */}
               <div className="foreGroundBtn" onClick={scrollMove}>
-                <FancyButton />
+                <LollinBtn />
               </div>
             </div>
           </div>
