@@ -27,9 +27,9 @@ const Navbar = ({
         <Bars onClick={toggle} />
         <Logo to="/" />
         <NavMenu>
+          <NavLink to="/userinfo">User Info</NavLink>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>
-          <NavLink to="/userinfo">User Info</NavLink>
         </NavMenu>
         <NavBtn>
           {isLogin ? (

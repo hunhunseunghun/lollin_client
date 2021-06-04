@@ -1,20 +1,19 @@
 const SidebarMenu = [
   {
-    title: 'Home',
-    link: '/',
+    title: "Home",
+    link: "/",
   },
   {
-    title: 'Item DB',
-    link: '/items/all',
+    title: "User Info",
+    link: "/userinfo",
   },
   {
-    title: 'Champ DB',
-    link: '/champions/all',
+    title: "Item DB",
+    link: "/items/all",
   },
-
   {
-    title: 'User Info',
-    link: '/userinfo',
+    title: "Champ DB",
+    link: "/champions/all",
   },
 ];
 export default SidebarMenu;
