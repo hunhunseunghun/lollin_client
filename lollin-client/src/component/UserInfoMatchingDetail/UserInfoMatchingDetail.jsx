@@ -52,11 +52,11 @@ const MatchingDetail = ({ participant }) => {
         <Container>
           <fieldset>
             <div className="wrap">
-              {participant !== null ? (
+              {/* {participant !== null ? (
                 <div>{participant.summonerName}</div>
               ) : (
                 "     "
-              )}
+              )} */}
               {"Loading..."}
             </div>
 

@@ -82,7 +82,7 @@ const UserInfoMatching = ({ summonerName }) => {
                     </div>
                   </section>
                 ))
-              : "nodata"}
+              : "coming.."}
           </div>
         </section>
         <section className="oppTeam">
