@@ -59,6 +59,35 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
 
   return (
     <Container className="matchingInfo-container">
+      <div className="title"> User Info</div>
+
+      <section className="currGame">
+        <div className="currGame-left">
+          {isSearched ? (
+            <div className="currGameText Exsit">
+              <div>
+                <div className="currId">{inputName}</div>님의 매치중인 게임
+              </div>
+            </div>
+          ) : (
+            <div className="currGameText noExsit">
+              <div>랜덤 매치</div>
+            </div>
+          )}
+        </div>
+        <div className="currGame-right">
+          <section className="searchArea">
+            <input
+              type="text"
+              className="searchInput"
+              placeholder="소환사 검색.."
+              value={inputName}
+            ></input>
+            <button className="searchBtn">Lollin</button>
+          </section>
+        </div>
+      </section>
+
       <div className="currMatching">
         <section className="allyTeam">
           <div className="allyNameTag">BLUE TEAM</div>
@@ -118,32 +147,19 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
           <UserInfoMatchingDetail participant={participant} />
         </div>
         <div className="infoArea-right">
-          <section className="searchArea">
+          <section className="commentArea">
             <input
               type="text"
-              className="searchInput"
+              className="commentInput"
               placeholder="소환사 검색.."
               value={inputName}
               onChange={(e) => {
                 setInputName(e.target.value);
               }}
             ></input>
-            <button className="searchBtn" onClick={handleSearch}>
+            <button className="commentBtn" onClick={handleSearch}>
               Lollin
             </button>
-          </section>
-          <section className="currGame">
-            {isSearched ? (
-              <div className="currGameText Exsit">
-                <div>
-                  <div className="currId">{inputName}</div>님의 매치중인 게임
-                </div>
-              </div>
-            ) : (
-              <div className="currGameText noExsit">
-                <div>랜덤 매치중인 게임</div>
-              </div>
-            )}
           </section>
         </div>
       </div>

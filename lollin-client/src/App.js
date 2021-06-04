@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Route, useHistory } from "react-router-dom";
 import MainPage from "./pages/Main/Main.jsx";
@@ -38,14 +38,14 @@ function App() {
   history.jwt = jwt;
   history.setJwt = setJwt;
   history.setisLogin = setisLogin;
-  
-  useEffect(()=>{
-    if(sessionStorage.getItem('jwt')){
-      setLoginOn(true)
-      setisLogin(true)
+
+  useEffect(() => {
+    if (sessionStorage.getItem("jwt")) {
+      setLoginOn(true);
+      setisLogin(true);
     }
-  },[])
-  
+  }, []);
+
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -56,7 +56,7 @@ function App() {
   };
 
   const handleSearchChange = (event) => {
-    setSummornerName(event.target.value.replace(/ /g, ""));
+    setSummornerName(event.target.value);
   };
 
   const handleSearchClick = () => {

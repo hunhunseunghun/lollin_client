@@ -6,16 +6,110 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 1rem 0;
-  background-color: #dadada;
+  background-color: #1f1f1f;
   color: white;
+  padding-top: 3.5rem;
   padding-bottom: 10rem;
 
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
+  }
+  .currGame {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    width: 621px;
+    padding-bottom: 1px;
+    /* border: 1px solid white; */
+  }
+
+  .currGameText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #646464;
+    padding: 4px;
+  }
+
+  .currGame-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+  }
+  .Exsit {
+    border: 1px solid #cef0d2;
+  }
+  .noExsit {
+    border: 1px solid #dadada;
+  }
+  .searchArea {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 30px;
+    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
+    border-top: 1px solid #dfab00;
+    border-left: 1px solid #dfab00;
+    border-radius: 5px;
+    margin-right: 3px;
+    margin-bottom: 4px;
+  }
+  .searchInput {
+    all: unset;
+    width: 60%;
+    font-size: 0.5rem;
+    margin-left: 5px;
+    color: #949494;
+  }
+  .searchInput:focus {
+    all: unset;
+    width: 60%;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: #4f4f4f;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
+    }
+  }
+  .searchBtn {
+    all: unset;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    background-color: #f7bd00;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .searchBtn:hover {
+    cursor: pointer;
+  }
+
+  .infoArea-right {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    place-items: center;
+    align-items: center;
+    width: 100%;
+    height: 98.5%;
+    border: 1px solid gray;
+  }
   .currMatching {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
-    max-width: 1327px;
+    max-width: 1243px;
   }
 
   .allyTeam {
@@ -126,30 +220,12 @@ export const Container = styled.div`
     place-items: center;
   }
 
-  .currGameText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 243px;
-    height: 60px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #646464;
-    padding: 4px;
-  }
   .currId {
     font-size: 1.4rem;
     color: #414141;
   }
-  .Exsit {
-    background-color: #cef0d2;
-    border-radius: 3px;
-  }
-  .noExsit {
-    background-color: #b1b1b1;
-    border-radius: 3px;
-  }
-  .searchArea {
+
+  .commentArea {
     display: flex;
     width: 250px;
     justify-content: space-between;
@@ -161,14 +237,14 @@ export const Container = styled.div`
     border-left: 1px solid #dfab00;
     border-radius: 5px;
   }
-  .searchInput {
+  .commentInput {
     all: unset;
     width: 60%;
     font-size: 0.5rem;
     margin-left: 5px;
     color: #949494;
   }
-  .searchInput:focus {
+  .commentInput:focus {
     all: unset;
     width: 60%;
     font-size: 0.7rem;
@@ -179,7 +255,7 @@ export const Container = styled.div`
       color: white;
     }
   }
-  .searchBtn {
+  .commentBtn {
     all: unset;
     width: 20%;
     height: 20px;
@@ -190,7 +266,7 @@ export const Container = styled.div`
     margin-right: 5px;
   }
 
-  .searchBtn:hover {
+  .commentBtn:hover {
     cursor: pointer;
   }
 

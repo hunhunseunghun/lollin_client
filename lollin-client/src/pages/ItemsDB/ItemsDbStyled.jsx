@@ -32,6 +32,6 @@ export const BackImg = styled.img`
 export const ItemTitle = styled.span`
   margin-top: 25px;
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
 `;
