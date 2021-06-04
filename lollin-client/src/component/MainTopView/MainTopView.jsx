@@ -4,17 +4,15 @@ import {
   MainBackVideo,
   BackWrapper,
   TopView,
-  Intro,
-  ClickBtn,
 } from "./MainTopViewStyled.jsx";
+import FancyButton from "./FancyButton.jsx";
 import mainVideo from "../../Images/mainbackvideo.webm";
-
 
 const MainSearchBox = () => {
   const scrollMove = () => {
     let location = document.querySelector("#champPre").offsetTop;
-    window.scrollTo({top: location, behavior:'smooth'})
-  }
+    window.scrollTo({ top: location, behavior: "smooth" });
+  };
 
   return (
     <TopView className="TopView">
@@ -37,11 +35,16 @@ const MainSearchBox = () => {
         <div className="foreGroundInner">
           <div className="foreGroundRow-Top">
             <div className="foreGroundLogo">
-              <Intro>사랑받는 롤린이의 교과서, Lollin</Intro>
-              <br />
-              <ClickBtn onClick={scrollMove}>
+              {/* <div className="foreGroundText">
+                사랑받는 롤린이의 교과서, Lollin
+              </div> */}
+
+              {/* <button className="foreGroundbutton" onClick={scrollMove}>
                 Click me!
-              </ClickBtn>
+              </button> */}
+              <div className="foreGroundBtn" onClick={scrollMove}>
+                <FancyButton />
+              </div>
             </div>
           </div>
           <div className="foreGroundRow-bottom"></div>

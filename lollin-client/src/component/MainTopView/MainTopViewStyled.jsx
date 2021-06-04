@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const TopView = styled.div`
+  @font-face {
+    font-family: "Bazzi";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+
   position: relative;
   display: block;
   box-sizing: border-box;
@@ -76,12 +84,76 @@ export const TopView = styled.div`
     text-align: center;
   }
   .foreGroundLogo {
-    display: inline-block;
+    display: flex;
     justify-content: center;
     position: relative;
-    width: 60vw;
-    height: calc(25vw);
+    width: 100%;
+    height: 100px;
   }
+
+  .foreGroundText {
+    position: absolute;
+    background-color: #00000033;
+    font-family: Bazzi;
+    font-size: 2rem;
+    color: #e0ad0b;
+    top: 8rem;
+  }
+
+  .foreGroundbutton {
+    position: absolute;
+    all: unset;
+    font-size: 2rem;
+    color: #e0ad0b;
+  }
+  .foreGroundBtn {
+    position: absolute;
+    top: 7rem;
+  }
+  .fancy-button {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    perspective: 900px;
+    .fancy-flipper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform-style: preserve-3d;
+      transform: rotateX(-90deg);
+      transition: transform 0.6s ease;
+    }
+    .fancy-front,
+    .fancy-back {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      backface-visibility: hidden;
+      svg {
+        display: block;
+      }
+    }
+    &:hover {
+      .fancy-flipper {
+        transform: rotateX(0deg);
+      }
+    }
+    &:active {
+      .fancy-flipper {
+        transform: rotateX(0deg) scale(0.95);
+        transition: transform 0.05s ease;
+      }
+    }
+    .button-text {
+      letter-spacing: 0.01rem;
+      font-family: Bazzi, sans-serif;
+    }
+  }
+
   .foreGroundRow-bottom {
     width: 100%;
     margin-top: 0.625rem;
@@ -163,7 +235,7 @@ export const Intro = styled.h1`
   position: relative;
   margin: 0 auto;
   max-width: 100%;
-  color: #C6C62B;
+  color: #c6c62b;
   opacity: 0.7;
   font-size: 5vw;
   text-shadow: 7px 7px 13px #000;
@@ -185,10 +257,10 @@ export const ClickBtn = styled.button`
   margin-top: 10vh;
   cursor: pointer;
   box-shadow: 5px 5px 10px 5px #121212;
-  
+
   &:hover {
     transition: all 0.2s ease-in-out;
-    color: #D1D1D1;
+    color: #d1d1d1;
   }
 
   &:active {
@@ -203,4 +275,3 @@ export const ClickBtn = styled.button`
     align-items: center;
   }
 `;
-
