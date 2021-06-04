@@ -21,7 +21,7 @@ export const Logo = styled(Link)`
   align-items: center;
   justify-self: start;
   text-decoration: none;
-  margin-left: 30px;
+  margin-left: 25px;
   margin-top: 10px;
   padding: 0 1rem;
   height: 100%;
@@ -47,7 +47,7 @@ export const NavLink = styled(Link)`
   justify-self: start;
   text-decoration: none;
   margin-top: 2px;
-  margin-left: 30px;
+  margin-right: 10px;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
