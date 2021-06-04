@@ -28,7 +28,9 @@ const ChampDetail = ({ champPriId }) => {
 	const [skillIndex, setSkillIndex] = useState(0);
 	const [resultId, setResultId] = useState('Aatorx');
 	const [oppName, setOppName] = useState('');
-	const [recommendBuild, setRecommendBuild] = useState('');
+	const [runeEls, setRuneEls] = useState([]);
+	const [runeUrls, setRuneUrls] = useState([]);
+	const [isLoading, setIsLoading] = useState(null);
 	console.log(resultId);
 
 	const handleSkillIndex = (index) => {
@@ -52,33 +54,45 @@ const ChampDetail = ({ champPriId }) => {
 			});
 	}, [resultId]);
 	const handleOppSearch = () => {
+		setIsLoading(true);
 		axios
 			.get(
 				`${process.env.REACT_APP_SERVER_URL}/recommend/build?champ1=${resultId}&champ2=${oppName}`,
 			)
 			.then((response) => {
 				const $ = cheerio.load(response.data);
-				let runeEl = $(
-					'div.rune > div.main > div.keystone > span.rune-imgbox.active > div',
-				);
-				let runeClass = runeEl.attr('class');
-				let runeId = runeClass.split(' ')[1].split('_')[2];
+				// let runeEl = $(
+				// 	'div.rune > div.main > div.keystone > span.rune-imgbox.active > div',
+				// );
+				let runeEls = $(' span.rune-imgbox.active > div');
+				let urls = [];
+				console.log(runeEls);
+				setRuneEls(runeEls);
+				for (let runeEl of runeEls) {
+					let runeClass = runeEl.attribs.class;
+					let runeId = runeClass.split(' ')[1].split('_')[2];
+					axios
+						.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
+						.then((resJson) => {
+							let url = resJson.data.icon;
+							// console.log('url: ', url);
+							urls.push(url);
+						})
+						.catch((err) => {
+							console.log(err);
+						});
+				}
+				setRuneUrls(urls);
+				setIsLoading(false);
 
-				console.log('runeId: ');
-				console.log(runeId);
-				axios
-					.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
-					.then((resJson) => {
-						let url = resJson.data.icon;
-						console.log('url: ', url);
-						runeEl.css('background-image', `url(${url})`);
-						runeEl.css('width', '100px');
-						runeEl.css('height', '100px');
-						setRecommendBuild(runeEl);
-					})
-					.catch((err) => {
-						console.log(err);
-					});
+				//"background-image: url(https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png); background-size: 80px 80px; width: 80px; height: 80px;"
+
+				// console.log('runeId: ');
+				// console.log(runeId);
+			})
+			.catch((err) => {
+				console.log(err);
+				setIsLoading(false);
 			});
 	};
 	//#root > div > div.sc-lmgQwP.egcscq.champDetail > section > div > div.sc-ciSkZP.dQMkGr > div.sc-iTVJFM.dCQnwK > div > div.rune > div.main > div.keystone > span.rune-imgbox.active
@@ -191,8 +205,43 @@ const ChampDetail = ({ champPriId }) => {
 							>
 								Search!
 							</button>
-							<div dangerouslySetInnerHTML={{ __html: recommendBuild }}></div>
-							{/* <div>{recommendBuild}</div> */}
+							{runeUrls.map((el, idx, urls) => {
+								// console.log(runeEl);
+								// console.log(runeEls[runeEl]);
+								console.log(runeEls[idx].attribs);
+								console.log(idx);
+								console.log(urls[0]);
+								return (
+									<div
+										{...runeEls[idx].attribs}
+										style={{
+											backgroundImage: `url(${urls[0]})`,
+											backgroundSize: '80px 80px',
+											width: '200px',
+											height: '200px',
+										}}
+									></div>
+								);
+							})}
+							{isLoading
+								? 'Loading...'
+								: runeUrls.map((el, idx, urls) => {
+										// console.log(runeEl);
+										// console.log(runeEls[runeEl]);
+										console.log('runeUrls: ', runeUrls);
+										console.log('runeEls: ', runeEls);
+										return (
+											<div
+												{...runeEls[idx].attribs}
+												style={{
+													backgroundImage: `url(${urls[0]})`,
+													backgroundSize: '80px 80px',
+													width: '200px',
+													height: '200px',
+												}}
+											></div>
+										);
+								  })}
 						</ChampRecommendedBuild>
 					</ChampTipsArea>
 				</RenderArea>
