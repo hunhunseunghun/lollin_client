@@ -9,7 +9,11 @@ import MainUpdatedItems from "../../component/MainUpdatedItems/MainUpdatedItems.
 import MainSearch from "../../component/MainSearch/MainSearch.jsx";
 
 // const server = process.env.REACT_APP_SERVER_URL;
-const MainPage = ({ handleSearchChange, handleSearchClick }) => {
+const MainPage = ({
+  handleSearchChange,
+  handleSearchClick,
+  handleOnKeyPress,
+}) => {
   const history = useHistory();
 
   return (
@@ -18,6 +22,7 @@ const MainPage = ({ handleSearchChange, handleSearchClick }) => {
       <MainSearch
         handleSearchChange={handleSearchChange}
         handleSearchClick={handleSearchClick}
+        handleOnKeyPress={handleOnKeyPress}
       ></MainSearch>
 
       <MainChampPre history={history} />

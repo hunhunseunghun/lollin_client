@@ -1,7 +1,11 @@
 import React from "react";
 import { SearchBox, SearchBtn } from "./MainSearchStyled.jsx";
 
-const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
+const MainSearchBox = ({
+  handleSearchChange,
+  handleSearchClick,
+  handleOnKeyPress,
+}) => {
   return (
     <SearchBox className="mainSearchBox">
       <div className="searchSectionTop"></div>
@@ -12,6 +16,7 @@ const MainSearchBox = ({ handleSearchChange, handleSearchClick }) => {
           <input
             className="summonerInputBox"
             onChange={handleSearchChange}
+            onKeyPress={handleOnKeyPress}
             placeholder="소환사명을 입력하세요"
           ></input>
           <SearchBtn className="searchBoxSearchBtn" onClick={handleSearchClick}>
