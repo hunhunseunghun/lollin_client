@@ -5,6 +5,14 @@ export const Items = styled.div`
   justify-content: center;
 `;
 
+export const ItemTitle = styled.span`
+  margin-top: 25px;
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
+`;
+
 export const Wrapper = styled.section`
   position: relative;
   display: flex;
@@ -27,11 +35,4 @@ export const BackImg = styled.img`
   @media (max-width: 768px) {
     min-height: 30rem;
   }
-`;
-
-export const ItemTitle = styled.span`
-  margin-top: 25px;
-  color: white;
-  font-size: 5rem;
-  font-weight: bold;
 `;

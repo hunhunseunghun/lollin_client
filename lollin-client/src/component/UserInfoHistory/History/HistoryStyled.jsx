@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 600px;
+  width: 650px;
   background-color: #dadada;
   color: #575757;
   border: 1px solid #808080b0;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1.4fr 1.1fr;
     width: 270px;
-    height: 90px;
+    height: 80px;
     margin: 5px 0 2px 0;
     background-color: pink;
     padding: 2px 4px;

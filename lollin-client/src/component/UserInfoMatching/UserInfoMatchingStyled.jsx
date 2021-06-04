@@ -4,29 +4,148 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 1rem 0;
-  background-color: #dadada;
+  width: 652px;
+  height: 1152px;
   color: white;
-  padding-bottom: 10rem;
 
+  .title {
+    font-size: 4rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
+  }
+
+  .entireWrap {
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+    width: 80%;
+    min-width: 652px;
+    height: 1300px;
+    max-width: 1320px;
+    background-color: #dadada;
+  }
+  .currGame {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    width: 621px;
+    height: 81px;
+    padding-bottom: 1px;
+    /* border: 1px solid white; */
+  }
+
+  .currGameText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #646464;
+    padding: 4px;
+  }
+  .currGame-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .currGame-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .Exsit {
+    color: #239223;
+    font-size: 1rem;
+    text-align: center;
+    .currId {
+      font-size: 1.3rem;
+      color: #414141;
+    }
+  }
+  .noExsit {
+    color: black;
+    font-size: 2rem;
+  }
+  .searchArea {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    height: 30px;
+    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
+    border-top: 1px solid #dfab00;
+    border-left: 1px solid #dfab00;
+    border-radius: 5px;
+    margin-right: 3px;
+    margin-bottom: 4px;
+  }
+  .searchInput {
+    all: unset;
+    width: 60%;
+    font-size: 0.5rem;
+    margin-left: 5px;
+    color: #949494;
+  }
+  .searchInput:focus {
+    all: unset;
+    width: 60%;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: #4f4f4f;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
+    }
+  }
+  .searchBtn {
+    all: unset;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+    background-color: #f7bd00;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .searchBtn:hover {
+    cursor: pointer;
+  }
+
+  .infoArea-right {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    place-items: center;
+    align-items: center;
+    width: 100%;
+    height: 98.5%;
+    border: 1px solid gray;
+  }
   .currMatching {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
-    max-width: 1327px;
+    height: 700px;
   }
 
   .allyTeam {
     display: flex;
-    height: 200px;
+    height: 270px;
     border: 1px solid #3d95e5;
+    margin: 1rem 0;
   }
   .oppTeam {
     display: flex;
-    height: 200px;
+    height: 280px;
     border: 1px solid #ee5952;
+    margin: 1rem 0;
   }
 
   .allyNameTag {
@@ -116,42 +235,22 @@ export const Container = styled.div`
 
   .infoArea {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
     width: 622px;
-    height: 170px;
-    padding: 10px;
+    height: 340px;
   }
-  .infoArea-left {
-    display: grid;
-    place-items: center;
+  .infoArea-top {
   }
-
-  .currGameText {
+  .infoArea-bottom {
     display: flex;
     justify-content: center;
+    place-items: center;
     align-items: center;
-    width: 243px;
-    height: 60px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #646464;
-    padding: 4px;
+    width: 100%;
   }
-  .currId {
-    font-size: 1.4rem;
-    color: #414141;
-  }
-  .Exsit {
-    background-color: #cef0d2;
-    border-radius: 3px;
-  }
-  .noExsit {
-    background-color: #b1b1b1;
-    border-radius: 3px;
-  }
-  .searchArea {
+  .commentArea {
     display: flex;
-    width: 250px;
+    width: 500px;
     justify-content: space-between;
     align-items: center;
     background-color: white;
@@ -161,14 +260,14 @@ export const Container = styled.div`
     border-left: 1px solid #dfab00;
     border-radius: 5px;
   }
-  .searchInput {
+  .commentInput {
     all: unset;
     width: 60%;
     font-size: 0.5rem;
     margin-left: 5px;
     color: #949494;
   }
-  .searchInput:focus {
+  .commentInput:focus {
     all: unset;
     width: 60%;
     font-size: 0.7rem;
@@ -179,9 +278,9 @@ export const Container = styled.div`
       color: white;
     }
   }
-  .searchBtn {
+  .commentBtn {
     all: unset;
-    width: 20%;
+    width: 90px;
     height: 20px;
     text-align: center;
     background-color: #f7bd00;
@@ -190,17 +289,7 @@ export const Container = styled.div`
     margin-right: 5px;
   }
 
-  .searchBtn:hover {
+  .commentBtn:hover {
     cursor: pointer;
-  }
-
-  .infoArea-right {
-    display: grid;
-    grid-template-rows: 1fr 1.5fr;
-    place-items: center;
-    align-items: center;
-    width: 100%;
-    height: 98.5%;
-    border: 1px solid gray;
   }
 `;

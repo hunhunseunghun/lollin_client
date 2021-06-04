@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  width: 650px;
+  border-left: 1px solid #808080b0;
+  border-right: 1px solid #808080b0;
 
   background-color: #d6d3d3;
 
@@ -9,7 +12,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     place-items: center;
-    width: 299.5px;
+    width: 327px;
     height: 120px;
     padding: 9px 0;
     border: 1px solid #808080b0;
@@ -56,7 +59,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     place-items: center;
-    width: 299.5px;
+    width: 327px;
     height: 120px;
     padding: 9px 0;
     border: 1px solid gray;

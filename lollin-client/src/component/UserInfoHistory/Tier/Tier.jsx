@@ -23,8 +23,7 @@ const Tier = ({ historyData }) => {
       setFlexData(null);
     }
   };
-  // console.log("solodata !!! " + JSON.stringify(soloData));
-  // console.log("historyodata !!! " + JSON.stringify(historyData));
+
   useEffect(() => {
     handleData();
   }, [historyData]);
