@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  SearchBox,
   MainVideo,
   MainBackVideo,
   BackWrapper,
@@ -9,8 +8,7 @@ import {
   ClickBtn,
 } from "./MainTopViewStyled.jsx";
 import mainVideo from "../../Images/mainbackvideo.webm";
-import mainTopLogo from "../../Images/logo2.png";
-// import mainBgi from "../../Images/MainBgi.jpg";
+
 
 const MainSearchBox = () => {
   const scrollMove = () => {
@@ -44,12 +42,6 @@ const MainSearchBox = () => {
               <ClickBtn onClick={scrollMove}>
                 Click me!
               </ClickBtn>
-              {/* <img
-                className="foreLogoImg"
-                src={mainTopLogo}
-                alt={mainTopLogo}
-                sizes="(max-width:599px) 70vw,40vw"
-              ></img> */}
             </div>
           </div>
           <div className="foreGroundRow-bottom"></div>

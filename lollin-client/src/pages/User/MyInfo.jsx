@@ -21,7 +21,8 @@ const MyInfo = (history, {nickname, password}) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isUpdated, setIsUpdated] = useState(false);
   const [isLeaved, setIsLeaved] = useState(false);
-  const [isAuth, setisAuth]= useState(true)
+  const [isAuth, setisAuth]= useState(true);
+
 
   function submitForm() {
     setIsSubmitted(true);
@@ -29,20 +30,19 @@ const MyInfo = (history, {nickname, password}) => {
 
   useEffect(() => {
     let decode 
-    try{
-      decode = jwt.verify(history.history.jwt, process.env.REACT_APP_SECRET_KEY);
+    try {
+      decode = jwt.verify(sessionStorage.jwt, process.env.REACT_APP_SECRET_KEY);
       if(decode.type === 'none'){
         setisAuth(false)
       }
-    }catch(err){
-      console.log(err)
+    } catch(err) {
+      // console.log(err)
     }
   },[])
 
 
 
   const handleUpdate = async () => {
-    console.log('정보변경 접속', values.nickname, values.password);
     if(!values.nickname && !values.password){
       alert('하나라도 입력해주세요!')
     } else {
@@ -50,51 +50,49 @@ const MyInfo = (history, {nickname, password}) => {
       .post(
         'https://lollinserver.link/user/update',
         {
-          jwt :history.history.jwt,
+          jwt : sessionStorage.jwt,
           nickname: values.nickname,
           password: values.password,
         },
         {
           'Content-Type': 'application/json',
           withCredentials: true,
-        }
+        },
       )
       .then((res) => {
-        if(res.status === 200) {
+        if (res.status === 200) {
           setIsUpdated(true)
           setIsSubmitted(true)
           setTimeout(() => history.history.push("/"), 1000)
         } else if (res.data.message === 'insufficient datas') {
-          console.log('불충분한 데이터');
+          alert('하나라도 입력해주세요!')
         }
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
       });
     }
   };
 
   const handleLeave =  async () => {
-    console.log('asd')
     await axios
     .post('https://lollinserver.link/user/delete', 
     {
-      jwt :history.history.jwt,
+      jwt :sessionStorage.jwt,
     }
     )
     .then((res) => {
       if (res.status === 200) {
-        console.log('회원탈퇴 성공')
         setIsLeaved(true);
-        history.history.handleLogin(false)
-        history.history.setJwt("")
-        history.history.replace("/")
+        sessionStorage.jwt = null;
+        history.history.setisLogin(false);
+        setTimeout(() => history.history.replace("/"), 1000)
       } else if (res.status === 400) {
-        console.log('에러')
+        alert('Error')
       }
     })
     .catch((err) => {
-      console.error(err);
+      alert('Error')
     });
   };
 

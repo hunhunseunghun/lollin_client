@@ -25,7 +25,6 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
   }
 
   const handleSignup = async () => {
-    console.log('회원가입 접속', values.username, values.password, values.nickname, values.email);
     await axios
       .post(
         'https://lollinserver.link/user/signup',
@@ -45,11 +44,11 @@ const Signup = (history, { submitForm, username, password, nickname, email }) =>
           submitForm();
           setTimeout(() => history.history.push("/"), 1000)
         } else if (res.status === 409 || res.status === 400) {
-          console.log('중복됨');
+          alert('아이디 혹은 닉네임이 중복되었습니다')
         }
       })
       .catch((err) => {
-        console.error(err);
+        alert('회원가입 실패! 다시 작성해 주세요!')
       });
   };
 

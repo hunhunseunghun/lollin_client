@@ -13,8 +13,8 @@ const SidebarMenu = [
   },
 
   {
-    title: 'Matching Info',
-    link: '/utils/search?name=${name}',
+    title: 'User Info',
+    link: '/userinfo',
   },
 ];
 export default SidebarMenu;

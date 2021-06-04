@@ -39,9 +39,7 @@ const MainUpdatedItems = ({ history }) => {
       });
   }, []);
 
-  // const handleDetailsClick = () => {
-  //   history.push("/items/all");
-  // };
+  
 
   const handleItemHtml = () => {
     return (
@@ -66,18 +64,7 @@ const MainUpdatedItems = ({ history }) => {
       </div>
 
       {handleItemHtml()}
-      {/* <div className="itemsTitle">패치 적용된 아이템</div>
-      <div className="itemsImgArea">
-        {newItemData.items.map((ele) => (
-          <img className="itemsImg" src={ele.img} alt="no images" />
-        ))}
-      </div>
-      <div className="itemsDescArea">
-        {newItemData.items.map((ele) => (
-          <div className="itmesDesc">{ele.desc}</div>
-        ))}
-      </div>
-      <button onClick={handleDetailsClick}>Details</button> */}
+   
     </UpdatedItems>
   );
 };

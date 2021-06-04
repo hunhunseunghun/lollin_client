@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Nav,
   Logo,
@@ -9,8 +9,6 @@ import {
   NavLoginBtn,
   NavSignupBtn,
 } from "./NavbarFixedElements";
-import Login from "../../pages/User/Login";
-import ScrollToTop from "../../Scroll/ScrollToTop";
 
 const Navbar = ({
   toggle,
@@ -31,7 +29,7 @@ const Navbar = ({
         <NavMenu>
           <NavLink to="/items/all">Item DB</NavLink>
           <NavLink to="/champions/all">Champ DB</NavLink>
-          <NavLink to="/userinfo">Matching Info</NavLink>
+          <NavLink to="/userinfo">User Info</NavLink>
         </NavMenu>
         <NavBtn>
           {isLogin ? (
@@ -39,7 +37,7 @@ const Navbar = ({
               to="/"
               onClick={() => {
                 setisLogin(false);
-                setJwt("");
+                sessionStorage.clear();
               }}
             >
               Logout
