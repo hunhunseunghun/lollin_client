@@ -1,153 +1,204 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useLocation } from "react-router";
-import { initData } from "./ChampInitData.jsx";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router';
+import { initData } from './ChampInitData.jsx';
 import {
-  ChampDetailArea,
-  BackImg,
-  RenderArea,
-  Wrap,
-  SkillsArea,
-  ChampDetailImg,
-  ChampSkillWeb,
-  ChampName,
-  CahmpDetailName,
-  ChampDescText,
-  ChampDescName,
-  ChampAllytips,
-  ChampEnemytips,
-  ChampTipsArea,
-} from "./ChampDetailStyled.jsx";
-
+	ChampDetailArea,
+	BackImg,
+	RenderArea,
+	Wrap,
+	SkillsArea,
+	ChampDetailImg,
+	ChampSkillWeb,
+	ChampName,
+	CahmpDetailName,
+	ChampDescText,
+	ChampDescName,
+	ChampAllytips,
+	ChampEnemytips,
+	ChampTipsArea,
+	ChampRecommendedBuild,
+} from './ChampDetailStyled.jsx';
+const cheerio = require('cheerio');
 const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
-  const location = useLocation();
-  const [champData, setChampData] = useState(initData);
-  const [skillIndex, setSkillIndex] = useState(0);
-  const [resultId, setResultId] = useState("Aatorx");
+	const location = useLocation();
+	const [champData, setChampData] = useState(initData);
+	const [skillIndex, setSkillIndex] = useState(0);
+	const [resultId, setResultId] = useState('Aatorx');
+	const [oppName, setOppName] = useState('');
+	const [recommendBuild, setRecommendBuild] = useState('');
+	console.log(resultId);
 
-  console.log(resultId);
+	const handleSkillIndex = (index) => {
+		setSkillIndex(index);
+	};
 
-  const handleSkillIndex = (index) => {
-    setSkillIndex(index);
-  };
+	useEffect(() => {
+		const handleResultId = () => {
+			if (location.state !== undefined) {
+				return setResultId(location.state.id);
+			} else {
+				return setResultId(champPriId);
+			}
+		};
+		handleResultId();
 
-  useEffect(() => {
-    const handleResultId = () => {
-      if (location.state !== undefined) {
-        return setResultId(location.state.id);
-      } else {
-        return setResultId(champPriId);
-      }
-    };
-    handleResultId();
+		axios
+			.get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
+			.then((res) => {
+				setChampData(res.data.data);
+			});
+	}, [resultId]);
+	const handleOppSearch = () => {
+		axios
+			.get(
+				`${process.env.REACT_APP_SERVER_URL}/recommend/build?champ1=${resultId}&champ2=${oppName}`,
+			)
+			.then((response) => {
+				const $ = cheerio.load(response.data);
+				let runeEl = $(
+					'div.rune > div.main > div.keystone > span.rune-imgbox.active > div',
+				);
+				let runeClass = runeEl.attr('class');
+				let runeId = runeClass.split(' ')[1].split('_')[2];
 
-    axios
-      .get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
-      .then((res) => {
-        setChampData(res.data.data);
-      });
-  }, [resultId]);
+				console.log('runeId: ');
+				console.log(runeId);
+				axios
+					.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
+					.then((resJson) => {
+						let url = resJson.data.icon;
+						console.log('url: ', url);
+						runeEl.css('background-image', `url(${url})`);
+						runeEl.css('width', '100px');
+						runeEl.css('height', '100px');
+						setRecommendBuild(runeEl);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
+			});
+	};
+	//#root > div > div.sc-lmgQwP.egcscq.champDetail > section > div > div.sc-ciSkZP.dQMkGr > div.sc-iTVJFM.dCQnwK > div > div.rune > div.main > div.keystone > span.rune-imgbox.active
+	//#root > div > div.sc-lmgQwP.egcscq.champDetail > section > div > div.sc-ciSkZP.dQMkGr > div.sc-iTVJFM.dCQnwK > div > div.rune > div.main > div.keystone > span.rune-imgbox.active > div
+	const handleSkillsDescription = () => {
+		return (
+			<div
+				dangerouslySetInnerHTML={{
+					__html: champData.skills[skillIndex].description,
+				}}
+			></div>
+		);
+	};
 
-  const handleSkillsDescription = () => {
-    return (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: champData.skills[skillIndex].description,
-        }}
-      ></div>
-    );
-  };
+	return (
+		<ChampDetailArea className="champDetail">
+			<BackImg
+				className="champDbBackImg"
+				src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
+			/>
+			<Wrap>
+				<RenderArea className="renderWrapper">
+					<ChampName className="champDetailNameArea">
+						<ChampDetailImg className="champDetailImg" src={champData.img} />
+						<CahmpDetailName className="cahmpDetailName">
+							{resultId}
+						</CahmpDetailName>
+					</ChampName>
 
-  return (
-    <ChampDetailArea className="champDetail">
-      <BackImg
-        className="champDbBackImg"
-        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
-      />
-      <Wrap>
-        <RenderArea className="renderWrapper">
-          <ChampName className="champDetailNameArea">
-            <ChampDetailImg className="champDetailImg" src={champData.img} />
-            <CahmpDetailName className="cahmpDetailName">
-              {resultId}
-            </CahmpDetailName>
-          </ChampName>
+					<SkillsArea className="champDetailSkills">
+						<section>
+							<div className="detailSkill">
+								{champData.skillsimg.map((ele, index) => (
+									<div className="detailSkills" key={index}>
+										<img
+											className="detailSkillsImg"
+											src={ele}
+											alt={champData.skills[index]}
+											key={champData.skills[index]}
+											onClick={() => {
+												handleSkillIndex(index);
+											}}
+										></img>
+									</div>
+								))}
+							</div>
+							<div className="detailDesc">
+								<ChampDescName>
+									{champData.skills[skillIndex].name}
+								</ChampDescName>
+								<br></br>
+								<ChampDescText className="detailDescEffect">
+									{handleSkillsDescription()}
+								</ChampDescText>
+							</div>
+						</section>
 
-          <SkillsArea className="champDetailSkills">
-            <section>
-              <div className="detailSkill">
-                {champData.skillsimg.map((ele, index) => (
-                  <div className="detailSkills" key={index}>
-                    <img
-                      className="detailSkillsImg"
-                      src={ele}
-                      alt={champData.skills[index]}
-                      key={champData.skills[index]}
-                      onClick={() => {
-                        handleSkillIndex(index);
-                      }}
-                    ></img>
-                  </div>
-                ))}
-              </div>
-              <div className="detailDesc">
-                <ChampDescName>
-                  {champData.skills[skillIndex].name}
-                </ChampDescName>
-                <br></br>
-                <ChampDescText className="detailDescEffect">
-                  {handleSkillsDescription()}
-                </ChampDescText>
-              </div>
-            </section>
-
-            {champData.skillwebm.map((ele, idx) => (
-              <ChampSkillWeb
-                className={idx === skillIndex ? "isDisplay" : "noDisplay"}
-                src={ele}
-                width="480px"
-                muted
-                autoPlay
-                loop
-              ></ChampSkillWeb>
-            ))}
-            {/* <ChampSkillWeb
+						{champData.skillwebm.map((ele, idx) => (
+							<ChampSkillWeb
+								className={idx === skillIndex ? 'isDisplay' : 'noDisplay'}
+								src={ele}
+								width="480px"
+								muted
+								autoPlay
+								loop
+							></ChampSkillWeb>
+						))}
+						{/* <ChampSkillWeb
               className="champDetailWebm"
               src={champData.skillwebm[skillIndex]}
               width="480px"
+              }}></button>
               muted
               autoPlay
               loop
             ></ChampSkillWeb> */}
-          </SkillsArea>
-          <ChampTipsArea>
-            챔피언 플레이 팁!
-            <ChampAllytips>
-              <br></br>
-              {champData.allytips.map((ele, index) => (
-                <div>
-                  {" "}
-                  tip{index + 1} : {ele}{" "}
-                </div>
-              ))}
-            </ChampAllytips>
-            <br></br>
-            챔피언 상대 팁!
-            <ChampEnemytips>
-              <br></br>
-              {champData.enemytips.map((ele, index) => (
-                <div>
-                  tip{index + 1} : {ele}
-                </div>
-              ))}
-            </ChampEnemytips>
-          </ChampTipsArea>
-        </RenderArea>
-      </Wrap>
-    </ChampDetailArea>
-  );
+					</SkillsArea>
+					<ChampTipsArea>
+						챔피언 플레이 팁!
+						<ChampAllytips>
+							<br></br>
+							{champData.allytips.map((ele, index) => (
+								<div>
+									{' '}
+									tip{index + 1} : {ele}{' '}
+								</div>
+							))}
+						</ChampAllytips>
+						<br></br>
+						챔피언 상대 팁!
+						<ChampEnemytips>
+							<br></br>
+							{champData.enemytips.map((ele, index) => (
+								<div>
+									tip{index + 1} : {ele}
+								</div>
+							))}
+						</ChampEnemytips>
+						<ChampRecommendedBuild>
+							<input
+								type="text"
+								onChange={(e) => {
+									setOppName(e.target.value);
+								}}
+							></input>
+							<button
+								onClick={() => {
+									handleOppSearch();
+								}}
+							>
+								Search!
+							</button>
+							<div dangerouslySetInnerHTML={{ __html: recommendBuild }}></div>
+							{/* <div>{recommendBuild}</div> */}
+						</ChampRecommendedBuild>
+					</ChampTipsArea>
+				</RenderArea>
+			</Wrap>
+		</ChampDetailArea>
+	);
 };
 
 export default ChampDetail;
