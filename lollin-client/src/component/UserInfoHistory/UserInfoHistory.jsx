@@ -5,9 +5,11 @@ import Tier from "./Tier/Tier.jsx";
 import History from "./History/History.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
-const UserInfoHistory = ({ summonerName }) => {
+const UserInfoHistory = ({ summonerName, defaultPlayer }) => {
   const [historyData, setHistoryData] = useState(null);
   const [summonerResult, setSummonerResult] = useState(summonerName);
+  const [isLoading, setIsLoading] = useState(null);
+
   let searchVal = null;
   // let isInitialMount = useRef(true);
 
@@ -36,49 +38,126 @@ const UserInfoHistory = ({ summonerName }) => {
   useEffect(() => {
     axios.get(`${server}/utils/history?name=${summonerName}`).then((res) => {
       setHistoryData(res.data);
-      // console.log("useEffect axios done:" + JSON.stringify(res.data));
     });
-    // if (isInitialMount.current) {
-    //   console.log("useEffect init excuted" + summonerName);
+  }, [summonerName]);
 
-    //   setSummonerResult(summonerName);
-    //   isInitialMount.current = false;
-    //   axios.get(`${server}/utils/history?name=${searchVal}`).then((res) => {
-    //     setHistoryData(res.data);
-    //     console.log("useEffect axios done:" + historyData);
-    //   });
-    // } else {
-    //   handleSearchName();
-    // }
-  }, []);
+  useEffect(() => {
+    if (defaultPlayer !== null) {
+      setSummonerResult(defaultPlayer.summonerName);
+      setIsLoading(true);
+      axios
+        .get(`${server}/utils/history?name=${defaultPlayer.summonerName}`)
+        .then((res) => {
+          setHistoryData(res.data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          setIsLoading(null);
+        });
+    }
+    console.log("defaultPlayer : ", defaultPlayer);
+  }, [defaultPlayer]);
 
-  return (
-    <Container>
-      <div className="topWrap">
-        <div className="name">{summonerResult}</div>
+  switch (isLoading) {
+    case null: {
+      return (
+        <Container>
+          <div className="topWrap">
+            <div className="name">{summonerResult}</div>
 
-        <section className="searchArea">
-          <input
-            type="text"
-            className="searchInput"
-            placeholder="소환사 검색.."
-            onChange={handleInputVal}
-            onKeyPress={handleInputVal}
-          />
-          <button className="searchBtn" onClick={handleSearchName}>
-            Lollin{" "}
-          </button>
-        </section>
-      </div>
+            <section className="searchArea">
+              <input
+                type="text"
+                className="searchInput"
+                placeholder="소환사 검색.."
+                onChange={handleInputVal}
+                onKeyPress={handleInputVal}
+              />
+              <button className="searchBtn" onClick={handleSearchName}>
+                Lollin{" "}
+              </button>
+            </section>
+          </div>
 
-      <section className="tierWrapper">
-        <Tier historyData={historyData}></Tier>
-      </section>
-      <section>
-        <History historyData={historyData}></History>
-      </section>
-    </Container>
-  );
+          <section className="tierWrapper">
+            <Tier historyData={historyData}></Tier>
+          </section>
+
+          <section>
+            <div> 존재하지 않은 유저입니다.</div>
+          </section>
+        </Container>
+      );
+      break;
+    }
+
+    case false: {
+      return (
+        <Container>
+          <div className="topWrap">
+            <div className="name">{summonerResult}</div>
+
+            <section className="searchArea">
+              <input
+                type="text"
+                className="searchInput"
+                placeholder="소환사 검색.."
+                onChange={handleInputVal}
+                onKeyPress={handleInputVal}
+              />
+              <button className="searchBtn" onClick={handleSearchName}>
+                Lollin{" "}
+              </button>
+            </section>
+          </div>
+
+          <section className="tierWrapper">
+            <Tier historyData={historyData}></Tier>
+          </section>
+
+          <section>
+            <History historyData={historyData}></History>
+          </section>
+        </Container>
+      );
+
+      break;
+    }
+
+    case true: {
+      //로딩
+      return (
+        <Container>
+          <div className="topWrap">
+            <div className="name">{summonerResult}</div>
+
+            <section className="searchArea">
+              <input
+                type="text"
+                className="searchInput"
+                placeholder="소환사 검색.."
+                onChange={handleInputVal}
+                onKeyPress={handleInputVal}
+              />
+              <button className="searchBtn" onClick={handleSearchName}>
+                Lollin{" "}
+              </button>
+            </section>
+          </div>
+
+          <section className="tierWrapper">
+            <Tier historyData={historyData}></Tier>
+          </section>
+
+          <section>
+            <div> loading .. </div>
+          </section>
+        </Container>
+      );
+
+      break;
+    }
+  }
 };
 
 export default UserInfoHistory;

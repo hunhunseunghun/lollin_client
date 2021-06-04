@@ -6,7 +6,6 @@ import { Container } from "./HistoryStyled.jsx";
 const History = ({ historyData }) => {
   const [apiVer, setApiVer] = useState("");
   const [matches, setMatches] = useState([]);
-  console.log("여긴 히스토리" + JSON.stringify(historyData));
 
   const handleData = () => {
     if (historyData && historyData.matches) {
