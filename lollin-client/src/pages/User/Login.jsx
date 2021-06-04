@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import HorizonLine from '../../modals/HorizonLine';
 import validate from '../../validation/validate';
 import useForm from '../../validation/useForm';
@@ -15,7 +15,7 @@ import {
   InputBox,
 } from '../../validation/formElements';
 
-const { Kakao ,naver} = window;
+const { Kakao } = window;
 
 const Login = (history, { submitForm, username, password }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
@@ -23,6 +23,8 @@ const Login = (history, { submitForm, username, password }) => {
     validate
   );
   const [isLogin, setIsLogin] = useState(false);
+
+
 
   const handleLogin = async () => {
     await axios
@@ -41,15 +43,15 @@ const Login = (history, { submitForm, username, password }) => {
       )
       .then((res) => {
         if (res.status === 200) {
-          history.history.handleJwt(res.data.jwt);
+          sessionStorage.setItem('jwt',res.data.jwt)
           history.history.handleLogin(true)
           setIsLogin(true)
           setTimeout(() => history.history.push("/"), 1000)
         } else if (res.status === 'user not found or wrong password')
-          console.log('로그인 실패');
+          alert('로그인 실패');
       })
       .catch((err) => {
-        console.error(err);
+        alert('로그인 실패');
       });
   };
 
@@ -57,8 +59,6 @@ const Login = (history, { submitForm, username, password }) => {
     Kakao.Auth.login({
       scope:'account_email',
       success:(res) =>{
-        const jsonObj = JSON.stringify(res)
-        const {access_token} = JSON.parse(jsonObj)
         Kakao.API.request({
           url: '/v2/user/me',
           success: (obj)=>{
@@ -66,19 +66,20 @@ const Login = (history, { submitForm, username, password }) => {
             const userData = JSON.parse(userObj)
             const user = {
               id: userData.id,
-              email:userData.kakao_account.email
+              email: userData.kakao_account.email
             }
             axios.post('https://lollinserver.link/auth/kakao',user).then(
               (res) =>{
                 if (res.status === 200) {
-                  history.history.handleJwt(res.data.jwt);
+                  sessionStorage.setItem('jwt',res.data.jwt)
                   history.history.handleLogin(true)
                   history.history.push("/")
                 } else if (res.status === 'user not found or wrong password')
-                  console.log('로그인 실패');
+                alert('로그인 실패');
               })
               .catch((err) => {
-                console.error(err);
+                // console.error(err);
+                alert('로그인 실패');
               });
           },
           fail: ()=>{

@@ -1,6 +1,5 @@
-// import { render } from "@testing-library/react";
 import React from "react";
-import { SearchBox, SearchBar } from "./ItemsSearchBoxStyled.jsx";
+import { SearchBox } from "./ItemsSearchBoxStyled.jsx";
 
 const ItemsSearchBox = ({ handleItemSearchValue }) => {
   return (
@@ -13,12 +12,6 @@ const ItemsSearchBox = ({ handleItemSearchValue }) => {
           placeholder="아이템 이름을 입력하세요"
         />
       </div>
-
-      {/* <SearchBar
-        type="text"
-        placeholder="검색"
-        onChange={(e) => handleItemSearchValue(e.target.value)}
-      ></SearchBar> */}
     </SearchBox>
   );
 };

@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import validate from "./validate";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({

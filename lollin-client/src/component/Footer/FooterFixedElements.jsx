@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { NavLink as Link } from "react-router-dom";
-// import { FooterLink as Link } from "react-router-dom";
 import FooterLogo from "../../Images/logo3.png";
 import FooterLogo2 from "../../Images/logo4.png";
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import sidebarMenu from '../Sidebar/SidebarMenu';
@@ -96,17 +96,11 @@ const SidebarDropdown = ({
           <BtnWrap>
             {isLogin? <LoginButton to="/" onClick={() => {
             setisLogin(false)
-            setJwt('')
+            sessionStorage.clear();
           }}>Logout</LoginButton>
             : <LoginButton to="/user/login">Login</LoginButton>}
-            {/* <LoginButton> 
-              {loginOn ? 'Login' : 'Logout'}
-            </LoginButton> */}
             {isLogin? <SignupButton to="/user/update">MyInfo</SignupButton>
             : <SignupButton to="/user/signup">Signup</SignupButton>}
-            {/* <SignupButton>
-              {signUpOn ? 'Signup' : 'MyInfo'}
-            </SignupButton> */}
           </BtnWrap>
         </DropdownWrapper>
       </DropdownContainer>

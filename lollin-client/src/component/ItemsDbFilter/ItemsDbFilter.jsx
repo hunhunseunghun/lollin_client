@@ -2,7 +2,6 @@ import React from "react";
 
 import { ItemsFilter, CheckBoxArea } from "./ItemsDbFilterStyled.jsx";
 
-// const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDbFilter = ({
   itemsData,
@@ -19,17 +18,9 @@ const ItemsDbFilter = ({
       }
     }
   });
-
-  // console.log(filterArr);
   return (
     <ItemsFilter className="itemsFliter">
       <CheckBoxArea className="filterBox">
-        {/* {filterArr.map((value, index) => (
-          <div key={index}>
-            <div>{value}</div>
-            <input type="checkbox" value={value} />
-          </div>
-        ))} */}
         <div className="filterText">물리 공격</div>
         <section>
           <div>
