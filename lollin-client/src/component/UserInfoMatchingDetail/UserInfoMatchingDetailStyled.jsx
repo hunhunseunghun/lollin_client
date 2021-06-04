@@ -36,7 +36,7 @@ export const Container = styled.div`
     padding: 10px 10px;
   }
   .tier {
-    font-size: 11px;
+    font-size: 13px;
     color: #505757;
   }
   .name {
@@ -45,7 +45,7 @@ export const Container = styled.div`
     font-weight: bold;
   }
   .rate {
-    font-size: 11px;
+    font-size: 13px;
     color: #505757;
   }
 `;
