@@ -79,32 +79,9 @@ export const TopView = styled.div`
     display: inline-block;
     justify-content: center;
     position: relative;
-    width: 800px;
-    height: 380px;
+    width: 60vw;
+    height: calc(25vw);
   }
-  .Intro {
-    display: inline-block;
-    margin-top: 40px;
-    color: #cccc00;
-    font-size: 50px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @media screen and (max-width: 500px) {
-      font-size: 30px;
-    }
-  }
-  /* .foreLogoImg {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0px;
-    border-style: none;
-  } */
   .foreGroundRow-bottom {
     width: 100%;
     margin-top: 0.625rem;
@@ -182,34 +159,35 @@ export const MainBackVideo = styled.video`
 
 export const Intro = styled.h1`
   display: flex;
-  margin-top: 40px;
+  margin-top: 0.7rem;
+  position: relative;
+  margin: 0 auto;
+  max-width: 100%;
   color: #C6C62B;
   opacity: 0.7;
-  font-size: 60px;
+  font-size: 5vw;
   text-shadow: 7px 7px 13px #000;
 
   @media (max-width: 500px) {
-    margin-left: 30px;
-    font-size: 22px;
+    margin-left: 5.4vw;
   }
 `;
 
 export const ClickBtn = styled.button`
-  height: 50px;
-  width: 140px;
+  height: 3rem;
+  width: 8rem;
   border: none;
   font-size: 18px;
   border-radius: 13px;
   background-color: #ff6666;
   color: #404040;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 10vh;
   cursor: pointer;
   box-shadow: 5px 5px 10px 5px #121212;
   
   &:hover {
     transition: all 0.2s ease-in-out;
-    /* background: #ffcccc; */
     color: #D1D1D1;
   }
 
@@ -219,8 +197,8 @@ export const ClickBtn = styled.button`
 
   @media (max-width: 500px) {
     display: flex;
-    margin-left: 103px;
-    margin-top: 110px;
+    margin-left: 19vw;
+    margin-top: 15vh;
     justify-content: center;
     align-items: center;
   }
