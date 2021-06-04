@@ -119,29 +119,31 @@ const UserInfoHistory = ({ summonerName, defaultPlayer }) => {
 
   return (
     <Container>
-      <div className="topWrap">
-        <div className="name">{summonerResult}</div>
+      <section className="entireWrap">
+        <div className="topWrap">
+          <div className="name">{summonerResult}</div>
 
-        <section className="searchArea">
-          <input
-            type="text"
-            className="searchInput"
-            placeholder="소환사 검색.."
-            onChange={handleInputVal}
-            onKeyPress={handleInputVal}
-          />
-          <button className="searchBtn" onClick={handleSearchName}>
-            Lollin{" "}
-          </button>
+          <section className="searchArea">
+            <input
+              type="text"
+              className="searchInput"
+              placeholder="소환사 검색.."
+              onChange={handleInputVal}
+              onKeyPress={handleInputVal}
+            />
+            <button className="searchBtn" onClick={handleSearchName}>
+              Lollin{" "}
+            </button>
+          </section>
+        </div>
+
+        <section className="tierWrapper">
+          <Tier historyData={historyData}></Tier>
         </section>
-      </div>
 
-      <section className="tierWrapper">
-        <Tier historyData={historyData}></Tier>
-      </section>
-
-      <section>
-        <History historyData={historyData} isLoading={isLoading}></History>
+        <section>
+          <History historyData={historyData} isLoading={isLoading}></History>
+        </section>
       </section>
     </Container>
   );

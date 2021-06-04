@@ -59,110 +59,104 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
 
   return (
     <Container className="matchingInfo-container">
-      <div className="title"> User Info</div>
-
-      <section className="currGame">
-        <div className="currGame-left">
-          {isSearched ? (
-            <div className="currGameText Exsit">
-              <div>
-                <div className="currId">{inputName}</div>님의 매치중인 게임
+      <section className="entireWrap">
+        <section className="currGame">
+          <div className="currGame-left">
+            {isSearched ? (
+              <div className="currGameText Exsit">
+                <div>
+                  <div className="currId">{inputName}</div> 매치중인 게임
+                </div>
               </div>
+            ) : (
+              <div className="currGameText noExsit">
+                <div>랜덤 매치</div>
+              </div>
+            )}
+          </div>
+          <div className="currGame-right">
+            <section className="searchArea">
+              <input
+                type="text"
+                className="searchInput"
+                placeholder="소환사 검색.."
+                value={inputName}
+              ></input>
+              <button className="searchBtn">Lollin</button>
+            </section>
+          </div>
+        </section>
+
+        <div className="currMatching">
+          <section className="allyTeam">
+            <div className="allyNameTag">BLUE TEAM</div>
+            <div className="teamWrapper allyWrapper">
+              {blueTeam
+                ? blueTeam.map((el) => (
+                    <section
+                      className="player allyHover"
+                      onClick={() => {
+                        handleUserClick(el);
+                      }}
+                    >
+                      <div className="stylePlayer allyPlayer">
+                        <img
+                          className="playerImg"
+                          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
+                          alt="no data"
+                        />
+                      </div>
+                      <div className="playerNameTag">
+                        <div>{el.summonerName}</div>
+                      </div>
+                    </section>
+                  ))
+                : "coming.."}
             </div>
-          ) : (
-            <div className="currGameText noExsit">
-              <div>랜덤 매치</div>
-            </div>
-          )}
-        </div>
-        <div className="currGame-right">
-          <section className="searchArea">
-            <input
-              type="text"
-              className="searchInput"
-              placeholder="소환사 검색.."
-              value={inputName}
-            ></input>
-            <button className="searchBtn">Lollin</button>
           </section>
+          <section className="oppTeam">
+            <div className="oppNameTag">RED TEAM</div>
+            <div className="teamWrapper oppWrapper">
+              {redTeam
+                ? redTeam.map((el) => (
+                    <section
+                      className="player oppHover"
+                      onClick={() => {
+                        handleUserClick(el);
+                      }}
+                    >
+                      <div className="stylePlayer oppPlayer">
+                        <img
+                          className="playerImg"
+                          src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
+                          alt="no data"
+                        />
+                      </div>
+                      <div className="playerNameTag">
+                        <div>{el.summonerName}</div>
+                      </div>
+                    </section>
+                  ))
+                : "nodata"}
+            </div>
+          </section>
+        </div>
+        <div className="infoArea">
+          <div className="infoArea-top">
+            <UserInfoMatchingDetail participant={participant} />
+          </div>
+          <div className="infoArea-bottom">
+            <section className="commentArea">
+              <input
+                type="text"
+                className="commentInput"
+                placeholder="your comment"
+              ></input>
+              <button className="commentBtn">comment</button>
+            </section>
+          </div>
         </div>
       </section>
-
-      <div className="currMatching">
-        <section className="allyTeam">
-          <div className="allyNameTag">BLUE TEAM</div>
-          <div className="teamWrapper allyWrapper">
-            {blueTeam
-              ? blueTeam.map((el) => (
-                  <section
-                    className="player allyHover"
-                    onClick={() => {
-                      handleUserClick(el);
-                    }}
-                  >
-                    <div className="stylePlayer allyPlayer">
-                      <img
-                        className="playerImg"
-                        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
-                        alt="no data"
-                      />
-                    </div>
-                    <div className="playerNameTag">
-                      <div>{el.summonerName}</div>
-                    </div>
-                  </section>
-                ))
-              : "coming.."}
-          </div>
-        </section>
-        <section className="oppTeam">
-          <div className="oppNameTag">RED TEAM</div>
-          <div className="teamWrapper oppWrapper">
-            {redTeam
-              ? redTeam.map((el) => (
-                  <section
-                    className="player oppHover"
-                    onClick={() => {
-                      handleUserClick(el);
-                    }}
-                  >
-                    <div className="stylePlayer oppPlayer">
-                      <img
-                        className="playerImg"
-                        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${el.championName}_0.jpg`}
-                        alt="no data"
-                      />
-                    </div>
-                    <div className="playerNameTag">
-                      <div>{el.summonerName}</div>
-                    </div>
-                  </section>
-                ))
-              : "nodata"}
-          </div>
-        </section>
-      </div>
-      <div className="infoArea">
-        <div className="infoArea-left">
-          <UserInfoMatchingDetail participant={participant} />
-        </div>
-        <div className="infoArea-right">
-          <section className="commentArea">
-            <input
-              type="text"
-              className="commentInput"
-              placeholder="소환사 검색.."
-              value={inputName}
-              onChange={(e) => {
-                setInputName(e.target.value);
-              }}
-            ></input>
-            <button className="commentBtn" onClick={handleSearch}>
-              Lollin
-            </button>
-          </section>
-        </div>
-      </div>
     </Container>
   );
 };

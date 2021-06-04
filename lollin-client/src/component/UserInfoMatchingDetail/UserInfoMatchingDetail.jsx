@@ -51,19 +51,23 @@ const MatchingDetail = ({ participant }) => {
 
   switch (isLoading) {
     case null: {
-      return "";
+      return (
+        <Container>
+          <div className="preView">챔피언 이미지를 클릭하세요</div>
+        </Container>
+      );
     }
     case true: {
       return (
         <Container>
-          <fieldset>
+          <section className="style">
             <div className="wrap">
               {/* {participant !== null ? (
                 <div>{participant.summonerName}</div>
               ) : (
                 "     "
               )} */}
-              {"Loading..."}
+              <div className="content">{"Loading..."}</div>
             </div>
 
             {/* <button
@@ -73,14 +77,14 @@ const MatchingDetail = ({ participant }) => {
             >
               close
             </button> */}
-          </fieldset>
+          </section>
         </Container>
       );
     }
     case false: {
       return (
         <Container>
-          <fieldset>
+          <section className="style">
             <div className="wrap">
               <section className="content">
                 <section className="imgWarp">
@@ -102,14 +106,8 @@ const MatchingDetail = ({ participant }) => {
                     />
                   )}
                 </section>
-
+                <div className="tier">{tier + rank}</div>
                 <section className="info">
-                  <div className="tier">
-                    {tier}
-                    {"   "}
-                    {rank}
-                  </div>
-
                   {participant !== null ? (
                     <div className="name">{participant.summonerName}</div>
                   ) : (
@@ -129,7 +127,7 @@ const MatchingDetail = ({ participant }) => {
             >
               close
             </button> */}
-          </fieldset>
+          </section>
         </Container>
       );
     }

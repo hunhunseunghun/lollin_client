@@ -8,15 +8,20 @@ const UserInfo = ({ summonerName }) => {
 
   return (
     <Container>
-      <UserInfoMatching
-        summonerName={summonerName}
-        setDefaultPlayer={setDefaultPlayer}
-      />
+      <div className="wrap">
+        <div className="title"> User Info</div>
+        <div className="userContent">
+          <UserInfoMatching
+            summonerName={summonerName}
+            setDefaultPlayer={setDefaultPlayer}
+          />
 
-      <UserInfoHistory
-        summonerName={summonerName}
-        defaultPlayer={defaultPlayer}
-      />
+          <UserInfoHistory
+            summonerName={summonerName}
+            defaultPlayer={defaultPlayer}
+          />
+        </div>
+      </div>
     </Container>
   );
 };

@@ -4,22 +4,32 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 1rem 0;
-  background-color: #1f1f1f;
+  width: 652px;
+  height: 1152px;
   color: white;
-  padding-top: 3.5rem;
-  padding-bottom: 10rem;
 
   .title {
     font-size: 4rem;
     font-weight: bold;
     padding-bottom: 3rem;
   }
+
+  .entireWrap {
+    display: flex;
+    flex-direction: column;
+
+    place-items: center;
+    width: 80%;
+    min-width: 652px;
+    height: 1300px;
+    max-width: 1320px;
+    background-color: #dadada;
+  }
   .currGame {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     width: 621px;
+    height: 81px;
     padding-bottom: 1px;
     /* border: 1px solid white; */
   }
@@ -34,19 +44,32 @@ export const Container = styled.div`
     color: #646464;
     padding: 4px;
   }
-
+  .currGame-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
   .currGame-right {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
   }
   .Exsit {
-    border: 1px solid #cef0d2;
+    color: #239223;
+    font-size: 1rem;
+    text-align: center;
+    .currId {
+      font-size: 1.3rem;
+      color: #414141;
+    }
   }
   .noExsit {
-    border: 1px solid #dadada;
+    color: black;
+    font-size: 2rem;
   }
   .searchArea {
     display: flex;
@@ -109,18 +132,20 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
-    max-width: 1243px;
+    height: 700px;
   }
 
   .allyTeam {
     display: flex;
-    height: 200px;
+    height: 270px;
     border: 1px solid #3d95e5;
+    margin: 1rem 0;
   }
   .oppTeam {
     display: flex;
-    height: 200px;
+    height: 280px;
     border: 1px solid #ee5952;
+    margin: 1rem 0;
   }
 
   .allyNameTag {
@@ -210,24 +235,22 @@ export const Container = styled.div`
 
   .infoArea {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
     width: 622px;
-    height: 170px;
-    padding: 10px;
+    height: 340px;
   }
-  .infoArea-left {
-    display: grid;
+  .infoArea-top {
+  }
+  .infoArea-bottom {
+    display: flex;
+    justify-content: center;
     place-items: center;
+    align-items: center;
+    width: 100%;
   }
-
-  .currId {
-    font-size: 1.4rem;
-    color: #414141;
-  }
-
   .commentArea {
     display: flex;
-    width: 250px;
+    width: 500px;
     justify-content: space-between;
     align-items: center;
     background-color: white;
@@ -257,7 +280,7 @@ export const Container = styled.div`
   }
   .commentBtn {
     all: unset;
-    width: 20%;
+    width: 90px;
     height: 20px;
     text-align: center;
     background-color: #f7bd00;
@@ -268,15 +291,5 @@ export const Container = styled.div`
 
   .commentBtn:hover {
     cursor: pointer;
-  }
-
-  .infoArea-right {
-    display: grid;
-    grid-template-rows: 1fr 1.5fr;
-    place-items: center;
-    align-items: center;
-    width: 100%;
-    height: 98.5%;
-    border: 1px solid gray;
   }
 `;

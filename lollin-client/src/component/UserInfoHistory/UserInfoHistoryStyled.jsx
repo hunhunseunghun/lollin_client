@@ -1,20 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 650px;
   display: flex;
+  height: 872px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #dadada;
   padding-bottom: 10rem;
 
+  .entireWrap {
+    height: 872px;
+  }
   .topWrap {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
     background-color: #dadada;
-    width: 600px;
+    width: 650px;
     height: 5rem;
     border-top: 1px solid #808080b0;
     border-left: 1px solid #808080b0;
@@ -66,6 +69,7 @@ export const Container = styled.div`
     border-radius: 3px;
     font-weight: bold;
     margin-right: 5px;
+    color: white;
   }
 
   .searchBtn:hover {

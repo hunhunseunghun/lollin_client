@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import sadBee from "../../../Images/sadBee.png";
+import angryBee from "../../../Images/angryBee.png";
 import { Container } from "./HistoryStyled.jsx";
 
 const History = ({ historyData, isLoading }) => {
@@ -150,7 +151,7 @@ const History = ({ historyData, isLoading }) => {
       return (
         <Container>
           <div className="noResult">
-            <img src={sadBee} alt="no Img" className="noResultImg" />
+            <img src={angryBee} alt="no Img" className="noResultImg" />
             <div>Loading...</div>
           </div>
         </Container>

@@ -1,51 +1,68 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: #d7d3d3;
   color: #2e2e2e;
 
-  fieldset {
-    width: 305px;
-    height: 159px;
+  .preView {
+    display: grid;
+    width: 100%;
+    height: 280px;
+    place-items: center;
+  }
+  .style {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 280px;
   }
 
+  .wrap {
+    width: 100%;
+    height: 90%;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .imgWarp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
   img {
     width: 104px;
     height: 104px;
   }
-  .wrap {
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    place-items: center;
-    width: 299.5px;
-    height: 120px;
-    padding: 9px 0;
-    border-bottom: none;
-  }
-  .content {
-    display: flex;
-  }
-  .imgWarp {
-    width: 104px;
-    height: 104px;
-  }
   .info {
-    padding: 10px 10px;
+    place-items: center;
+    text-align: center;
+    width: 100%;
   }
   .tier {
-    font-size: 13px;
+    width: 100%;
+    padding-bottom: 10px;
+    font-size: 16px;
     color: #505757;
+    text-align: center;
   }
   .name {
-    padding: 10px 0;
+    width: 100%;
+    padding-bottom: 12px;
     color: #555e5e;
     font-weight: bold;
+    font-size: 16px;
   }
   .rate {
-    font-size: 13px;
+    width: 100%;
+    padding-bottom: 10px;
+    font-size: 16px;
     color: #505757;
   }
 `;
