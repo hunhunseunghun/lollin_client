@@ -6,7 +6,7 @@ export const Container = styled.div`
 
   fieldset {
     width: 305px;
-    height: 139px;
+    height: 159px;
   }
 
   img {
