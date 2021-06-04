@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 // , handleUserClick
-const UserInfoMatching = ({ summonerName }) => {
+const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
   let [isSearched, setIsSearched] = useState(false);
@@ -48,6 +48,7 @@ const UserInfoMatching = ({ summonerName }) => {
           .then((response) => {
             setIsSearched(false);
             setDatas(response.data);
+            setDefaultPlayer(response.data.participants[0]);
           });
       });
   };
