@@ -10,6 +10,7 @@ dotenv.config();
 const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
+  let [reSearchValue, setReSearchValue] = useState("");
   let [isSearched, setIsSearched] = useState(false);
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
@@ -54,9 +55,19 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
       });
   };
 
+  const handleReSearch = () => {
+    setInputName(reSearchValue);
+    setReSearchValue("");
+  };
+  const handleReSearchEnter = (e) => {
+    if (e.key === "Enter") {
+      handleReSearch();
+    }
+  };
+
   useEffect(() => {
     handleSearch();
-  }, []);
+  }, [inputName]);
 
   return (
     <Container className="matchingInfo-container">
@@ -81,9 +92,15 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 type="text"
                 className="searchInput"
                 placeholder="소환사 검색.."
-                value={inputName}
+                onChange={(e) => {
+                  setReSearchValue(e.target.value);
+                }}
+                onKeyPress={handleReSearchEnter}
+                value={reSearchValue}
               ></input>
-              <button className="searchBtn">Lollin</button>
+              <button className="searchBtn" onClick={handleReSearch}>
+                Lollin
+              </button>
             </section>
           </div>
         </section>

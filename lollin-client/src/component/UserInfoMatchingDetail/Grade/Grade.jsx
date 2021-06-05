@@ -6,14 +6,14 @@ const server = process.env.REACT_APP_SERVER_URL;
 const UserInfoGrade = ({ participant }) => {
   const [userGrade, setUserGrade] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(`${server}/utils/${participant.summonerName}`)
-      .then((res) => {
-        setUserGrade(res);
-      })
-      .catch((err) => {});
-  }, [participant]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${server}/utils/${participant.summonerName}`)
+  //     .then((res) => {
+  //       setUserGrade(res);
+  //     })
+  //     .catch((err) => {});
+  // }, [participant]);
 
   return (
     <Container>
