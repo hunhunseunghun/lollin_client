@@ -91,6 +91,7 @@ const MainNewChamp = () => {
               <video
                 className={idx === webmIndex ? "isDisplay" : "noDisplay"}
                 src={ele}
+                key={idx}
                 muted
                 autoPlay
                 loop

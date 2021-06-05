@@ -150,10 +150,10 @@ export const TopView = styled.div`
     }
     .button-text {
       letter-spacing: 0.01rem;
-      font-family: Bazzi, sans-serif;
+      font-family: sans-serif;
     }
   }
-
+  /* Bazzi,  */
   .foreGroundRow-bottom {
     width: 100%;
     margin-top: 0.625rem;

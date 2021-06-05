@@ -105,8 +105,8 @@ LollinBtn.defaultProps = {
   color: "#ffffff",
   width: 321,
   height: 80,
-  fontSize: 25,
-  borderWidth: 0.5,
+  fontSize: 20,
+  borderWidth: 1,
   buttonText: "사랑받는 롤린이의 교과서, Lollin!",
 };
 
