@@ -9,20 +9,20 @@ const UserInfoHistory = ({ summonerName, defaultPlayer }) => {
   const [historyData, setHistoryData] = useState(null);
   const [summonerResult, setSummonerResult] = useState(summonerName);
   const [isLoading, setIsLoading] = useState(null);
-  let searchVal = null;
+  const [searchVal, setSearchVal] = useState("");
 
   const handleInputVal = (e) => {
-    searchVal = e.target.value;
+    setSearchVal(e.target.value);
+    console.log("SearchVal", searchVal);
     if (e.key === "Enter") {
       handleSearchName();
-      console.log("enter");
+      console.log("SearchVal", searchVal);
     }
   };
 
   const handleSearchName = () => {
     setSummonerResult(searchVal);
     setIsLoading(true);
-    console.log("로딩중");
 
     axios
       .get(`${server}/utils/history?name=${searchVal}`)
@@ -73,6 +73,7 @@ const UserInfoHistory = ({ summonerName, defaultPlayer }) => {
         setIsLoading(null);
         console.log("에러뿜뿜");
       });
+    setSearchVal("");
   };
 
   // useEffect(() => {
@@ -130,6 +131,7 @@ const UserInfoHistory = ({ summonerName, defaultPlayer }) => {
               placeholder="소환사 검색.."
               onChange={handleInputVal}
               onKeyPress={handleInputVal}
+              value={searchVal}
             />
             <button className="searchBtn" onClick={handleSearchName}>
               Lollin{" "}
