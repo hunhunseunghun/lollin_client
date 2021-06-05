@@ -26,7 +26,7 @@ const ChampDetail = ({ champPriId }) => {
 	const location = useLocation();
 	const [champData, setChampData] = useState(initData);
 	const [skillIndex, setSkillIndex] = useState(0);
-	const [resultId, setResultId] = useState('Aatorx');
+	const [resultId, setResultId] = useState('Aatrox');
 	const [oppName, setOppName] = useState('');
 	const [runeEls, setRuneEls] = useState([]);
 	const [runeUrls, setRuneUrls] = useState([]);
@@ -66,24 +66,29 @@ const ChampDetail = ({ champPriId }) => {
 				// );
 				let runeEls = $(' span.rune-imgbox.active > div');
 				let urls = [];
-				console.log(runeEls);
-				setRuneEls(runeEls);
 				for (let runeEl of runeEls) {
-					let runeClass = runeEl.attribs.class;
-					let runeId = runeClass.split(' ')[1].split('_')[2];
-					axios
-						.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
-						.then((resJson) => {
-							let url = resJson.data.icon;
-							// console.log('url: ', url);
-							urls.push(url);
-						})
-						.catch((err) => {
-							console.log(err);
-						});
+					console.log(runeEl);
 				}
-				setRuneUrls(urls);
-				setIsLoading(false);
+				setRuneEls(runeEls);
+				// for (let runeEl of runeEls) {
+				// 	let runeClass = runeEl.attribs.class;
+				// 	let runeId = runeClass.split(' ')[1].split('_')[2];
+				// 	console.log(a);
+				// 	axios
+				// 		.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
+				// 		.then((resJson) => {
+				// 			let url = resJson.data.icon;
+				// 			// console.log('url: ', url);
+				// 			urls.push(url);
+				// 			console.log(b);
+				// 		})
+				// 		.catch((err) => {
+				// 			console.log(err);
+				// 		});
+				// }
+				// console.log(c);
+				// setRuneUrls(urls);
+				// setIsLoading(false);
 
 				//"background-image: url(https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/Precision/Conqueror/Conqueror.png); background-size: 80px 80px; width: 80px; height: 80px;"
 
@@ -95,6 +100,25 @@ const ChampDetail = ({ champPriId }) => {
 				setIsLoading(false);
 			});
 	};
+	useEffect(async () => {
+		let urls = [];
+		for (let runeEl of runeEls) {
+			let runeClass = runeEl.attribs.class;
+			let runeId = runeClass.split(' ')[1].split('_')[2];
+			await axios
+				.get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
+				.then((resJson) => {
+					let url = resJson.data.icon;
+					// console.log('url: ', url);
+					urls.push(url);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
+		setRuneUrls(urls);
+		setIsLoading(false);
+	}, [runeEls]);
 	//#root > div > div.sc-lmgQwP.egcscq.champDetail > section > div > div.sc-ciSkZP.dQMkGr > div.sc-iTVJFM.dCQnwK > div > div.rune > div.main > div.keystone > span.rune-imgbox.active
 	//#root > div > div.sc-lmgQwP.egcscq.champDetail > section > div > div.sc-ciSkZP.dQMkGr > div.sc-iTVJFM.dCQnwK > div > div.rune > div.main > div.keystone > span.rune-imgbox.active > div
 	const handleSkillsDescription = () => {
@@ -205,12 +229,14 @@ const ChampDetail = ({ champPriId }) => {
 							>
 								Search!
 							</button>
-							{runeUrls.map((el, idx, urls) => {
+							{/* {runeUrls.map((el, idx, urls) => {
 								// console.log(runeEl);
 								// console.log(runeEls[runeEl]);
-								console.log(runeEls[idx].attribs);
-								console.log(idx);
-								console.log(urls[0]);
+								console.log('inside map');
+								console.log('el: ', el);
+								console.log('idx: ', idx);
+								console.log('urls: ', urls);
+								console.log('runeUrls', runeUrls);
 								return (
 									<div
 										{...runeEls[idx].attribs}
@@ -222,19 +248,23 @@ const ChampDetail = ({ champPriId }) => {
 										}}
 									></div>
 								);
-							})}
+							})} */}
 							{isLoading
 								? 'Loading...'
 								: runeUrls.map((el, idx, urls) => {
 										// console.log(runeEl);
 										// console.log(runeEls[runeEl]);
+										console.log('inside map');
 										console.log('runeUrls: ', runeUrls);
 										console.log('runeEls: ', runeEls);
+										console.log('el: ', el);
+										console.log('idx: ', idx);
+										console.log('urls: ', urls);
 										return (
 											<div
 												{...runeEls[idx].attribs}
 												style={{
-													backgroundImage: `url(${urls[0]})`,
+													backgroundImage: `url(${el})`,
 													backgroundSize: '80px 80px',
 													width: '200px',
 													height: '200px',
