@@ -173,6 +173,11 @@ export const TopView = styled.div`
     background-color: white;
     border: 0px;
   }
+  @media (max-width: 545px) {
+    .foreGroundCanvas {
+      display: none;
+    }
+  }
   @media (min-width: 320px) and (max-width: 479px) {
     .foreGroundCanvas {
       display: none;

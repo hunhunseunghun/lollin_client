@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "./UserInfoMatchingStyled.jsx";
 import UserInfoMatchingDetail from "../UserInfoMatchingDetail/UserInfoMatchingDetail.jsx";
+
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -152,6 +153,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 className="commentInput"
                 placeholder="your comment"
               ></input>
+
               <button className="commentBtn">comment</button>
             </section>
           </div>

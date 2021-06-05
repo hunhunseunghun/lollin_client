@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./UserInfoMatchingDetailStyled.jsx";
+import Grade from "./Grade/Grade.jsx";
+
 const axios = require("axios");
 const MatchingDetail = ({ participant }) => {
   let [userData, setUserData] = useState(null);
@@ -85,7 +87,7 @@ const MatchingDetail = ({ participant }) => {
       return (
         <Container>
           <section className="style">
-            <div className="wrap">
+            <div className="userInformation">
               <section className="content">
                 <section className="imgWarp">
                   {isUnranked ? (
@@ -119,6 +121,7 @@ const MatchingDetail = ({ participant }) => {
                 </section>
               </section>
             </div>
+            <Grade participant={participant} />
 
             {/* <button
               onClick={() => {

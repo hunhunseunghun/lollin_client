@@ -16,7 +16,7 @@ export const Container = styled.div`
     height: 280px;
   }
 
-  .wrap {
+  .userInformation {
     width: 100%;
     height: 90%;
   }
