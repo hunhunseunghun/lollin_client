@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const TopView = styled.div`
-  @font-face {
+  /* @font-face {
     font-family: "Bazzi";
     src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/Bazzi.woff")
       format("woff");
     font-weight: normal;
     font-style: normal;
-  }
+  } */
 
   position: relative;
   display: block;
@@ -150,7 +150,7 @@ export const TopView = styled.div`
     }
     .button-text {
       letter-spacing: 0.01rem;
-      font-family: sans-serif;
+      font-family: Bazzi;
     }
   }
   /* Bazzi,  */

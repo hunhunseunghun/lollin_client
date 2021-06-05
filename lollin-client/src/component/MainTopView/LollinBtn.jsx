@@ -103,8 +103,8 @@ class LollinBtn extends React.Component {
 
 LollinBtn.defaultProps = {
   color: "#ffffff",
-  width: 321,
-  height: 80,
+  width: 300,
+  height: 75,
   fontSize: 20,
   borderWidth: 1,
   buttonText: "사랑받는 롤린이의 교과서, Lollin!",
