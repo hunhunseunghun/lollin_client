@@ -71,7 +71,7 @@ const History = ({ historyData, isLoading }) => {
     case false: {
       return (
         <Container>
-          {matches.length !== 0 ? (
+          {matches.length !== 0 && matches[0].championId !== undefined ? (
             matches.map((ele) => {
               return (
                 <section
@@ -139,7 +139,8 @@ const History = ({ historyData, isLoading }) => {
             })
           ) : (
             <div className="noResult">
-              <div>검색한 소환사의 기록이 없습니다</div>
+              <img src={angryBee} alt="no Img" className="noResultImg" />
+              <div>검색한 소환사의 기록을 찾을 수 없습니다</div>
             </div>
           )}
         </Container>
