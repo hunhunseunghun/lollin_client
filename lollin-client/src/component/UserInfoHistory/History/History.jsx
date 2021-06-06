@@ -73,69 +73,71 @@ const History = ({ historyData, isLoading }) => {
         <Container>
           {matches.length !== 0 && matches[0].championId !== undefined ? (
             matches.map((ele) => {
-              return (
-                <section
-                  className={
-                    ele.win === false
-                      ? "isLose historyWrapper"
-                      : "isWin historyWrapper"
-                  }
-                >
-                  <div className="imgWrapper">
-                    <img
-                      src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${ele.championName}.png`}
-                      alt="no img"
-                      className="img"
-                    />
-                    <div className="champName">{ele.championName}</div>
-                    {/* <img src="" alt="" className="spell1" />
-                    <img src="" alt="" className="spell2" />
-                    <img src="" alt="" className="rune1" />
-                    <img src="" alt="" className="rune2" /> */}
-                  </div>
-                  <div className="mainData">
-                    <div className="pastTime">
-                      {handlePastTime(ele.creationTime)}
+              if (ele.championId) {
+                return (
+                  <section
+                    className={
+                      ele.win === false
+                        ? "isLose historyWrapper"
+                        : "isWin historyWrapper"
+                    }
+                  >
+                    <div className="imgWrapper">
+                      <img
+                        src={`http://ddragon.leagueoflegends.com/cdn/${apiVer}/img/champion/${ele.championName}.png`}
+                        alt="no img"
+                        className="img"
+                      />
+                      <div className="champName">{ele.championName}</div>
+                      {/* <img src="" alt="" className="spell1" />
+                      <img src="" alt="" className="spell2" />
+                      <img src="" alt="" className="rune1" />
+                      <img src="" alt="" className="rune2" /> */}
                     </div>
-                    <div
-                      className={
-                        ele.win === false ? "loseResult result" : "result"
-                      }
-                    >
-                      {ele.win === false ? "패배" : "승리"}
+                    <div className="mainData">
+                      <div className="pastTime">
+                        {handlePastTime(ele.creationTime)}
+                      </div>
+                      <div
+                        className={
+                          ele.win === false ? "loseResult result" : "result"
+                        }
+                      >
+                        {ele.win === false ? "패배" : "승리"}
+                      </div>
+                      <div className="playTime">
+                        {handlePlayTime(ele.durationTime)}
+                      </div>
                     </div>
-                    <div className="playTime">
-                      {handlePlayTime(ele.durationTime)}
-                    </div>
-                  </div>
-                  <div className="subData">
-                    <div className="lane">{ele.lane}</div>
+                    <div className="subData">
+                      <div className="lane">{ele.lane}</div>
 
-                    <div className="kda">
-                      {ele.kda === null ? "KDA Perfect" : "KDA " + ele.kda}
-                    </div>
+                      <div className="kda">
+                        {ele.kda === null ? "KDA Perfect" : "KDA " + ele.kda}
+                      </div>
 
-                    <div className="match"> {ele.gameMode}</div>
-                  </div>
-                  <div className="badgeWrap">
-                    {ele.tripleKills !== 0 ? (
-                      <div className="tripleKills badge">트리플킬</div>
-                    ) : (
-                      <div></div>
-                    )}
-                    {ele.quadraKills !== 0 ? (
-                      <div className="quadraKills badge">쿼드라킬</div>
-                    ) : (
-                      <div></div>
-                    )}
-                    {ele.pentaKills !== 0 ? (
-                      <div className="pentaKills badge">펜타킬</div>
-                    ) : (
-                      <div></div>
-                    )}
-                  </div>
-                </section>
-              );
+                      <div className="match"> {ele.gameMode}</div>
+                    </div>
+                    <div className="badgeWrap">
+                      {ele.tripleKills !== 0 ? (
+                        <div className="tripleKills badge">트리플킬</div>
+                      ) : (
+                        <div></div>
+                      )}
+                      {ele.quadraKills !== 0 ? (
+                        <div className="quadraKills badge">쿼드라킬</div>
+                      ) : (
+                        <div></div>
+                      )}
+                      {ele.pentaKills !== 0 ? (
+                        <div className="pentaKills badge">펜타킬</div>
+                      ) : (
+                        <div></div>
+                      )}
+                    </div>
+                  </section>
+                );
+              }
             })
           ) : (
             <div className="noResult">
