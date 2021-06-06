@@ -23,7 +23,7 @@ export const Container = styled.div`
     min-width: 652px;
     height: 1300px;
     max-width: 1320px;
-    background-color: #dadada;
+    background-color: transparent;
   }
   .currGame {
     display: grid;
@@ -31,7 +31,6 @@ export const Container = styled.div`
     width: 621px;
     height: 81px;
     padding-bottom: 1px;
-    /* border: 1px solid white; */
   }
 
   .currGameText {
@@ -64,57 +63,65 @@ export const Container = styled.div`
     text-align: center;
     .currId {
       font-size: 1.3rem;
-      color: #414141;
+      color: whitesmoke;
     }
   }
   .noExsit {
-    color: black;
+    color: whitesmoke;
     font-size: 2rem;
   }
   .searchArea {
     display: flex;
+    position: relative;
     width: 250px;
+    max-width: 280px;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
     height: 30px;
-    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
-    border-top: 1px solid #dfab00;
-    border-left: 1px solid #dfab00;
     border-radius: 5px;
     margin-right: 3px;
     margin-bottom: 4px;
   }
   .searchInput {
-    all: unset;
-    width: 60%;
-    font-size: 0.5rem;
-    margin-left: 5px;
-    color: #949494;
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    background: none;
+    border: none;
+    line-height: 17px;
+    font-size: 0.82rem;
+    color: white;
+    box-sizing: border-box;
+    outline: 0;
+    border-bottom: 1px solid #ffc400;
   }
-  .searchInput:focus {
-    all: unset;
-    width: 60%;
-    font-size: 0.7rem;
-    margin-left: 10px;
-    color: #4f4f4f;
     &:focus::-webkit-input-placeholder {
       font-size: 0rem;
       color: white;
-    }
   }
   .searchBtn {
-    all: unset;
-    width: 20%;
-    height: 20px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
     text-align: center;
-    background-color: #f7bd00;
-    border-radius: 3px;
     font-weight: bold;
     margin-right: 5px;
+    margin-top: 4px;
+    padding: 2px 2px;
+    border: none;
+    background-color: #ffbb00;
+    border-radius: 2px;
+    color: #404040;
+    transition: background-color 0.4s;
+    font-size: 1.1rem;
   }
 
   .searchBtn:hover {
+    background-color: #e4e400;
+    transition: background-color 0.4s;
     cursor: pointer;
   }
 
@@ -193,7 +200,6 @@ export const Container = styled.div`
     font-weight: bold;
     width: 100%;
     background-color: #dadada;
-    /* background-color: #a3cfec; */
     color: #484848;
     z-index: 3;
   }
@@ -204,7 +210,6 @@ export const Container = styled.div`
     .playerNameTag {
       background-color: #3d95e5;
       border: 1px solid #3d95e5;
-      /* background-color: #a3cfec; */
     }
     .playerImg {
       transform: scale(1.1);
@@ -218,7 +223,6 @@ export const Container = styled.div`
     .playerNameTag {
       background-color: #ee5952;
       border: 1px solid #ee5952;
-      /* background-color: #a3cfec; */
     }
     .playerImg {
       transform: scale(1.15);
@@ -250,46 +254,54 @@ export const Container = styled.div`
   }
   .commentArea {
     display: flex;
+    position: relative;
     width: 500px;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
     height: 30px;
-    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
-    border-top: 1px solid #dfab00;
-    border-left: 1px solid #dfab00;
     border-radius: 5px;
   }
   .commentInput {
-    all: unset;
-    width: 60%;
-    font-size: 0.5rem;
-    margin-left: 5px;
-    color: #949494;
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    background: none;
+    border: none;
+    line-height: 17px;
+    font-size: 0.82rem;
+    color: white;
+    box-sizing: border-box;
+    outline: 0;
+    border-bottom: 1px solid #ffc400;
   }
-  .commentInput:focus {
-    all: unset;
-    width: 60%;
-    font-size: 0.7rem;
-    margin-left: 10px;
-    color: #4f4f4f;
+
     &:focus::-webkit-input-placeholder {
       font-size: 0rem;
       color: white;
-    }
   }
   .commentBtn {
-    all: unset;
-    width: 90px;
-    height: 20px;
+    height: 23px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-top: 4px;
+    padding: 2px 2px;
+    border: none;
     text-align: center;
     background-color: #f7bd00;
+    color: #404040;
     border-radius: 3px;
     font-weight: bold;
     margin-right: 5px;
+    transition: background-color 0.4s;
   }
 
   .commentBtn:hover {
+    background-color: #e4e400;
+    transition: background-color 0.4s;
     cursor: pointer;
   }
 `;

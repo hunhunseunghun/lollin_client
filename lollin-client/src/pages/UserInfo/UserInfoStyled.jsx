@@ -5,22 +5,55 @@ export const Container = styled.div`
   justify-content: center;
   height: 100%;
   padding-bottom: 15rem;
-  .wrap {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1440px;
+`;
+
+export const BackImg = styled.img`
+  position: absolute;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 50rem;
+  filter: blur(1.8px);
+  top: 2rem;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    min-height: 30rem;
   }
-  .title {
-    font-size: 4rem;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    padding: 5rem 0;
+`;
+
+export const Wrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  z-index: 3;
+  position: relative;
+  place-items: center;
+  background-color: #000000be;
+  padding-top: 2rem;
+`;
+
+export const UserTitle = styled.span`
+  margin-top: 25px;
+  color: white;
+  font-weight: bold;
+  font-size: 4rem;
+  text-align: center;
+  padding: 2rem 0;
+
+  @media (min-width: 320px) and (max-width: 530px) {
+    font-size: 3rem;
+    transition: font-size 0.5s;
   }
-  .userContent {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+`;
+
+export const UserContent = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (min-width: 320px) and (max-width: 530px) {
+    margin-left: 5px;
+    margin-right: 5px;
   }
 `;
