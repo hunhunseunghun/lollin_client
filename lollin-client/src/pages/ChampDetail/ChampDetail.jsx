@@ -62,7 +62,7 @@ const ChampDetail = ({ champPriId }) => {
 			.then((response) => {
 				const $ = cheerio.load(response.data);
 				let runeEls = $(' span.rune-imgbox.active > div');
-				setRuneEls(runeEls);
+				setRuneEls(runeEls); //@@@@@@@@@@@@@@go to useEffect
 			})
 			.catch((err) => {
 				console.log(err);
@@ -85,7 +85,7 @@ const ChampDetail = ({ champPriId }) => {
 					console.log(err);
 				});
 		}
-		setRuneUrls(urls);
+		setRuneUrls(urls); //@@@@@@@@@@@@@@@@@@@@@@urls set
 		setIsLoading(false);
 	}, [runeEls]);
 	const handleSkillsDescription = () => {
