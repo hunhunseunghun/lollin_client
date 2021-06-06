@@ -6,7 +6,7 @@ import UserInfoMatchingDetail from "../UserInfoMatchingDetail/UserInfoMatchingDe
 import dotenv from "dotenv";
 
 dotenv.config();
-// , handleUserClick
+const server = process.env.REACT_APP_SERVER_URL;
 const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
@@ -16,6 +16,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const [redTeam, setRedTeam] = useState();
   let [participant, setParticipant] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [commentValue, seCommentValue] = useState("");
 
   const handleUserClick = (participant) => {
     setParticipant(participant);
@@ -66,6 +67,20 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const handleReSearchEnter = (e) => {
     if (e.key === "Enter") {
       handleReSearch();
+    }
+  };
+
+  const handleCommentValue = () => {
+    // axios.post(`${server}/${commentValue}`).then((res)=>{
+    //   console.log("코멘트완료")
+    // }).catch((err)=>{
+    //   console.log("코멘트불가")
+    // })
+  };
+
+  const handleCommentSearchEnter = (e) => {
+    if (e.key === "Enter") {
+      handleCommentValue();
     }
   };
 
@@ -182,9 +197,17 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 type="text"
                 className="commentInput"
                 placeholder="your comment"
+                onKeyPress={(e) => {
+                  handleCommentSearchEnter(e);
+                }}
+                onChange={(e) => {
+                  seCommentValue(e.target.value);
+                }}
               ></input>
 
-              <button className="commentBtn">comment</button>
+              <button className="commentBtn" onClick={handleCommentValue}>
+                comment
+              </button>
             </section>
           </div>
         </div>
