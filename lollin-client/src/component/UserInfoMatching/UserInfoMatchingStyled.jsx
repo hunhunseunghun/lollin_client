@@ -107,9 +107,9 @@ export const Container = styled.div`
     outline: 0;
     border-bottom: 1px solid #ffc400;
   }
-    &:focus::-webkit-input-placeholder {
-      font-size: 0rem;
-      color: white;
+  &:focus::-webkit-input-placeholder {
+    font-size: 0rem;
+    color: white;
   }
   .searchBtn {
     display: flex;
@@ -287,9 +287,9 @@ export const Container = styled.div`
     border-bottom: 1px solid #ffc400;
   }
 
-    &:focus::-webkit-input-placeholder {
-      font-size: 0rem;
-      color: white;
+  &:focus::-webkit-input-placeholder {
+    font-size: 0rem;
+    color: white;
   }
   .commentBtn {
     height: 23px;
@@ -314,5 +314,100 @@ export const Container = styled.div`
     background-color: #e4e400;
     transition: background-color 0.4s;
     cursor: pointer;
+  }
+
+  @media (max-width: 670px) {
+    width: 500px;
+    height: 1000px;
+
+    .title {
+      font-size: 4rem;
+    }
+
+    .entireWrap {
+      width: 80%;
+      min-width: 490px;
+      height: 900px;
+
+      background-color: transparent;
+    }
+    .currGame {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      width: 450px;
+      height: 81px;
+      padding-bottom: 1px;
+    }
+
+    .currGameText {
+      padding: 2px;
+    }
+
+    .Exsit {
+      font-size: 0.8rem;
+
+      .currId {
+        font-size: 1.2rem;
+      }
+    }
+    .noExsit {
+      font-size: 1.2rem;
+    }
+
+    .noExsitSub {
+      font-size: 0.7rem;
+    }
+    .searchArea {
+      width: 180px;
+    }
+
+    .infoArea-right {
+      display: grid;
+      grid-template-rows: 1fr 1.5fr;
+      place-items: center;
+      align-items: center;
+      width: 450px;
+      height: 98.5%;
+      border: 1px solid gray;
+    }
+    .currMatching {
+      height: 500px;
+    }
+
+    .allyTeam {
+      width: 460px;
+      height: 200px;
+    }
+    .oppTeam {
+      width: 460px;
+      height: 200px;
+    }
+
+    .teamWrapper {
+      width: 500px;
+    }
+
+    .playerNameTag {
+      font-size: 8px;
+      font-weight: normal;
+    }
+
+    .infoArea {
+      display: grid;
+      grid-template-rows: 5fr 1fr;
+      width: 450px;
+      height: 280px;
+    }
+
+    .infoArea-bottom {
+      display: flex;
+      justify-content: center;
+      place-items: center;
+      align-items: center;
+      width: 100%;
+    }
+    .commentArea {
+      width: 400px;
+    }
   }
 `;
