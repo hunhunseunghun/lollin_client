@@ -36,6 +36,7 @@ export const Container = styled.div`
 
   .currGameText {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 60px;
@@ -70,6 +71,16 @@ export const Container = styled.div`
   .noExsit {
     color: black;
     font-size: 2rem;
+  }
+  .noExsitinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .noExsitSub {
+    color: red;
+    font-size: 0.7rem;
+    text-align: center;
   }
   .searchArea {
     display: flex;

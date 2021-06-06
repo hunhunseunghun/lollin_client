@@ -15,6 +15,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
   let [participant, setParticipant] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleUserClick = (participant) => {
     setParticipant(participant);
@@ -36,6 +37,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   };
 
   let handleSearch = () => {
+    setIsLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_SERVER_URL}/utils/activeGame?name=${inputName}`
@@ -43,6 +45,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
       .then((response) => {
         setIsSearched(true);
         setDatas(response.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         axios
@@ -51,6 +54,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
             setIsSearched(false);
             setDatas(response.data);
             setDefaultPlayer(response.data.participants[0]);
+            setIsLoading(false);
           });
       });
   };
@@ -82,7 +86,16 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
               </div>
             ) : (
               <div className="currGameText noExsit">
-                <div>랜덤 매치</div>
+                <div className="noExsitinner">랜덤 매치</div>
+                {inputName && !isLoading ? (
+                  <section>
+                    <div className="noExsit noExsitSub">
+                      {`${inputName} 님의 매치가 없습니다`}
+                    </div>
+                  </section>
+                ) : (
+                  ""
+                )}
               </div>
             )}
           </div>
