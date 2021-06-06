@@ -5,9 +5,8 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 650px;
-  background-color: #dadada;
+  background-color: transparent;
   color: #575757;
-  border: 1px solid #808080b0;
 
   .historyWrapper {
     display: grid;

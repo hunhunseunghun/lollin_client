@@ -3,10 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 650px;
-  border-left: 1px solid #808080b0;
-  border-right: 1px solid #808080b0;
-
-  background-color: #d6d3d3;
+  background-color: transparent;
 
   .soloWrapper {
     display: flex;
@@ -15,7 +12,7 @@ export const Container = styled.div`
     width: 327px;
     height: 120px;
     padding: 9px 0;
-    border: 1px solid #808080b0;
+    /* border: 1px solid #808080b0; */
     border-bottom: none;
   }
 
@@ -35,12 +32,14 @@ export const Container = styled.div`
   }
   .rankTag {
     font-size: 11px;
-    color: #6e7777;
+    /* color: #6e7777; */
+    color: whitesmoke;
   }
   .tierTag {
     font-size: 15px;
     font-weight: bold;
-    color: #1f8ecd;
+    /* color: #1f8ecd; */
+    color: whitesmoke;
   }
 
   .lpTag {
@@ -62,7 +61,6 @@ export const Container = styled.div`
     width: 327px;
     height: 120px;
     padding: 9px 0;
-    border: 1px solid gray;
     border-bottom: none;
     border-left: none;
   }
@@ -71,7 +69,7 @@ export const Container = styled.div`
   }
   .unrankedTag {
     padding: 20px 0;
-    color: #555e5e;
+    color: whitesmoke;
     font-weight: bold;
   }
 `;

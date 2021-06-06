@@ -125,7 +125,8 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 }}
                 onKeyPress={handleReSearchEnter}
                 value={reSearchValue}
-              ></input>
+              >
+              </input>
               <button className="searchBtn" onClick={handleReSearch}>
                 Lollin
               </button>
