@@ -55,7 +55,7 @@ https://lollin.link
 ### Main Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/mainpage.gif?raw=true)
 ### UserInfo Page
-![img](https://github.com/codestates/Lollin-client/blob/master/Images/userinfo.gif?raw=true)
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/userinfopage.gif?raw=true)
 ### Item DB Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/itemDb.png?raw=true)
 ### Champ DB Page
