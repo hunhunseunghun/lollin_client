@@ -53,9 +53,9 @@ https://lollin.link
 
 ## 페이지 구성
 ### Main Page
-// 메인페이지 이미지
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/mainpage.gif?raw=true)
 ### UserInfo Page
-// userinfo페이지 이미지
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/userinfo.gif?raw=true)
 ### Item DB Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/itemDb.png?raw=true)
 ### Champ DB Page
