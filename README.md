@@ -61,7 +61,7 @@ https://lollin.link
 ### Signup Page
 ![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Signup%20page.png?raw=true)
 ### MyInfo Page
-![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Myinfo%20page.png?raw=true)
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/MyInfo%20page.png?raw=true)
 ### Item DB Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/itemDb.png?raw=true)
 ### Champ DB Page
