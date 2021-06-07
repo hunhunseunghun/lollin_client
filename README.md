@@ -17,7 +17,7 @@
 <td>whwnddnwhwnd@gmail.com</td>
 </tr>
 <tr>
-<td>Back-end</td>
+<td>Full-stack</td>
 <td>이호준</td>
 <td>https://github.com/leehojun0314</td>
 <td>lhj66601234@gmail.com</td>
@@ -77,10 +77,10 @@ S3, EC2, Cloudfront, Route53
 
 # Lollin's Architecture
 ## Wireframe
-https://miro.com/app/board/o9J_lEqUy0M=/
+https://miro.com/app/board/o9J_lEqUy0M=/ <br />
 // 와이어프레임 캡쳐
 ## API Document
-https://app.gitbook.com/@lollin/s/lollin/
+https://app.gitbook.com/@lollin/s/lollin/ <br />
 ## WorkFlow
 // 워크플로우 캡쳐
 ### Client
