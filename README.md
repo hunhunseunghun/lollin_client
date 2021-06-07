@@ -78,7 +78,7 @@ S3, EC2, Cloudfront, Route53
 # Lollin's Architecture
 ## Wireframe
 https://miro.com/app/board/o9J_lEqUy0M=/ <br />
-url(Images/pages.jpg)
+url(https://github.com/codestates/Lollin-client/blob/master/Images/pages.jpg?raw=true)
 ## API Document
 https://app.gitbook.com/@lollin/s/lollin/ <br />
 ## WorkFlow
