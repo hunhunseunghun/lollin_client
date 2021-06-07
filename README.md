@@ -3,6 +3,7 @@
 21.05.11~21.06.08(4주)
 
 ## Team
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/spieler.png?raw=true)
 <table>
 <tr>
 <th>Position</th>
