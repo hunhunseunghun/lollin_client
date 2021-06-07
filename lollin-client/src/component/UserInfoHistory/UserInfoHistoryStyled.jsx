@@ -52,6 +52,7 @@ export const Container = styled.div`
     outline: 0;
     border-bottom: 1px solid #ffc400;
   }
+
     &:focus::-webkit-input-placeholder {
       font-size: 0rem;
       color: white;
@@ -80,5 +81,31 @@ export const Container = styled.div`
     background-color: #e4e400;
     transition: background-color 0.4s;
     cursor: pointer;
+  }
+
+  @media (max-width: 670px) {
+    width: 490px;
+    display: flex;
+    height: 872px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem;
+
+    .entireWrap {
+      height: 872px;
+    }
+    .topWrap {
+      width: 450px;
+    }
+    .name {
+      font-size: 0.7rem;
+    }
+    .searchArea {
+      width: 200px;
+    }
+    .searchInput {
+      padding: 10px;
+    }
   }
 `;

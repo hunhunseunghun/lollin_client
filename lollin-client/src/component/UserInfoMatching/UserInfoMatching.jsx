@@ -18,6 +18,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [commentValue, setCommentValue] = useState("");
 
+
   const handleUserClick = (participant) => {
     setParticipant(participant);
   };

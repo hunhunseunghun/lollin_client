@@ -72,4 +72,8 @@ export const Container = styled.div`
     color: whitesmoke;
     font-weight: bold;
   }
+
+  @media (max-width: 670px) {
+    width: 470px;
+  }
 `;
