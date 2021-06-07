@@ -56,11 +56,11 @@ https://lollin.link
 ### UserInfo Page
 // userinfo페이지 이미지
 ### Item DB Page
-// itemdb페이지 이미지
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/itemDb.png?raw=true)
 ### Champ DB Page
-// champdb페이지 이미지
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/champDb.png?raw=true)
 ### Champ Detail Page
-// champdetail페이지 이미지
+![img](https://github.com/codestates/Lollin-client/blob/master/Images/champDetail.png?raw=true)
 
 ## 핵심 기능
 현재 진행중인 게임 매치정보가 출력됩니다.
