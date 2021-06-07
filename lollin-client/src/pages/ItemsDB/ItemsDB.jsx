@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ItemsDbList from "../../component/ItemsDbList/ItemsDbList.jsx";
 import ItemsDbFilter from "../../component/ItemsDbFilter/ItemsDbFilter.jsx";
-import { Items, ItemBox, ItemsList } from "./ItemsDbStyled.jsx";
+import ItemsSearchBox from "../../component/ItemsSearchBox/ItemsSearchBox.jsx";
+import ItemsDbBgi from "../../Images/ItemsDbBgi1.jpg";
 
-const server = process.env.REACT_APP_SERVER_URL;
+import { Items, ItemTitle, BackImg, Wrapper } from "./ItemsDbStyled.jsx";
+
+// const server = process.env.REACT_APP_SERVER_URL;
 
 const ItemsDB = () => {
   const [apiVer, setApiVer] = useState("");
   const [itemsData, setItemsData] = useState([]);
   const [sortTags, setSortTags] = useState(["set"]);
+  const [itemName, setItemName] = useState("");
 
   const handleSortTags = (checked, tags, id) => {
     if (checked) {
@@ -17,6 +21,10 @@ const ItemsDB = () => {
     } else {
       setSortTags(sortTags.filter((el) => el !== tags));
     }
+  };
+
+  const handleItemSearchValue = (value) => {
+    setItemName(value);
   };
 
   useEffect(() => {
@@ -37,9 +45,25 @@ const ItemsDB = () => {
     setSortTags("");
   }, []);
   return (
-    <Items className="itemsDB">
-      <ItemsDbFilter itemsData={itemsData} handleSortTags={handleSortTags} />
-      <ItemsDbList itemsData={itemsData} apiVer={apiVer} sortTags={sortTags} />
+    <Items className="itemDB">
+      <BackImg className="itemDBbackImg" src={`${ItemsDbBgi}`} />
+
+      <Wrapper>
+        <ItemTitle className="itemTitle">Item</ItemTitle>
+        <ItemsDbFilter
+          itemsData={itemsData}
+          handleSortTags={handleSortTags}
+          handleItemSearchValue={handleItemSearchValue}
+        />
+
+        <ItemsSearchBox handleItemSearchValue={handleItemSearchValue} />
+        <ItemsDbList
+          itemsData={itemsData}
+          apiVer={apiVer}
+          sortTags={sortTags}
+          itemName={itemName}
+        />
+      </Wrapper>
     </Items>
   );
 };

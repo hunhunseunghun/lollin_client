@@ -1,49 +1,71 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { UpdatedItems } from "./MainUpdatedItemsStyled.jsx";
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainUpdatedItems = ({ history }) => {
-  const [newItemData, setItemData] = useState({
+  const [newItemData, setNewItemData] = useState({
     items: [
       {
-        id: null,
-        img: null,
-        desc: null,
+        id: "장화",
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
+      },
+      {
+        id: "장화",
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
+      },
+      {
+        id: "장화",
+        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+
+        desc: "이동 속도가 약간 증가합니다.",
       },
     ],
   });
 
   useEffect(() => {
     axios
-      .get(`${server}/items/updateditems`)
+      .get(`${server}/items/patched2`)
       .then((res) => {
-        setItemData(res);
+        setNewItemData(res.data);
       })
       .catch((err) => {
         throw err;
       });
   }, []);
 
-  const handleDetailsClick = () => {
-    history.push("/items");
+  
+
+  const handleItemHtml = () => {
+    return (
+      <div className="wrapper">
+        {" "}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: newItemData,
+          }}
+        ></div>
+      </div>
+    );
   };
 
   return (
-    <div className="updatedItems">
-      <div className="itemsTitle">패치 적용된 아이템</div>
-      <div className="itemsImgArea">
-        {/* {newItemData.map((ele) => (
-          <img className="itemsImg" src={ele.img} alt="no images" />
-        ))} */}
+    <UpdatedItems className="updatedItems">
+      <div className="textContainer">
+        <div className="desc">
+          <div className="descTitle">업데이트 아이템</div>
+        </div>
+        <div className="titleWrap">- Updated items</div>
       </div>
-      <div className="itemsDescArea">
-        {/* {newItemData.map((ele) => (
-          <div className="itmesDesc">{ele.desc}</div>
-        ))} */}
-      </div>
-      <button onClick={handleDetailsClick}>Details</button>
-    </div>
+
+      {handleItemHtml()}
+   
+    </UpdatedItems>
   );
 };
 
