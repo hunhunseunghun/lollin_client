@@ -77,13 +77,14 @@ S3, EC2, Cloudfront, Route53
 
 # Lollin's Architecture
 ## Wireframe
-https://miro.com/app/board/o9J_lEqUy0M=/ <br />
-![Alt text](/path/to/img.jpg "Optional title")
-<img src="/path/to/img.jpg" width="450px" height="300px" title="px(픽셀) 크기 설정" alt="RubberDuck"></img><br/>
+https://miro.com/app/board/o9J_lEqUy0M=/ <br /><br />
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/pages.jpg?raw=true)
 ## API Document
 https://app.gitbook.com/@lollin/s/lollin/ <br />
 ## WorkFlow
-// 워크플로우 캡쳐
 ### Client
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Client%20flowchart.png?raw=true)
 ### Server
-
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Server%20flowchart.png?raw=true)
+### API
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/API%20flowchart.png?raw=true)
