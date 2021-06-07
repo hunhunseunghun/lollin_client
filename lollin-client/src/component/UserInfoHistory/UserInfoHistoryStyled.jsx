@@ -16,63 +16,69 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    background-color: #dadada;
+    background-color: transparent;
     width: 650px;
     height: 5rem;
-    border-top: 1px solid #808080b0;
-    border-left: 1px solid #808080b0;
-    border-right: 1px solid #808080b0;
   }
   .name {
     height: 2rem;
     font-size: 1.4rem;
     font-weight: bold;
-    color: black;
+    color: white;
   }
   .searchArea {
     display: flex;
+    position: relative;
     width: 250px;
+    max-width: 280px;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
     height: 30px;
-    box-shadow: 3.5px 3.5px 2px 0.5px #f7bd00dc;
-    border-top: 1px solid #dfab00;
-    border-left: 1px solid #dfab00;
     border-radius: 5px;
+    margin-right: 3px;
+    margin-bottom: 5px;
   }
   .searchInput {
-    all: unset;
-    width: 60%;
-    font-size: 0.5rem;
-    margin-left: 5px;
-    color: #949494;
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    background: none;
+    border: none;
+    line-height: 17px;
+    font-size: 0.82rem;
+    color: white;
+    box-sizing: border-box;
+    outline: 0;
+    border-bottom: 1px solid #ffc400;
   }
-  .searchInput:focus {
-    all: unset;
-    width: 60%;
-    font-size: 0.7rem;
-    margin-left: 10px;
-    color: #4f4f4f;
     &:focus::-webkit-input-placeholder {
       font-size: 0rem;
       color: white;
-    }
   }
 
   .searchBtn {
-    all: unset;
-    width: 20%;
-    height: 20px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
     text-align: center;
-    background-color: #f7bd00;
-    border-radius: 3px;
     font-weight: bold;
     margin-right: 5px;
-    color: white;
+    margin-top: 4px;
+    padding: 2px 2px;
+    border: none;
+    background-color: #ffbb00;
+    border-radius: 2px;
+    color: #404040;
+    transition: background-color 0.4s;
+    font-size: 1.1rem;
   }
 
   .searchBtn:hover {
+    background-color: #e4e400;
+    transition: background-color 0.4s;
     cursor: pointer;
   }
 `;

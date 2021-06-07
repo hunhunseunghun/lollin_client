@@ -6,7 +6,7 @@ import UserInfoMatchingDetail from "../UserInfoMatchingDetail/UserInfoMatchingDe
 import dotenv from "dotenv";
 
 dotenv.config();
-// , handleUserClick
+const server = process.env.REACT_APP_SERVER_URL;
 const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   let [matchData, setMatchData] = useState({});
   let [inputName, setInputName] = useState(summonerName);
@@ -15,6 +15,8 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const [blueTeam, setBlueTeam] = useState();
   const [redTeam, setRedTeam] = useState();
   let [participant, setParticipant] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [commentValue, setCommentValue] = useState("");
 
   const handleUserClick = (participant) => {
     setParticipant(participant);
@@ -36,6 +38,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   };
 
   let handleSearch = () => {
+    setIsLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_SERVER_URL}/utils/activeGame?name=${inputName}`
@@ -43,6 +46,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
       .then((response) => {
         setIsSearched(true);
         setDatas(response.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         axios
@@ -51,6 +55,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
             setIsSearched(false);
             setDatas(response.data);
             setDefaultPlayer(response.data.participants[0]);
+            setIsLoading(false);
           });
       });
   };
@@ -62,6 +67,30 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const handleReSearchEnter = (e) => {
     if (e.key === "Enter") {
       handleReSearch();
+    }
+  };
+
+  const handleCommentValue = () => {
+    if(participant) {
+      axios.post('https://lollinserver.link/members/comment',
+      {
+        jwt: sessionStorage.getItem('jwt'),
+        nickname: participant.summonerName,
+        comment: commentValue
+      })
+      .then((res)=>{
+        setCommentValue(res.comment)
+        console.log("코멘트완료")
+      })
+      .catch((err)=>{
+        alert("코멘트불가")
+      })
+    }
+  };
+
+  const handleCommentSearchEnter = (e) => {
+    if (e.key === "Enter") {
+      handleCommentValue();
     }
   };
 
@@ -82,7 +111,16 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
               </div>
             ) : (
               <div className="currGameText noExsit">
-                <div>랜덤 매치</div>
+                <div className="noExsitinner">랜덤 매치</div>
+                {inputName && !isLoading ? (
+                  <section>
+                    <div className="noExsit noExsitSub">
+                      {`${inputName} 님의 매치가 없습니다`}
+                    </div>
+                  </section>
+                ) : (
+                  ""
+                )}
               </div>
             )}
           </div>
@@ -97,7 +135,8 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 }}
                 onKeyPress={handleReSearchEnter}
                 value={reSearchValue}
-              ></input>
+              >
+              </input>
               <button className="searchBtn" onClick={handleReSearch}>
                 Lollin
               </button>
@@ -169,9 +208,17 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                 type="text"
                 className="commentInput"
                 placeholder="your comment"
+                onKeyPress={(e) => {
+                  handleCommentSearchEnter(e);
+                }}
+                onChange={(e) => {
+                  setCommentValue(e.target.value);
+                }}
               ></input>
 
-              <button className="commentBtn">comment</button>
+              <button className="commentBtn" onClick={handleCommentValue}>
+                comment
+              </button>
             </section>
           </div>
         </div>
