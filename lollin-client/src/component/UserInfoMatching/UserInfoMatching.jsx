@@ -16,7 +16,8 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   const [redTeam, setRedTeam] = useState();
   let [participant, setParticipant] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [commentValue, seCommentValue] = useState("");
+  const [commentValue, setCommentValue] = useState("");
+
 
   const handleUserClick = (participant) => {
     setParticipant(participant);
@@ -71,11 +72,21 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
   };
 
   const handleCommentValue = () => {
-    // axios.post(`${server}/${commentValue}`).then((res)=>{
-    //   console.log("코멘트완료")
-    // }).catch((err)=>{
-    //   console.log("코멘트불가")
-    // })
+    if(participant) {
+      axios.post('https://lollinserver.link/members/comment',
+      {
+        jwt: sessionStorage.getItem('jwt'),
+        nickname: participant.summonerName,
+        comment: commentValue
+      })
+      .then((res)=>{
+        setCommentValue(res.comment)
+        console.log("코멘트완료")
+      })
+      .catch((err)=>{
+        alert("코멘트불가")
+      })
+    }
   };
 
   const handleCommentSearchEnter = (e) => {
@@ -202,7 +213,7 @@ const UserInfoMatching = ({ summonerName, setDefaultPlayer }) => {
                   handleCommentSearchEnter(e);
                 }}
                 onChange={(e) => {
-                  seCommentValue(e.target.value);
+                  setCommentValue(e.target.value);
                 }}
               ></input>
 

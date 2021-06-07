@@ -107,9 +107,9 @@ export const Container = styled.div`
     outline: 0;
     border-bottom: 1px solid #ffc400;
   }
-  &:focus::-webkit-input-placeholder {
-    font-size: 0rem;
-    color: white;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
   }
   .searchBtn {
     display: flex;
@@ -210,8 +210,8 @@ export const Container = styled.div`
     font-size: 0.5rem;
     font-weight: bold;
     width: 100%;
-    background-color: #dadada;
-    color: #484848;
+    background-color: transparent;
+    color: whitesmoke;
     z-index: 3;
   }
   .allyHover:hover {
@@ -287,9 +287,9 @@ export const Container = styled.div`
     border-bottom: 1px solid #ffc400;
   }
 
-  &:focus::-webkit-input-placeholder {
-    font-size: 0rem;
-    color: white;
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
   }
   .commentBtn {
     height: 23px;

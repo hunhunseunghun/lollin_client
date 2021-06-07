@@ -52,9 +52,10 @@ export const Container = styled.div`
     outline: 0;
     border-bottom: 1px solid #ffc400;
   }
-  &:focus::-webkit-input-placeholder {
-    font-size: 0rem;
-    color: white;
+
+    &:focus::-webkit-input-placeholder {
+      font-size: 0rem;
+      color: white;
   }
 
   .searchBtn {
