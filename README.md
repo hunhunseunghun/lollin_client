@@ -2,7 +2,7 @@
 ## Project 
 21.05.11~21.06.08(4주)
 
-## Team
+## Team Spieler
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/spieler.png?raw=true)
 <table>
 <tr>
