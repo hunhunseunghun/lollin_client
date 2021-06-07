@@ -70,7 +70,7 @@ https://lollin.link
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/champDetail.png?raw=true)
 
 ## 핵심 기능
-현재 진행중인 게임 매치정보가 출력됩니다.
+현재 진행중인 게임 매치정보가 출력됩니다. <br />
 회원가입 & 로그인 후같이 플레이한 유저에 대한 평가를 확인하고 코멘트를 남겨보세요! <br />
 // userinfo 움짤
 
