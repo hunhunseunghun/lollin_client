@@ -56,6 +56,12 @@ https://lollin.link
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/mainpage.gif?raw=true)
 ### UserInfo Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/userinfopage.gif?raw=true)
+### Login Page
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Login%20page.png?raw=true)
+### Signup Page
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Signup%20page.png?raw=true)
+### MyInfo Page
+![Img](https://github.com/codestates/Lollin-client/blob/master/Images/Myinfo%20page.png?raw=true)
 ### Item DB Page
 ![img](https://github.com/codestates/Lollin-client/blob/master/Images/itemDb.png?raw=true)
 ### Champ DB Page
@@ -65,7 +71,7 @@ https://lollin.link
 
 ## 핵심 기능
 현재 진행중인 게임 매치정보가 출력됩니다.
-같이 플레이한 유저에 대한 평가를 확인하고 코멘트를 남겨보세요!
+회원가입 & 로그인 후같이 플레이한 유저에 대한 평가를 확인하고 코멘트를 남겨보세요! <br />
 // userinfo 움짤
 
 # Lollin's Stack
