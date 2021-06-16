@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ChampDetailArea = styled.div`
-  height: 70rem;
+  height: 90rem;
   padding-bottom: 5rem;
 
   .noDisplay {

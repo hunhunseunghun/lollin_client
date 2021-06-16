@@ -24,7 +24,7 @@ const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
   const location = useLocation();
-  const [champData, setChampData] = useState(initData);
+  const [champData, setChampData] = useState(null);
   const [skillIndex, setSkillIndex] = useState(0);
   const [resultId, setResultId] = useState("Aatrox");
   const [oppName, setOppName] = useState("");
@@ -40,7 +40,7 @@ const ChampDetail = ({ champPriId }) => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     const handleResultId = () => {
       if (location.state !== undefined) {
         return setResultId(location.state.id);
@@ -53,10 +53,10 @@ const ChampDetail = ({ champPriId }) => {
       .get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
       .then((res) => {
         setChampData(res.data.data);
-        setIsLoading(false);
+        // setIsLoading(false);
       })
       .catch((err) => {
-        setIsLoading(false);
+        // setIsLoading(false);
       });
   }, [resultId]);
   const handleOppSearch = () => {
@@ -103,7 +103,7 @@ const ChampDetail = ({ champPriId }) => {
     setRuneDesc(desc);
     console.log(runeDesc);
     setRuneUrls(urls); //@@@@@@@@@@@@@@@@@@@@@@urls set
-    setIsLoading(false);
+    // setIsLoading(false);
     console.log(runeEls);
   }, [runeEls]);
   const handleSkillsDescription = () => {
@@ -124,17 +124,16 @@ const ChampDetail = ({ champPriId }) => {
       .then((res) => {
         setChampImg(res.config.url);
         console.log(res.config.url);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        setIsLoading(false);
       });
-
-    //   <BackImg
-    //   className="champDbBackImg"
-    //   src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
-    // />
   }, [champPriId]);
 
   return (
     <ChampDetailArea className="champDetail">
-      {!isLoading ? (
+      {isLoading && champData ? (
         <div>
           {champImg ? (
             <BackImg className="champDbBackImg" src={champImg} />
@@ -255,8 +254,8 @@ const ChampDetail = ({ champPriId }) => {
                   </div>
 
                   <section className="recommendContent">
-                    {isLoading
-                      ? "Loading..."
+                    {!isLoading
+                      ? "상대 챔피언 아이디를 검색하세요!"
                       : runeUrls.map((el, idx) => {
                           return (
                             <div className="recommedWrap">
