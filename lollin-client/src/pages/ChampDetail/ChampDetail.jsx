@@ -24,7 +24,7 @@ const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
   const location = useLocation();
-  const [champData, setChampData] = useState(null);
+  const [champData, setChampData] = useState(initData);
   const [skillIndex, setSkillIndex] = useState(0);
   const [resultId, setResultId] = useState("Aatrox");
   const [oppName, setOppName] = useState("");
@@ -33,32 +33,50 @@ const ChampDetail = ({ champPriId }) => {
   const [isLoading, setIsLoading] = useState(null);
   const [champImg, setChampImg] = useState(false);
   const [runeDesc, setRuneDesc] = useState(null);
-  console.log(resultId);
 
   const handleSkillIndex = (index) => {
     setSkillIndex(index);
   };
 
   useEffect(() => {
-    // setIsLoading(true);
+    setIsLoading(false);
     const handleResultId = () => {
+      console.log(location.state);
       if (location.state !== undefined) {
-        return setResultId(location.state.id);
+        setResultId(location.state.id);
       } else {
         setResultId(champPriId);
       }
     };
     handleResultId();
+
+    console.log(champData);
+  }, []);
+
+  useEffect(() => {
     axios
-      .get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
+      .get(`${server}/champions/detail?id=${resultId}`)
       .then((res) => {
         setChampData(res.data.data);
-        // setIsLoading(false);
       })
       .catch((err) => {
-        // setIsLoading(false);
+        throw err;
+      });
+
+    axios
+      .get(
+        `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${resultId}_0.jpg`
+      )
+      .then((res) => {
+        setChampImg(res.config.url);
+        console.log(res.config.url);
+        setIsLoading(true);
+      })
+      .catch((err) => {
+        setIsLoading(false);
       });
   }, [resultId]);
+
   const handleOppSearch = () => {
     axios
       .get(
@@ -116,24 +134,9 @@ const ChampDetail = ({ champPriId }) => {
     );
   };
 
-  useEffect(() => {
-    axios
-      .get(
-        `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`
-      )
-      .then((res) => {
-        setChampImg(res.config.url);
-        console.log(res.config.url);
-        setIsLoading(true);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-      });
-  }, [champPriId]);
-
   return (
     <ChampDetailArea className="champDetail">
-      {isLoading && champData ? (
+      {isLoading ? (
         <div>
           {champImg ? (
             <BackImg className="champDbBackImg" src={champImg} />
@@ -148,10 +151,7 @@ const ChampDetail = ({ champPriId }) => {
             <RenderArea className="renderWrapper">
               <ChampName className="champDetailNameArea">
                 {champImg ? (
-                  <ChampDetailImg
-                    className="champDetailImg"
-                    src={champData.img}
-                  />
+                  <ChampDetailImg className="champDetailImg" src={champImg} />
                 ) : (
                   <div className="champDetailImgAlt" />
                 )}
