@@ -31,6 +31,8 @@ const ChampDetail = ({ champPriId }) => {
   const [runeEls, setRuneEls] = useState([]);
   const [runeUrls, setRuneUrls] = useState([]);
   const [isLoading, setIsLoading] = useState(null);
+  const [champImg, setChampImg] = useState(false);
+  const [runeDesc, setRuneDesc] = useState(null);
   console.log(resultId);
 
   const handleSkillIndex = (index) => {
@@ -38,35 +40,39 @@ const ChampDetail = ({ champPriId }) => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     const handleResultId = () => {
       if (location.state !== undefined) {
         return setResultId(location.state.id);
       } else {
-        return setResultId(champPriId);
+        setResultId(champPriId);
       }
     };
     handleResultId();
-
     axios
       .get(`${server}/champions/detail?id=${encodeURI(resultId)}`)
       .then((res) => {
         setChampData(res.data.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
       });
   }, [resultId]);
   const handleOppSearch = () => {
-    setIsLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_SERVER_URL}/recommend/build?champ1=${resultId}&champ2=${oppName}`
       )
       .then((response) => {
+        // setRuneObject(response.data)
         const $ = cheerio.load(response.data);
         let runeEls = $(" span.rune-imgbox.active > div");
         setRuneEls(runeEls); //@@@@@@@@@@@@@@go to useEffect
+        console.log(runeEls);
       })
       .catch((err) => {
         console.log(err);
-        setIsLoading(false);
       });
   };
   useEffect(async () => {
@@ -77,16 +83,28 @@ const ChampDetail = ({ champPriId }) => {
       await axios
         .get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
         .then((resJson) => {
+          console.log(resJson);
           let url = resJson.data.icon;
-          // console.log('url: ', url);
           urls.push(url);
         })
         .catch((err) => {
           console.log(err);
         });
     }
+
+    let desc = [];
+    for (let runeEl of runeEls) {
+      let attribsDesc = [];
+      for (let key in runeEl.attribs) {
+        attribsDesc.push(runeEl.attribs[key]);
+      }
+      desc.push(attribsDesc);
+    }
+    setRuneDesc(desc);
+    console.log(runeDesc);
     setRuneUrls(urls); //@@@@@@@@@@@@@@@@@@@@@@urls set
     setIsLoading(false);
+    console.log(runeEls);
   }, [runeEls]);
   const handleSkillsDescription = () => {
     return (
@@ -98,60 +116,91 @@ const ChampDetail = ({ champPriId }) => {
     );
   };
 
+  useEffect(() => {
+    axios
+      .get(
+        `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`
+      )
+      .then((res) => {
+        setChampImg(res.config.url);
+        console.log(res.config.url);
+      });
+
+    //   <BackImg
+    //   className="champDbBackImg"
+    //   src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
+    // />
+  }, [champPriId]);
+
   return (
     <ChampDetailArea className="champDetail">
-      <BackImg
-        className="champDbBackImg"
-        src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
-      />
-      <Wrap>
-        <RenderArea className="renderWrapper">
-          <ChampName className="champDetailNameArea">
-            <ChampDetailImg className="champDetailImg" src={champData.img} />
-            <CahmpDetailName className="cahmpDetailName">
-              {resultId}
-            </CahmpDetailName>
-          </ChampName>
+      {!isLoading ? (
+        <div>
+          {champImg ? (
+            <BackImg className="champDbBackImg" src={champImg} />
+          ) : (
+            "noData"
+          )}
+          {/* <BackImg
+            className="champDbBackImg"
+            src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champPriId}_0.jpg`}
+          /> */}
+          <Wrap>
+            <RenderArea className="renderWrapper">
+              <ChampName className="champDetailNameArea">
+                {champImg ? (
+                  <ChampDetailImg
+                    className="champDetailImg"
+                    src={champData.img}
+                  />
+                ) : (
+                  <div className="champDetailImgAlt" />
+                )}
 
-          <SkillsArea className="champDetailSkills">
-            <section>
-              <div className="detailSkill">
-                {champData.skillsimg.map((ele, index) => (
-                  <div className="detailSkills" key={index}>
-                    <img
-                      className="detailSkillsImg"
-                      src={ele}
-                      alt={champData.skills[index]}
-                      key={champData.skills[index]}
-                      onClick={() => {
-                        handleSkillIndex(index);
-                      }}
-                    ></img>
+                <CahmpDetailName className="cahmpDetailName">
+                  {resultId}
+                </CahmpDetailName>
+              </ChampName>
+
+              <SkillsArea className="champDetailSkills">
+                <section>
+                  <div className="detailSkill">
+                    {champData.skillsimg.map((ele, index) => (
+                      <div className="detailSkills" key={index}>
+                        <img
+                          className="detailSkillsImg"
+                          src={ele}
+                          alt={champData.skills[index]}
+                          key={champData.skills[index]}
+                          onClick={() => {
+                            handleSkillIndex(index);
+                          }}
+                        ></img>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div className="detailDesc">
-                <ChampDescName>
-                  {champData.skills[skillIndex].name}
-                </ChampDescName>
-                <br></br>
-                <ChampDescText className="detailDescEffect">
-                  {handleSkillsDescription()}
-                </ChampDescText>
-              </div>
-            </section>
+                  <div className="detailDesc">
+                    <ChampDescName>
+                      {champData.skills[skillIndex].name}
+                    </ChampDescName>
+                    <br></br>
+                    <ChampDescText className="detailDescEffect">
+                      {handleSkillsDescription()}
+                    </ChampDescText>
+                  </div>
+                </section>
 
-            {champData.skillwebm.map((ele, idx) => (
-              <ChampSkillWeb
-                className={idx === skillIndex ? "isDisplay" : "noDisplay"}
-                src={ele}
-                width="480px"
-                muted
-                autoPlay
-                loop
-              ></ChampSkillWeb>
-            ))}
-            {/* <ChampSkillWeb
+                {champData.skillwebm.map((ele, idx) => (
+                  <ChampSkillWeb
+                    className={idx === skillIndex ? "isDisplay" : "noDisplay"}
+                    src={ele}
+                    width="480px"
+                    muted
+                    autoPlay
+                    loop
+                  ></ChampSkillWeb>
+                ))}
+                {/* <ChampSkillWeb
               className="champDetailWebm"
               src={champData.skillwebm[skillIndex]}
               width="480px"
@@ -160,62 +209,98 @@ const ChampDetail = ({ champPriId }) => {
               autoPlay
               loop
             ></ChampSkillWeb> */}
-          </SkillsArea>
-          <ChampTipsArea>
-            챔피언 플레이 팁!
-            <ChampAllytips>
-              <br></br>
-              {champData.allytips.map((ele, index) => (
-                <div>
-                  {" "}
-                  tip{index + 1} : {ele}{" "}
-                </div>
-              ))}
-            </ChampAllytips>
-            <br></br>
-            챔피언 상대 팁!
-            <ChampEnemytips>
-              <br></br>
-              {champData.enemytips.map((ele, index) => (
-                <div>
-                  tip{index + 1} : {ele}
-                </div>
-              ))}
-            </ChampEnemytips>
-            <div>Rune recommend will comming soon..</div>
-            <ChampRecommendedBuild>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setOppName(e.target.value);
-                }}
-              ></input>
-              <button
-                onClick={() => {
-                  handleOppSearch();
-                }}
-              >
-                Search!
-              </button>
-              {isLoading
-                ? "Loading..."
-                : runeUrls.map((el, idx) => {
-                    return (
-                      <div
-                        {...runeEls[idx].attribs}
-                        style={{
-                          backgroundImage: `url(${el})`,
-                          backgroundSize: "80px 80px",
-                          width: "80px",
-                          height: "80px",
+              </SkillsArea>
+              <ChampTipsArea>
+                챔피언 플레이 팁!
+                <ChampAllytips>
+                  <br></br>
+                  {champData.allytips.map((ele, index) => (
+                    <div>
+                      {" "}
+                      tip{index + 1} : {ele}{" "}
+                    </div>
+                  ))}
+                </ChampAllytips>
+                <br></br>
+                챔피언 상대 팁!
+                <ChampEnemytips>
+                  <br></br>
+                  {champData.enemytips.map((ele, index) => (
+                    <div>
+                      tip{index + 1} : {ele}
+                    </div>
+                  ))}
+                </ChampEnemytips>
+                <ChampRecommendedBuild className="buildWrap">
+                  <div className="buildTitle">
+                    상대 추천 룬{" "}
+                    <div className="runeSearchFrom">
+                      <input
+                        className="runeSearchInputBox"
+                        placeholder="상대 챔피언을 검색하세요"
+                        type="text"
+                        onChange={(e) => {
+                          setOppName(e.target.value);
                         }}
-                      ></div>
-                    );
-                  })}
-            </ChampRecommendedBuild>
-          </ChampTipsArea>
-        </RenderArea>
-      </Wrap>
+                      ></input>
+                      <button
+                        className="runeSearchBtn"
+                        onClick={() => {
+                          handleOppSearch();
+                        }}
+                      >
+                        검색
+                      </button>
+                    </div>
+                  </div>
+
+                  <section className="recommendContent">
+                    {isLoading
+                      ? "Loading..."
+                      : runeUrls.map((el, idx) => {
+                          return (
+                            <div className="recommedWrap">
+                              <div
+                                className="runeImg"
+                                {...runeEls[idx].attribs}
+                                style={{
+                                  backgroundImage: `url(${el})`,
+                                  backgroundSize: "50px 50px",
+                                  width: "50px",
+                                  height: "50px",
+                                }}
+                              >
+                                {runeEls[idx].attribs.title ? (
+                                  <div className="runeDesc">
+                                    <div className="runeTitle">
+                                      {runeEls[idx].attribs.title}
+                                    </div>
+                                    <br></br>
+                                    <div className="runeContent">
+                                      {runeDesc[idx][5]
+                                        ? runeDesc[idx][5].replace(
+                                            /<br>/gi,
+                                            " "
+                                          )
+                                        : ""}
+                                    </div>
+                                  </div>
+                                ) : (
+                                  ""
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })}
+                  </section>
+                </ChampRecommendedBuild>
+              </ChampTipsArea>
+            </RenderArea>
+          </Wrap>{" "}
+        </div>
+      ) : (
+        "loading"
+      )}
     </ChampDetailArea>
   );
 };
