@@ -26,11 +26,11 @@ const ChampDetail = ({ champPriId }) => {
   const location = useLocation();
   const [champData, setChampData] = useState(initData);
   const [skillIndex, setSkillIndex] = useState(0);
-  const [resultId, setResultId] = useState("Aatrox");
+  const [resultId, setResultId] = useState(champPriId);
   const [oppName, setOppName] = useState("");
   const [runeEls, setRuneEls] = useState([]);
   const [runeUrls, setRuneUrls] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [champImg, setChampImg] = useState(false);
   const [runeDesc, setRuneDesc] = useState(null);
 
@@ -39,25 +39,25 @@ const ChampDetail = ({ champPriId }) => {
   };
 
   useEffect(() => {
-    setIsLoading(false);
     const handleResultId = () => {
       console.log(location.state);
       if (location.state !== undefined) {
         setResultId(location.state.id);
-      } else {
-        setResultId(champPriId);
       }
+
+      // else {
+      //   setResultId(champPriId);
+      // }
     };
     handleResultId();
+  }, [location.state]);
 
-    console.log(champData);
-  }, []);
-
-  useEffect(() => {
-    axios
+  useEffect(async () => {
+    await axios
       .get(`${server}/champions/detail?id=${resultId}`)
       .then((res) => {
         setChampData(res.data.data);
+        console.log(res.data.data);
       })
       .catch((err) => {
         throw err;
@@ -65,11 +65,10 @@ const ChampDetail = ({ champPriId }) => {
 
     axios
       .get(
-        `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${resultId}_0.jpg`
+        `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${resultId}_0.jpg`
       )
       .then((res) => {
         setChampImg(res.config.url);
-        console.log(res.config.url);
         setIsLoading(true);
       })
       .catch((err) => {
@@ -87,7 +86,6 @@ const ChampDetail = ({ champPriId }) => {
         const $ = cheerio.load(response.data);
         let runeEls = $(" span.rune-imgbox.active > div");
         setRuneEls(runeEls); //@@@@@@@@@@@@@@go to useEffect
-        console.log(runeEls);
       })
       .catch((err) => {
         console.log(err);
@@ -101,7 +99,6 @@ const ChampDetail = ({ champPriId }) => {
       await axios
         .get(`${process.env.REACT_APP_SERVER_URL}/rune?id=${runeId}`)
         .then((resJson) => {
-          console.log(resJson);
           let url = resJson.data.icon;
           urls.push(url);
         })
@@ -119,10 +116,9 @@ const ChampDetail = ({ champPriId }) => {
       desc.push(attribsDesc);
     }
     setRuneDesc(desc);
-    console.log(runeDesc);
+
     setRuneUrls(urls); //@@@@@@@@@@@@@@@@@@@@@@urls set
     // setIsLoading(false);
-    console.log(runeEls);
   }, [runeEls]);
   const handleSkillsDescription = () => {
     return (
