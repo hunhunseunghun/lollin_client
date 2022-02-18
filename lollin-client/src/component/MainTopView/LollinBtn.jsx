@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
 class LollinBtn extends React.Component {
   render() {
-    const maskId = "mask_1";
+    const maskId = 'mask_1';
     const maskStyle =
-      "#fancy-masked-element_" +
+      '#fancy-masked-element_' +
       maskId +
-      " { mask: url(#" +
+      ' { mask: url(#' +
       maskId +
-      "); -webkit-mask: url(#" +
+      '); -webkit-mask: url(#' +
       maskId +
-      ")}";
+      ')}';
 
     const buttonStyle = {
       width: this.props.width,
@@ -18,21 +18,21 @@ class LollinBtn extends React.Component {
     };
 
     const fancyFrontStyle = {
-      transform: "rotateX(0deg) translateZ(" + this.props.height / 2 + "px )",
+      transform: 'rotateX(0deg) translateZ(' + this.props.height / 2 + 'px )',
     };
 
     const fancyBackStyle = {
-      transform: "rotateX(90deg) translateZ( " + this.props.height / 2 + "px )",
+      transform: 'rotateX(90deg) translateZ( ' + this.props.height / 2 + 'px )',
     };
 
     // SVG attributes
     const textTransform =
-      "matrix(1 0 0 1 " +
+      'matrix(1 0 0 1 ' +
       this.props.width / 2 +
-      " " +
+      ' ' +
       this.props.height / 1.6 +
-      ")";
-    const viewBox = "0 0 " + this.props.width + " " + this.props.height;
+      ')';
+    const viewBox = '0 0 ' + this.props.width + ' ' + this.props.height;
 
     return (
       <div className="fancy-button" style={buttonStyle} ref="fancyButton">
@@ -62,7 +62,7 @@ class LollinBtn extends React.Component {
               </defs>
               <style>{maskStyle}</style>
               <rect
-                id={"fancy-masked-element_" + maskId}
+                id={'fancy-masked-element_' + maskId}
                 fill={this.props.color}
                 width="100%"
                 height="100%"
@@ -102,12 +102,12 @@ class LollinBtn extends React.Component {
 }
 
 LollinBtn.defaultProps = {
-  color: "#ffffff",
-  width: 300,
+  color: '#ffffff',
+  width: 200,
   height: 75,
   fontSize: 20,
   borderWidth: 1,
-  buttonText: "사랑받는 롤린이의 교과서, Lollin!",
+  buttonText: 'Lollin!',
 };
 
 // "#e0ad0b",

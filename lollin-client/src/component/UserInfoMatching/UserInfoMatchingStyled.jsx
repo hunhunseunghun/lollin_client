@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -107,9 +107,9 @@ export const Container = styled.div`
     outline: 0;
     border-bottom: 1px solid #ffc400;
   }
-    &:focus::-webkit-input-placeholder {
-      font-size: 0rem;
-      color: white;
+  &:focus::-webkit-input-placeholder {
+    font-size: 0rem;
+    color: white;
   }
   .searchBtn {
     display: flex;
@@ -287,9 +287,9 @@ export const Container = styled.div`
     border-bottom: 1px solid #ffc400;
   }
 
-    &:focus::-webkit-input-placeholder {
-      font-size: 0rem;
-      color: white;
+  &:focus::-webkit-input-placeholder {
+    font-size: 0rem;
+    color: white;
   }
   .commentBtn {
     height: 23px;
@@ -317,7 +317,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 670px) {
-    width: 500px;
+    width: 100%;
     height: 1000px;
 
     .title {
@@ -326,7 +326,7 @@ export const Container = styled.div`
 
     .entireWrap {
       width: 80%;
-      min-width: 490px;
+      min-width: 0px;
       height: 900px;
 
       background-color: transparent;

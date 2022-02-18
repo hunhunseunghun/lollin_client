@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NewChamp = styled.div`
   width: 100%;
@@ -10,7 +10,8 @@ export const NewChamp = styled.div`
   }
 
   .newChampContainer {
-    padding: 0 1rem;
+    /* padding: 0 1rem; */
+    padding: 0;
     width: 100%;
     max-width: 880px;
     height: 650px;
@@ -159,6 +160,7 @@ export const NewChamp = styled.div`
 
   @media (min-width: 924px) {
     .newChampContainer {
+      padding: 0 0;
       padding-top: 2rem;
     }
     .textContainer {
@@ -201,8 +203,8 @@ export const NewChamp = styled.div`
     // section left
     .newChampWrapLeft {
       display: grid;
-      width: 250px;
       place-items: center;
+      min-width: 200px;
     }
     .videoWrapper {
       width: 200px;
@@ -214,8 +216,8 @@ export const NewChamp = styled.div`
 
     // section right
     .newChampWrapRight {
-      display: flex;
-      width: 50%;
+      display: grid;
+      width: 100%;
       max-width: 550px;
       min-width: 300px;
       place-items: center;

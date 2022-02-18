@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ChampDBcontainter = styled.div`
   background-color: black;
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   z-index: 3;
 
   @media (min-width: 320px) and (max-width: 530px) {
-    margin-right: 15px;
+    margin-right: 0;
   }
 `;
 export const BackImg = styled.img`
