@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { NewChamp } from "./MainNewChampStyled.jsx";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { NewChamp } from './MainNewChampStyled.jsx';
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainNewChamp = () => {
   const [webmIndex, setWebmIndex] = useState(0);
   const [newChampData, setNewChampData] = useState({
-    id: "Aatrox",
-    img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg",
+    id: 'Aatrox',
+    img: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg',
     skillsimg: [
-      "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxQ.png",
-      "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxW.png",
-      "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxE.png",
-      "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxR.png",
-      "http://ddragon.leagueoflegends.com/cdn/11.11.1/img/passive/Aatrox_Passive.png",
+      'https://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxQ.png',
+      'https://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxW.png',
+      'https://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxE.png',
+      'https://ddragon.leagueoflegends.com/cdn/11.11.1/img/spell/AatroxR.png',
+      'https://ddragon.leagueoflegends.com/cdn/11.11.1/img/passive/Aatrox_Passive.png',
     ],
     skillwebm: [
-      "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_P1.webm",
-      "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_Q1.webm",
-      "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_W1.webm",
-      "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_E1.webm",
-      "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_R1.webm",
+      'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_P1.webm',
+      'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_Q1.webm',
+      'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_W1.webm',
+      'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_E1.webm',
+      'https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0266/ability_0266_R1.webm',
     ],
   });
 
   useEffect(() => {
     axios
       .get(`${server}/champions/recent`)
-      .then((res) => {
+      .then(res => {
         let responseKey = Object.keys(res.data);
         return axios.get(
           `${server}/champions/detail?id=${encodeURI(responseKey)}`
         );
       })
-      .then((res) => {
+      .then(res => {
         setNewChampData(res.data.data);
       });
   }, []);
@@ -71,7 +71,7 @@ const MainNewChamp = () => {
           <div className="skillWrap">
             <div className="skillList">
               {newChampData.skillsimg.map((ele, idx) => (
-                <div className="skillIconWrap" key={idx + "skillIcon"}>
+                <div className="skillIconWrap" key={idx + 'skillIcon'}>
                   <img
                     className="skillIcon"
                     src={ele}
@@ -89,7 +89,7 @@ const MainNewChamp = () => {
             <div className="videoStyle"></div>
             {newChampData.skillwebm.map((ele, idx) => (
               <video
-                className={idx === webmIndex ? "isDisplay" : "noDisplay"}
+                className={idx === webmIndex ? 'isDisplay' : 'noDisplay'}
                 src={ele}
                 key={idx}
                 muted

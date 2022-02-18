@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Slider from "react-slick";
-import "./MainChampPre.css";
-import { ChampPre } from "./MainChampPreStyled.jsx";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Slider from 'react-slick';
+import './MainChampPre.css';
+import { ChampPre } from './MainChampPreStyled.jsx';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
 const server = process.env.REACT_APP_SERVER_URL;
 
 const MainChampPre = ({ history }) => {
   const [rotaChamp, setRotaChamp] = useState([
     {
-      id: "Rell",
-      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rell_0.jpg",
+      id: 'Rell',
+      img: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rell_0.jpg',
     },
     {
-      id: "Viego",
-      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg",
+      id: 'Viego',
+      img: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg',
     },
     {
-      id: "Sylas",
-      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
+      id: 'Sylas',
+      img: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg',
     },
     {
-      id: "Sylas",
-      img: "http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
+      id: 'Sylas',
+      img: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg',
     },
   ]);
 
@@ -77,10 +77,10 @@ const MainChampPre = ({ history }) => {
   useEffect(() => {
     axios
       .get(`${server}/champions/rotation`)
-      .then((res) => {
+      .then(res => {
         setRotaChamp(res.data);
       })
-      .catch((err) => {
+      .catch(err => {
         throw err;
       });
   }, []);
@@ -96,7 +96,7 @@ const MainChampPre = ({ history }) => {
             <div className="champPreDesc-title">로테이션 챔피언</div>
             <div className="champPreDesc-text">
               플레이어 여러분의 게임에 대한 이해와 숙련도 향상을 돕기 위해 특정
-              챔피언들이 무료로 제공됩니다.{" "}
+              챔피언들이 무료로 제공됩니다.{' '}
             </div>
             <div className="champPreDesc-details">
               <div className="tip">Tip!</div> 챔피언 정보를 더 알아보려면
@@ -109,10 +109,10 @@ const MainChampPre = ({ history }) => {
           <Slider {...settings}>
             {rotaChamp.map((ele, idx) => (
               <div
-                className={idx === imageIndex ? "slide activeSlide" : "slide"}
+                className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
                 onClick={() => {
                   history.push({
-                    pathname: "/champions/detail",
+                    pathname: '/champions/detail',
                     state: { id: ele.id },
                   });
                 }}
