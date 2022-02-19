@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { UpdatedItems } from "./MainUpdatedItemsStyled.jsx";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { UpdatedItems } from './MainUpdatedItemsStyled.jsx';
 
 const server = process.env.REACT_APP_SERVER_URL;
 
@@ -8,43 +8,55 @@ const MainUpdatedItems = ({ history }) => {
   const [newItemData, setNewItemData] = useState({
     items: [
       {
-        id: "장화",
-        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+        id: '장화',
+        img: 'https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png',
 
-        desc: "이동 속도가 약간 증가합니다.",
+        desc: '이동 속도가 약간 증가합니다.',
       },
       {
-        id: "장화",
-        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+        id: '장화',
+        img: 'https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png',
 
-        desc: "이동 속도가 약간 증가합니다.",
+        desc: '이동 속도가 약간 증가합니다.',
       },
       {
-        id: "장화",
-        img: "https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png",
+        id: '장화',
+        img: 'https://ddragon.leagueoflegends.com/cdn/11.10.1/img/item/1001.png',
 
-        desc: "이동 속도가 약간 증가합니다.",
+        desc: '이동 속도가 약간 증가합니다.',
       },
     ],
   });
+  const [isDataUpdated, setIsDataUpdated] = useState(true);
+
+  const fetchingNewItem = async () => {
+    try {
+      const newItems = await axios.get(`${server}/items/patched2`);
+      setNewItemData(newItems.data);
+    } catch (err) {
+      setIsDataUpdated(false);
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get(`${server}/items/patched2`)
-      .then((res) => {
-        setNewItemData(res.data);
-      })
-      .catch((err) => {
-        throw err;
-      });
+    fetchingNewItem();
   }, []);
 
-  
+  // useEffect(() => {
+  //   axios
+  //     .get(`${server}/items/patched2`)
+  //     .then((res) => {
+  //       setNewItemData(res.data);
+  //     })
+  //     .catch((err) => {
+  //       throw err;
+  //     });
+  // }, []);
 
   const handleItemHtml = () => {
     return (
       <div className="wrapper">
-        {" "}
+        {' '}
         <div
           dangerouslySetInnerHTML={{
             __html: newItemData,
@@ -63,8 +75,14 @@ const MainUpdatedItems = ({ history }) => {
         <div className="titleWrap">- Updated items</div>
       </div>
 
-      {handleItemHtml()}
-   
+      {isDataUpdated === true ? (
+        handleItemHtml()
+      ) : (
+        <div className="wrapper">
+          {' '}
+          <div>업데이트 아이템 데이터 준비중...</div>
+        </div>
+      )}
     </UpdatedItems>
   );
 };

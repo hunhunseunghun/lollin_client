@@ -74,16 +74,31 @@ const MainChampPre = ({ history }) => {
     ],
   };
 
-  useEffect(() => {
-    axios
-      .get(`${server}/champions/rotation`)
-      .then(res => {
-        setRotaChamp(res.data);
-      })
-      .catch(err => {
-        throw err;
+  const fetchRoteChampData = async () => {
+    try {
+      const rotaData = await axios.get(`${server}/champions/rotation`);
+      rotaData.data.map(ele => {
+        ele.img = ele.img.replace('http', 'https');
       });
+      setRotaChamp(rotaData.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchRoteChampData();
   }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${server}/champions/rotation`)
+  //     .then(res => {
+  //       setRotaChamp(res.data);
+  //     })
+  //     .catch(err => {
+  //       throw err;
+  //     });
+  // }, []);
 
   return (
     <ChampPre id="champPre">
@@ -107,20 +122,24 @@ const MainChampPre = ({ history }) => {
 
         <div className="slideWrapper">
           <Slider {...settings}>
-            {rotaChamp.map((ele, idx) => (
-              <div
-                className={idx === imageIndex ? 'slide activeSlide' : 'slide'}
-                onClick={() => {
-                  history.push({
-                    pathname: '/champions/detail',
-                    state: { id: ele.id },
-                  });
-                }}
-                key={idx}
-              >
-                <img src={ele.img} alt={ele.img} key={ele.id} />
-              </div>
-            ))}
+            {Array.isArray(rotaChamp) === true
+              ? rotaChamp.map((ele, idx) => (
+                  <div
+                    className={
+                      idx === imageIndex ? 'slide activeSlide' : 'slide'
+                    }
+                    onClick={() => {
+                      history.push({
+                        pathname: '/champions/detail',
+                        state: { id: ele.id },
+                      });
+                    }}
+                    key={idx}
+                  >
+                    <img src={ele.img} alt={ele.img} key={ele.id} />
+                  </div>
+                ))
+              : null}
           </Slider>
         </div>
       </div>
