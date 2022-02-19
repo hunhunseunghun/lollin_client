@@ -27,12 +27,13 @@ const MainUpdatedItems = ({ history }) => {
       },
     ],
   });
-  const [isDataUpdated, setIsDataUpdated] = useState(true);
+  const [isDataUpdated, setIsDataUpdated] = useState(false);
 
   const fetchingNewItem = async () => {
     try {
       const newItems = await axios.get(`${server}/items/patched2`);
       setNewItemData(newItems.data);
+      setIsDataUpdated(true);
     } catch (err) {
       setIsDataUpdated(false);
     }
@@ -75,7 +76,7 @@ const MainUpdatedItems = ({ history }) => {
         <div className="titleWrap">- Updated items</div>
       </div>
 
-      {isDataUpdated === true ? (
+      {isDataUpdated ? (
         handleItemHtml()
       ) : (
         <div className="wrapper">
