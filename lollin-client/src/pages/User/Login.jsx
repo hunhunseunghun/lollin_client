@@ -9,13 +9,13 @@ import {
   Title,
   Errors,
   LoginBtn,
-  KakaoBtn,
+  // KakaoBtn,
   InputArea,
   LabelName,
   InputBox,
 } from '../../validation/formElements';
 
-const { Kakao } = window;
+// const { Kakao } = window;
 
 const Login = (history, { submitForm, username, password }) => {
   const { handleChange, values, handleSubmit, errors } = useForm(
@@ -23,8 +23,6 @@ const Login = (history, { submitForm, username, password }) => {
     validate
   );
   const [isLogin, setIsLogin] = useState(false);
-
-
 
   const handleLogin = async () => {
     await axios
@@ -41,58 +39,58 @@ const Login = (history, { submitForm, username, password }) => {
           withCredentials: true,
         }
       )
-      .then((res) => {
+      .then(res => {
         if (res.status === 200) {
-          sessionStorage.setItem('jwt',res.data.jwt)
-          history.history.handleLogin(true)
-          setIsLogin(true)
-          setTimeout(() => history.history.push("/"), 1000)
+          sessionStorage.setItem('jwt', res.data.jwt);
+          history.history.handleLogin(true);
+          setIsLogin(true);
+          setTimeout(() => history.history.push('/'), 1000);
         } else if (res.status === 'user not found or wrong password')
           alert('로그인 실패');
       })
-      .catch((err) => {
+      .catch(err => {
         alert('로그인 실패');
       });
   };
 
-  const handleKakao = () => {
-    Kakao.Auth.login({
-      scope:'account_email',
-      success:(res) =>{
-        Kakao.API.request({
-          url: '/v2/user/me',
-          success: (obj)=>{
-            const userObj = JSON.stringify(obj)
-            const userData = JSON.parse(userObj)
-            const user = {
-              id: userData.id,
-              email: userData.kakao_account.email
-            }
-            axios.post('https://lollinserver.link/auth/kakao',user).then(
-              (res) =>{
-                if (res.status === 200) {
-                  sessionStorage.setItem('jwt',res.data.jwt)
-                  history.history.handleLogin(true)
-                  history.history.push("/")
-                } else if (res.status === 'user not found or wrong password')
-                alert('로그인 실패');
-              })
-              .catch((err) => {
-                // console.error(err);
-                alert('로그인 실패');
-              });
-          },
-          fail: ()=>{
-            alert('Kakao login failed!')
-          }
-        })
-    },
-      fail:()=>{
-        alert('Kakao login failed!')
-      }
-    })
-    
-  };
+  // const handleKakao = () => {
+  //   Kakao.Auth.login({
+  //     scope:'account_email',
+  //     success:(res) =>{
+  //       Kakao.API.request({
+  //         url: '/v2/user/me',
+  //         success: (obj)=>{
+  //           const userObj = JSON.stringify(obj)
+  //           const userData = JSON.parse(userObj)
+  //           const user = {
+  //             id: userData.id,
+  //             email: userData.kakao_account.email
+  //           }
+  //           axios.post('https://lollinserver.link/auth/kakao',user).then(
+  //             (res) =>{
+  //               if (res.status === 200) {
+  //                 sessionStorage.setItem('jwt',res.data.jwt)
+  //                 history.history.handleLogin(true)
+  //                 history.history.push("/")
+  //               } else if (res.status === 'user not found or wrong password')
+  //               alert('로그인 실패');
+  //             })
+  //             .catch((err) => {
+  //               // console.error(err);
+  //               alert('로그인 실패');
+  //             });
+  //         },
+  //         fail: ()=>{
+  //           alert('Kakao login failed!')
+  //         }
+  //       })
+  //   },
+  //     fail:()=>{
+  //       alert('Kakao login failed!')
+  //     }
+  //   })
+
+  // };
 
   return (
     <>
@@ -133,7 +131,7 @@ const Login = (history, { submitForm, username, password }) => {
           </LoginBtn>
           <br />
           <HorizonLine />
-          <KakaoBtn onClick={handleKakao}>Kakao Login</KakaoBtn>
+          {/* <KakaoBtn onClick={handleKakao}>Kakao Login</KakaoBtn> */}
         </Form>
       </Container>
     </>
