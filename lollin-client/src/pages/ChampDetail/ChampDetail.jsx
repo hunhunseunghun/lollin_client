@@ -19,7 +19,7 @@ import {
 	ChampTipsArea,
 	ChampRecommendedBuild,
 } from './ChampDetailStyled.jsx';
-const cheerio = require('cheerio');
+// const cheerio = require('cheerio');
 const server = process.env.REACT_APP_SERVER_URL;
 
 const ChampDetail = ({ champPriId }) => {
@@ -60,9 +60,9 @@ const ChampDetail = ({ champPriId }) => {
 				`${process.env.REACT_APP_SERVER_URL}/recommend/build?champ1=${resultId}&champ2=${oppName}`,
 			)
 			.then((response) => {
-				const $ = cheerio.load(response.data);
-				let runeEls = $(' span.rune-imgbox.active > div');
-				setRuneEls(runeEls); //@@@@@@@@@@@@@@go to useEffect
+				// const $ = cheerio.load(response.data);
+				// let runeEls = $(' span.rune-imgbox.active > div');
+				// setRuneEls(runeEls); //@@@@@@@@@@@@@@go to useEffect
 			})
 			.catch((err) => {
 				console.log(err);
